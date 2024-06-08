@@ -1,0 +1,11 @@
+"use strict";
+self["webpackHotUpdatesilkroad"]("content",{},
+/******/ function(__webpack_require__) { // webpackRuntimeModules
+/******/ /* webpack/runtime/getFullHash */
+/******/ (() => {
+/******/ 	__webpack_require__.h = () => ("5480cda628ce17300dd0")
+/******/ })();
+/******/ 
+/******/ }
+);
+//# sourceMappingURL=content.c746af1e8f8deced3512.hot-update.js.map
