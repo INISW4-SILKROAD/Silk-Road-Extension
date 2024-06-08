@@ -1,0 +1,55 @@
+.goods-list-container {
+    padding: 20px;
+    background-color: #1e3a56;
+    color: white;
+    border-radius: 8px;
+  }
+  
+  .category-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .category-button {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .category-button:hover {
+    background-color: #666;
+  }
+  
+  .goods-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .goods-item {
+    width: 45%;
+    margin-bottom: 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .goods-item img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .goods-item p {
+    margin: 10px 0 0 0;
+    font-size: 0.9em;
+  }
+  
+  .goods-item p span {
+    display: block;
+    font-size: 0.8em;
+    color: #aaa;
+  }
+  

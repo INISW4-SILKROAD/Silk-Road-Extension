@@ -1,0 +1,73 @@
+.detail-container {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+    color: #333;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image-container img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .product-info {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .category {
+    font-size: 0.9em;
+    color: #777;
+  }
+  
+  .product-name {
+    font-size: 1.5em;
+    margin: 10px 0;
+  }
+  
+  .product-name span {
+    font-size: 0.8em;
+    color: #777;
+  }
+  
+  .price {
+    font-size: 1.2em;
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  .tactile-info-container {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .tactile-info-container h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+  }
+  
+  .view-product-button {
+    display: block;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .view-product-button:hover {
+    background-color: #555;
+  }
