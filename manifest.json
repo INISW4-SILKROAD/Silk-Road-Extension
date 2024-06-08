@@ -4,16 +4,27 @@
     "version": "1.0",
     "description": "촉감 정보 기반 의류 추천 서비스 for MUSINSA",
     "background": {
-      "service_worker": "./background.js"
+      "service_worker": "background.js"
     },
     "action": {
-      "default_popup": "./public/index.html"
+      "default_popup": "./public/index.html",
+      "default_icon": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+      }
+    },
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
     },
     "permissions": [
-      "http://localhost:5001/",
       "storage",
       "activeTab",
-      "scripting"
+      "scripting",
+      "http://*/*",
+      "https://*/*"
     ],
     "content_scripts": [
       {

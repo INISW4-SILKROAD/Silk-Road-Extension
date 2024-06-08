@@ -2,11 +2,39 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/popup/index.js',
+  entry: {
+    popup: './src/popup/index.js',
+    background: './background.js',
+    content: './content.js',
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/',
+    filename: '[name].bundle.js',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+      filename: 'index.html',
+      chunks: ['popup'],
+    }),
+  ],
+  resolve: {
+    extensions: ['.js', '.jsx', '.css'],
   },
   devServer: {
     static: {
@@ -15,29 +43,9 @@ module.exports = {
     compress: true,
     port: 9000,
     hot: true,
-    historyApiFallback: true, // Single Page Application을 위한 설정
+    devMiddleware: {
+      writeToDisk: true,
+    },
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-    }),
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.jsx?$/, // .js와 .jsx 파일을 모두 처리
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-    ],
-  },
-  resolve: {
-    extensions: ['.js', '.jsx', '.css'],
-  },
+  devtool: 'source-map', // 'eval-source-map'이 아닌 'source-map' 사용
 };
