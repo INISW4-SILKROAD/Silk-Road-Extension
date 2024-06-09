@@ -4735,94 +4735,6 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-// import React from 'react';
-// import { useParams, useNavigate } from 'react-router-dom';
-// import './css/Detail.css';
-// import TouchInfo from './components/TouchInfo';
-
-// const Detail = () => {
-//   const { id } = useParams();
-//   const navigate = useNavigate();
-
-//   const productData = {
-//     "3143788": {
-//       image: "https://image.msscdn.net/images/goods_img/20230313/3143788/3143788_17159297698722_500.jpg",
-//       category: "상의 &gt; 후드 티셔츠",
-//       name: "에센셜 후드 스웻 셔츠",
-//       color: "MELANGE GREY",
-//       price: "37000 원"
-//     },
-//     // 다른 상품 데이터 추가
-//   };
-
-//   const product = productData[id];
-
-//   if (!product) {
-//     return <div>상품 정보를 찾을 수 없습니다.</div>;
-//   }
-
-//   const handleViewProductClick = () => {
-//     navigate(`/product/${id}`);
-//   };
-
-//   return (
-//     <div className="detail-container">
-//       <div className="image-container">
-//         <img src={product.image} alt={product.name} />
-//       </div>
-//       <div className="product-info">
-//         <p className="category">{product.category}</p>
-//         <h1 className="product-name">{product.name}<span>({product.color})</span></h1>
-//         <p className="price">{product.price}</p>
-//       </div>
-//       <div className="tactile-info-container">
-//         <h2>촉감 정보</h2>
-//         <TouchInfo />
-//       </div>
-//       <button className="view-product-button" onClick={handleViewProductClick}>상품 보러가기</button>
-//     </div>
-//   );
-// };
-
-// import React, { useEffect, useState } from 'react';
-// import { useParams } from 'react-router-dom';
-// import './css/Detail';
-// import TouchInfo from './components/TouchInfo';
-
-// const Detail = () => {
-//   const { id } = useParams();
-//   const [product, setProduct] = useState(null);
-
-//   useEffect(() => {
-//     fetch(`http://localhost:5001/goods/${id}`)
-//       .then((response) => response.json())
-//       .then((data) => setProduct(data))
-//       .catch((error) => console.error('Error fetching product:', error));
-//   }, [id]);
-
-//   if (!product) {
-//     return <div>Loading...</div>;
-//   }
-
-//   return (
-//     <div className="detail-container">
-//       <div className="image-container">
-//         <img src={product.image_url || '/sample.png'} alt={product.name} />
-//       </div>
-//       <div className="product-info">
-//         <h1 className="product-name">{product.NAME}</h1>
-//         <p className="price">{product.PRICE} 원</p>
-//       </div>
-//       <div className="tactile-info-container">
-//         <TouchInfo />
-//       </div>
-//       <button className="view-product-button" onClick={() => window.open(product.url, '_blank')}>상품 보러가기</button>
-//     </div>
-//   );
-// };
-
-// export default Detail;
-
 
 
 
@@ -4830,6 +4742,7 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 var Detail = function Detail() {
   var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)(),
     id = _useParams.id;
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useNavigate)();
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState2 = _slicedToArray(_useState, 2),
     product = _useState2[0],
@@ -4849,9 +4762,16 @@ var Detail = function Detail() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "detail-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "navbar"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "back-button",
+    onClick: function onClick() {
+      return navigate('/');
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "image-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-    src: product.image_url || '/sample.png',
+    src: '/sample.png',
     alt: product.NAME
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "product-info"
@@ -4891,63 +4811,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_TouchInfo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/TouchInfo */ "./src/popup/components/TouchInfo.jsx");
 /* harmony import */ var _components_GoodsList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/GoodsList */ "./src/popup/components/GoodsList.jsx");
 /* harmony import */ var _Detail__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Detail */ "./src/popup/Detail.jsx");
-// import React from 'react';
-// import './css/Main.css';
-// import TouchInfo from './components/TouchInfo';
-// import GoodsList from './components/GoodsList';
-
-// const handleImageClick = () => {
-//     console.log('Image clicked!');
-// };
-
-// const Main = () => {
-//   return (
-//     <div className="popup-container">
-//       <TouchInfo />
-//       <GoodsList onImageClick={handleImageClick} />
-//     </div>
-//   );
-// };
-
-// export default Main;
-
-// import React from 'react';
-// import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
-// import './css/Main.css';
-// import TouchInfo from './components/TouchInfo';
-// import GoodsList from './components/GoodsList';
-// import Detail from './Detail';
-
-// const Main = () => {
-//   return (
-//     <Router>
-//       <div className="popup-container">
-//         <Routes>
-//           <Route path="/" element={<Home />} />
-//           <Route path="/detail/:id" element={<Detail />} />
-//         </Routes>
-//       </div>
-//     </Router>
-//   );
-// };
-
-// const Home = () => {
-//   const navigate = useNavigate();
-
-//   const handleImageClick = (id) => {
-//     navigate(`/detail/${id}`);
-//   };
-
-//   return (
-//     <>
-//       <TouchInfo />
-//       <GoodsList onImageClick={handleImageClick} />
-//     </>
-//   );
-// };
-
-// export default Main;
-
 
 
 
@@ -4998,100 +4861,6 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-// import React, { useEffect, useState } from 'react';
-// import '../css/GoodsList.css';
-
-// const GoodsList = ({ onImageClick }) => {
-//   const [goods, setGoods] = useState([]);
-
-//   useEffect(() => {
-//     if (chrome && chrome.runtime && chrome.runtime.sendMessage) {
-//       // 크롬 확장 프로그램 환경
-//       chrome.runtime.sendMessage({ action: 'fetchGoods' }, (response) => {
-//         if (response && response.error) {
-//           console.error('Error fetching goods:', response.error);
-//         } else if (response && response.data) {
-//           setGoods(response.data);
-//         }
-//       });
-//     } else {
-//       // 로컬 개발 환경
-//       fetch('http://localhost:5001/goods')
-//         .then((response) => response.json())
-//         .then((data) => setGoods(data))
-//         .catch((error) => console.error('Error fetching goods:', error));
-//     }
-//   }, []);
-
-//   return (
-//     <div className="goods-list-container">
-//       <div className="category-buttons">
-//         <button className="category-button">부드러움</button>
-//         <button className="category-button">매끄러움</button>
-//         <button className="category-button">두꺼움</button>
-//         <button className="category-button">신축성</button>
-//       </div>
-//       <div className="goods-list">
-//         {goods.map((item) => (
-//           <div className="goods-item" key={item.ID}>
-//             <img src={'/sample.png'} alt={item.NAME} onClick={() => onImageClick(item.ID)} />
-//             <p>{item.NAME}<span></span></p>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default GoodsList;
-
-// import React, { useEffect, useState } from 'react';
-// import '../css/GoodsList.css';
-
-// const GoodsList = ({ onImageClick }) => {
-//   const [goods, setGoods] = useState([]);
-
-//   useEffect(() => {
-//     if (chrome && chrome.runtime && chrome.runtime.sendMessage) {
-//       // 크롬 확장 프로그램 환경
-//       chrome.runtime.sendMessage({ action: 'fetchGoods' }, (response) => {
-//         if (response && response.error) {
-//           console.error('Error fetching goods:', response.error);
-//         } else if (response && response.data) {
-//           setGoods(response.data);
-//         }
-//       });
-//     } else {
-//       // 로컬 개발 환경
-//       fetch('http://localhost:5001/goods')
-//         .then((response) => response.json())
-//         .then((data) => setGoods(data))
-//         .catch((error) => console.error('Error fetching goods:', error));
-//     }
-//   }, []);
-
-//   return (
-//     <div className="goods-list-container">
-//       <div className="category-buttons">
-//         <button className="category-button">부드러움</button>
-//         <button className="category-button">매끄러움</button>
-//         <button className="category-button">두꺼움</button>
-//         <button className="category-button">신축성</button>
-//       </div>
-//       <div className="goods-list">
-//         {goods.map((item) => (
-//           <div className="goods-item" key={item.ID}>
-//             <img src={'/sample.png'} alt={item.NAME} onClick={() => onImageClick(item.ID)} />
-//             <p>{item.NAME}<span></span></p>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default GoodsList;
-
 
 
 var GoodsList = function GoodsList(_ref) {
@@ -5118,7 +4887,7 @@ var GoodsList = function GoodsList(_ref) {
                 if (response && response.error) {
                   console.error('Error fetching goods:', response.error);
                 } else if (response && response.data) {
-                  setGoods(response.data);
+                  setGoods(Array.isArray(response.data) ? response.data : []);
                 }
               });
               _context.next = 17;
@@ -5133,7 +4902,7 @@ var GoodsList = function GoodsList(_ref) {
               return response.json();
             case 10:
               data = _context.sent;
-              setGoods(data);
+              setGoods(Array.isArray(data) ? data : []);
               _context.next = 17;
               break;
             case 14:
@@ -5204,100 +4973,19 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
 function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
-// import React from 'react';
-// import '../css/TouchInfo.css';
-
-// const TouchInfo = () => {
-//   return (
-//     <div className="touch-info">
-//       <h2>촉감 정보</h2>
-//       <div className="touch-bar">
-//         <span>딱딱한</span>
-//         <div className="bar red"></div>
-//         <span>부드러운</span>
-//       </div>
-//       <div className="touch-bar">
-//         <span>거친</span>
-//         <div className="bar green"></div>
-//         <span>매끄러운</span>
-//       </div>
-//       <div className="touch-bar">
-//         <span>얇은</span>
-//         <div className="bar blue"></div>
-//         <span>두꺼운</span>
-//       </div>
-//       <div className="touch-bar">
-//         <span>신축성 없는</span>
-//         <div className="bar purple"></div>
-//         <span>신축성 있는</span>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default TouchInfo;
-
-// import React from 'react';
-// import '../css/TouchInfo.css';
-
-// const TouchInfo = () => {
-//   // 임시로 사용할 촉감 데이터 (1~5점)
-//   const touchData = {
-//     hardness: 3, // 딱딱함 정도
-//     roughness: 2, // 거칠음 정도
-//     thickness: 4, // 두꺼움 정도
-//     elasticity: 5, // 신축성 정도
-//   };
-
-//   // 점수에 따른 색상 및 길이 설정
-//   const getBarStyle = (score, color) => ({
-//     width: `${(score / 5) * 100}%`,
-//     backgroundColor: color,
-//     opacity: score / 5,
-//   });
-
-//   return (
-//     <div className="touch-info">
-//       <h2>촉감 정보</h2>
-//       <div className="touch-bar">
-//         <span>딱딱한</span>
-//         <div className="bar" style={getBarStyle(touchData.hardness, 'red')}></div>
-//         <span>부드러운</span>
-//       </div>
-//       <div className="touch-bar">
-//         <span>거친</span>
-//         <div className="bar" style={getBarStyle(touchData.roughness, 'green')}></div>
-//         <span>매끄러운</span>
-//       </div>
-//       <div className="touch-bar">
-//         <span>얇은</span>
-//         <div className="bar" style={getBarStyle(touchData.thickness, 'blue')}></div>
-//         <span>두꺼운</span>
-//       </div>
-//       <div className="touch-bar">
-//         <span>신축성 없는</span>
-//         <div className="bar" style={getBarStyle(touchData.elasticity, 'purple')}></div>
-//         <span>신축성 있는</span>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default TouchInfo;
-
 
 
 
 var TouchInfo = function TouchInfo() {
   // 임시로 사용할 촉감 데이터 (1~5점)
   var touchData = {
-    hardness: 1,
-    // 딱딱함 정도
-    roughness: 2,
-    // 거칠음 정도
+    softness: 1,
+    // 부드러움
+    smoothness: 2,
+    // 매끄러움
     thickness: 4,
-    // 두꺼움 정도
-    elasticity: 5 // 신축성 정도
+    // 두꺼움
+    flexibility: 5 // 신축성
   };
 
   // 점수에 따른 색상 설정
@@ -5309,25 +4997,25 @@ var TouchInfo = function TouchInfo() {
 
   // 촉감별 대표 색상 설정
   var colorMapping = {
-    hardness: '#ff0000',
+    softness: '#ff0000',
     // red
-    roughness: '#00ff00',
+    smoothness: '#00ff00',
     // green
     thickness: '#0000ff',
     // blue
-    elasticity: '#800080' // purple
+    flexibility: '#800080' // purple
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "touch-info"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "\uCD09\uAC10 \uC815\uBCF4"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "touch-bar"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "\uB531\uB531\uD55C"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "\uB2E8\uB2E8\uD55C"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "progress-bar-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_ProgressBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    now: touchData.hardness / 5 * 100,
+    now: touchData.softness / 5 * 100,
     style: {
       backgroundColor: 'transparent',
-      backgroundImage: "linear-gradient(to right, ".concat(getBarColor(touchData.hardness, colorMapping.hardness), " 0%, ").concat(getBarColor(touchData.hardness, colorMapping.hardness), " ").concat(touchData.hardness / 5 * 100, "%, #ffffff ").concat(touchData.hardness / 5 * 100, "%, #ffffff 100%)")
+      backgroundImage: "linear-gradient(to right, ".concat(getBarColor(touchData.softness, colorMapping.softness), " 0%, ").concat(getBarColor(touchData.softness, colorMapping.softness), " ").concat(touchData.softness / 5 * 100, "%, #ffffff ").concat(touchData.softness / 5 * 100, "%, #ffffff 100%)")
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "ticks"
@@ -5344,10 +5032,10 @@ var TouchInfo = function TouchInfo() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "\uAC70\uCE5C"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "progress-bar-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_ProgressBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    now: touchData.roughness / 5 * 100,
+    now: touchData.smoothness / 5 * 100,
     style: {
       backgroundColor: 'transparent',
-      backgroundImage: "linear-gradient(to right, ".concat(getBarColor(touchData.roughness, colorMapping.roughness), " 0%, ").concat(getBarColor(touchData.roughness, colorMapping.roughness), " ").concat(touchData.roughness / 5 * 100, "%, #ffffff ").concat(touchData.roughness / 5 * 100, "%, #ffffff 100%)")
+      backgroundImage: "linear-gradient(to right, ".concat(getBarColor(touchData.smoothness, colorMapping.smoothness), " 0%, ").concat(getBarColor(touchData.smoothness, colorMapping.smoothness), " ").concat(touchData.smoothness / 5 * 100, "%, #ffffff ").concat(touchData.smoothness / 5 * 100, "%, #ffffff 100%)")
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "ticks"
@@ -5384,10 +5072,10 @@ var TouchInfo = function TouchInfo() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "\uC2E0\uCD95\uC131 \uC5C6\uB294"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "progress-bar-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_ProgressBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    now: touchData.elasticity / 5 * 100,
+    now: touchData.flexibility / 5 * 100,
     style: {
       backgroundColor: 'transparent',
-      backgroundImage: "linear-gradient(to right, ".concat(getBarColor(touchData.elasticity, colorMapping.elasticity), " 0%, ").concat(getBarColor(touchData.elasticity, colorMapping.elasticity), " ").concat(touchData.elasticity / 5 * 100, "%, #ffffff ").concat(touchData.elasticity / 5 * 100, "%, #ffffff 100%)")
+      backgroundImage: "linear-gradient(to right, ".concat(getBarColor(touchData.flexibility, colorMapping.flexibility), " 0%, ").concat(getBarColor(touchData.flexibility, colorMapping.flexibility), " ").concat(touchData.flexibility / 5 * 100, "%, #ffffff ").concat(touchData.flexibility / 5 * 100, "%, #ffffff 100%)")
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "ticks"
@@ -5516,12 +5204,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
 // Imports
 
 
+
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../public/left_arrow.png */ "./public/left_arrow.png"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `.detail-container {
+___CSS_LOADER_EXPORT___.push([module.id, `/* .detail-container {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
@@ -5593,8 +5286,65 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.detail-container {
   
   .view-product-button:hover {
     background-color: #555;
+  } */
+
+
+  .detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
   }
-`, "",{"version":3,"sources":["webpack://./src/popup/css/Detail.css"],"names":[],"mappings":"AAAA;IACI,8BAA8B;IAC9B,SAAS;IACT,aAAa;IACb,sBAAsB;IACtB,yBAAyB;IACzB,WAAW;IACX,WAAW;IACX,gBAAgB;IAChB,kBAAkB;IAClB,uCAAuC;EACzC;;EAEA;IACE,WAAW;IACX,kBAAkB;EACpB;;EAEA;IACE,kBAAkB;IAClB,cAAc;EAChB;;EAEA;IACE,gBAAgB;IAChB,WAAW;EACb;;EAEA;IACE,gBAAgB;IAChB,cAAc;EAChB;;EAEA;IACE,gBAAgB;IAChB,WAAW;EACb;;EAEA;IACE,gBAAgB;IAChB,WAAW;IACX,cAAc;EAChB;;EAEA;IACE,sBAAsB;IACtB,WAAW;IACX,aAAa;IACb,kBAAkB;EACpB;;EAEA;IACE,kBAAkB;IAClB,gBAAgB;EAClB;;EAEA;IACE,cAAc;IACd,WAAW;IACX,sBAAsB;IACtB,WAAW;IACX,YAAY;IACZ,kBAAkB;IAClB,aAAa;IACb,cAAc;IACd,eAAe;IACf,gBAAgB;IAChB,kBAAkB;EACpB;;EAEA;IACE,sBAAsB;EACxB","sourcesContent":[".detail-container {\n    font-family: Arial, sans-serif;\n    margin: 0;\n    padding: 20px;\n    box-sizing: border-box;\n    background-color: #f5f5f5;\n    color: #333;\n    width: 100%;\n    max-width: 400px;\n    border-radius: 8px;\n    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  }\n  \n  .image-container img {\n    width: 100%;\n    border-radius: 8px;\n  }\n  \n  .product-info {\n    text-align: center;\n    margin: 20px 0;\n  }\n  \n  .category {\n    font-size: 0.9em;\n    color: #777;\n  }\n  \n  .product-name {\n    font-size: 1.5em;\n    margin: 10px 0;\n  }\n  \n  .product-name span {\n    font-size: 0.8em;\n    color: #777;\n  }\n  \n  .price {\n    font-size: 1.2em;\n    color: #333;\n    margin: 10px 0;\n  }\n  \n  .tactile-info-container {\n    background-color: #000;\n    color: #fff;\n    padding: 20px;\n    border-radius: 8px;\n  }\n  \n  .tactile-info-container h2 {\n    margin: 0 0 10px 0;\n    font-size: 1.2em;\n  }\n  \n  .view-product-button {\n    display: block;\n    width: 100%;\n    background-color: #333;\n    color: #fff;\n    border: none;\n    border-radius: 8px;\n    padding: 10px;\n    font-size: 1em;\n    cursor: pointer;\n    margin-top: 20px;\n    text-align: center;\n  }\n  \n  .view-product-button:hover {\n    background-color: #555;\n  }\n"],"sourceRoot":""}]);
+  
+  .navbar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .back-button {
+    background: url(${___CSS_LOADER_URL_REPLACEMENT_0___}) no-repeat center center;
+    background-size: contain;
+    border: none;
+    width: 40px; /* 버튼 크기 조정 */
+    height: 40px; /* 버튼 크기 조정 */
+    cursor: pointer;
+  }
+  
+  .back-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .image-container {
+    margin-top: 20px;
+  }
+  
+  .product-info {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .tactile-info-container {
+    margin-top: 20px;
+  }
+  
+  .view-product-button {
+    margin-top: 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .view-product-button:hover {
+    background-color: #218838;
+  }
+  `, "",{"version":3,"sources":["webpack://./src/popup/css/Detail.css"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;KAwEK;;;EAGH;IACE,aAAa;IACb,sBAAsB;IACtB,mBAAmB;IACnB,aAAa;EACf;;EAEA;IACE,WAAW;IACX,aAAa;IACb,2BAA2B;IAC3B,aAAa;IACb,yBAAyB;IACzB,6BAA6B;EAC/B;;EAEA;IACE,2EAAkE;IAClE,wBAAwB;IACxB,YAAY;IACZ,WAAW,EAAE,aAAa;IAC1B,YAAY,EAAE,aAAa;IAC3B,eAAe;EACjB;;EAEA;IACE,yBAAyB;EAC3B;;EAEA;IACE,gBAAgB;EAClB;;EAEA;IACE,gBAAgB;IAChB,kBAAkB;EACpB;;EAEA;IACE,gBAAgB;EAClB;;EAEA;IACE,gBAAgB;IAChB,yBAAyB;IACzB,YAAY;IACZ,YAAY;IACZ,kBAAkB;IAClB,eAAe;IACf,eAAe;EACjB;;EAEA;IACE,yBAAyB;EAC3B","sourcesContent":["/* .detail-container {\n    font-family: Arial, sans-serif;\n    margin: 0;\n    padding: 20px;\n    box-sizing: border-box;\n    background-color: #f5f5f5;\n    color: #333;\n    width: 100%;\n    max-width: 400px;\n    border-radius: 8px;\n    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  }\n  \n  .image-container img {\n    width: 100%;\n    border-radius: 8px;\n  }\n  \n  .product-info {\n    text-align: center;\n    margin: 20px 0;\n  }\n  \n  .category {\n    font-size: 0.9em;\n    color: #777;\n  }\n  \n  .product-name {\n    font-size: 1.5em;\n    margin: 10px 0;\n  }\n  \n  .product-name span {\n    font-size: 0.8em;\n    color: #777;\n  }\n  \n  .price {\n    font-size: 1.2em;\n    color: #333;\n    margin: 10px 0;\n  }\n  \n  .tactile-info-container {\n    background-color: #000;\n    color: #fff;\n    padding: 20px;\n    border-radius: 8px;\n  }\n  \n  .tactile-info-container h2 {\n    margin: 0 0 10px 0;\n    font-size: 1.2em;\n  }\n  \n  .view-product-button {\n    display: block;\n    width: 100%;\n    background-color: #333;\n    color: #fff;\n    border: none;\n    border-radius: 8px;\n    padding: 10px;\n    font-size: 1em;\n    cursor: pointer;\n    margin-top: 20px;\n    text-align: center;\n  }\n  \n  .view-product-button:hover {\n    background-color: #555;\n  } */\n\n\n  .detail-container {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    padding: 20px;\n  }\n  \n  .navbar {\n    width: 100%;\n    display: flex;\n    justify-content: flex-start;\n    padding: 10px;\n    background-color: #f8f8f8;\n    border-bottom: 1px solid #ddd;\n  }\n  \n  .back-button {\n    background: url('~/public/left_arrow.png') no-repeat center center;\n    background-size: contain;\n    border: none;\n    width: 40px; /* 버튼 크기 조정 */\n    height: 40px; /* 버튼 크기 조정 */\n    cursor: pointer;\n  }\n  \n  .back-button:hover {\n    background-color: #0056b3;\n  }\n  \n  .image-container {\n    margin-top: 20px;\n  }\n  \n  .product-info {\n    margin-top: 20px;\n    text-align: center;\n  }\n  \n  .tactile-info-container {\n    margin-top: 20px;\n  }\n  \n  .view-product-button {\n    margin-top: 20px;\n    background-color: #28a745;\n    color: white;\n    border: none;\n    padding: 10px 20px;\n    cursor: pointer;\n    font-size: 16px;\n  }\n  \n  .view-product-button:hover {\n    background-color: #218838;\n  }\n  "],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5747,86 +5497,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `/* .touch-info {
-    background-color: #000000;
-    padding: 20px;
-    border-radius: 8px;
-    width: 460px;
-    height: 180px;
-    margin-bottom: 20px;
-  }
-  
-  .touch-info h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #FFFFFF;
-  }
-  
-  .touch-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 5px 0;
-    color: #FFFFFF;
-  }
-  
-  .bar {
-    flex-grow: 1;
-    height: 15px;
-    margin: 0 10px;
-    border-radius: 5px;
-  }
-  
-  .red {
-    background-color: red;
-  }
-  
-  .green {
-    background-color: green;
-  }
-  
-  .blue {
-    background-color: blue;
-  }
-  
-  .purple {
-    background-color: purple;
-  }
-   */
-
-
-
-   /* .touch-info {
-    background-color: #000000;
-    padding: 20px;
-    border-radius: 8px;
-    width: 460px;
-    height: auto;
-    margin-bottom: 20px;
-  }
-  
-  .touch-info h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #FFFFFF;
-  }
-  
-  .touch-bar {
-    display: flex;
-    align-items: center;
-    margin: 5px 0;
-    color: #FFFFFF;
-  }
-  
-  .bar {
-    height: 15px;
-    margin: 0 10px;
-    border-radius: 5px;
-    transition: width 0.3s ease, background-color 0.3s ease;
-  }
-   */
-
-
+___CSS_LOADER_EXPORT___.push([module.id, `
    .touch-info {
     background-color: #000000;
     padding: 20px;
@@ -5879,7 +5550,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* .touch-info {
     height: 100%;
     background-color: #000000;
   }
-  `, "",{"version":3,"sources":["webpack://./src/popup/css/TouchInfo.css"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA6CI;;;;GAID;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA4BC;;;GAGD;IACC,yBAAyB;IACzB,aAAa;IACb,kBAAkB;IAClB,YAAY;IACZ,aAAa;IACb,mBAAmB;EACrB;;EAEA;IACE,gBAAgB;IAChB,mBAAmB;IACnB,cAAc;EAChB;;EAEA;IACE,aAAa;IACb,mBAAmB;IACnB,aAAa;IACb,cAAc;EAChB;;EAEA;IACE,OAAO;EACT;;EAEA;IACE,OAAO;IACP,kBAAkB;EACpB;;EAEA;IACE,YAAY;IACZ,yBAAyB;IACzB,iBAAiB;EACnB;;EAEA;IACE,kBAAkB;IAClB,MAAM;IACN,OAAO;IACP,QAAQ;IACR,SAAS;IACT,aAAa;IACb,8BAA8B;EAChC;;EAEA;IACE,UAAU;IACV,YAAY;IACZ,yBAAyB;EAC3B","sourcesContent":["/* .touch-info {\n    background-color: #000000;\n    padding: 20px;\n    border-radius: 8px;\n    width: 460px;\n    height: 180px;\n    margin-bottom: 20px;\n  }\n  \n  .touch-info h2 {\n    font-size: 1.5em;\n    margin-bottom: 10px;\n    color: #FFFFFF;\n  }\n  \n  .touch-bar {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    margin: 5px 0;\n    color: #FFFFFF;\n  }\n  \n  .bar {\n    flex-grow: 1;\n    height: 15px;\n    margin: 0 10px;\n    border-radius: 5px;\n  }\n  \n  .red {\n    background-color: red;\n  }\n  \n  .green {\n    background-color: green;\n  }\n  \n  .blue {\n    background-color: blue;\n  }\n  \n  .purple {\n    background-color: purple;\n  }\n   */\n\n\n\n   /* .touch-info {\n    background-color: #000000;\n    padding: 20px;\n    border-radius: 8px;\n    width: 460px;\n    height: auto;\n    margin-bottom: 20px;\n  }\n  \n  .touch-info h2 {\n    font-size: 1.5em;\n    margin-bottom: 10px;\n    color: #FFFFFF;\n  }\n  \n  .touch-bar {\n    display: flex;\n    align-items: center;\n    margin: 5px 0;\n    color: #FFFFFF;\n  }\n  \n  .bar {\n    height: 15px;\n    margin: 0 10px;\n    border-radius: 5px;\n    transition: width 0.3s ease, background-color 0.3s ease;\n  }\n   */\n\n\n   .touch-info {\n    background-color: #000000;\n    padding: 20px;\n    border-radius: 8px;\n    width: 500px;\n    height: 200px;\n    margin-bottom: 20px;\n  }\n  \n  .touch-info h2 {\n    font-size: 1.5em;\n    margin-bottom: 10px;\n    color: #FFFFFF;\n  }\n  \n  .touch-bar {\n    display: flex;\n    align-items: center;\n    margin: 5px 0;\n    color: #FFFFFF;\n  }\n  \n  .touch-bar span {\n    flex: 1;\n  }\n  \n  .progress-bar-wrapper {\n    flex: 4;\n    position: relative;\n  }\n  \n  .progress-bar-wrapper .progress {\n    height: 20px;\n    background-color: #ffffff;\n    overflow: visible;\n  }\n  \n  .ticks {\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    display: flex;\n    justify-content: space-between;\n  }\n  \n  .tick {\n    width: 4px;\n    height: 100%;\n    background-color: #000000;\n  }\n  "],"sourceRoot":""}]);
+  `, "",{"version":3,"sources":["webpack://./src/popup/css/TouchInfo.css"],"names":[],"mappings":";GACG;IACC,yBAAyB;IACzB,aAAa;IACb,kBAAkB;IAClB,YAAY;IACZ,aAAa;IACb,mBAAmB;EACrB;;EAEA;IACE,gBAAgB;IAChB,mBAAmB;IACnB,cAAc;EAChB;;EAEA;IACE,aAAa;IACb,mBAAmB;IACnB,aAAa;IACb,cAAc;EAChB;;EAEA;IACE,OAAO;EACT;;EAEA;IACE,OAAO;IACP,kBAAkB;EACpB;;EAEA;IACE,YAAY;IACZ,yBAAyB;IACzB,iBAAiB;EACnB;;EAEA;IACE,kBAAkB;IAClB,MAAM;IACN,OAAO;IACP,QAAQ;IACR,SAAS;IACT,aAAa;IACb,8BAA8B;EAChC;;EAEA;IACE,UAAU;IACV,YAAY;IACZ,yBAAyB;EAC3B","sourcesContent":["\n   .touch-info {\n    background-color: #000000;\n    padding: 20px;\n    border-radius: 8px;\n    width: 500px;\n    height: 200px;\n    margin-bottom: 20px;\n  }\n  \n  .touch-info h2 {\n    font-size: 1.5em;\n    margin-bottom: 10px;\n    color: #FFFFFF;\n  }\n  \n  .touch-bar {\n    display: flex;\n    align-items: center;\n    margin: 5px 0;\n    color: #FFFFFF;\n  }\n  \n  .touch-bar span {\n    flex: 1;\n  }\n  \n  .progress-bar-wrapper {\n    flex: 4;\n    position: relative;\n  }\n  \n  .progress-bar-wrapper .progress {\n    height: 20px;\n    background-color: #ffffff;\n    overflow: visible;\n  }\n  \n  .ticks {\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    display: flex;\n    justify-content: space-between;\n  }\n  \n  .tick {\n    width: 4px;\n    height: 100%;\n    background-color: #000000;\n  }\n  "],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -48291,6 +47962,17 @@ module.exports = "data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%
 
 /***/ }),
 
+/***/ "./public/left_arrow.png":
+/*!*******************************!*\
+  !*** ./public/left_arrow.png ***!
+  \*******************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "9244312128b3446fa9e0.png";
+
+/***/ }),
+
 /***/ "./node_modules/classnames/index.js":
 /*!******************************************!*\
   !*** ./node_modules/classnames/index.js ***!
@@ -48489,7 +48171,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("4775f6c102fa59c9d3c7")
+/******/ 		__webpack_require__.h = () => ("e79afe4f083a47f3d5cb")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

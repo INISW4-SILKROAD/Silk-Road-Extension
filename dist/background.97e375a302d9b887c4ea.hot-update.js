@@ -1,0 +1,22 @@
+self["webpackHotUpdatesilkroad"]("background",{
+
+/***/ "./background.js":
+/*!***********************!*\
+  !*** ./background.js ***!
+  \***********************/
+/***/ (() => {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/kdj/Desktop/silkroad/background.js: Identifier 'fetchGoodsFromServer' has already been declared. (192:6)\n\n\u001b[0m \u001b[90m 190 |\u001b[39m\n \u001b[90m 191 |\u001b[39m \u001b[90m// 상품 데이터를 서버로부터 가져오는 함수\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 192 |\u001b[39m \u001b[36mconst\u001b[39m fetchGoodsFromServer \u001b[33m=\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\n \u001b[90m     |\u001b[39m       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 193 |\u001b[39m   \u001b[36mtry\u001b[39m {\n \u001b[90m 194 |\u001b[39m     \u001b[36mconst\u001b[39m response \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m fetch(\u001b[32m'http://127.0.0.1:5001/goods'\u001b[39m)\u001b[33m;\u001b[39m \n \u001b[90m 195 |\u001b[39m     \u001b[36mconst\u001b[39m data \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m response\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\u001b[0m\n    at constructor (/Users/kdj/Desktop/silkroad/node_modules/@babel/parser/lib/index.js:351:19)\n    at JSXParserMixin.raise (/Users/kdj/Desktop/silkroad/node_modules/@babel/parser/lib/index.js:3233:19)\n    at ScopeHandler.checkRedeclarationInScope (/Users/kdj/Desktop/silkroad/node_modules/@babel/parser/lib/index.js:1493:19)\n    at ScopeHandler.declareName (/Users/kdj/Desktop/silkroad/node_modules/@babel/parser/lib/index.js:1459:12)\n    at JSXParserMixin.declareNameFromIdentifier (/Users/kdj/Desktop/silkroad/node_modules/@babel/parser/lib/index.js:7309:16)\n    at JSXParserMixin.checkIdentifier (/Users/kdj/Desktop/silkroad/node_modules/@babel/parser/lib/index.js:7305:12)\n    at JSXParserMixin.checkLVal (/Users/kdj/Desktop/silkroad/node_modules/@babel/parser/lib/index.js:7251:12)\n    at JSXParserMixin.parseVarId (/Users/kdj/Desktop/silkroad/node_modules/@babel/parser/lib/index.js:12867:10)\n    at JSXParserMixin.parseVar (/Users/kdj/Desktop/silkroad/node_modules/@babel/parser/lib/index.js:12847:12)\n    at JSXParserMixin.parseVarStatement (/Users/kdj/Desktop/silkroad/node_modules/@babel/parser/lib/index.js:12694:10)\n    at JSXParserMixin.parseStatementContent (/Users/kdj/Desktop/silkroad/node_modules/@babel/parser/lib/index.js:12306:23)\n    at JSXParserMixin.parseStatementLike (/Users/kdj/Desktop/silkroad/node_modules/@babel/parser/lib/index.js:12223:17)\n    at JSXParserMixin.parseModuleItem (/Users/kdj/Desktop/silkroad/node_modules/@babel/parser/lib/index.js:12200:17)\n    at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/kdj/Desktop/silkroad/node_modules/@babel/parser/lib/index.js:12780:36)\n    at JSXParserMixin.parseBlockBody (/Users/kdj/Desktop/silkroad/node_modules/@babel/parser/lib/index.js:12773:10)\n    at JSXParserMixin.parseProgram (/Users/kdj/Desktop/silkroad/node_modules/@babel/parser/lib/index.js:12100:10)\n    at JSXParserMixin.parseTopLevel (/Users/kdj/Desktop/silkroad/node_modules/@babel/parser/lib/index.js:12090:25)\n    at JSXParserMixin.parse (/Users/kdj/Desktop/silkroad/node_modules/@babel/parser/lib/index.js:13904:10)\n    at parse (/Users/kdj/Desktop/silkroad/node_modules/@babel/parser/lib/index.js:13946:38)\n    at parser (/Users/kdj/Desktop/silkroad/node_modules/@babel/core/lib/parser/index.js:41:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (/Users/kdj/Desktop/silkroad/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)\n    at normalizeFile.next (<anonymous>)\n    at run (/Users/kdj/Desktop/silkroad/node_modules/@babel/core/lib/transformation/index.js:21:50)\n    at run.next (<anonymous>)\n    at transform (/Users/kdj/Desktop/silkroad/node_modules/@babel/core/lib/transform.js:22:33)\n    at transform.next (<anonymous>)\n    at step (/Users/kdj/Desktop/silkroad/node_modules/gensync/index.js:261:32)\n    at /Users/kdj/Desktop/silkroad/node_modules/gensync/index.js:273:13\n    at async.call.result.err.err (/Users/kdj/Desktop/silkroad/node_modules/gensync/index.js:223:11)");
+
+/***/ })
+
+},
+/******/ function(__webpack_require__) { // webpackRuntimeModules
+/******/ /* webpack/runtime/getFullHash */
+/******/ (() => {
+/******/ 	__webpack_require__.h = () => ("699aba930f96e0e8e79b")
+/******/ })();
+/******/ 
+/******/ }
+);
+//# sourceMappingURL=background.97e375a302d9b887c4ea.hot-update.js.map
