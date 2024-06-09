@@ -234,48 +234,151 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 //     }
 //   });
 
-var fetchGoodsFromServer = /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-    var response, data;
+// const fetchGoodsFromServer = async () => {
+//   try {
+//     const response = await fetch('http://127.0.0.1:5001/goods'); 
+//     return data;
+//   } catch (error) {
+//     throw new Error('Error fetching goods: ' + error.message);
+//   }
+// };
+
+// chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+//   if (message.action === 'fetchGoods') {
+//     fetchGoodsFromServer()
+//       .then(data => sendResponse({ data: data }))
+//       .catch(error => sendResponse({ error: error.message }));
+//     return true; 
+//   }
+// });
+
+// 백업
+// const fetchGoodsFromServer = async () => {
+//   try {
+//     const response = await fetch('http://127.0.0.1:5001/goods');
+//     const data = await response.json();
+//     return data;
+//   } catch (error) {
+//     throw new Error('Error fetching goods: ' + error.message);
+//   }
+// };
+
+// chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+//   if (message.action === 'fetchGoods') {
+//     fetchGoodsFromServer()
+//       .then(data => sendResponse({ data: data }))
+//       .catch(error => sendResponse({ error: error.message }));
+//     return true; 
+//   }
+// });
+
+// chrome.runtime.onInstalled.addListener(() => {
+//   chrome.contextMenus.create({
+//     id: "sendImageLink",
+//     title: "[SILK ROAD] 촉감 알아보기",
+//     contexts: ["image"]
+//   });
+// });
+
+// chrome.contextMenus.onClicked.addListener((info, tab) => {
+//   if (info.menuItemId === "sendImageLink") {
+//     const imageUrl = info.srcUrl;
+//     const pageUrl = info.pageUrl;
+
+//     // 서버로 데이터 전송
+//     fetch("http://127.0.0.1:5001/submit", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json"
+//       },
+//       body: JSON.stringify({
+//         imageUrl: imageUrl,
+//         pageUrl: pageUrl
+//       })
+//     }).then(response => {
+//       if (response.ok) {
+//         console.log("Image link sent successfully");
+//       } else {
+//         console.error("Failed to send image link");
+//       }
+//     }).catch(error => {
+//       console.error("Error sending image link:", error);
+//     });
+//   }
+// });
+
+// 서버로 데이터를 전송하는 함수
+var sendImageDataToServer = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(imageUrl, pageUrl) {
+    var response;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
           _context.prev = 0;
           _context.next = 3;
-          return fetch('http://127.0.0.1:5001/goods');
+          return fetch("http://127.0.0.1:5001/submit", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              imageUrl: imageUrl,
+              pageUrl: pageUrl
+            })
+          });
         case 3:
           response = _context.sent;
-          _context.next = 6;
-          return response.json();
-        case 6:
-          data = _context.sent;
-          return _context.abrupt("return", data);
-        case 10:
-          _context.prev = 10;
+          if (response.ok) {
+            console.log("Image link sent successfully");
+          } else {
+            console.error("Failed to send image link");
+          }
+          _context.next = 10;
+          break;
+        case 7:
+          _context.prev = 7;
           _context.t0 = _context["catch"](0);
-          throw new Error('Error fetching goods: ' + _context.t0.message);
-        case 13:
+          console.error("Error sending image link:", _context.t0);
+        case 10:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[0, 10]]);
+    }, _callee, null, [[0, 7]]);
   }));
-  return function fetchGoodsFromServer() {
+  return function sendImageDataToServer(_x, _x2) {
     return _ref.apply(this, arguments);
   };
 }();
-chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-  if (message.action === 'fetchGoods') {
-    fetchGoodsFromServer().then(function (data) {
-      return sendResponse({
-        data: data
-      });
-    })["catch"](function (error) {
-      return sendResponse({
-        error: error.message
-      });
-    });
-    return true; // Will respond asynchronously.
+
+// 이미지 링크에서 상품 ID를 추출하는 함수
+var extractProductId = function extractProductId(imageUrl) {
+  var regex = /\/(\d+)_\d+/;
+  var match = imageUrl.match(regex);
+  return match ? match[1] : null;
+};
+
+// 컨텍스트 메뉴 항목 생성
+chrome.runtime.onInstalled.addListener(function () {
+  chrome.contextMenus.create({
+    id: "sendImageLink",
+    title: "Send Image Link to Server",
+    contexts: ["image"]
+  });
+});
+
+// 컨텍스트 메뉴 항목 클릭 이벤트 처리
+chrome.contextMenus.onClicked.addListener(function (info, tab) {
+  if (info.menuItemId === "sendImageLink") {
+    var imageUrl = info.srcUrl;
+    var productId = extractProductId(imageUrl);
+    if (productId) {
+      var pageUrl = "https://www.musinsa.com/app/goods/".concat(productId);
+      console.log("Image URL: ".concat(imageUrl));
+      console.log("Page URL: ".concat(pageUrl));
+      sendImageDataToServer(imageUrl, pageUrl);
+    } else {
+      console.error("Could not extract product ID from image URL");
+    }
   }
 });
 
@@ -3425,7 +3528,7 @@ module.exports.formatError = function (err) {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("afeb2820c66bd3d0a6a1")
+/******/ 		__webpack_require__.h = () => ("4775f6c102fa59c9d3c7")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

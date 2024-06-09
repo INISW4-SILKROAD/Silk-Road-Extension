@@ -119,14 +119,76 @@
 
 
 
+// const express = require('express');
+// const mysql = require('mysql');
+// const cors = require('cors');
+
+// const app = express();
+// const port = 5001;
+
+// app.use(cors());
+
+// const connection = mysql.createConnection({
+//   host: '13.75.124.149',
+//   user: 'root',
+//   password: 'rlaehdehd20',
+//   database: 'train',
+// });
+
+// connection.connect((err) => {
+//   if (err) {
+//     console.error('Error connecting to MySQL:', err);
+//     return;
+//   }
+//   console.log('Connected to MySQL');
+// });
+
+// app.get('/goods', (req, res) => {
+//   const query = 'SELECT * FROM goods ORDER BY RAND() LIMIT 10';
+//   connection.query(query, (err, results) => {
+//     if (err) {
+//       console.error('Error fetching goods:', err);
+//       res.status(500).json({ error: 'Error fetching goods' });
+//       return;
+//     }
+//     res.json(results);
+//   });
+// });
+
+// app.get('/goods/:id', (req, res) => {
+//   const id = req.params.id;
+//   const query = 'SELECT * FROM goods WHERE ID = ?';
+//   connection.query(query, [id], (err, results) => {
+//     if (err) {
+//       console.error('Error fetching product:', err);
+//       res.status(500).json({ error: 'Error fetching product' });
+//       return;
+//     }
+//     if (results.length === 0) {
+//       res.status(404).json({ error: 'Product not found' });
+//       return;
+//     }
+//     res.json(results[0]);
+//   });
+// });
+
+// app.listen(port, () => {
+//   console.log(`Server running at http://127.0.0.1:${port}`);
+// });
+
+
+
+
 const express = require('express');
 const mysql = require('mysql');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 
 const app = express();
 const port = 5001;
 
 app.use(cors());
+app.use(bodyParser.json()); // JSON 요청을 파싱하기 위해 body-parser 미들웨어 사용
 
 const connection = mysql.createConnection({
   host: '13.75.124.149',
@@ -170,6 +232,23 @@ app.get('/goods/:id', (req, res) => {
     }
     res.json(results[0]);
   });
+});
+
+app.post('/submit', (req, res) => {
+  const { imageUrl, pageUrl } = req.body;
+
+  if (!imageUrl || !pageUrl) {
+    res.status(400).json({ error: 'Invalid data' });
+    return;
+  }
+
+  console.log(`Received image URL: ${imageUrl}`);
+  console.log(`Received page URL: ${pageUrl}`);
+
+  // 받은 데이터로 처리 작업을 수행합니다.
+  // 예: 데이터를 데이터베이스에 저장하거나 다른 작업을 수행합니다.
+
+  res.status(200).send('Data received successfully');
 });
 
 app.listen(port, () => {
