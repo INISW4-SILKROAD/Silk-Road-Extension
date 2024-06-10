@@ -26,7 +26,7 @@ const Detail = () => {
         <button className="back-button" onClick={() => navigate('/')}></button>
       </div>
       <div className="image-container">
-        <img src={'/sample.png'} alt={product.NAME} />
+        <img src={'./sample.png'} alt={product.NAME} />
       </div>
       <div className="product-info">
         <h1 className="product-name">{product.NAME}</h1>

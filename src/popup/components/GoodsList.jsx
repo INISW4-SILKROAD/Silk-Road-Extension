@@ -29,18 +29,19 @@ const GoodsList = ({ onImageClick }) => {
     fetchData();
   }, []);
 
+
   return (
     <div className="goods-list-container">
       <div className="category-buttons">
         <button className="category-button">부드러움</button>
         <button className="category-button">매끄러움</button>
-        <button className="category-button">두꺼움</button>
+        <button className="category-button">두께</button>
         <button className="category-button">신축성</button>
       </div>
       <div className="goods-list">
         {goods.map((item) => (
           <div className="goods-item" key={item.ID}>
-            <img src={'/sample.png'} alt={item.NAME} onClick={() => onImageClick(item.ID)} />
+            <img src={"./sample.png"} alt={item.NAME} onClick={() => onImageClick(item.ID)} />
             <p>{item.NAME}<span></span></p>
           </div>
         ))}

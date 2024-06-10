@@ -4771,7 +4771,7 @@ var Detail = function Detail() {
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "image-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-    src: '/sample.png',
+    src: './sample.png',
     alt: product.NAME
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "product-info"
@@ -4931,7 +4931,7 @@ var GoodsList = function GoodsList(_ref) {
     className: "category-button"
   }, "\uB9E4\uB044\uB7EC\uC6C0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     className: "category-button"
-  }, "\uB450\uAEBC\uC6C0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+  }, "\uB450\uAED8"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     className: "category-button"
   }, "\uC2E0\uCD95\uC131")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "goods-list"
@@ -4940,7 +4940,7 @@ var GoodsList = function GoodsList(_ref) {
       className: "goods-item",
       key: item.ID
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-      src: '/sample.png',
+      src: "./sample.png",
       alt: item.NAME,
       onClick: function onClick() {
         return onImageClick(item.ID);
@@ -4979,13 +4979,13 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
 var TouchInfo = function TouchInfo() {
   // 임시로 사용할 촉감 데이터 (1~5점)
   var touchData = {
-    softness: 1,
+    softness: 5,
     // 부드러움
-    smoothness: 2,
+    smoothness: 3,
     // 매끄러움
     thickness: 4,
     // 두꺼움
-    flexibility: 5 // 신축성
+    flexibility: 2 // 신축성
   };
 
   // 점수에 따른 색상 설정
@@ -4997,22 +4997,24 @@ var TouchInfo = function TouchInfo() {
 
   // 촉감별 대표 색상 설정
   var colorMapping = {
-    softness: '#ff0000',
-    // red
-    smoothness: '#00ff00',
-    // green
-    thickness: '#0000ff',
-    // blue
-    flexibility: '#800080' // purple
+    softness: '#3A506B',
+    smoothness: '#3A506B',
+    thickness: '#3A506B',
+    flexibility: '#3A506B'
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "touch-info"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "\uCD09\uAC10 \uC815\uBCF4"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "touch-info-text"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "\uCD09\uAC10 \uC815\uBCF4")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "touch-area"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "touch-bar"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "\uB2E8\uB2E8\uD55C"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "\uBD80\uB4DC\uB7EC\uC6C0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "progress-bar-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_ProgressBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
     now: touchData.softness / 5 * 100,
+    className: "custom-progress-bar",
     style: {
       backgroundColor: 'transparent',
       backgroundImage: "linear-gradient(to right, ".concat(getBarColor(touchData.softness, colorMapping.softness), " 0%, ").concat(getBarColor(touchData.softness, colorMapping.softness), " ").concat(touchData.softness / 5 * 100, "%, #ffffff ").concat(touchData.softness / 5 * 100, "%, #ffffff 100%)")
@@ -5027,12 +5029,13 @@ var TouchInfo = function TouchInfo() {
         left: "".concat(i / 5 * 100, "%")
       }
     });
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "\uBD80\uB4DC\uB7EC\uC6B4")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "touch-bar"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "\uAC70\uCE5C"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "\uB9E4\uB044\uB7EC\uC6C0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "progress-bar-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_ProgressBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
     now: touchData.smoothness / 5 * 100,
+    className: "custom-progress-bar",
     style: {
       backgroundColor: 'transparent',
       backgroundImage: "linear-gradient(to right, ".concat(getBarColor(touchData.smoothness, colorMapping.smoothness), " 0%, ").concat(getBarColor(touchData.smoothness, colorMapping.smoothness), " ").concat(touchData.smoothness / 5 * 100, "%, #ffffff ").concat(touchData.smoothness / 5 * 100, "%, #ffffff 100%)")
@@ -5047,12 +5050,13 @@ var TouchInfo = function TouchInfo() {
         left: "".concat(i / 5 * 100, "%")
       }
     });
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "\uB9E4\uB044\uB7EC\uC6B4")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "touch-bar"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "\uC587\uC740"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "\uB450\uAED8"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "progress-bar-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_ProgressBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
     now: touchData.thickness / 5 * 100,
+    className: "custom-progress-bar",
     style: {
       backgroundColor: 'transparent',
       backgroundImage: "linear-gradient(to right, ".concat(getBarColor(touchData.thickness, colorMapping.thickness), " 0%, ").concat(getBarColor(touchData.thickness, colorMapping.thickness), " ").concat(touchData.thickness / 5 * 100, "%, #ffffff ").concat(touchData.thickness / 5 * 100, "%, #ffffff 100%)")
@@ -5067,12 +5071,13 @@ var TouchInfo = function TouchInfo() {
         left: "".concat(i / 5 * 100, "%")
       }
     });
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "\uB450\uAEBC\uC6B4")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "touch-bar"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "\uC2E0\uCD95\uC131 \uC5C6\uB294"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "\uC2E0\uCD95\uC131"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "progress-bar-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_ProgressBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
     now: touchData.flexibility / 5 * 100,
+    className: "custom-progress-bar",
     style: {
       backgroundColor: 'transparent',
       backgroundImage: "linear-gradient(to right, ".concat(getBarColor(touchData.flexibility, colorMapping.flexibility), " 0%, ").concat(getBarColor(touchData.flexibility, colorMapping.flexibility), " ").concat(touchData.flexibility / 5 * 100, "%, #ffffff ").concat(touchData.flexibility / 5 * 100, "%, #ffffff 100%)")
@@ -5087,7 +5092,7 @@ var TouchInfo = function TouchInfo() {
         left: "".concat(i / 5 * 100, "%")
       }
     });
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "\uC2E0\uCD95\uC131 \uC788\uB294")));
+  }))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TouchInfo);
 
@@ -5210,141 +5215,126 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../public/left_arrow.png */ "./public/left_arrow.png"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../public/left_arrow_white.png */ "./public/left_arrow_white.png"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../yangjin.otf */ "./yangjin.otf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ./laundry_bold.ttf */ "./laundry_bold.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_3___ = new URL(/* asset import */ __webpack_require__(/*! ./laundry_regular.ttf */ "./laundry_regular.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_4___ = new URL(/* asset import */ __webpack_require__(/*! ./Freesentation-4Regular.ttf */ "./Freesentation-4Regular.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_5___ = new URL(/* asset import */ __webpack_require__(/*! ./Freesentation-5Medium.ttf */ "./Freesentation-5Medium.ttf"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
+var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_2___);
+var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_3___);
+var ___CSS_LOADER_URL_REPLACEMENT_4___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_4___);
+var ___CSS_LOADER_URL_REPLACEMENT_5___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_5___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `/* .detail-container {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
-    background-color: #f5f5f5;
-    color: #333;
-    width: 100%;
-    max-width: 400px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .image-container img {
-    width: 100%;
-    border-radius: 8px;
-  }
-  
-  .product-info {
-    text-align: center;
-    margin: 20px 0;
-  }
-  
-  .category {
-    font-size: 0.9em;
-    color: #777;
-  }
-  
-  .product-name {
-    font-size: 1.5em;
-    margin: 10px 0;
-  }
-  
-  .product-name span {
-    font-size: 0.8em;
-    color: #777;
-  }
-  
-  .price {
-    font-size: 1.2em;
-    color: #333;
-    margin: 10px 0;
-  }
-  
-  .tactile-info-container {
-    background-color: #000;
-    color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-  }
-  
-  .tactile-info-container h2 {
-    margin: 0 0 10px 0;
-    font-size: 1.2em;
-  }
-  
-  .view-product-button {
-    display: block;
-    width: 100%;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 10px;
-    font-size: 1em;
-    cursor: pointer;
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  .view-product-button:hover {
-    background-color: #555;
-  } */
+___CSS_LOADER_EXPORT___.push([module.id, `#root {
+  background-color: #0B132B;
+}
+
+.detail-container {
+  width: 500px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #0B132B;
+}
+
+.navbar {
+  width: 100%;
+  height: 15px;
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px;
+  background-color: #0B132B;
+}
+
+.back-button {
+  background: url(${___CSS_LOADER_URL_REPLACEMENT_0___}) no-repeat center center;
+  background-size: contain;
+  border: none;
+  width: 30px; /* 버튼 크기 조정 */
+  height: 30px; /* 버튼 크기 조정 */
+  cursor: pointer;
+  border-radius: 90px;
+}
 
 
-  .detail-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .navbar {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    padding: 10px;
-    background-color: #f8f8f8;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .back-button {
-    background: url(${___CSS_LOADER_URL_REPLACEMENT_0___}) no-repeat center center;
-    background-size: contain;
-    border: none;
-    width: 40px; /* 버튼 크기 조정 */
-    height: 40px; /* 버튼 크기 조정 */
-    cursor: pointer;
-  }
-  
-  .back-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .image-container {
-    margin-top: 20px;
-  }
-  
-  .product-info {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  .tactile-info-container {
-    margin-top: 20px;
-  }
-  
-  .view-product-button {
-    margin-top: 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .view-product-button:hover {
-    background-color: #218838;
-  }
-  `, "",{"version":3,"sources":["webpack://./src/popup/css/Detail.css"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;KAwEK;;;EAGH;IACE,aAAa;IACb,sBAAsB;IACtB,mBAAmB;IACnB,aAAa;EACf;;EAEA;IACE,WAAW;IACX,aAAa;IACb,2BAA2B;IAC3B,aAAa;IACb,yBAAyB;IACzB,6BAA6B;EAC/B;;EAEA;IACE,2EAAkE;IAClE,wBAAwB;IACxB,YAAY;IACZ,WAAW,EAAE,aAAa;IAC1B,YAAY,EAAE,aAAa;IAC3B,eAAe;EACjB;;EAEA;IACE,yBAAyB;EAC3B;;EAEA;IACE,gBAAgB;EAClB;;EAEA;IACE,gBAAgB;IAChB,kBAAkB;EACpB;;EAEA;IACE,gBAAgB;EAClB;;EAEA;IACE,gBAAgB;IAChB,yBAAyB;IACzB,YAAY;IACZ,YAAY;IACZ,kBAAkB;IAClB,eAAe;IACf,eAAe;EACjB;;EAEA;IACE,yBAAyB;EAC3B","sourcesContent":["/* .detail-container {\n    font-family: Arial, sans-serif;\n    margin: 0;\n    padding: 20px;\n    box-sizing: border-box;\n    background-color: #f5f5f5;\n    color: #333;\n    width: 100%;\n    max-width: 400px;\n    border-radius: 8px;\n    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  }\n  \n  .image-container img {\n    width: 100%;\n    border-radius: 8px;\n  }\n  \n  .product-info {\n    text-align: center;\n    margin: 20px 0;\n  }\n  \n  .category {\n    font-size: 0.9em;\n    color: #777;\n  }\n  \n  .product-name {\n    font-size: 1.5em;\n    margin: 10px 0;\n  }\n  \n  .product-name span {\n    font-size: 0.8em;\n    color: #777;\n  }\n  \n  .price {\n    font-size: 1.2em;\n    color: #333;\n    margin: 10px 0;\n  }\n  \n  .tactile-info-container {\n    background-color: #000;\n    color: #fff;\n    padding: 20px;\n    border-radius: 8px;\n  }\n  \n  .tactile-info-container h2 {\n    margin: 0 0 10px 0;\n    font-size: 1.2em;\n  }\n  \n  .view-product-button {\n    display: block;\n    width: 100%;\n    background-color: #333;\n    color: #fff;\n    border: none;\n    border-radius: 8px;\n    padding: 10px;\n    font-size: 1em;\n    cursor: pointer;\n    margin-top: 20px;\n    text-align: center;\n  }\n  \n  .view-product-button:hover {\n    background-color: #555;\n  } */\n\n\n  .detail-container {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    padding: 20px;\n  }\n  \n  .navbar {\n    width: 100%;\n    display: flex;\n    justify-content: flex-start;\n    padding: 10px;\n    background-color: #f8f8f8;\n    border-bottom: 1px solid #ddd;\n  }\n  \n  .back-button {\n    background: url('~/public/left_arrow.png') no-repeat center center;\n    background-size: contain;\n    border: none;\n    width: 40px; /* 버튼 크기 조정 */\n    height: 40px; /* 버튼 크기 조정 */\n    cursor: pointer;\n  }\n  \n  .back-button:hover {\n    background-color: #0056b3;\n  }\n  \n  .image-container {\n    margin-top: 20px;\n  }\n  \n  .product-info {\n    margin-top: 20px;\n    text-align: center;\n  }\n  \n  .tactile-info-container {\n    margin-top: 20px;\n  }\n  \n  .view-product-button {\n    margin-top: 20px;\n    background-color: #28a745;\n    color: white;\n    border: none;\n    padding: 10px 20px;\n    cursor: pointer;\n    font-size: 16px;\n  }\n  \n  .view-product-button:hover {\n    background-color: #218838;\n  }\n  "],"sourceRoot":""}]);
+.image-container {
+  margin-top: 35px;
+  width: 400px; /* 컨테이너 너비 */
+  height: 350px;
+  display: flex;
+  justify-content: center; /* 가운데 정렬 */
+}
+
+.product-image {
+  /* max-width: 300px;  */
+  max-height: 150px; /* 이미지 최대 높이 지정 */
+  object-fit: contain;
+}
+
+.product-info h1 {
+  margin-top: 20px;
+  text-align: left;
+  color: #FFFFFF;
+  font-family: 'laundry-regular';
+  font-size: 20pt;
+}
+
+.product-info p {
+  margin-top: 10px;
+  text-align: right;
+  color: #FFFFFF;
+  font-family: 'laundry-regular';
+  font-size: 18pt;
+}
+
+.view-product-button {
+  background-color: #000000;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 220px;
+  border-radius: 18px;
+  font-family: 'laundry-regular';
+}
+
+.view-product-button:hover {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+
+@font-face {
+  font-family: 'yangjin';
+  src: url(${___CSS_LOADER_URL_REPLACEMENT_1___}) format('truetype');
+}
+
+@font-face {
+  font-family: 'laundry-bold';
+  src: url(${___CSS_LOADER_URL_REPLACEMENT_2___}) format('truetype');
+}
+
+@font-face {
+  font-family: 'laundry-regular';
+  src: url(${___CSS_LOADER_URL_REPLACEMENT_3___}) format('truetype');
+}
+
+
+@font-face {
+  font-family: 'f4';
+  src: url(${___CSS_LOADER_URL_REPLACEMENT_4___}) format('truetype');
+}
+
+@font-face {
+  font-family: 'f5';
+  src: url(${___CSS_LOADER_URL_REPLACEMENT_5___}) format('truetype');
+}`, "",{"version":3,"sources":["webpack://./src/popup/css/Detail.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;AAC3B;;AAEA;EACE,YAAY;EACZ,aAAa;EACb,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,aAAa;EACb,2BAA2B;EAC3B,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,2EAAwE;EACxE,wBAAwB;EACxB,YAAY;EACZ,WAAW,EAAE,aAAa;EAC1B,YAAY,EAAE,aAAa;EAC3B,eAAe;EACf,mBAAmB;AACrB;;;AAGA;EACE,gBAAgB;EAChB,YAAY,EAAE,YAAY;EAC1B,aAAa;EACb,aAAa;EACb,uBAAuB,EAAE,WAAW;AACtC;;AAEA;EACE,uBAAuB;EACvB,iBAAiB,EAAE,iBAAiB;EACpC,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,gBAAgB;EAChB,cAAc;EACd,8BAA8B;EAC9B,eAAe;AACjB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,cAAc;EACd,8BAA8B;EAC9B,eAAe;AACjB;;AAEA;EACE,yBAAyB;EACzB,cAAc;EACd,kBAAkB;EAClB,eAAe;EACf,eAAe;EACf,YAAY;EACZ,mBAAmB;EACnB,8BAA8B;AAChC;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;;AAGA;EACE,sBAAsB;EACtB,+DAA4C;AAC9C;;AAEA;EACE,2BAA2B;EAC3B,+DAA2E;AAC7E;;AAEA;EACE,8BAA8B;EAC9B,+DAA8E;AAChF;;;AAGA;EACE,iBAAiB;EACjB,+DAAqF;AACvF;;AAEA;EACE,iBAAiB;EACjB,+DAAoF;AACtF","sourcesContent":["#root {\n  background-color: #0B132B;\n}\n\n.detail-container {\n  width: 500px;\n  height: 800px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 20px;\n  background-color: #0B132B;\n}\n\n.navbar {\n  width: 100%;\n  height: 15px;\n  display: flex;\n  justify-content: flex-start;\n  padding: 10px;\n  background-color: #0B132B;\n}\n\n.back-button {\n  background: url('~/public/left_arrow_white.png') no-repeat center center;\n  background-size: contain;\n  border: none;\n  width: 30px; /* 버튼 크기 조정 */\n  height: 30px; /* 버튼 크기 조정 */\n  cursor: pointer;\n  border-radius: 90px;\n}\n\n\n.image-container {\n  margin-top: 35px;\n  width: 400px; /* 컨테이너 너비 */\n  height: 350px;\n  display: flex;\n  justify-content: center; /* 가운데 정렬 */\n}\n\n.product-image {\n  /* max-width: 300px;  */\n  max-height: 150px; /* 이미지 최대 높이 지정 */\n  object-fit: contain;\n}\n\n.product-info h1 {\n  margin-top: 20px;\n  text-align: left;\n  color: #FFFFFF;\n  font-family: 'laundry-regular';\n  font-size: 20pt;\n}\n\n.product-info p {\n  margin-top: 10px;\n  text-align: right;\n  color: #FFFFFF;\n  font-family: 'laundry-regular';\n  font-size: 18pt;\n}\n\n.view-product-button {\n  background-color: #000000;\n  color: #FFFFFF;\n  padding: 10px 20px;\n  cursor: pointer;\n  font-size: 16px;\n  width: 220px;\n  border-radius: 18px;\n  font-family: 'laundry-regular';\n}\n\n.view-product-button:hover {\n  background-color: #FFFFFF;\n  color: #000000;\n}\n\n\n@font-face {\n  font-family: 'yangjin';\n  src: url('~/yangjin.otf') format('truetype');\n}\n\n@font-face {\n  font-family: 'laundry-bold';\n  src: url('/Users/kdj/Desktop/silkroad/laundry_bold.ttf') format('truetype');\n}\n\n@font-face {\n  font-family: 'laundry-regular';\n  src: url('/Users/kdj/Desktop/silkroad/laundry_regular.ttf') format('truetype');\n}\n\n\n@font-face {\n  font-family: 'f4';\n  src: url('/Users/kdj/Desktop/silkroad/Freesentation-4Regular.ttf') format('truetype');\n}\n\n@font-face {\n  font-family: 'f5';\n  src: url('/Users/kdj/Desktop/silkroad/Freesentation-5Medium.ttf') format('truetype');\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5366,16 +5356,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
 // Imports
 
 
+
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../yangjin.otf */ "./yangjin.otf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ./laundry_bold.ttf */ "./laundry_bold.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ./laundry_regular.ttf */ "./laundry_regular.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_3___ = new URL(/* asset import */ __webpack_require__(/*! ./Freesentation-4Regular.ttf */ "./Freesentation-4Regular.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_4___ = new URL(/* asset import */ __webpack_require__(/*! ./Freesentation-5Medium.ttf */ "./Freesentation-5Medium.ttf"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
+var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_2___);
+var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_3___);
+var ___CSS_LOADER_URL_REPLACEMENT_4___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_4___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
+    width: 450px;
     padding: 20px;
-    background-color: #1e3a56;
-    color: white;
-    border-radius: 8px;
+    background-color: #e5e5e5;
+    color: black;
+    border-radius: 15px;
   }
   
   .category-buttons {
@@ -5385,22 +5389,27 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
   }
   
   .category-button {
-    background-color: #000000;
-    color: white;
+    background-color: #FFFFFF;
+    color: #1C2541;
     border: none;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 40px;
     cursor: pointer;
+    font-weight: bold;
+    font-size: 12pt;
+    font-family: 'f5';
   }
   
   .category-button:hover {
-    background-color: #666;
+    background-color: #FFFFFF;
+    color: #000000;
   }
   
   .goods-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+  
   }
   
   .goods-item {
@@ -5408,11 +5417,17 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
     margin-bottom: 20px;
     text-align: center;
     cursor: pointer;
+    background-color: white;
+    font-size: 11pt;
+    border-radius: 15px;
+    font-family: 'f4';
+
   }
   
   .goods-item img {
     width: 100%;
-    border-radius: 8px;
+    border-top-left-radius: 15px; /* 상단 왼쪽 모서리 둥글게 */
+    border-top-right-radius: 15px; /* 상단 오른쪽 모서리 둥글게 */
   }
   
   .goods-item p {
@@ -5425,7 +5440,32 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
     font-size: 0.8em;
     color: #aaa;
   }
-  `, "",{"version":3,"sources":["webpack://./src/popup/css/GoodsList.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,yBAAyB;IACzB,YAAY;IACZ,kBAAkB;EACpB;;EAEA;IACE,aAAa;IACb,6BAA6B;IAC7B,mBAAmB;EACrB;;EAEA;IACE,yBAAyB;IACzB,YAAY;IACZ,YAAY;IACZ,kBAAkB;IAClB,mBAAmB;IACnB,eAAe;EACjB;;EAEA;IACE,sBAAsB;EACxB;;EAEA;IACE,aAAa;IACb,eAAe;IACf,6BAA6B;EAC/B;;EAEA;IACE,UAAU;IACV,mBAAmB;IACnB,kBAAkB;IAClB,eAAe;EACjB;;EAEA;IACE,WAAW;IACX,kBAAkB;EACpB;;EAEA;IACE,kBAAkB;IAClB,gBAAgB;EAClB;;EAEA;IACE,cAAc;IACd,gBAAgB;IAChB,WAAW;EACb","sourcesContent":[".goods-list-container {\n    padding: 20px;\n    background-color: #1e3a56;\n    color: white;\n    border-radius: 8px;\n  }\n  \n  .category-buttons {\n    display: flex;\n    justify-content: space-around;\n    margin-bottom: 20px;\n  }\n  \n  .category-button {\n    background-color: #000000;\n    color: white;\n    border: none;\n    padding: 10px 20px;\n    border-radius: 20px;\n    cursor: pointer;\n  }\n  \n  .category-button:hover {\n    background-color: #666;\n  }\n  \n  .goods-list {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-around;\n  }\n  \n  .goods-item {\n    width: 45%;\n    margin-bottom: 20px;\n    text-align: center;\n    cursor: pointer;\n  }\n  \n  .goods-item img {\n    width: 100%;\n    border-radius: 8px;\n  }\n  \n  .goods-item p {\n    margin: 10px 0 0 0;\n    font-size: 0.9em;\n  }\n  \n  .goods-item p span {\n    display: block;\n    font-size: 0.8em;\n    color: #aaa;\n  }\n  "],"sourceRoot":""}]);
+  
+  @font-face {
+    font-family: 'yangjin';
+    src: url(${___CSS_LOADER_URL_REPLACEMENT_0___}) format('truetype');
+  }
+
+  @font-face {
+    font-family: 'laundry-bold';
+    src: url(${___CSS_LOADER_URL_REPLACEMENT_1___}) format('truetype');
+  }
+
+  @font-face {
+    font-family: 'laundry-regular';
+    src: url(${___CSS_LOADER_URL_REPLACEMENT_2___}) format('truetype');
+  }
+
+
+  @font-face {
+    font-family: 'f4';
+    src: url(${___CSS_LOADER_URL_REPLACEMENT_3___}) format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'f5';
+    src: url(${___CSS_LOADER_URL_REPLACEMENT_4___}) format('truetype');
+  }`, "",{"version":3,"sources":["webpack://./src/popup/css/GoodsList.css"],"names":[],"mappings":"AAAA;IACI,YAAY;IACZ,aAAa;IACb,yBAAyB;IACzB,YAAY;IACZ,mBAAmB;EACrB;;EAEA;IACE,aAAa;IACb,6BAA6B;IAC7B,mBAAmB;EACrB;;EAEA;IACE,yBAAyB;IACzB,cAAc;IACd,YAAY;IACZ,kBAAkB;IAClB,mBAAmB;IACnB,eAAe;IACf,iBAAiB;IACjB,eAAe;IACf,iBAAiB;EACnB;;EAEA;IACE,yBAAyB;IACzB,cAAc;EAChB;;EAEA;IACE,aAAa;IACb,eAAe;IACf,6BAA6B;;EAE/B;;EAEA;IACE,UAAU;IACV,mBAAmB;IACnB,kBAAkB;IAClB,eAAe;IACf,uBAAuB;IACvB,eAAe;IACf,mBAAmB;IACnB,iBAAiB;;EAEnB;;EAEA;IACE,WAAW;IACX,4BAA4B,EAAE,kBAAkB;IAChD,6BAA6B,EAAE,mBAAmB;EACpD;;EAEA;IACE,kBAAkB;IAClB,gBAAgB;EAClB;;EAEA;IACE,cAAc;IACd,gBAAgB;IAChB,WAAW;EACb;;EAEA;IACE,sBAAsB;IACtB,+DAA4C;EAC9C;;EAEA;IACE,2BAA2B;IAC3B,+DAA2E;EAC7E;;EAEA;IACE,8BAA8B;IAC9B,+DAA8E;EAChF;;;EAGA;IACE,iBAAiB;IACjB,+DAAqF;EACvF;;EAEA;IACE,iBAAiB;IACjB,+DAAoF;EACtF","sourcesContent":[".goods-list-container {\n    width: 450px;\n    padding: 20px;\n    background-color: #e5e5e5;\n    color: black;\n    border-radius: 15px;\n  }\n  \n  .category-buttons {\n    display: flex;\n    justify-content: space-around;\n    margin-bottom: 20px;\n  }\n  \n  .category-button {\n    background-color: #FFFFFF;\n    color: #1C2541;\n    border: none;\n    padding: 10px 20px;\n    border-radius: 40px;\n    cursor: pointer;\n    font-weight: bold;\n    font-size: 12pt;\n    font-family: 'f5';\n  }\n  \n  .category-button:hover {\n    background-color: #FFFFFF;\n    color: #000000;\n  }\n  \n  .goods-list {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-around;\n  \n  }\n  \n  .goods-item {\n    width: 45%;\n    margin-bottom: 20px;\n    text-align: center;\n    cursor: pointer;\n    background-color: white;\n    font-size: 11pt;\n    border-radius: 15px;\n    font-family: 'f4';\n\n  }\n  \n  .goods-item img {\n    width: 100%;\n    border-top-left-radius: 15px; /* 상단 왼쪽 모서리 둥글게 */\n    border-top-right-radius: 15px; /* 상단 오른쪽 모서리 둥글게 */\n  }\n  \n  .goods-item p {\n    margin: 10px 0 0 0;\n    font-size: 0.9em;\n  }\n  \n  .goods-item p span {\n    display: block;\n    font-size: 0.8em;\n    color: #aaa;\n  }\n  \n  @font-face {\n    font-family: 'yangjin';\n    src: url('~/yangjin.otf') format('truetype');\n  }\n\n  @font-face {\n    font-family: 'laundry-bold';\n    src: url('/Users/kdj/Desktop/silkroad/laundry_bold.ttf') format('truetype');\n  }\n\n  @font-face {\n    font-family: 'laundry-regular';\n    src: url('/Users/kdj/Desktop/silkroad/laundry_regular.ttf') format('truetype');\n  }\n\n\n  @font-face {\n    font-family: 'f4';\n    src: url('/Users/kdj/Desktop/silkroad/Freesentation-4Regular.ttf') format('truetype');\n  }\n  \n  @font-face {\n    font-family: 'f5';\n    src: url('/Users/kdj/Desktop/silkroad/Freesentation-5Medium.ttf') format('truetype');\n  }"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5452,25 +5492,26 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `body {
-    width: 500px;
-    height: 1200px;
-    background-color: #1e3a56;
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  
-    position: relative;
-  }
-  
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
+___CSS_LOADER_EXPORT___.push([module.id, `.popup-container {
+  background-color: #0B132B;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 중앙 정렬 */
+  justify-content: center; /* 수직 중앙 정렬, 필요에 따라 사용 */
 }
-`, "",{"version":3,"sources":["webpack://./src/popup/css/Main.css"],"names":[],"mappings":"AAAA;IACI,YAAY;IACZ,cAAc;IACd,yBAAyB;IACzB,SAAS;IACT;;gBAEY;IACZ,mCAAmC;IACnC,kCAAkC;;IAElC,kBAAkB;EACpB;;AAEF;IACI;eACW;AACf","sourcesContent":["body {\n    width: 500px;\n    height: 1200px;\n    background-color: #1e3a56;\n    margin: 0;\n    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',\n      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\n      sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  \n    position: relative;\n  }\n  \ncode {\n    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',\n      monospace;\n}\n"],"sourceRoot":""}]);
+#root {
+  width: 500px;
+  height: 1000px;
+  background-color: #0B132B;
+}
+
+/* 
+@font-face { 
+  font-family: ‘yangjin’; 
+  src: url(‘https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff’) format(‘woff’); 
+  font-weight: normal; 
+  font-style: normal; 
+} */`, "",{"version":3,"sources":["webpack://./src/popup/css/Main.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;EACzB,aAAa;EACb,sBAAsB;EACtB,mBAAmB,EAAE,UAAU;EAC/B,uBAAuB,EAAE,wBAAwB;AACnD;AACA;EACE,YAAY;EACZ,cAAc;EACd,yBAAyB;AAC3B;;AAEA;;;;;;GAMG","sourcesContent":[".popup-container {\n  background-color: #0B132B;\n  display: flex;\n  flex-direction: column;\n  align-items: center; /* 중앙 정렬 */\n  justify-content: center; /* 수직 중앙 정렬, 필요에 따라 사용 */\n}\n#root {\n  width: 500px;\n  height: 1000px;\n  background-color: #0B132B;\n}\n\n/* \n@font-face { \n  font-family: ‘yangjin’; \n  src: url(‘https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff’) format(‘woff’); \n  font-weight: normal; \n  font-style: normal; \n} */"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5492,65 +5533,103 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
 // Imports
 
 
+
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ./Freesentation-4Regular.ttf */ "./Freesentation-4Regular.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ./Freesentation-5Medium.ttf */ "./Freesentation-5Medium.ttf"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `
-   .touch-info {
-    background-color: #000000;
-    padding: 20px;
-    border-radius: 8px;
-    width: 500px;
-    height: 200px;
-    margin-bottom: 20px;
-  }
-  
-  .touch-info h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #FFFFFF;
-  }
-  
-  .touch-bar {
-    display: flex;
-    align-items: center;
-    margin: 5px 0;
-    color: #FFFFFF;
-  }
-  
-  .touch-bar span {
-    flex: 1;
-  }
-  
-  .progress-bar-wrapper {
-    flex: 4;
-    position: relative;
-  }
-  
-  .progress-bar-wrapper .progress {
-    height: 20px;
-    background-color: #ffffff;
-    overflow: visible;
-  }
-  
-  .ticks {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .tick {
-    width: 4px;
-    height: 100%;
-    background-color: #000000;
-  }
-  `, "",{"version":3,"sources":["webpack://./src/popup/css/TouchInfo.css"],"names":[],"mappings":";GACG;IACC,yBAAyB;IACzB,aAAa;IACb,kBAAkB;IAClB,YAAY;IACZ,aAAa;IACb,mBAAmB;EACrB;;EAEA;IACE,gBAAgB;IAChB,mBAAmB;IACnB,cAAc;EAChB;;EAEA;IACE,aAAa;IACb,mBAAmB;IACnB,aAAa;IACb,cAAc;EAChB;;EAEA;IACE,OAAO;EACT;;EAEA;IACE,OAAO;IACP,kBAAkB;EACpB;;EAEA;IACE,YAAY;IACZ,yBAAyB;IACzB,iBAAiB;EACnB;;EAEA;IACE,kBAAkB;IAClB,MAAM;IACN,OAAO;IACP,QAAQ;IACR,SAAS;IACT,aAAa;IACb,8BAA8B;EAChC;;EAEA;IACE,UAAU;IACV,YAAY;IACZ,yBAAyB;EAC3B","sourcesContent":["\n   .touch-info {\n    background-color: #000000;\n    padding: 20px;\n    border-radius: 8px;\n    width: 500px;\n    height: 200px;\n    margin-bottom: 20px;\n  }\n  \n  .touch-info h2 {\n    font-size: 1.5em;\n    margin-bottom: 10px;\n    color: #FFFFFF;\n  }\n  \n  .touch-bar {\n    display: flex;\n    align-items: center;\n    margin: 5px 0;\n    color: #FFFFFF;\n  }\n  \n  .touch-bar span {\n    flex: 1;\n  }\n  \n  .progress-bar-wrapper {\n    flex: 4;\n    position: relative;\n  }\n  \n  .progress-bar-wrapper .progress {\n    height: 20px;\n    background-color: #ffffff;\n    overflow: visible;\n  }\n  \n  .ticks {\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    display: flex;\n    justify-content: space-between;\n  }\n  \n  .tick {\n    width: 4px;\n    height: 100%;\n    background-color: #000000;\n  }\n  "],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, `.touch-info {
+  margin-top: 3%;
+  background-color: #e5e5e5;
+  padding: 20px;
+  border-radius: 15px;
+  width: 450px;
+  height: 200px;
+  margin-bottom: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 중앙 정렬 */
+  justify-content: center;
+  font-family: 'f5';
+  font-size: 13pt;
+}
+
+.touch-area {
+  width: 420px;
+  background-color: #e5e5e5;
+  border-radius: 15px;
+}
+
+.touch-info h2 {
+  font-size: 1.5em;
+  color: #000000;
+}
+
+.touch-bar {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  color: #000000;
+}
+
+.touch-bar span {
+  flex: 1;
+}
+
+.progress-bar-wrapper {
+  flex: 4;
+  position: relative;
+}
+
+.custom-progress-bar .progress-bar {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+.ticks {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tick {
+  width: 4px;
+  height: 100%;
+  background-color: #3A506B;
+}
+
+
+.touch-info-text {
+  margin-bottom: 10px;
+  width: 450px;
+  height: 50px;
+  /* background-color: #D1D1D1; */
+  text-align: center;
+}
+
+
+
+@font-face {
+  font-family: 'f4';
+  src: url(${___CSS_LOADER_URL_REPLACEMENT_0___}) format('truetype');
+}
+
+@font-face {
+  font-family: 'f5';
+  src: url(${___CSS_LOADER_URL_REPLACEMENT_1___}) format('truetype');
+}`, "",{"version":3,"sources":["webpack://./src/popup/css/TouchInfo.css"],"names":[],"mappings":"AAAA;EACE,cAAc;EACd,yBAAyB;EACzB,aAAa;EACb,mBAAmB;EACnB,YAAY;EACZ,aAAa;EACb,mBAAmB;;EAEnB,aAAa;EACb,sBAAsB;EACtB,mBAAmB,EAAE,UAAU;EAC/B,uBAAuB;EACvB,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,YAAY;EACZ,yBAAyB;EACzB,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,cAAc;AAChB;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,aAAa;EACb,cAAc;AAChB;;AAEA;EACE,OAAO;AACT;;AAEA;EACE,OAAO;EACP,kBAAkB;AACpB;;AAEA;EACE,wCAAwC;EACxC,iCAAiC;AACnC;;AAEA;EACE,kBAAkB;EAClB,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,aAAa;EACb,8BAA8B;AAChC;;AAEA;EACE,UAAU;EACV,YAAY;EACZ,yBAAyB;AAC3B;;;AAGA;EACE,mBAAmB;EACnB,YAAY;EACZ,YAAY;EACZ,+BAA+B;EAC/B,kBAAkB;AACpB;;;;AAIA;EACE,iBAAiB;EACjB,+DAAqF;AACvF;;AAEA;EACE,iBAAiB;EACjB,+DAAoF;AACtF","sourcesContent":[".touch-info {\n  margin-top: 3%;\n  background-color: #e5e5e5;\n  padding: 20px;\n  border-radius: 15px;\n  width: 450px;\n  height: 200px;\n  margin-bottom: 20px;\n\n  display: flex;\n  flex-direction: column;\n  align-items: center; /* 중앙 정렬 */\n  justify-content: center;\n  font-family: 'f5';\n  font-size: 13pt;\n}\n\n.touch-area {\n  width: 420px;\n  background-color: #e5e5e5;\n  border-radius: 15px;\n}\n\n.touch-info h2 {\n  font-size: 1.5em;\n  color: #000000;\n}\n\n.touch-bar {\n  display: flex;\n  align-items: center;\n  margin: 5px 0;\n  color: #000000;\n}\n\n.touch-bar span {\n  flex: 1;\n}\n\n.progress-bar-wrapper {\n  flex: 4;\n  position: relative;\n}\n\n.custom-progress-bar .progress-bar {\n  background-color: transparent !important;\n  background-image: none !important;\n}\n\n.ticks {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  display: flex;\n  justify-content: space-between;\n}\n\n.tick {\n  width: 4px;\n  height: 100%;\n  background-color: #3A506B;\n}\n\n\n.touch-info-text {\n  margin-bottom: 10px;\n  width: 450px;\n  height: 50px;\n  /* background-color: #D1D1D1; */\n  text-align: center;\n}\n\n\n\n@font-face {\n  font-family: 'f4';\n  src: url('/Users/kdj/Desktop/silkroad/Freesentation-4Regular.ttf') format('truetype');\n}\n\n@font-face {\n  font-family: 'f5';\n  src: url('/Users/kdj/Desktop/silkroad/Freesentation-5Medium.ttf') format('truetype');\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -47962,14 +48041,69 @@ module.exports = "data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%
 
 /***/ }),
 
-/***/ "./public/left_arrow.png":
-/*!*******************************!*\
-  !*** ./public/left_arrow.png ***!
-  \*******************************/
+/***/ "./Freesentation-4Regular.ttf":
+/*!************************************!*\
+  !*** ./Freesentation-4Regular.ttf ***!
+  \************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-module.exports = __webpack_require__.p + "9244312128b3446fa9e0.png";
+module.exports = __webpack_require__.p + "5a44819596e290b81f5a.ttf";
+
+/***/ }),
+
+/***/ "./Freesentation-5Medium.ttf":
+/*!***********************************!*\
+  !*** ./Freesentation-5Medium.ttf ***!
+  \***********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "79eadc93e2585b741bb8.ttf";
+
+/***/ }),
+
+/***/ "./laundry_bold.ttf":
+/*!**************************!*\
+  !*** ./laundry_bold.ttf ***!
+  \**************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "0be30db2d90a5b26cf65.ttf";
+
+/***/ }),
+
+/***/ "./laundry_regular.ttf":
+/*!*****************************!*\
+  !*** ./laundry_regular.ttf ***!
+  \*****************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "1321609c824ac4aec2b4.ttf";
+
+/***/ }),
+
+/***/ "./public/left_arrow_white.png":
+/*!*************************************!*\
+  !*** ./public/left_arrow_white.png ***!
+  \*************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "6cf89b0d19a9118ee548.png";
+
+/***/ }),
+
+/***/ "./yangjin.otf":
+/*!*********************!*\
+  !*** ./yangjin.otf ***!
+  \*********************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "e0951f0ecb285f558f7c.otf";
 
 /***/ }),
 
@@ -48171,7 +48305,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("e79afe4f083a47f3d5cb")
+/******/ 		__webpack_require__.h = () => ("88f96bfb8adbde1dd380")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

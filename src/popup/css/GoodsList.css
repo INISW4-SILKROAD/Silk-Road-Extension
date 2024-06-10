@@ -1,8 +1,9 @@
 .goods-list-container {
+    width: 450px;
     padding: 20px;
-    background-color: #1e3a56;
-    color: white;
-    border-radius: 8px;
+    background-color: #e5e5e5;
+    color: black;
+    border-radius: 15px;
   }
   
   .category-buttons {
@@ -12,22 +13,27 @@
   }
   
   .category-button {
-    background-color: #000000;
-    color: white;
+    background-color: #FFFFFF;
+    color: #1C2541;
     border: none;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 40px;
     cursor: pointer;
+    font-weight: bold;
+    font-size: 12pt;
+    font-family: 'f5';
   }
   
   .category-button:hover {
-    background-color: #666;
+    background-color: #FFFFFF;
+    color: #000000;
   }
   
   .goods-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+  
   }
   
   .goods-item {
@@ -35,11 +41,17 @@
     margin-bottom: 20px;
     text-align: center;
     cursor: pointer;
+    background-color: white;
+    font-size: 11pt;
+    border-radius: 15px;
+    font-family: 'f4';
+
   }
   
   .goods-item img {
     width: 100%;
-    border-radius: 8px;
+    border-top-left-radius: 15px; /* 상단 왼쪽 모서리 둥글게 */
+    border-top-right-radius: 15px; /* 상단 오른쪽 모서리 둥글게 */
   }
   
   .goods-item p {
@@ -53,3 +65,28 @@
     color: #aaa;
   }
   
+  @font-face {
+    font-family: 'yangjin';
+    src: url('~/yangjin.otf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'laundry-bold';
+    src: url('/Users/kdj/Desktop/silkroad/laundry_bold.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'laundry-regular';
+    src: url('/Users/kdj/Desktop/silkroad/laundry_regular.ttf') format('truetype');
+  }
+
+
+  @font-face {
+    font-family: 'f4';
+    src: url('/Users/kdj/Desktop/silkroad/Freesentation-4Regular.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'f5';
+    src: url('/Users/kdj/Desktop/silkroad/Freesentation-5Medium.ttf') format('truetype');
+  }
