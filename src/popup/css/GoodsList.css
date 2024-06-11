@@ -1,9 +1,10 @@
 .goods-list-container {
-    width: 450px;
+    margin-top: -15px;
+    width: 500px;
     padding: 20px;
-    background-color: #e5e5e5;
-    color: black;
-    border-radius: 15px;
+    /* background-color: #ffffff; */
+    /* color: black; */
+    /* border-radius: 15px; */
   }
   
   .category-buttons {
@@ -13,10 +14,10 @@
   }
   
   .category-button {
-    background-color: #FFFFFF;
-    color: #1C2541;
+    background-color: #20edc7;
+    color: #1e1f23;
     border: none;
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-radius: 40px;
     cursor: pointer;
     font-weight: bold;
@@ -41,11 +42,12 @@
     margin-bottom: 20px;
     text-align: center;
     cursor: pointer;
-    background-color: white;
+    background-color: #FFFFFF;
+    color: #000000;
     font-size: 11pt;
-    border-radius: 15px;
+    border-radius: 8px;
     font-family: 'f4';
-
+    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2);
   }
   
   .goods-item img {
@@ -65,20 +67,6 @@
     color: #aaa;
   }
   
-  @font-face {
-    font-family: 'yangjin';
-    src: url('~/yangjin.otf') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'laundry-bold';
-    src: url('/Users/kdj/Desktop/silkroad/laundry_bold.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'laundry-regular';
-    src: url('/Users/kdj/Desktop/silkroad/laundry_regular.ttf') format('truetype');
-  }
 
 
   @font-face {

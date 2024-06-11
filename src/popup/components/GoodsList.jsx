@@ -41,7 +41,7 @@ const GoodsList = ({ onImageClick }) => {
       <div className="goods-list">
         {goods.map((item) => (
           <div className="goods-item" key={item.ID}>
-            <img src={"./sample.png"} alt={item.NAME} onClick={() => onImageClick(item.ID)} />
+            <img src={"./sample2.jpeg"} alt={item.NAME} onClick={() => onImageClick(item.ID)} />
             <p>{item.NAME}<span></span></p>
           </div>
         ))}

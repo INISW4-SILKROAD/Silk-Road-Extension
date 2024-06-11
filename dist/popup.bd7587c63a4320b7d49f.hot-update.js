@@ -1,0 +1,124 @@
+"use strict";
+self["webpackHotUpdatesilkroad"]("popup",{
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/popup/css/GoodsList.css":
+/*!***************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/popup/css/GoodsList.css ***!
+  \***************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
+// Imports
+
+
+
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ./Freesentation-4Regular.ttf */ "./Freesentation-4Regular.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ./Freesentation-5Medium.ttf */ "./Freesentation-5Medium.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
+    margin-top: -15px;
+    width: 500px;
+    padding: 20px;
+    /* background-color: #ffffff; */
+    /* color: black; */
+    /* border-radius: 15px; */
+  }
+  
+  .category-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .category-button {
+    background-color: #20edc7;
+    color: #1e1f23;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12pt;
+    font-family: 'f5';
+  }
+  
+  .category-button:hover {
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+  
+  .goods-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  
+  }
+  
+  .goods-item {
+    width: 45%;
+    margin-bottom: 20px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    color: #000000;
+    font-size: 11pt;
+    border-radius: 8px;
+    font-family: 'f4';
+  }
+  
+  .goods-item img {
+    width: 100%;
+    border-top-left-radius: 15px; /* 상단 왼쪽 모서리 둥글게 */
+    border-top-right-radius: 15px; /* 상단 오른쪽 모서리 둥글게 */
+  }
+  
+  .goods-item p {
+    margin: 10px 0 0 0;
+    font-size: 0.9em;
+  }
+  
+  .goods-item p span {
+    display: block;
+    font-size: 0.8em;
+    color: #aaa;
+  }
+  
+
+
+  @font-face {
+    font-family: 'f4';
+    src: url(${___CSS_LOADER_URL_REPLACEMENT_0___}) format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'f5';
+    src: url(${___CSS_LOADER_URL_REPLACEMENT_1___}) format('truetype');
+  }`, "",{"version":3,"sources":["webpack://./src/popup/css/GoodsList.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,YAAY;IACZ,aAAa;IACb,+BAA+B;IAC/B,kBAAkB;IAClB,yBAAyB;EAC3B;;EAEA;IACE,aAAa;IACb,6BAA6B;IAC7B,mBAAmB;EACrB;;EAEA;IACE,yBAAyB;IACzB,cAAc;IACd,YAAY;IACZ,iBAAiB;IACjB,mBAAmB;IACnB,eAAe;IACf,iBAAiB;IACjB,eAAe;IACf,iBAAiB;EACnB;;EAEA;IACE,yBAAyB;IACzB,cAAc;EAChB;;EAEA;IACE,aAAa;IACb,eAAe;IACf,6BAA6B;;EAE/B;;EAEA;IACE,UAAU;IACV,mBAAmB;IACnB,kBAAkB;IAClB,eAAe;IACf,yBAAyB;IACzB,cAAc;IACd,eAAe;IACf,kBAAkB;IAClB,iBAAiB;EACnB;;EAEA;IACE,WAAW;IACX,4BAA4B,EAAE,kBAAkB;IAChD,6BAA6B,EAAE,mBAAmB;EACpD;;EAEA;IACE,kBAAkB;IAClB,gBAAgB;EAClB;;EAEA;IACE,cAAc;IACd,gBAAgB;IAChB,WAAW;EACb;;;;EAIA;IACE,iBAAiB;IACjB,+DAAqF;EACvF;;EAEA;IACE,iBAAiB;IACjB,+DAAoF;EACtF","sourcesContent":[".goods-list-container {\n    margin-top: -15px;\n    width: 500px;\n    padding: 20px;\n    /* background-color: #ffffff; */\n    /* color: black; */\n    /* border-radius: 15px; */\n  }\n  \n  .category-buttons {\n    display: flex;\n    justify-content: space-around;\n    margin-bottom: 20px;\n  }\n  \n  .category-button {\n    background-color: #20edc7;\n    color: #1e1f23;\n    border: none;\n    padding: 8px 20px;\n    border-radius: 40px;\n    cursor: pointer;\n    font-weight: bold;\n    font-size: 12pt;\n    font-family: 'f5';\n  }\n  \n  .category-button:hover {\n    background-color: #FFFFFF;\n    color: #000000;\n  }\n  \n  .goods-list {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-around;\n  \n  }\n  \n  .goods-item {\n    width: 45%;\n    margin-bottom: 20px;\n    text-align: center;\n    cursor: pointer;\n    background-color: #FFFFFF;\n    color: #000000;\n    font-size: 11pt;\n    border-radius: 8px;\n    font-family: 'f4';\n  }\n  \n  .goods-item img {\n    width: 100%;\n    border-top-left-radius: 15px; /* 상단 왼쪽 모서리 둥글게 */\n    border-top-right-radius: 15px; /* 상단 오른쪽 모서리 둥글게 */\n  }\n  \n  .goods-item p {\n    margin: 10px 0 0 0;\n    font-size: 0.9em;\n  }\n  \n  .goods-item p span {\n    display: block;\n    font-size: 0.8em;\n    color: #aaa;\n  }\n  \n\n\n  @font-face {\n    font-family: 'f4';\n    src: url('/Users/kdj/Desktop/silkroad/Freesentation-4Regular.ttf') format('truetype');\n  }\n  \n  @font-face {\n    font-family: 'f5';\n    src: url('/Users/kdj/Desktop/silkroad/Freesentation-5Medium.ttf') format('truetype');\n  }"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ })
+
+},
+/******/ function(__webpack_require__) { // webpackRuntimeModules
+/******/ /* webpack/runtime/getFullHash */
+/******/ (() => {
+/******/ 	__webpack_require__.h = () => ("d3734acf14a010296ed0")
+/******/ })();
+/******/ 
+/******/ }
+);
+//# sourceMappingURL=popup.bd7587c63a4320b7d49f.hot-update.js.map

@@ -4771,7 +4771,7 @@ var Detail = function Detail() {
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "image-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-    src: './sample.png',
+    src: './sample2.jpeg',
     alt: product.NAME
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "product-info"
@@ -4940,7 +4940,7 @@ var GoodsList = function GoodsList(_ref) {
       className: "goods-item",
       key: item.ID
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-      src: "./sample.png",
+      src: "./sample2.jpeg",
       alt: item.NAME,
       onClick: function onClick() {
         return onImageClick(item.ID);
@@ -4973,6 +4973,119 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
 function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+// import React from 'react';
+// import ProgressBar from 'react-bootstrap/ProgressBar';
+// import '../css/TouchInfo.css';
+
+// const TouchInfo = () => {
+//   // 임시로 사용할 촉감 데이터 (1~5점)
+//   const touchData = {
+//     softness: 5, // 부드러움
+//     smoothness: 3, // 매끄러움
+//     thickness: 4, // 두꺼움
+//     flexibility: 2, // 신축성
+//   };
+
+//   // 점수에 따른 색상 설정
+//   const getBarColor = (score, color) => {
+//     const opacity = score / 5;
+//     const hexOpacity = Math.round(opacity * 255).toString(16).padStart(2, '0');
+//     return `${color}${hexOpacity}`;
+//   };
+
+//   // 촉감별 대표 색상 설정
+//   const colorMapping = {
+//     softness: '#3A506B', 
+//     smoothness: '#3A506B', 
+//     thickness: '#3A506B', 
+//     flexibility: '#3A506B' 
+//   };
+
+//   return (
+//     <div className="touch-info">
+//       <div className='touch-info-text'>
+//       <h2>촉감 정보</h2>
+//       </div>
+//       <div className='touch-area'>
+//       <div className="touch-bar">
+//         <span>부드러움</span>
+//         <div className="progress-bar-wrapper">
+//         <ProgressBar
+//             now={(touchData.softness / 5) * 100}
+//             className="custom-progress-bar"
+//             style={{
+//               backgroundColor: 'transparent',
+//               backgroundImage: `linear-gradient(to right, ${getBarColor(touchData.softness, colorMapping.softness)} 0%, ${getBarColor(touchData.softness, colorMapping.softness)} ${(touchData.softness / 5) * 100}%, #ffffff ${(touchData.softness / 5) * 100}%, #ffffff 100%)`
+//             }}
+//           />
+//           <div className="ticks">
+//             {[...Array(6)].map((_, i) => (
+//               <div key={i} className="tick" style={{ left: `${(i / 5) * 100}%` }} />
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+//       <div className="touch-bar">
+//         <span>매끄러움</span>
+//         <div className="progress-bar-wrapper">
+//           <ProgressBar
+//             now={(touchData.smoothness / 5) * 100}
+//             className="custom-progress-bar"
+//             style={{
+//               backgroundColor: 'transparent',
+//               backgroundImage: `linear-gradient(to right, ${getBarColor(touchData.smoothness, colorMapping.smoothness)} 0%, ${getBarColor(touchData.smoothness, colorMapping.smoothness)} ${(touchData.smoothness / 5) * 100}%, #ffffff ${(touchData.smoothness / 5) * 100}%, #ffffff 100%)`
+//             }}
+//           />
+//           <div className="ticks">
+//             {[...Array(6)].map((_, i) => (
+//               <div key={i} className="tick" style={{ left: `${(i / 5) * 100}%` }} />
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+//       <div className="touch-bar">
+//         <span>두께</span>
+//         <div className="progress-bar-wrapper">
+//           <ProgressBar
+//             now={(touchData.thickness / 5) * 100}
+//             className="custom-progress-bar"
+//             style={{
+//               backgroundColor: 'transparent',
+//               backgroundImage: `linear-gradient(to right, ${getBarColor(touchData.thickness, colorMapping.thickness)} 0%, ${getBarColor(touchData.thickness, colorMapping.thickness)} ${(touchData.thickness / 5) * 100}%, #ffffff ${(touchData.thickness / 5) * 100}%, #ffffff 100%)`
+//             }}
+//           />
+//           <div className="ticks">
+//             {[...Array(6)].map((_, i) => (
+//               <div key={i} className="tick" style={{ left: `${(i / 5) * 100}%` }} />
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+//       <div className="touch-bar">
+//         <span>신축성</span>
+//         <div className="progress-bar-wrapper">
+//           <ProgressBar
+//             now={(touchData.flexibility / 5) * 100}
+//             className="custom-progress-bar"
+//             style={{
+//               backgroundColor: 'transparent',
+//               backgroundImage: `linear-gradient(to right, ${getBarColor(touchData.flexibility, colorMapping.flexibility)} 0%, ${getBarColor(touchData.flexibility, colorMapping.flexibility)} ${(touchData.flexibility / 5) * 100}%, #ffffff ${(touchData.flexibility / 5) * 100}%, #ffffff 100%)`
+//             }}
+//           />
+//           <div className="ticks">
+//             {[...Array(6)].map((_, i) => (
+//               <div key={i} className="tick" style={{ left: `${(i / 5) * 100}%` }} />
+//             ))}
+//           </div>
+//         </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default TouchInfo;
+
 
 
 
@@ -4988,19 +5101,12 @@ var TouchInfo = function TouchInfo() {
     flexibility: 2 // 신축성
   };
 
-  // 점수에 따른 색상 설정
-  var getBarColor = function getBarColor(score, color) {
-    var opacity = score / 5;
-    var hexOpacity = Math.round(opacity * 255).toString(16).padStart(2, '0');
-    return "".concat(color).concat(hexOpacity);
-  };
-
   // 촉감별 대표 색상 설정
   var colorMapping = {
-    softness: '#3A506B',
-    smoothness: '#3A506B',
-    thickness: '#3A506B',
-    flexibility: '#3A506B'
+    softness: '#20edc7',
+    smoothness: '#20edc7',
+    thickness: '#20edc7',
+    flexibility: '#20edc7'
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "touch-info"
@@ -5017,7 +5123,7 @@ var TouchInfo = function TouchInfo() {
     className: "custom-progress-bar",
     style: {
       backgroundColor: 'transparent',
-      backgroundImage: "linear-gradient(to right, ".concat(getBarColor(touchData.softness, colorMapping.softness), " 0%, ").concat(getBarColor(touchData.softness, colorMapping.softness), " ").concat(touchData.softness / 5 * 100, "%, #ffffff ").concat(touchData.softness / 5 * 100, "%, #ffffff 100%)")
+      backgroundImage: "linear-gradient(to right, ".concat(colorMapping.softness, " 0%, ").concat(colorMapping.softness, " ").concat(touchData.softness / 5 * 100, "%, #ffffff ").concat(touchData.softness / 5 * 100, "%, #ffffff 100%)")
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "ticks"
@@ -5038,7 +5144,7 @@ var TouchInfo = function TouchInfo() {
     className: "custom-progress-bar",
     style: {
       backgroundColor: 'transparent',
-      backgroundImage: "linear-gradient(to right, ".concat(getBarColor(touchData.smoothness, colorMapping.smoothness), " 0%, ").concat(getBarColor(touchData.smoothness, colorMapping.smoothness), " ").concat(touchData.smoothness / 5 * 100, "%, #ffffff ").concat(touchData.smoothness / 5 * 100, "%, #ffffff 100%)")
+      backgroundImage: "linear-gradient(to right, ".concat(colorMapping.smoothness, " 0%, ").concat(colorMapping.smoothness, " ").concat(touchData.smoothness / 5 * 100, "%, #ffffff ").concat(touchData.smoothness / 5 * 100, "%, #ffffff 100%)")
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "ticks"
@@ -5059,7 +5165,7 @@ var TouchInfo = function TouchInfo() {
     className: "custom-progress-bar",
     style: {
       backgroundColor: 'transparent',
-      backgroundImage: "linear-gradient(to right, ".concat(getBarColor(touchData.thickness, colorMapping.thickness), " 0%, ").concat(getBarColor(touchData.thickness, colorMapping.thickness), " ").concat(touchData.thickness / 5 * 100, "%, #ffffff ").concat(touchData.thickness / 5 * 100, "%, #ffffff 100%)")
+      backgroundImage: "linear-gradient(to right, ".concat(colorMapping.thickness, " 0%, ").concat(colorMapping.thickness, " ").concat(touchData.thickness / 5 * 100, "%, #ffffff ").concat(touchData.thickness / 5 * 100, "%, #ffffff 100%)")
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "ticks"
@@ -5080,7 +5186,7 @@ var TouchInfo = function TouchInfo() {
     className: "custom-progress-bar",
     style: {
       backgroundColor: 'transparent',
-      backgroundImage: "linear-gradient(to right, ".concat(getBarColor(touchData.flexibility, colorMapping.flexibility), " 0%, ").concat(getBarColor(touchData.flexibility, colorMapping.flexibility), " ").concat(touchData.flexibility / 5 * 100, "%, #ffffff ").concat(touchData.flexibility / 5 * 100, "%, #ffffff 100%)")
+      backgroundImage: "linear-gradient(to right, ".concat(colorMapping.flexibility, " 0%, ").concat(colorMapping.flexibility, " ").concat(touchData.flexibility / 5 * 100, "%, #ffffff ").concat(touchData.flexibility / 5 * 100, "%, #ffffff 100%)")
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "ticks"
@@ -5216,40 +5322,35 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../public/left_arrow_white.png */ "./public/left_arrow_white.png"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../yangjin.otf */ "./yangjin.otf"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ./laundry_bold.ttf */ "./laundry_bold.ttf"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_3___ = new URL(/* asset import */ __webpack_require__(/*! ./laundry_regular.ttf */ "./laundry_regular.ttf"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_4___ = new URL(/* asset import */ __webpack_require__(/*! ./Freesentation-4Regular.ttf */ "./Freesentation-4Regular.ttf"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_5___ = new URL(/* asset import */ __webpack_require__(/*! ./Freesentation-5Medium.ttf */ "./Freesentation-5Medium.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ./Freesentation-4Regular.ttf */ "./Freesentation-4Regular.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ./Freesentation-5Medium.ttf */ "./Freesentation-5Medium.ttf"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
 var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_2___);
-var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_3___);
-var ___CSS_LOADER_URL_REPLACEMENT_4___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_4___);
-var ___CSS_LOADER_URL_REPLACEMENT_5___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_5___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `#root {
-  background-color: #0B132B;
+  background-color: #1e1f23;
 }
 
 .detail-container {
   width: 500px;
-  height: 800px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #0B132B;
+  background-color: #1e1f23;
 }
 
 .navbar {
+  margin-top: -12px;
   width: 100%;
   height: 15px;
   display: flex;
   justify-content: flex-start;
-  padding: 10px;
-  background-color: #0B132B;
+  /* padding: 10px; */
+  background-color: #1e1f23;
 }
 
 .back-button {
@@ -5264,7 +5365,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#root {
 
 
 .image-container {
-  margin-top: 35px;
+  margin-top: 30px;
   width: 400px; /* 컨테이너 너비 */
   height: 350px;
   display: flex;
@@ -5281,27 +5382,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#root {
   margin-top: 20px;
   text-align: left;
   color: #FFFFFF;
-  font-family: 'laundry-regular';
+  font-family: 'f5';
   font-size: 20pt;
+  font-weight: bold;
 }
 
 .product-info p {
   margin-top: 10px;
   text-align: right;
   color: #FFFFFF;
-  font-family: 'laundry-regular';
+  font-family: 'f4';
   font-size: 18pt;
 }
 
 .view-product-button {
-  background-color: #000000;
-  color: #FFFFFF;
+  margin-top: 10px;
+  background-color: #20edc7;
+  color: #1e1f23;
   padding: 10px 20px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: bold;
   width: 220px;
-  border-radius: 18px;
-  font-family: 'laundry-regular';
+  border-radius: 12px;
+  font-family: 'f5';
 }
 
 .view-product-button:hover {
@@ -5311,30 +5415,14 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#root {
 
 
 @font-face {
-  font-family: 'yangjin';
+  font-family: 'f4';
   src: url(${___CSS_LOADER_URL_REPLACEMENT_1___}) format('truetype');
 }
 
 @font-face {
-  font-family: 'laundry-bold';
-  src: url(${___CSS_LOADER_URL_REPLACEMENT_2___}) format('truetype');
-}
-
-@font-face {
-  font-family: 'laundry-regular';
-  src: url(${___CSS_LOADER_URL_REPLACEMENT_3___}) format('truetype');
-}
-
-
-@font-face {
-  font-family: 'f4';
-  src: url(${___CSS_LOADER_URL_REPLACEMENT_4___}) format('truetype');
-}
-
-@font-face {
   font-family: 'f5';
-  src: url(${___CSS_LOADER_URL_REPLACEMENT_5___}) format('truetype');
-}`, "",{"version":3,"sources":["webpack://./src/popup/css/Detail.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;AAC3B;;AAEA;EACE,YAAY;EACZ,aAAa;EACb,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,aAAa;EACb,2BAA2B;EAC3B,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,2EAAwE;EACxE,wBAAwB;EACxB,YAAY;EACZ,WAAW,EAAE,aAAa;EAC1B,YAAY,EAAE,aAAa;EAC3B,eAAe;EACf,mBAAmB;AACrB;;;AAGA;EACE,gBAAgB;EAChB,YAAY,EAAE,YAAY;EAC1B,aAAa;EACb,aAAa;EACb,uBAAuB,EAAE,WAAW;AACtC;;AAEA;EACE,uBAAuB;EACvB,iBAAiB,EAAE,iBAAiB;EACpC,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,gBAAgB;EAChB,cAAc;EACd,8BAA8B;EAC9B,eAAe;AACjB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,cAAc;EACd,8BAA8B;EAC9B,eAAe;AACjB;;AAEA;EACE,yBAAyB;EACzB,cAAc;EACd,kBAAkB;EAClB,eAAe;EACf,eAAe;EACf,YAAY;EACZ,mBAAmB;EACnB,8BAA8B;AAChC;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;;AAGA;EACE,sBAAsB;EACtB,+DAA4C;AAC9C;;AAEA;EACE,2BAA2B;EAC3B,+DAA2E;AAC7E;;AAEA;EACE,8BAA8B;EAC9B,+DAA8E;AAChF;;;AAGA;EACE,iBAAiB;EACjB,+DAAqF;AACvF;;AAEA;EACE,iBAAiB;EACjB,+DAAoF;AACtF","sourcesContent":["#root {\n  background-color: #0B132B;\n}\n\n.detail-container {\n  width: 500px;\n  height: 800px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 20px;\n  background-color: #0B132B;\n}\n\n.navbar {\n  width: 100%;\n  height: 15px;\n  display: flex;\n  justify-content: flex-start;\n  padding: 10px;\n  background-color: #0B132B;\n}\n\n.back-button {\n  background: url('~/public/left_arrow_white.png') no-repeat center center;\n  background-size: contain;\n  border: none;\n  width: 30px; /* 버튼 크기 조정 */\n  height: 30px; /* 버튼 크기 조정 */\n  cursor: pointer;\n  border-radius: 90px;\n}\n\n\n.image-container {\n  margin-top: 35px;\n  width: 400px; /* 컨테이너 너비 */\n  height: 350px;\n  display: flex;\n  justify-content: center; /* 가운데 정렬 */\n}\n\n.product-image {\n  /* max-width: 300px;  */\n  max-height: 150px; /* 이미지 최대 높이 지정 */\n  object-fit: contain;\n}\n\n.product-info h1 {\n  margin-top: 20px;\n  text-align: left;\n  color: #FFFFFF;\n  font-family: 'laundry-regular';\n  font-size: 20pt;\n}\n\n.product-info p {\n  margin-top: 10px;\n  text-align: right;\n  color: #FFFFFF;\n  font-family: 'laundry-regular';\n  font-size: 18pt;\n}\n\n.view-product-button {\n  background-color: #000000;\n  color: #FFFFFF;\n  padding: 10px 20px;\n  cursor: pointer;\n  font-size: 16px;\n  width: 220px;\n  border-radius: 18px;\n  font-family: 'laundry-regular';\n}\n\n.view-product-button:hover {\n  background-color: #FFFFFF;\n  color: #000000;\n}\n\n\n@font-face {\n  font-family: 'yangjin';\n  src: url('~/yangjin.otf') format('truetype');\n}\n\n@font-face {\n  font-family: 'laundry-bold';\n  src: url('/Users/kdj/Desktop/silkroad/laundry_bold.ttf') format('truetype');\n}\n\n@font-face {\n  font-family: 'laundry-regular';\n  src: url('/Users/kdj/Desktop/silkroad/laundry_regular.ttf') format('truetype');\n}\n\n\n@font-face {\n  font-family: 'f4';\n  src: url('/Users/kdj/Desktop/silkroad/Freesentation-4Regular.ttf') format('truetype');\n}\n\n@font-face {\n  font-family: 'f5';\n  src: url('/Users/kdj/Desktop/silkroad/Freesentation-5Medium.ttf') format('truetype');\n}"],"sourceRoot":""}]);
+  src: url(${___CSS_LOADER_URL_REPLACEMENT_2___}) format('truetype');
+}`, "",{"version":3,"sources":["webpack://./src/popup/css/Detail.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;AAC3B;;AAEA;EACE,YAAY;EACZ,aAAa;EACb,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,iBAAiB;EACjB,WAAW;EACX,YAAY;EACZ,aAAa;EACb,2BAA2B;EAC3B,mBAAmB;EACnB,yBAAyB;AAC3B;;AAEA;EACE,2EAAwE;EACxE,wBAAwB;EACxB,YAAY;EACZ,WAAW,EAAE,aAAa;EAC1B,YAAY,EAAE,aAAa;EAC3B,eAAe;EACf,mBAAmB;AACrB;;;AAGA;EACE,gBAAgB;EAChB,YAAY,EAAE,YAAY;EAC1B,aAAa;EACb,aAAa;EACb,uBAAuB,EAAE,WAAW;AACtC;;AAEA;EACE,uBAAuB;EACvB,iBAAiB,EAAE,iBAAiB;EACpC,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,gBAAgB;EAChB,cAAc;EACd,iBAAiB;EACjB,eAAe;EACf,iBAAiB;AACnB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,cAAc;EACd,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,gBAAgB;EAChB,yBAAyB;EACzB,cAAc;EACd,kBAAkB;EAClB,eAAe;EACf,eAAe;EACf,iBAAiB;EACjB,YAAY;EACZ,mBAAmB;EACnB,iBAAiB;AACnB;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;;AAGA;EACE,iBAAiB;EACjB,+DAAqF;AACvF;;AAEA;EACE,iBAAiB;EACjB,+DAAoF;AACtF","sourcesContent":["#root {\n  background-color: #1e1f23;\n}\n\n.detail-container {\n  width: 500px;\n  height: 600px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 20px;\n  background-color: #1e1f23;\n}\n\n.navbar {\n  margin-top: -12px;\n  width: 100%;\n  height: 15px;\n  display: flex;\n  justify-content: flex-start;\n  /* padding: 10px; */\n  background-color: #1e1f23;\n}\n\n.back-button {\n  background: url('~/public/left_arrow_white.png') no-repeat center center;\n  background-size: contain;\n  border: none;\n  width: 30px; /* 버튼 크기 조정 */\n  height: 30px; /* 버튼 크기 조정 */\n  cursor: pointer;\n  border-radius: 90px;\n}\n\n\n.image-container {\n  margin-top: 30px;\n  width: 400px; /* 컨테이너 너비 */\n  height: 350px;\n  display: flex;\n  justify-content: center; /* 가운데 정렬 */\n}\n\n.product-image {\n  /* max-width: 300px;  */\n  max-height: 150px; /* 이미지 최대 높이 지정 */\n  object-fit: contain;\n}\n\n.product-info h1 {\n  margin-top: 20px;\n  text-align: left;\n  color: #FFFFFF;\n  font-family: 'f5';\n  font-size: 20pt;\n  font-weight: bold;\n}\n\n.product-info p {\n  margin-top: 10px;\n  text-align: right;\n  color: #FFFFFF;\n  font-family: 'f4';\n  font-size: 18pt;\n}\n\n.view-product-button {\n  margin-top: 10px;\n  background-color: #20edc7;\n  color: #1e1f23;\n  padding: 10px 20px;\n  cursor: pointer;\n  font-size: 18px;\n  font-weight: bold;\n  width: 220px;\n  border-radius: 12px;\n  font-family: 'f5';\n}\n\n.view-product-button:hover {\n  background-color: #FFFFFF;\n  color: #000000;\n}\n\n\n@font-face {\n  font-family: 'f4';\n  src: url('/Users/kdj/Desktop/silkroad/Freesentation-4Regular.ttf') format('truetype');\n}\n\n@font-face {\n  font-family: 'f5';\n  src: url('/Users/kdj/Desktop/silkroad/Freesentation-5Medium.ttf') format('truetype');\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5362,24 +5450,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../yangjin.otf */ "./yangjin.otf"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ./laundry_bold.ttf */ "./laundry_bold.ttf"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ./laundry_regular.ttf */ "./laundry_regular.ttf"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_3___ = new URL(/* asset import */ __webpack_require__(/*! ./Freesentation-4Regular.ttf */ "./Freesentation-4Regular.ttf"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_4___ = new URL(/* asset import */ __webpack_require__(/*! ./Freesentation-5Medium.ttf */ "./Freesentation-5Medium.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ./Freesentation-4Regular.ttf */ "./Freesentation-4Regular.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ./Freesentation-5Medium.ttf */ "./Freesentation-5Medium.ttf"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
-var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_2___);
-var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_3___);
-var ___CSS_LOADER_URL_REPLACEMENT_4___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_4___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
-    width: 450px;
+    margin-top: -15px;
+    width: 500px;
     padding: 20px;
-    background-color: #e5e5e5;
-    color: black;
-    border-radius: 15px;
+    /* background-color: #ffffff; */
+    /* color: black; */
+    /* border-radius: 15px; */
   }
   
   .category-buttons {
@@ -5389,10 +5472,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
   }
   
   .category-button {
-    background-color: #FFFFFF;
-    color: #1C2541;
+    background-color: #20edc7;
+    color: #1e1f23;
     border: none;
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-radius: 40px;
     cursor: pointer;
     font-weight: bold;
@@ -5417,11 +5500,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
     margin-bottom: 20px;
     text-align: center;
     cursor: pointer;
-    background-color: white;
+    background-color: #FFFFFF;
+    color: #000000;
     font-size: 11pt;
-    border-radius: 15px;
+    border-radius: 8px;
     font-family: 'f4';
-
+    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2);
   }
   
   .goods-item img {
@@ -5441,31 +5525,17 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
     color: #aaa;
   }
   
-  @font-face {
-    font-family: 'yangjin';
-    src: url(${___CSS_LOADER_URL_REPLACEMENT_0___}) format('truetype');
-  }
-
-  @font-face {
-    font-family: 'laundry-bold';
-    src: url(${___CSS_LOADER_URL_REPLACEMENT_1___}) format('truetype');
-  }
-
-  @font-face {
-    font-family: 'laundry-regular';
-    src: url(${___CSS_LOADER_URL_REPLACEMENT_2___}) format('truetype');
-  }
 
 
   @font-face {
     font-family: 'f4';
-    src: url(${___CSS_LOADER_URL_REPLACEMENT_3___}) format('truetype');
+    src: url(${___CSS_LOADER_URL_REPLACEMENT_0___}) format('truetype');
   }
   
   @font-face {
     font-family: 'f5';
-    src: url(${___CSS_LOADER_URL_REPLACEMENT_4___}) format('truetype');
-  }`, "",{"version":3,"sources":["webpack://./src/popup/css/GoodsList.css"],"names":[],"mappings":"AAAA;IACI,YAAY;IACZ,aAAa;IACb,yBAAyB;IACzB,YAAY;IACZ,mBAAmB;EACrB;;EAEA;IACE,aAAa;IACb,6BAA6B;IAC7B,mBAAmB;EACrB;;EAEA;IACE,yBAAyB;IACzB,cAAc;IACd,YAAY;IACZ,kBAAkB;IAClB,mBAAmB;IACnB,eAAe;IACf,iBAAiB;IACjB,eAAe;IACf,iBAAiB;EACnB;;EAEA;IACE,yBAAyB;IACzB,cAAc;EAChB;;EAEA;IACE,aAAa;IACb,eAAe;IACf,6BAA6B;;EAE/B;;EAEA;IACE,UAAU;IACV,mBAAmB;IACnB,kBAAkB;IAClB,eAAe;IACf,uBAAuB;IACvB,eAAe;IACf,mBAAmB;IACnB,iBAAiB;;EAEnB;;EAEA;IACE,WAAW;IACX,4BAA4B,EAAE,kBAAkB;IAChD,6BAA6B,EAAE,mBAAmB;EACpD;;EAEA;IACE,kBAAkB;IAClB,gBAAgB;EAClB;;EAEA;IACE,cAAc;IACd,gBAAgB;IAChB,WAAW;EACb;;EAEA;IACE,sBAAsB;IACtB,+DAA4C;EAC9C;;EAEA;IACE,2BAA2B;IAC3B,+DAA2E;EAC7E;;EAEA;IACE,8BAA8B;IAC9B,+DAA8E;EAChF;;;EAGA;IACE,iBAAiB;IACjB,+DAAqF;EACvF;;EAEA;IACE,iBAAiB;IACjB,+DAAoF;EACtF","sourcesContent":[".goods-list-container {\n    width: 450px;\n    padding: 20px;\n    background-color: #e5e5e5;\n    color: black;\n    border-radius: 15px;\n  }\n  \n  .category-buttons {\n    display: flex;\n    justify-content: space-around;\n    margin-bottom: 20px;\n  }\n  \n  .category-button {\n    background-color: #FFFFFF;\n    color: #1C2541;\n    border: none;\n    padding: 10px 20px;\n    border-radius: 40px;\n    cursor: pointer;\n    font-weight: bold;\n    font-size: 12pt;\n    font-family: 'f5';\n  }\n  \n  .category-button:hover {\n    background-color: #FFFFFF;\n    color: #000000;\n  }\n  \n  .goods-list {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-around;\n  \n  }\n  \n  .goods-item {\n    width: 45%;\n    margin-bottom: 20px;\n    text-align: center;\n    cursor: pointer;\n    background-color: white;\n    font-size: 11pt;\n    border-radius: 15px;\n    font-family: 'f4';\n\n  }\n  \n  .goods-item img {\n    width: 100%;\n    border-top-left-radius: 15px; /* 상단 왼쪽 모서리 둥글게 */\n    border-top-right-radius: 15px; /* 상단 오른쪽 모서리 둥글게 */\n  }\n  \n  .goods-item p {\n    margin: 10px 0 0 0;\n    font-size: 0.9em;\n  }\n  \n  .goods-item p span {\n    display: block;\n    font-size: 0.8em;\n    color: #aaa;\n  }\n  \n  @font-face {\n    font-family: 'yangjin';\n    src: url('~/yangjin.otf') format('truetype');\n  }\n\n  @font-face {\n    font-family: 'laundry-bold';\n    src: url('/Users/kdj/Desktop/silkroad/laundry_bold.ttf') format('truetype');\n  }\n\n  @font-face {\n    font-family: 'laundry-regular';\n    src: url('/Users/kdj/Desktop/silkroad/laundry_regular.ttf') format('truetype');\n  }\n\n\n  @font-face {\n    font-family: 'f4';\n    src: url('/Users/kdj/Desktop/silkroad/Freesentation-4Regular.ttf') format('truetype');\n  }\n  \n  @font-face {\n    font-family: 'f5';\n    src: url('/Users/kdj/Desktop/silkroad/Freesentation-5Medium.ttf') format('truetype');\n  }"],"sourceRoot":""}]);
+    src: url(${___CSS_LOADER_URL_REPLACEMENT_1___}) format('truetype');
+  }`, "",{"version":3,"sources":["webpack://./src/popup/css/GoodsList.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,YAAY;IACZ,aAAa;IACb,+BAA+B;IAC/B,kBAAkB;IAClB,yBAAyB;EAC3B;;EAEA;IACE,aAAa;IACb,6BAA6B;IAC7B,mBAAmB;EACrB;;EAEA;IACE,yBAAyB;IACzB,cAAc;IACd,YAAY;IACZ,iBAAiB;IACjB,mBAAmB;IACnB,eAAe;IACf,iBAAiB;IACjB,eAAe;IACf,iBAAiB;EACnB;;EAEA;IACE,yBAAyB;IACzB,cAAc;EAChB;;EAEA;IACE,aAAa;IACb,eAAe;IACf,6BAA6B;;EAE/B;;EAEA;IACE,UAAU;IACV,mBAAmB;IACnB,kBAAkB;IAClB,eAAe;IACf,yBAAyB;IACzB,cAAc;IACd,eAAe;IACf,kBAAkB;IAClB,iBAAiB;IACjB,0CAA0C;EAC5C;;EAEA;IACE,WAAW;IACX,4BAA4B,EAAE,kBAAkB;IAChD,6BAA6B,EAAE,mBAAmB;EACpD;;EAEA;IACE,kBAAkB;IAClB,gBAAgB;EAClB;;EAEA;IACE,cAAc;IACd,gBAAgB;IAChB,WAAW;EACb;;;;EAIA;IACE,iBAAiB;IACjB,+DAAqF;EACvF;;EAEA;IACE,iBAAiB;IACjB,+DAAoF;EACtF","sourcesContent":[".goods-list-container {\n    margin-top: -15px;\n    width: 500px;\n    padding: 20px;\n    /* background-color: #ffffff; */\n    /* color: black; */\n    /* border-radius: 15px; */\n  }\n  \n  .category-buttons {\n    display: flex;\n    justify-content: space-around;\n    margin-bottom: 20px;\n  }\n  \n  .category-button {\n    background-color: #20edc7;\n    color: #1e1f23;\n    border: none;\n    padding: 8px 16px;\n    border-radius: 40px;\n    cursor: pointer;\n    font-weight: bold;\n    font-size: 12pt;\n    font-family: 'f5';\n  }\n  \n  .category-button:hover {\n    background-color: #FFFFFF;\n    color: #000000;\n  }\n  \n  .goods-list {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-around;\n  \n  }\n  \n  .goods-item {\n    width: 45%;\n    margin-bottom: 20px;\n    text-align: center;\n    cursor: pointer;\n    background-color: #FFFFFF;\n    color: #000000;\n    font-size: 11pt;\n    border-radius: 8px;\n    font-family: 'f4';\n    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2);\n  }\n  \n  .goods-item img {\n    width: 100%;\n    border-top-left-radius: 15px; /* 상단 왼쪽 모서리 둥글게 */\n    border-top-right-radius: 15px; /* 상단 오른쪽 모서리 둥글게 */\n  }\n  \n  .goods-item p {\n    margin: 10px 0 0 0;\n    font-size: 0.9em;\n  }\n  \n  .goods-item p span {\n    display: block;\n    font-size: 0.8em;\n    color: #aaa;\n  }\n  \n\n\n  @font-face {\n    font-family: 'f4';\n    src: url('/Users/kdj/Desktop/silkroad/Freesentation-4Regular.ttf') format('truetype');\n  }\n  \n  @font-face {\n    font-family: 'f5';\n    src: url('/Users/kdj/Desktop/silkroad/Freesentation-5Medium.ttf') format('truetype');\n  }"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5493,7 +5563,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.popup-container {
-  background-color: #0B132B;
+  background-color: #1e1f23;
   display: flex;
   flex-direction: column;
   align-items: center; /* 중앙 정렬 */
@@ -5505,13 +5575,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.popup-container {
   background-color: #0B132B;
 }
 
-/* 
-@font-face { 
-  font-family: ‘yangjin’; 
-  src: url(‘https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff’) format(‘woff’); 
-  font-weight: normal; 
-  font-style: normal; 
-} */`, "",{"version":3,"sources":["webpack://./src/popup/css/Main.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;EACzB,aAAa;EACb,sBAAsB;EACtB,mBAAmB,EAAE,UAAU;EAC/B,uBAAuB,EAAE,wBAAwB;AACnD;AACA;EACE,YAAY;EACZ,cAAc;EACd,yBAAyB;AAC3B;;AAEA;;;;;;GAMG","sourcesContent":[".popup-container {\n  background-color: #0B132B;\n  display: flex;\n  flex-direction: column;\n  align-items: center; /* 중앙 정렬 */\n  justify-content: center; /* 수직 중앙 정렬, 필요에 따라 사용 */\n}\n#root {\n  width: 500px;\n  height: 1000px;\n  background-color: #0B132B;\n}\n\n/* \n@font-face { \n  font-family: ‘yangjin’; \n  src: url(‘https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff’) format(‘woff’); \n  font-weight: normal; \n  font-style: normal; \n} */"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/popup/css/Main.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;EACzB,aAAa;EACb,sBAAsB;EACtB,mBAAmB,EAAE,UAAU;EAC/B,uBAAuB,EAAE,wBAAwB;AACnD;AACA;EACE,YAAY;EACZ,cAAc;EACd,yBAAyB;AAC3B","sourcesContent":[".popup-container {\n  background-color: #1e1f23;\n  display: flex;\n  flex-direction: column;\n  align-items: center; /* 중앙 정렬 */\n  justify-content: center; /* 수직 중앙 정렬, 필요에 따라 사용 */\n}\n#root {\n  width: 500px;\n  height: 1000px;\n  background-color: #0B132B;\n}\n\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5547,9 +5611,10 @@ var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_g
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.touch-info {
   margin-top: 3%;
-  background-color: #e5e5e5;
+  /* background-color: #3d3f46; */
+  background-color: rgba(61, 63, 70, 0.45);
   padding: 20px;
-  border-radius: 15px;
+  border-radius: 8px;
   width: 450px;
   height: 200px;
   margin-bottom: 20px;
@@ -5564,20 +5629,22 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.touch-info {
 
 .touch-area {
   width: 420px;
-  background-color: #e5e5e5;
   border-radius: 15px;
 }
 
 .touch-info h2 {
   font-size: 1.5em;
-  color: #000000;
+  color: #FFFFFF;
+  /* text-align: left; */
+  
 }
 
 .touch-bar {
+  /* background-color: rgba(61, 63, 70, 0.5); */
   display: flex;
   align-items: center;
   margin: 5px 0;
-  color: #000000;
+  color: #FFFFFF;
 }
 
 .touch-bar span {
@@ -5607,17 +5674,21 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.touch-info {
 .tick {
   width: 4px;
   height: 100%;
-  background-color: #3A506B;
+  background-color: #3d3f46;
 }
 
 
 .touch-info-text {
-  margin-bottom: 10px;
+  margin-top: 2px;
+  margin-bottom: 5px;
   width: 450px;
   height: 50px;
   /* background-color: #D1D1D1; */
   text-align: center;
 }
+
+/* Rectangle */
+
 
 
 
@@ -5629,7 +5700,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.touch-info {
 @font-face {
   font-family: 'f5';
   src: url(${___CSS_LOADER_URL_REPLACEMENT_1___}) format('truetype');
-}`, "",{"version":3,"sources":["webpack://./src/popup/css/TouchInfo.css"],"names":[],"mappings":"AAAA;EACE,cAAc;EACd,yBAAyB;EACzB,aAAa;EACb,mBAAmB;EACnB,YAAY;EACZ,aAAa;EACb,mBAAmB;;EAEnB,aAAa;EACb,sBAAsB;EACtB,mBAAmB,EAAE,UAAU;EAC/B,uBAAuB;EACvB,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,YAAY;EACZ,yBAAyB;EACzB,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,cAAc;AAChB;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,aAAa;EACb,cAAc;AAChB;;AAEA;EACE,OAAO;AACT;;AAEA;EACE,OAAO;EACP,kBAAkB;AACpB;;AAEA;EACE,wCAAwC;EACxC,iCAAiC;AACnC;;AAEA;EACE,kBAAkB;EAClB,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,aAAa;EACb,8BAA8B;AAChC;;AAEA;EACE,UAAU;EACV,YAAY;EACZ,yBAAyB;AAC3B;;;AAGA;EACE,mBAAmB;EACnB,YAAY;EACZ,YAAY;EACZ,+BAA+B;EAC/B,kBAAkB;AACpB;;;;AAIA;EACE,iBAAiB;EACjB,+DAAqF;AACvF;;AAEA;EACE,iBAAiB;EACjB,+DAAoF;AACtF","sourcesContent":[".touch-info {\n  margin-top: 3%;\n  background-color: #e5e5e5;\n  padding: 20px;\n  border-radius: 15px;\n  width: 450px;\n  height: 200px;\n  margin-bottom: 20px;\n\n  display: flex;\n  flex-direction: column;\n  align-items: center; /* 중앙 정렬 */\n  justify-content: center;\n  font-family: 'f5';\n  font-size: 13pt;\n}\n\n.touch-area {\n  width: 420px;\n  background-color: #e5e5e5;\n  border-radius: 15px;\n}\n\n.touch-info h2 {\n  font-size: 1.5em;\n  color: #000000;\n}\n\n.touch-bar {\n  display: flex;\n  align-items: center;\n  margin: 5px 0;\n  color: #000000;\n}\n\n.touch-bar span {\n  flex: 1;\n}\n\n.progress-bar-wrapper {\n  flex: 4;\n  position: relative;\n}\n\n.custom-progress-bar .progress-bar {\n  background-color: transparent !important;\n  background-image: none !important;\n}\n\n.ticks {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  display: flex;\n  justify-content: space-between;\n}\n\n.tick {\n  width: 4px;\n  height: 100%;\n  background-color: #3A506B;\n}\n\n\n.touch-info-text {\n  margin-bottom: 10px;\n  width: 450px;\n  height: 50px;\n  /* background-color: #D1D1D1; */\n  text-align: center;\n}\n\n\n\n@font-face {\n  font-family: 'f4';\n  src: url('/Users/kdj/Desktop/silkroad/Freesentation-4Regular.ttf') format('truetype');\n}\n\n@font-face {\n  font-family: 'f5';\n  src: url('/Users/kdj/Desktop/silkroad/Freesentation-5Medium.ttf') format('truetype');\n}"],"sourceRoot":""}]);
+}
+
+
+
+
+`, "",{"version":3,"sources":["webpack://./src/popup/css/TouchInfo.css"],"names":[],"mappings":"AAAA;EACE,cAAc;EACd,+BAA+B;EAC/B,wCAAwC;EACxC,aAAa;EACb,kBAAkB;EAClB,YAAY;EACZ,aAAa;EACb,mBAAmB;;EAEnB,aAAa;EACb,sBAAsB;EACtB,mBAAmB,EAAE,UAAU;EAC/B,uBAAuB;EACvB,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,YAAY;EACZ,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,cAAc;EACd,sBAAsB;;AAExB;;AAEA;EACE,6CAA6C;EAC7C,aAAa;EACb,mBAAmB;EACnB,aAAa;EACb,cAAc;AAChB;;AAEA;EACE,OAAO;AACT;;AAEA;EACE,OAAO;EACP,kBAAkB;AACpB;;AAEA;EACE,wCAAwC;EACxC,iCAAiC;AACnC;;AAEA;EACE,kBAAkB;EAClB,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,aAAa;EACb,8BAA8B;AAChC;;AAEA;EACE,UAAU;EACV,YAAY;EACZ,yBAAyB;AAC3B;;;AAGA;EACE,eAAe;EACf,kBAAkB;EAClB,YAAY;EACZ,YAAY;EACZ,+BAA+B;EAC/B,kBAAkB;AACpB;;AAEA,cAAc;;;;;AAKd;EACE,iBAAiB;EACjB,+DAAqF;AACvF;;AAEA;EACE,iBAAiB;EACjB,+DAAoF;AACtF","sourcesContent":[".touch-info {\n  margin-top: 3%;\n  /* background-color: #3d3f46; */\n  background-color: rgba(61, 63, 70, 0.45);\n  padding: 20px;\n  border-radius: 8px;\n  width: 450px;\n  height: 200px;\n  margin-bottom: 20px;\n\n  display: flex;\n  flex-direction: column;\n  align-items: center; /* 중앙 정렬 */\n  justify-content: center;\n  font-family: 'f5';\n  font-size: 13pt;\n}\n\n.touch-area {\n  width: 420px;\n  border-radius: 15px;\n}\n\n.touch-info h2 {\n  font-size: 1.5em;\n  color: #FFFFFF;\n  /* text-align: left; */\n  \n}\n\n.touch-bar {\n  /* background-color: rgba(61, 63, 70, 0.5); */\n  display: flex;\n  align-items: center;\n  margin: 5px 0;\n  color: #FFFFFF;\n}\n\n.touch-bar span {\n  flex: 1;\n}\n\n.progress-bar-wrapper {\n  flex: 4;\n  position: relative;\n}\n\n.custom-progress-bar .progress-bar {\n  background-color: transparent !important;\n  background-image: none !important;\n}\n\n.ticks {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  display: flex;\n  justify-content: space-between;\n}\n\n.tick {\n  width: 4px;\n  height: 100%;\n  background-color: #3d3f46;\n}\n\n\n.touch-info-text {\n  margin-top: 2px;\n  margin-bottom: 5px;\n  width: 450px;\n  height: 50px;\n  /* background-color: #D1D1D1; */\n  text-align: center;\n}\n\n/* Rectangle */\n\n\n\n\n@font-face {\n  font-family: 'f4';\n  src: url('/Users/kdj/Desktop/silkroad/Freesentation-4Regular.ttf') format('truetype');\n}\n\n@font-face {\n  font-family: 'f5';\n  src: url('/Users/kdj/Desktop/silkroad/Freesentation-5Medium.ttf') format('truetype');\n}\n\n\n\n\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -48063,28 +48139,6 @@ module.exports = __webpack_require__.p + "79eadc93e2585b741bb8.ttf";
 
 /***/ }),
 
-/***/ "./laundry_bold.ttf":
-/*!**************************!*\
-  !*** ./laundry_bold.ttf ***!
-  \**************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "0be30db2d90a5b26cf65.ttf";
-
-/***/ }),
-
-/***/ "./laundry_regular.ttf":
-/*!*****************************!*\
-  !*** ./laundry_regular.ttf ***!
-  \*****************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "1321609c824ac4aec2b4.ttf";
-
-/***/ }),
-
 /***/ "./public/left_arrow_white.png":
 /*!*************************************!*\
   !*** ./public/left_arrow_white.png ***!
@@ -48093,17 +48147,6 @@ module.exports = __webpack_require__.p + "1321609c824ac4aec2b4.ttf";
 
 "use strict";
 module.exports = __webpack_require__.p + "6cf89b0d19a9118ee548.png";
-
-/***/ }),
-
-/***/ "./yangjin.otf":
-/*!*********************!*\
-  !*** ./yangjin.otf ***!
-  \*********************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "e0951f0ecb285f558f7c.otf";
 
 /***/ }),
 
@@ -48305,7 +48348,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("88f96bfb8adbde1dd380")
+/******/ 		__webpack_require__.h = () => ("13c9b5f17f0a5887227c")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

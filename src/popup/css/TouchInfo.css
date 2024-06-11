@@ -1,8 +1,9 @@
 .touch-info {
   margin-top: 3%;
-  background-color: #e5e5e5;
+  /* background-color: #3d3f46; */
+  background-color: rgba(61, 63, 70, 0.45);
   padding: 20px;
-  border-radius: 15px;
+  border-radius: 8px;
   width: 450px;
   height: 200px;
   margin-bottom: 20px;
@@ -17,20 +18,22 @@
 
 .touch-area {
   width: 420px;
-  background-color: #e5e5e5;
   border-radius: 15px;
 }
 
 .touch-info h2 {
   font-size: 1.5em;
-  color: #000000;
+  color: #FFFFFF;
+  /* text-align: left; */
+  
 }
 
 .touch-bar {
+  /* background-color: rgba(61, 63, 70, 0.5); */
   display: flex;
   align-items: center;
   margin: 5px 0;
-  color: #000000;
+  color: #FFFFFF;
 }
 
 .touch-bar span {
@@ -60,17 +63,21 @@
 .tick {
   width: 4px;
   height: 100%;
-  background-color: #3A506B;
+  background-color: #3d3f46;
 }
 
 
 .touch-info-text {
-  margin-bottom: 10px;
+  margin-top: 2px;
+  margin-bottom: 5px;
   width: 450px;
   height: 50px;
   /* background-color: #D1D1D1; */
   text-align: center;
 }
+
+/* Rectangle */
+
 
 
 
@@ -83,3 +90,7 @@
   font-family: 'f5';
   src: url('/Users/kdj/Desktop/silkroad/Freesentation-5Medium.ttf') format('truetype');
 }
+
+
+
+
