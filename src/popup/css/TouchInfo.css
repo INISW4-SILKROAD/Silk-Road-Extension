@@ -83,12 +83,11 @@
 
 @font-face {
   font-family: 'f4';
-  src: url('/Users/kdj/Desktop/silkroad/Freesentation-4Regular.ttf') format('truetype');
+  src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');
 }
-
 @font-face {
   font-family: 'f5';
-  src: url('/Users/kdj/Desktop/silkroad/Freesentation-5Medium.ttf') format('truetype');
+  src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');
 }
 
 

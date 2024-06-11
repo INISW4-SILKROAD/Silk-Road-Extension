@@ -4861,6 +4861,59 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+// import React, { useEffect, useState } from 'react';
+// import '../css/GoodsList.css';
+
+// const GoodsList = ({ onImageClick }) => {
+//   const [goods, setGoods] = useState([]);
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       if (chrome && chrome.runtime && chrome.runtime.sendMessage) {
+//         // 크롬 확장 프로그램 환경
+//         chrome.runtime.sendMessage({ action: 'fetchGoods' }, (response) => {
+//           if (response && response.error) {
+//             console.error('Error fetching goods:', response.error);
+//           } else if (response && response.data) {
+//             setGoods(Array.isArray(response.data) ? response.data : []);
+//           }
+//         });
+//       } else {
+//         // 로컬 개발 환경
+//         try {
+//           const response = await fetch('http://127.0.0.1:5001/goods');
+//           const data = await response.json();
+//           setGoods(Array.isArray(data) ? data : []);
+//         } catch (error) {
+//           console.error('Error fetching goods:', error);
+//         }
+//       }
+//     };
+//     fetchData();
+//   }, []);
+
+//   return (
+//     <div className="goods-list-container">
+//       <div className="category-buttons">
+//         <button className="category-button">부드러움</button>
+//         <button className="category-button">매끄러움</button>
+//         <button className="category-button">두께</button>
+//         <button className="category-button">신축성</button>
+//       </div>
+//       <div className="goods-list">
+//         {goods.map((item) => (
+//           <div className="goods-item" key={item.ID}>
+//             <img src={"./sample2.jpeg"} alt={item.NAME} onClick={() => onImageClick(item.ID)} />
+//             <p>{item.NAME}<span></span></p>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default GoodsList;
+
 
 
 var GoodsList = function GoodsList(_ref) {
@@ -4872,48 +4925,27 @@ var GoodsList = function GoodsList(_ref) {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var fetchData = /*#__PURE__*/function () {
       var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var response, data;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
-              if (!(chrome && chrome.runtime && chrome.runtime.sendMessage)) {
-                _context.next = 4;
-                break;
+              if (chrome && chrome.runtime && chrome.runtime.sendMessage) {
+                chrome.runtime.sendMessage({
+                  action: 'fetchGoods'
+                }, function (response) {
+                  if (response && response.error) {
+                    console.error('Error fetching goods:', response.error);
+                  } else if (response && response.data) {
+                    setGoods(Array.isArray(response.data) ? response.data : []);
+                  }
+                });
+              } else {
+                console.error('크롬 확장 프로그램 환경이 아닙니다.');
               }
-              // 크롬 확장 프로그램 환경
-              chrome.runtime.sendMessage({
-                action: 'fetchGoods'
-              }, function (response) {
-                if (response && response.error) {
-                  console.error('Error fetching goods:', response.error);
-                } else if (response && response.data) {
-                  setGoods(Array.isArray(response.data) ? response.data : []);
-                }
-              });
-              _context.next = 17;
-              break;
-            case 4:
-              _context.prev = 4;
-              _context.next = 7;
-              return fetch('http://127.0.0.1:5001/goods');
-            case 7:
-              response = _context.sent;
-              _context.next = 10;
-              return response.json();
-            case 10:
-              data = _context.sent;
-              setGoods(Array.isArray(data) ? data : []);
-              _context.next = 17;
-              break;
-            case 14:
-              _context.prev = 14;
-              _context.t0 = _context["catch"](4);
-              console.error('Error fetching goods:', _context.t0);
-            case 17:
+            case 1:
             case "end":
               return _context.stop();
           }
-        }, _callee, null, [[4, 14]]);
+        }, _callee);
       }));
       return function fetchData() {
         return _ref2.apply(this, arguments);
@@ -4938,14 +4970,14 @@ var GoodsList = function GoodsList(_ref) {
   }, goods.map(function (item) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       className: "goods-item",
-      key: item.ID
+      key: item.product.ID
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-      src: "./sample2.jpeg",
-      alt: item.NAME,
+      src: item.image_path,
+      alt: item.product.NAME,
       onClick: function onClick() {
-        return onImageClick(item.ID);
+        return onImageClick(item.product.ID);
       }
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, item.NAME, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null)));
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, item.product.NAME, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null)));
   })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GoodsList);
@@ -5321,9 +5353,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../public/left_arrow_white.png */ "./public/left_arrow_white.png"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ./Freesentation-4Regular.ttf */ "./Freesentation-4Regular.ttf"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ./Freesentation-5Medium.ttf */ "./Freesentation-5Medium.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../../public/left_arrow_white.png */ "./public/left_arrow_white.png"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Freesentation-4Regular.ttf */ "./public/fonts/Freesentation-4Regular.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Freesentation-5Medium.ttf */ "./public/fonts/Freesentation-5Medium.ttf"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
@@ -5418,11 +5450,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#root {
   font-family: 'f4';
   src: url(${___CSS_LOADER_URL_REPLACEMENT_1___}) format('truetype');
 }
-
 @font-face {
   font-family: 'f5';
   src: url(${___CSS_LOADER_URL_REPLACEMENT_2___}) format('truetype');
-}`, "",{"version":3,"sources":["webpack://./src/popup/css/Detail.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;AAC3B;;AAEA;EACE,YAAY;EACZ,aAAa;EACb,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,iBAAiB;EACjB,WAAW;EACX,YAAY;EACZ,aAAa;EACb,2BAA2B;EAC3B,mBAAmB;EACnB,yBAAyB;AAC3B;;AAEA;EACE,2EAAwE;EACxE,wBAAwB;EACxB,YAAY;EACZ,WAAW,EAAE,aAAa;EAC1B,YAAY,EAAE,aAAa;EAC3B,eAAe;EACf,mBAAmB;AACrB;;;AAGA;EACE,gBAAgB;EAChB,YAAY,EAAE,YAAY;EAC1B,aAAa;EACb,aAAa;EACb,uBAAuB,EAAE,WAAW;AACtC;;AAEA;EACE,uBAAuB;EACvB,iBAAiB,EAAE,iBAAiB;EACpC,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,gBAAgB;EAChB,cAAc;EACd,iBAAiB;EACjB,eAAe;EACf,iBAAiB;AACnB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,cAAc;EACd,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,gBAAgB;EAChB,yBAAyB;EACzB,cAAc;EACd,kBAAkB;EAClB,eAAe;EACf,eAAe;EACf,iBAAiB;EACjB,YAAY;EACZ,mBAAmB;EACnB,iBAAiB;AACnB;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;;AAGA;EACE,iBAAiB;EACjB,+DAAqF;AACvF;;AAEA;EACE,iBAAiB;EACjB,+DAAoF;AACtF","sourcesContent":["#root {\n  background-color: #1e1f23;\n}\n\n.detail-container {\n  width: 500px;\n  height: 600px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 20px;\n  background-color: #1e1f23;\n}\n\n.navbar {\n  margin-top: -12px;\n  width: 100%;\n  height: 15px;\n  display: flex;\n  justify-content: flex-start;\n  /* padding: 10px; */\n  background-color: #1e1f23;\n}\n\n.back-button {\n  background: url('~/public/left_arrow_white.png') no-repeat center center;\n  background-size: contain;\n  border: none;\n  width: 30px; /* 버튼 크기 조정 */\n  height: 30px; /* 버튼 크기 조정 */\n  cursor: pointer;\n  border-radius: 90px;\n}\n\n\n.image-container {\n  margin-top: 30px;\n  width: 400px; /* 컨테이너 너비 */\n  height: 350px;\n  display: flex;\n  justify-content: center; /* 가운데 정렬 */\n}\n\n.product-image {\n  /* max-width: 300px;  */\n  max-height: 150px; /* 이미지 최대 높이 지정 */\n  object-fit: contain;\n}\n\n.product-info h1 {\n  margin-top: 20px;\n  text-align: left;\n  color: #FFFFFF;\n  font-family: 'f5';\n  font-size: 20pt;\n  font-weight: bold;\n}\n\n.product-info p {\n  margin-top: 10px;\n  text-align: right;\n  color: #FFFFFF;\n  font-family: 'f4';\n  font-size: 18pt;\n}\n\n.view-product-button {\n  margin-top: 10px;\n  background-color: #20edc7;\n  color: #1e1f23;\n  padding: 10px 20px;\n  cursor: pointer;\n  font-size: 18px;\n  font-weight: bold;\n  width: 220px;\n  border-radius: 12px;\n  font-family: 'f5';\n}\n\n.view-product-button:hover {\n  background-color: #FFFFFF;\n  color: #000000;\n}\n\n\n@font-face {\n  font-family: 'f4';\n  src: url('/Users/kdj/Desktop/silkroad/Freesentation-4Regular.ttf') format('truetype');\n}\n\n@font-face {\n  font-family: 'f5';\n  src: url('/Users/kdj/Desktop/silkroad/Freesentation-5Medium.ttf') format('truetype');\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/popup/css/Detail.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;AAC3B;;AAEA;EACE,YAAY;EACZ,aAAa;EACb,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,iBAAiB;EACjB,WAAW;EACX,YAAY;EACZ,aAAa;EACb,2BAA2B;EAC3B,mBAAmB;EACnB,yBAAyB;AAC3B;;AAEA;EACE,2EAAwE;EACxE,wBAAwB;EACxB,YAAY;EACZ,WAAW,EAAE,aAAa;EAC1B,YAAY,EAAE,aAAa;EAC3B,eAAe;EACf,mBAAmB;AACrB;;;AAGA;EACE,gBAAgB;EAChB,YAAY,EAAE,YAAY;EAC1B,aAAa;EACb,aAAa;EACb,uBAAuB,EAAE,WAAW;AACtC;;AAEA;EACE,uBAAuB;EACvB,iBAAiB,EAAE,iBAAiB;EACpC,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,gBAAgB;EAChB,cAAc;EACd,iBAAiB;EACjB,eAAe;EACf,iBAAiB;AACnB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,cAAc;EACd,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,gBAAgB;EAChB,yBAAyB;EACzB,cAAc;EACd,kBAAkB;EAClB,eAAe;EACf,eAAe;EACf,iBAAiB;EACjB,YAAY;EACZ,mBAAmB;EACnB,iBAAiB;AACnB;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;;AAGA;EACE,iBAAiB;EACjB,+DAA+E;AACjF;AACA;EACE,iBAAiB;EACjB,+DAA8E;AAChF","sourcesContent":["#root {\r\n  background-color: #1e1f23;\r\n}\r\n\r\n.detail-container {\r\n  width: 500px;\r\n  height: 600px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  padding: 20px;\r\n  background-color: #1e1f23;\r\n}\r\n\r\n.navbar {\r\n  margin-top: -12px;\r\n  width: 100%;\r\n  height: 15px;\r\n  display: flex;\r\n  justify-content: flex-start;\r\n  /* padding: 10px; */\r\n  background-color: #1e1f23;\r\n}\r\n\r\n.back-button {\r\n  background: url('~/public/left_arrow_white.png') no-repeat center center;\r\n  background-size: contain;\r\n  border: none;\r\n  width: 30px; /* 버튼 크기 조정 */\r\n  height: 30px; /* 버튼 크기 조정 */\r\n  cursor: pointer;\r\n  border-radius: 90px;\r\n}\r\n\r\n\r\n.image-container {\r\n  margin-top: 30px;\r\n  width: 400px; /* 컨테이너 너비 */\r\n  height: 350px;\r\n  display: flex;\r\n  justify-content: center; /* 가운데 정렬 */\r\n}\r\n\r\n.product-image {\r\n  /* max-width: 300px;  */\r\n  max-height: 150px; /* 이미지 최대 높이 지정 */\r\n  object-fit: contain;\r\n}\r\n\r\n.product-info h1 {\r\n  margin-top: 20px;\r\n  text-align: left;\r\n  color: #FFFFFF;\r\n  font-family: 'f5';\r\n  font-size: 20pt;\r\n  font-weight: bold;\r\n}\r\n\r\n.product-info p {\r\n  margin-top: 10px;\r\n  text-align: right;\r\n  color: #FFFFFF;\r\n  font-family: 'f4';\r\n  font-size: 18pt;\r\n}\r\n\r\n.view-product-button {\r\n  margin-top: 10px;\r\n  background-color: #20edc7;\r\n  color: #1e1f23;\r\n  padding: 10px 20px;\r\n  cursor: pointer;\r\n  font-size: 18px;\r\n  font-weight: bold;\r\n  width: 220px;\r\n  border-radius: 12px;\r\n  font-family: 'f5';\r\n}\r\n\r\n.view-product-button:hover {\r\n  background-color: #FFFFFF;\r\n  color: #000000;\r\n}\r\n\r\n\r\n@font-face {\r\n  font-family: 'f4';\r\n  src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'f5';\r\n  src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5450,8 +5481,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ./Freesentation-4Regular.ttf */ "./Freesentation-4Regular.ttf"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ./Freesentation-5Medium.ttf */ "./Freesentation-5Medium.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Freesentation-4Regular.ttf */ "./public/fonts/Freesentation-4Regular.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Freesentation-5Medium.ttf */ "./public/fonts/Freesentation-5Medium.ttf"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
@@ -5531,11 +5562,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
     font-family: 'f4';
     src: url(${___CSS_LOADER_URL_REPLACEMENT_0___}) format('truetype');
   }
-  
   @font-face {
     font-family: 'f5';
     src: url(${___CSS_LOADER_URL_REPLACEMENT_1___}) format('truetype');
-  }`, "",{"version":3,"sources":["webpack://./src/popup/css/GoodsList.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,YAAY;IACZ,aAAa;IACb,+BAA+B;IAC/B,kBAAkB;IAClB,yBAAyB;EAC3B;;EAEA;IACE,aAAa;IACb,6BAA6B;IAC7B,mBAAmB;EACrB;;EAEA;IACE,yBAAyB;IACzB,cAAc;IACd,YAAY;IACZ,iBAAiB;IACjB,mBAAmB;IACnB,eAAe;IACf,iBAAiB;IACjB,eAAe;IACf,iBAAiB;EACnB;;EAEA;IACE,yBAAyB;IACzB,cAAc;EAChB;;EAEA;IACE,aAAa;IACb,eAAe;IACf,6BAA6B;;EAE/B;;EAEA;IACE,UAAU;IACV,mBAAmB;IACnB,kBAAkB;IAClB,eAAe;IACf,yBAAyB;IACzB,cAAc;IACd,eAAe;IACf,kBAAkB;IAClB,iBAAiB;IACjB,0CAA0C;EAC5C;;EAEA;IACE,WAAW;IACX,4BAA4B,EAAE,kBAAkB;IAChD,6BAA6B,EAAE,mBAAmB;EACpD;;EAEA;IACE,kBAAkB;IAClB,gBAAgB;EAClB;;EAEA;IACE,cAAc;IACd,gBAAgB;IAChB,WAAW;EACb;;;;EAIA;IACE,iBAAiB;IACjB,+DAAqF;EACvF;;EAEA;IACE,iBAAiB;IACjB,+DAAoF;EACtF","sourcesContent":[".goods-list-container {\n    margin-top: -15px;\n    width: 500px;\n    padding: 20px;\n    /* background-color: #ffffff; */\n    /* color: black; */\n    /* border-radius: 15px; */\n  }\n  \n  .category-buttons {\n    display: flex;\n    justify-content: space-around;\n    margin-bottom: 20px;\n  }\n  \n  .category-button {\n    background-color: #20edc7;\n    color: #1e1f23;\n    border: none;\n    padding: 8px 16px;\n    border-radius: 40px;\n    cursor: pointer;\n    font-weight: bold;\n    font-size: 12pt;\n    font-family: 'f5';\n  }\n  \n  .category-button:hover {\n    background-color: #FFFFFF;\n    color: #000000;\n  }\n  \n  .goods-list {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-around;\n  \n  }\n  \n  .goods-item {\n    width: 45%;\n    margin-bottom: 20px;\n    text-align: center;\n    cursor: pointer;\n    background-color: #FFFFFF;\n    color: #000000;\n    font-size: 11pt;\n    border-radius: 8px;\n    font-family: 'f4';\n    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2);\n  }\n  \n  .goods-item img {\n    width: 100%;\n    border-top-left-radius: 15px; /* 상단 왼쪽 모서리 둥글게 */\n    border-top-right-radius: 15px; /* 상단 오른쪽 모서리 둥글게 */\n  }\n  \n  .goods-item p {\n    margin: 10px 0 0 0;\n    font-size: 0.9em;\n  }\n  \n  .goods-item p span {\n    display: block;\n    font-size: 0.8em;\n    color: #aaa;\n  }\n  \n\n\n  @font-face {\n    font-family: 'f4';\n    src: url('/Users/kdj/Desktop/silkroad/Freesentation-4Regular.ttf') format('truetype');\n  }\n  \n  @font-face {\n    font-family: 'f5';\n    src: url('/Users/kdj/Desktop/silkroad/Freesentation-5Medium.ttf') format('truetype');\n  }"],"sourceRoot":""}]);
+  }`, "",{"version":3,"sources":["webpack://./src/popup/css/GoodsList.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,YAAY;IACZ,aAAa;IACb,+BAA+B;IAC/B,kBAAkB;IAClB,yBAAyB;EAC3B;;EAEA;IACE,aAAa;IACb,6BAA6B;IAC7B,mBAAmB;EACrB;;EAEA;IACE,yBAAyB;IACzB,cAAc;IACd,YAAY;IACZ,iBAAiB;IACjB,mBAAmB;IACnB,eAAe;IACf,iBAAiB;IACjB,eAAe;IACf,iBAAiB;EACnB;;EAEA;IACE,yBAAyB;IACzB,cAAc;EAChB;;EAEA;IACE,aAAa;IACb,eAAe;IACf,6BAA6B;;EAE/B;;EAEA;IACE,UAAU;IACV,mBAAmB;IACnB,kBAAkB;IAClB,eAAe;IACf,yBAAyB;IACzB,cAAc;IACd,eAAe;IACf,kBAAkB;IAClB,iBAAiB;IACjB,0CAA0C;EAC5C;;EAEA;IACE,WAAW;IACX,4BAA4B,EAAE,kBAAkB;IAChD,6BAA6B,EAAE,mBAAmB;EACpD;;EAEA;IACE,kBAAkB;IAClB,gBAAgB;EAClB;;EAEA;IACE,cAAc;IACd,gBAAgB;IAChB,WAAW;EACb;;;;EAIA;IACE,iBAAiB;IACjB,+DAA+E;EACjF;EACA;IACE,iBAAiB;IACjB,+DAA8E;EAChF","sourcesContent":[".goods-list-container {\r\n    margin-top: -15px;\r\n    width: 500px;\r\n    padding: 20px;\r\n    /* background-color: #ffffff; */\r\n    /* color: black; */\r\n    /* border-radius: 15px; */\r\n  }\r\n  \r\n  .category-buttons {\r\n    display: flex;\r\n    justify-content: space-around;\r\n    margin-bottom: 20px;\r\n  }\r\n  \r\n  .category-button {\r\n    background-color: #20edc7;\r\n    color: #1e1f23;\r\n    border: none;\r\n    padding: 8px 16px;\r\n    border-radius: 40px;\r\n    cursor: pointer;\r\n    font-weight: bold;\r\n    font-size: 12pt;\r\n    font-family: 'f5';\r\n  }\r\n  \r\n  .category-button:hover {\r\n    background-color: #FFFFFF;\r\n    color: #000000;\r\n  }\r\n  \r\n  .goods-list {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n  \r\n  }\r\n  \r\n  .goods-item {\r\n    width: 45%;\r\n    margin-bottom: 20px;\r\n    text-align: center;\r\n    cursor: pointer;\r\n    background-color: #FFFFFF;\r\n    color: #000000;\r\n    font-size: 11pt;\r\n    border-radius: 8px;\r\n    font-family: 'f4';\r\n    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2);\r\n  }\r\n  \r\n  .goods-item img {\r\n    width: 100%;\r\n    border-top-left-radius: 15px; /* 상단 왼쪽 모서리 둥글게 */\r\n    border-top-right-radius: 15px; /* 상단 오른쪽 모서리 둥글게 */\r\n  }\r\n  \r\n  .goods-item p {\r\n    margin: 10px 0 0 0;\r\n    font-size: 0.9em;\r\n  }\r\n  \r\n  .goods-item p span {\r\n    display: block;\r\n    font-size: 0.8em;\r\n    color: #aaa;\r\n  }\r\n  \r\n\r\n\r\n  @font-face {\r\n    font-family: 'f4';\r\n    src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');\r\n  }\r\n  @font-face {\r\n    font-family: 'f5';\r\n    src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');\r\n  }"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5575,7 +5605,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.popup-container {
   background-color: #0B132B;
 }
 
-`, "",{"version":3,"sources":["webpack://./src/popup/css/Main.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;EACzB,aAAa;EACb,sBAAsB;EACtB,mBAAmB,EAAE,UAAU;EAC/B,uBAAuB,EAAE,wBAAwB;AACnD;AACA;EACE,YAAY;EACZ,cAAc;EACd,yBAAyB;AAC3B","sourcesContent":[".popup-container {\n  background-color: #1e1f23;\n  display: flex;\n  flex-direction: column;\n  align-items: center; /* 중앙 정렬 */\n  justify-content: center; /* 수직 중앙 정렬, 필요에 따라 사용 */\n}\n#root {\n  width: 500px;\n  height: 1000px;\n  background-color: #0B132B;\n}\n\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/popup/css/Main.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;EACzB,aAAa;EACb,sBAAsB;EACtB,mBAAmB,EAAE,UAAU;EAC/B,uBAAuB,EAAE,wBAAwB;AACnD;AACA;EACE,YAAY;EACZ,cAAc;EACd,yBAAyB;AAC3B","sourcesContent":[".popup-container {\r\n  background-color: #1e1f23;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center; /* 중앙 정렬 */\r\n  justify-content: center; /* 수직 중앙 정렬, 필요에 따라 사용 */\r\n}\r\n#root {\r\n  width: 500px;\r\n  height: 1000px;\r\n  background-color: #0B132B;\r\n}\r\n\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5603,8 +5633,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ./Freesentation-4Regular.ttf */ "./Freesentation-4Regular.ttf"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ./Freesentation-5Medium.ttf */ "./Freesentation-5Medium.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Freesentation-4Regular.ttf */ "./public/fonts/Freesentation-4Regular.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Freesentation-5Medium.ttf */ "./public/fonts/Freesentation-5Medium.ttf"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
@@ -5696,7 +5726,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.touch-info {
   font-family: 'f4';
   src: url(${___CSS_LOADER_URL_REPLACEMENT_0___}) format('truetype');
 }
-
 @font-face {
   font-family: 'f5';
   src: url(${___CSS_LOADER_URL_REPLACEMENT_1___}) format('truetype');
@@ -5705,7 +5734,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.touch-info {
 
 
 
-`, "",{"version":3,"sources":["webpack://./src/popup/css/TouchInfo.css"],"names":[],"mappings":"AAAA;EACE,cAAc;EACd,+BAA+B;EAC/B,wCAAwC;EACxC,aAAa;EACb,kBAAkB;EAClB,YAAY;EACZ,aAAa;EACb,mBAAmB;;EAEnB,aAAa;EACb,sBAAsB;EACtB,mBAAmB,EAAE,UAAU;EAC/B,uBAAuB;EACvB,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,YAAY;EACZ,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,cAAc;EACd,sBAAsB;;AAExB;;AAEA;EACE,6CAA6C;EAC7C,aAAa;EACb,mBAAmB;EACnB,aAAa;EACb,cAAc;AAChB;;AAEA;EACE,OAAO;AACT;;AAEA;EACE,OAAO;EACP,kBAAkB;AACpB;;AAEA;EACE,wCAAwC;EACxC,iCAAiC;AACnC;;AAEA;EACE,kBAAkB;EAClB,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,aAAa;EACb,8BAA8B;AAChC;;AAEA;EACE,UAAU;EACV,YAAY;EACZ,yBAAyB;AAC3B;;;AAGA;EACE,eAAe;EACf,kBAAkB;EAClB,YAAY;EACZ,YAAY;EACZ,+BAA+B;EAC/B,kBAAkB;AACpB;;AAEA,cAAc;;;;;AAKd;EACE,iBAAiB;EACjB,+DAAqF;AACvF;;AAEA;EACE,iBAAiB;EACjB,+DAAoF;AACtF","sourcesContent":[".touch-info {\n  margin-top: 3%;\n  /* background-color: #3d3f46; */\n  background-color: rgba(61, 63, 70, 0.45);\n  padding: 20px;\n  border-radius: 8px;\n  width: 450px;\n  height: 200px;\n  margin-bottom: 20px;\n\n  display: flex;\n  flex-direction: column;\n  align-items: center; /* 중앙 정렬 */\n  justify-content: center;\n  font-family: 'f5';\n  font-size: 13pt;\n}\n\n.touch-area {\n  width: 420px;\n  border-radius: 15px;\n}\n\n.touch-info h2 {\n  font-size: 1.5em;\n  color: #FFFFFF;\n  /* text-align: left; */\n  \n}\n\n.touch-bar {\n  /* background-color: rgba(61, 63, 70, 0.5); */\n  display: flex;\n  align-items: center;\n  margin: 5px 0;\n  color: #FFFFFF;\n}\n\n.touch-bar span {\n  flex: 1;\n}\n\n.progress-bar-wrapper {\n  flex: 4;\n  position: relative;\n}\n\n.custom-progress-bar .progress-bar {\n  background-color: transparent !important;\n  background-image: none !important;\n}\n\n.ticks {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  display: flex;\n  justify-content: space-between;\n}\n\n.tick {\n  width: 4px;\n  height: 100%;\n  background-color: #3d3f46;\n}\n\n\n.touch-info-text {\n  margin-top: 2px;\n  margin-bottom: 5px;\n  width: 450px;\n  height: 50px;\n  /* background-color: #D1D1D1; */\n  text-align: center;\n}\n\n/* Rectangle */\n\n\n\n\n@font-face {\n  font-family: 'f4';\n  src: url('/Users/kdj/Desktop/silkroad/Freesentation-4Regular.ttf') format('truetype');\n}\n\n@font-face {\n  font-family: 'f5';\n  src: url('/Users/kdj/Desktop/silkroad/Freesentation-5Medium.ttf') format('truetype');\n}\n\n\n\n\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/popup/css/TouchInfo.css"],"names":[],"mappings":"AAAA;EACE,cAAc;EACd,+BAA+B;EAC/B,wCAAwC;EACxC,aAAa;EACb,kBAAkB;EAClB,YAAY;EACZ,aAAa;EACb,mBAAmB;;EAEnB,aAAa;EACb,sBAAsB;EACtB,mBAAmB,EAAE,UAAU;EAC/B,uBAAuB;EACvB,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,YAAY;EACZ,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,cAAc;EACd,sBAAsB;;AAExB;;AAEA;EACE,6CAA6C;EAC7C,aAAa;EACb,mBAAmB;EACnB,aAAa;EACb,cAAc;AAChB;;AAEA;EACE,OAAO;AACT;;AAEA;EACE,OAAO;EACP,kBAAkB;AACpB;;AAEA;EACE,wCAAwC;EACxC,iCAAiC;AACnC;;AAEA;EACE,kBAAkB;EAClB,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,aAAa;EACb,8BAA8B;AAChC;;AAEA;EACE,UAAU;EACV,YAAY;EACZ,yBAAyB;AAC3B;;;AAGA;EACE,eAAe;EACf,kBAAkB;EAClB,YAAY;EACZ,YAAY;EACZ,+BAA+B;EAC/B,kBAAkB;AACpB;;AAEA,cAAc;;;;;AAKd;EACE,iBAAiB;EACjB,+DAA+E;AACjF;AACA;EACE,iBAAiB;EACjB,+DAA8E;AAChF","sourcesContent":[".touch-info {\r\n  margin-top: 3%;\r\n  /* background-color: #3d3f46; */\r\n  background-color: rgba(61, 63, 70, 0.45);\r\n  padding: 20px;\r\n  border-radius: 8px;\r\n  width: 450px;\r\n  height: 200px;\r\n  margin-bottom: 20px;\r\n\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center; /* 중앙 정렬 */\r\n  justify-content: center;\r\n  font-family: 'f5';\r\n  font-size: 13pt;\r\n}\r\n\r\n.touch-area {\r\n  width: 420px;\r\n  border-radius: 15px;\r\n}\r\n\r\n.touch-info h2 {\r\n  font-size: 1.5em;\r\n  color: #FFFFFF;\r\n  /* text-align: left; */\r\n  \r\n}\r\n\r\n.touch-bar {\r\n  /* background-color: rgba(61, 63, 70, 0.5); */\r\n  display: flex;\r\n  align-items: center;\r\n  margin: 5px 0;\r\n  color: #FFFFFF;\r\n}\r\n\r\n.touch-bar span {\r\n  flex: 1;\r\n}\r\n\r\n.progress-bar-wrapper {\r\n  flex: 4;\r\n  position: relative;\r\n}\r\n\r\n.custom-progress-bar .progress-bar {\r\n  background-color: transparent !important;\r\n  background-image: none !important;\r\n}\r\n\r\n.ticks {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  display: flex;\r\n  justify-content: space-between;\r\n}\r\n\r\n.tick {\r\n  width: 4px;\r\n  height: 100%;\r\n  background-color: #3d3f46;\r\n}\r\n\r\n\r\n.touch-info-text {\r\n  margin-top: 2px;\r\n  margin-bottom: 5px;\r\n  width: 450px;\r\n  height: 50px;\r\n  /* background-color: #D1D1D1; */\r\n  text-align: center;\r\n}\r\n\r\n/* Rectangle */\r\n\r\n\r\n\r\n\r\n@font-face {\r\n  font-family: 'f4';\r\n  src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'f5';\r\n  src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');\r\n}\r\n\r\n\r\n\r\n\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -48117,25 +48146,25 @@ module.exports = "data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%
 
 /***/ }),
 
-/***/ "./Freesentation-4Regular.ttf":
-/*!************************************!*\
-  !*** ./Freesentation-4Regular.ttf ***!
-  \************************************/
+/***/ "./public/fonts/Freesentation-4Regular.ttf":
+/*!*************************************************!*\
+  !*** ./public/fonts/Freesentation-4Regular.ttf ***!
+  \*************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-module.exports = __webpack_require__.p + "5a44819596e290b81f5a.ttf";
+module.exports = __webpack_require__.p + "80f0c15a92c3c1f29211.ttf";
 
 /***/ }),
 
-/***/ "./Freesentation-5Medium.ttf":
-/*!***********************************!*\
-  !*** ./Freesentation-5Medium.ttf ***!
-  \***********************************/
+/***/ "./public/fonts/Freesentation-5Medium.ttf":
+/*!************************************************!*\
+  !*** ./public/fonts/Freesentation-5Medium.ttf ***!
+  \************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-module.exports = __webpack_require__.p + "79eadc93e2585b741bb8.ttf";
+module.exports = __webpack_require__.p + "b64db67b2f2030bdbbb2.ttf";
 
 /***/ }),
 
@@ -48348,7 +48377,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("13c9b5f17f0a5887227c")
+/******/ 		__webpack_require__.h = () => ("6ff912c987f279ddfb75")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
