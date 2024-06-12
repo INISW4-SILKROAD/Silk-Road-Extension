@@ -4735,55 +4735,6 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-// import React, { useEffect, useState } from 'react';
-// import { useParams, useNavigate } from 'react-router-dom';
-// import './css/Detail.css';
-// import TouchInfo from './components/TouchInfo';
-
-// const Detail = () => {
-//   const { id } = useParams();
-//   const navigate = useNavigate();
-//   const [product, setProduct] = useState(null);
-//   const [images, setImages] = useState([]);
-
-//   useEffect(() => {
-//     fetch(`http://localhost:5001/goods/${id}`)
-//       .then((response) => response.json())
-//       .then((data) => {
-//         setProduct(data.product);
-//         setImages(data.images);
-//       })
-//       .catch((error) => console.error('Error fetching product:', error));
-//   }, [id]);
-
-//   if (!product) {
-//     return <div>Loading...</div>;
-//   }
-
-//   return (
-//     <div className="detail-container">
-//       <div className="navbar">
-//         <button className="back-button" onClick={() => navigate('/')}></button>
-//       </div>
-//       <div className="image-container">
-//         {images.map((image, index) => (
-//           <img key={index} src={`http://127.0.0.1:5001/${image}`} alt={`${product.NAME} 이미지 ${index + 1}`} />
-//         ))}
-//       </div>
-//       <div className="product-info">
-//         <h1 className="product-name">{product.NAME}</h1>
-//         <p className="price">{product.PRICE} 원</p>
-//       </div>
-//       <div className="tactile-info-container">
-//         <TouchInfo />
-//       </div>
-//       <button className="view-product-button" onClick={() => window.open(product.LINK, '_blank')}>상품 보러가기</button>
-//     </div>
-//   );
-// };
-
-// export default Detail;
-
 
 
 
@@ -4817,9 +4768,10 @@ var Detail = function Detail() {
     onClick: function onClick() {
       return navigate('/');
     }
-  }, "Back")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "image-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    className: "product-image",
     src: product.image_path,
     alt: product.NAME
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
@@ -4910,204 +4862,6 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-// import React, { useEffect, useState } from 'react';
-// import '../css/GoodsList.css';
-
-// const GoodsList = ({ onImageClick }) => {
-//   const [goods, setGoods] = useState([]);
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       if (chrome && chrome.runtime && chrome.runtime.sendMessage) {
-//         // 크롬 확장 프로그램 환경
-//         chrome.runtime.sendMessage({ action: 'fetchGoods' }, (response) => {
-//           if (response && response.error) {
-//             console.error('Error fetching goods:', response.error);
-//           } else if (response && response.data) {
-//             setGoods(Array.isArray(response.data) ? response.data : []);
-//           }
-//         });
-//       } else {
-//         // 로컬 개발 환경
-//         try {
-//           const response = await fetch('http://127.0.0.1:5001/goods');
-//           const data = await response.json();
-//           setGoods(Array.isArray(data) ? data : []);
-//         } catch (error) {
-//           console.error('Error fetching goods:', error);
-//         }
-//       }
-//     };
-//     fetchData();
-//   }, []);
-
-//   return (
-//     <div className="goods-list-container">
-//       <div className="category-buttons">
-//         <button className="category-button">부드러움</button>
-//         <button className="category-button">매끄러움</button>
-//         <button className="category-button">두께</button>
-//         <button className="category-button">신축성</button>
-//       </div>
-//       <div className="goods-list">
-//         {goods.map((item) => (
-//           <div className="goods-item" key={item.ID}>
-//             <img src={"./sample2.jpeg"} alt={item.NAME} onClick={() => onImageClick(item.ID)} />
-//             <p>{item.NAME}<span></span></p>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default GoodsList;
-
-// import React, { useEffect, useState } from 'react';
-// import '../css/GoodsList.css';
-
-// const GoodsList = ({ onImageClick }) => {
-//   const [goods, setGoods] = useState([]);
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       if (chrome && chrome.runtime && chrome.runtime.sendMessage) {
-//         chrome.runtime.sendMessage({ action: 'fetchGoods' }, (response) => {
-//           if (response && response.error) {
-//             console.error('Error fetching goods:', response.error);
-//           } else if (response && response.data) {
-//             setGoods(Array.isArray(response.data) ? response.data : []);
-//           }
-//         });
-//       } else {
-//         console.error('크롬 확장 프로그램 환경이 아닙니다.');
-//       }
-//     };
-//     fetchData();
-//   }, []);
-
-//   return (
-//     <div className="goods-list-container">
-//       <div className="category-buttons">
-//         <button className="category-button">부드러움</button>
-//         <button className="category-button">매끄러움</button>
-//         <button className="category-button">두께</button>
-//         <button className="category-button">신축성</button>
-//       </div>
-//       <div className="goods-list">
-//         {goods.map((item) => (
-//           <div className="goods-item" key={item.product.ID}>
-//             <img src={`http://127.0.0.1:5001/images/${item.product.ID}`} alt={item.product.NAME} onClick={() => onImageClick(item.product.ID)} />
-//             <p>{item.product.NAME}<span></span></p>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default GoodsList;
-
-// import React, { useEffect, useState } from 'react';
-// import '../css/GoodsList.css';
-
-// const GoodsList = ({ onImageClick }) => {
-//   const [goods, setGoods] = useState([]);
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const response = await fetch('http://127.0.0.1:5001/goods');
-//         const data = await response.json();
-//         setGoods(Array.isArray(data) ? data : []);
-//       } catch (error) {
-//         console.error('Error fetching goods:', error);
-//       }
-//     };
-//     fetchData();
-//   }, []);
-
-//   return (
-//     <div className="goods-list-container">
-//       <div className="category-buttons">
-//         <button className="category-button">부드러움</button>
-//         <button className="category-button">매끄러움</button>
-//         <button className="category-button">두께</button>
-//         <button className="category-button">신축성</button>
-//       </div>
-//       <div className="goods-list">
-//         {goods.map((item) => (
-//           <div className="goods-item" key={item.ID}>
-//             <img src={item.image_path} alt={item.NAME} onClick={() => onImageClick(item.ID)} />
-//             <p>{item.NAME}<span></span></p>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default GoodsList;
-
-// import React, { useEffect, useState } from 'react';
-// import '../css/GoodsList.css';
-
-// const GoodsList = ({ onImageClick }) => {
-//   const [goods, setGoods] = useState([]);
-
-//   useEffect(() => {
-//     const fetchData = async (gids) => {
-//       try {
-//         const response = await fetch('http://127.0.0.1:5001/fetch-goods', {
-//           method: 'POST',
-//           headers: {
-//             'Content-Type': 'application/json'
-//           },
-//           body: JSON.stringify({ gids })
-//         });
-//         const data = await response.json();
-//         setGoods(Array.isArray(data) ? data : []);
-//       } catch (error) {
-//         console.error('Error fetching goods:', error);
-//       }
-//     };
-
-//     if (chrome && chrome.runtime && chrome.runtime.sendMessage) {
-//       chrome.runtime.sendMessage({ action: 'fetchGoods' }, (response) => {
-//         if (response && response.error) {
-//           console.error('Error fetching goods:', response.error);
-//         } else if (response && response.data) {
-//           const gids = response.data.map(item => item.gid);
-//           fetchData(gids);
-//         }
-//       });
-//     } else {
-//       console.error('크롬 확장 프로그램 환경이 아닙니다.');
-//     }
-//   }, []);
-
-//   return (
-//     <div className="goods-list-container">
-//       <div className="category-buttons">
-//         <button className="category-button">부드러움</button>
-//         <button className="category-button">매끄러움</button>
-//         <button className="category-button">두께</button>
-//         <button className="category-button">신축성</button>
-//       </div>
-//       <div className="goods-list">
-//         {goods.map((item) => (
-//           <div className="goods-item" key={item.ID}>
-//             <img src={item.image_path} alt={item.NAME} onClick={() => onImageClick(item.ID)} />
-//             <p>{item.NAME}<span></span></p>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default GoodsList;
-
 
 
 var GoodsList = function GoodsList(_ref) {
@@ -5226,119 +4980,6 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
 function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
-// import React from 'react';
-// import ProgressBar from 'react-bootstrap/ProgressBar';
-// import '../css/TouchInfo.css';
-
-// const TouchInfo = () => {
-//   // 임시로 사용할 촉감 데이터 (1~5점)
-//   const touchData = {
-//     softness: 5, // 부드러움
-//     smoothness: 3, // 매끄러움
-//     thickness: 4, // 두꺼움
-//     flexibility: 2, // 신축성
-//   };
-
-//   // 점수에 따른 색상 설정
-//   const getBarColor = (score, color) => {
-//     const opacity = score / 5;
-//     const hexOpacity = Math.round(opacity * 255).toString(16).padStart(2, '0');
-//     return `${color}${hexOpacity}`;
-//   };
-
-//   // 촉감별 대표 색상 설정
-//   const colorMapping = {
-//     softness: '#3A506B', 
-//     smoothness: '#3A506B', 
-//     thickness: '#3A506B', 
-//     flexibility: '#3A506B' 
-//   };
-
-//   return (
-//     <div className="touch-info">
-//       <div className='touch-info-text'>
-//       <h2>촉감 정보</h2>
-//       </div>
-//       <div className='touch-area'>
-//       <div className="touch-bar">
-//         <span>부드러움</span>
-//         <div className="progress-bar-wrapper">
-//         <ProgressBar
-//             now={(touchData.softness / 5) * 100}
-//             className="custom-progress-bar"
-//             style={{
-//               backgroundColor: 'transparent',
-//               backgroundImage: `linear-gradient(to right, ${getBarColor(touchData.softness, colorMapping.softness)} 0%, ${getBarColor(touchData.softness, colorMapping.softness)} ${(touchData.softness / 5) * 100}%, #ffffff ${(touchData.softness / 5) * 100}%, #ffffff 100%)`
-//             }}
-//           />
-//           <div className="ticks">
-//             {[...Array(6)].map((_, i) => (
-//               <div key={i} className="tick" style={{ left: `${(i / 5) * 100}%` }} />
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//       <div className="touch-bar">
-//         <span>매끄러움</span>
-//         <div className="progress-bar-wrapper">
-//           <ProgressBar
-//             now={(touchData.smoothness / 5) * 100}
-//             className="custom-progress-bar"
-//             style={{
-//               backgroundColor: 'transparent',
-//               backgroundImage: `linear-gradient(to right, ${getBarColor(touchData.smoothness, colorMapping.smoothness)} 0%, ${getBarColor(touchData.smoothness, colorMapping.smoothness)} ${(touchData.smoothness / 5) * 100}%, #ffffff ${(touchData.smoothness / 5) * 100}%, #ffffff 100%)`
-//             }}
-//           />
-//           <div className="ticks">
-//             {[...Array(6)].map((_, i) => (
-//               <div key={i} className="tick" style={{ left: `${(i / 5) * 100}%` }} />
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//       <div className="touch-bar">
-//         <span>두께</span>
-//         <div className="progress-bar-wrapper">
-//           <ProgressBar
-//             now={(touchData.thickness / 5) * 100}
-//             className="custom-progress-bar"
-//             style={{
-//               backgroundColor: 'transparent',
-//               backgroundImage: `linear-gradient(to right, ${getBarColor(touchData.thickness, colorMapping.thickness)} 0%, ${getBarColor(touchData.thickness, colorMapping.thickness)} ${(touchData.thickness / 5) * 100}%, #ffffff ${(touchData.thickness / 5) * 100}%, #ffffff 100%)`
-//             }}
-//           />
-//           <div className="ticks">
-//             {[...Array(6)].map((_, i) => (
-//               <div key={i} className="tick" style={{ left: `${(i / 5) * 100}%` }} />
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//       <div className="touch-bar">
-//         <span>신축성</span>
-//         <div className="progress-bar-wrapper">
-//           <ProgressBar
-//             now={(touchData.flexibility / 5) * 100}
-//             className="custom-progress-bar"
-//             style={{
-//               backgroundColor: 'transparent',
-//               backgroundImage: `linear-gradient(to right, ${getBarColor(touchData.flexibility, colorMapping.flexibility)} 0%, ${getBarColor(touchData.flexibility, colorMapping.flexibility)} ${(touchData.flexibility / 5) * 100}%, #ffffff ${(touchData.flexibility / 5) * 100}%, #ffffff 100%)`
-//             }}
-//           />
-//           <div className="ticks">
-//             {[...Array(6)].map((_, i) => (
-//               <div key={i} className="tick" style={{ left: `${(i / 5) * 100}%` }} />
-//             ))}
-//           </div>
-//         </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default TouchInfo;
-
 
 
 
@@ -5587,66 +5228,78 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#root {
 }
 
 .detail-container {
-  width: 500px;
-  height: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #1e1f23;
+  background-color: #1e1f23; /* 백그라운드 색상 추가 */
 }
 
 .navbar {
-  margin-top: -12px;
-  width: 100%;
-  height: 15px;
+  margin-top: -10px;
+  width: 100%; /* 너비를 100%로 설정 */
+  height: 40px;
   display: flex;
   justify-content: flex-start;
-  /* padding: 10px; */
+  padding: 10px;
   background-color: #1e1f23;
 }
 
 .back-button {
+  margin-left: -10px;
   background: url(${___CSS_LOADER_URL_REPLACEMENT_0___}) no-repeat center center;
   background-size: contain;
   border: none;
-  width: 30px; /* 버튼 크기 조정 */
-  height: 30px; /* 버튼 크기 조정 */
+  width: 33px; /* 버튼 크기 조정 */
+  height: 33px; /* 버튼 크기 조정 */
   cursor: pointer;
   border-radius: 90px;
 }
 
-
 .image-container {
-  margin-top: 30px;
+  border-radius: 8px;
+  margin-top: 10px; /* 상단 마진 조정 */
   width: 400px; /* 컨테이너 너비 */
-  height: 350px;
+  height: 400px; /* 컨테이너 높이 */
   display: flex;
-  justify-content: center; /* 가운데 정렬 */
+  justify-content: center; 
+  align-items: center;
+  overflow: hidden; /* 이미지가 컨테이너를 넘지 않도록 설정 */
+  border-radius: 8px;
+  box-shadow:  7px 7px rgba(0, 0, 0, 0.2);
 }
 
 .product-image {
-  /* max-width: 300px;  */
-  max-height: 150px; /* 이미지 최대 높이 지정 */
-  object-fit: contain;
+  width: 100%; /* 컨테이너 너비에 맞추기 */
+  height: auto; /* 높이는 자동으로 조정 */
+  object-fit: contain; /* 비율을 유지하며 컨테이너에 맞추기 */
+}
+
+.product-info {
+  width: 100%;
+  padding: 20px;
+  color: #FFFFFF;
 }
 
 .product-info h1 {
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: left;
-  color: #FFFFFF;
   font-family: 'f5';
-  font-size: 20pt;
+  font-size: 15pt;
   font-weight: bold;
 }
 
 .product-info p {
   margin-top: 10px;
   text-align: right;
-  color: #FFFFFF;
   font-family: 'f4';
-  font-size: 18pt;
+  font-size: 12pt;
 }
+
+.tactile-info-container {
+  margin-top: -30px;
+}
+
 
 .view-product-button {
   margin-top: 10px;
@@ -5666,7 +5319,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#root {
   color: #000000;
 }
 
-
 @font-face {
   font-family: 'f4';
   src: url(${___CSS_LOADER_URL_REPLACEMENT_1___}) format('truetype');
@@ -5674,7 +5326,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#root {
 @font-face {
   font-family: 'f5';
   src: url(${___CSS_LOADER_URL_REPLACEMENT_2___}) format('truetype');
-}`, "",{"version":3,"sources":["webpack://./src/popup/css/Detail.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;AAC3B;;AAEA;EACE,YAAY;EACZ,aAAa;EACb,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,iBAAiB;EACjB,WAAW;EACX,YAAY;EACZ,aAAa;EACb,2BAA2B;EAC3B,mBAAmB;EACnB,yBAAyB;AAC3B;;AAEA;EACE,2EAAwE;EACxE,wBAAwB;EACxB,YAAY;EACZ,WAAW,EAAE,aAAa;EAC1B,YAAY,EAAE,aAAa;EAC3B,eAAe;EACf,mBAAmB;AACrB;;;AAGA;EACE,gBAAgB;EAChB,YAAY,EAAE,YAAY;EAC1B,aAAa;EACb,aAAa;EACb,uBAAuB,EAAE,WAAW;AACtC;;AAEA;EACE,uBAAuB;EACvB,iBAAiB,EAAE,iBAAiB;EACpC,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,gBAAgB;EAChB,cAAc;EACd,iBAAiB;EACjB,eAAe;EACf,iBAAiB;AACnB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,cAAc;EACd,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,gBAAgB;EAChB,yBAAyB;EACzB,cAAc;EACd,kBAAkB;EAClB,eAAe;EACf,eAAe;EACf,iBAAiB;EACjB,YAAY;EACZ,mBAAmB;EACnB,iBAAiB;AACnB;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;;AAGA;EACE,iBAAiB;EACjB,+DAA+E;AACjF;AACA;EACE,iBAAiB;EACjB,+DAA8E;AAChF","sourcesContent":["#root {\r\n  background-color: #1e1f23;\r\n}\r\n\r\n.detail-container {\r\n  width: 500px;\r\n  height: 600px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  padding: 20px;\r\n  background-color: #1e1f23;\r\n}\r\n\r\n.navbar {\r\n  margin-top: -12px;\r\n  width: 100%;\r\n  height: 15px;\r\n  display: flex;\r\n  justify-content: flex-start;\r\n  /* padding: 10px; */\r\n  background-color: #1e1f23;\r\n}\r\n\r\n.back-button {\r\n  background: url('~/public/left_arrow_white.png') no-repeat center center;\r\n  background-size: contain;\r\n  border: none;\r\n  width: 30px; /* 버튼 크기 조정 */\r\n  height: 30px; /* 버튼 크기 조정 */\r\n  cursor: pointer;\r\n  border-radius: 90px;\r\n}\r\n\r\n\r\n.image-container {\r\n  margin-top: 30px;\r\n  width: 400px; /* 컨테이너 너비 */\r\n  height: 350px;\r\n  display: flex;\r\n  justify-content: center; /* 가운데 정렬 */\r\n}\r\n\r\n.product-image {\r\n  /* max-width: 300px;  */\r\n  max-height: 150px; /* 이미지 최대 높이 지정 */\r\n  object-fit: contain;\r\n}\r\n\r\n.product-info h1 {\r\n  margin-top: 20px;\r\n  text-align: left;\r\n  color: #FFFFFF;\r\n  font-family: 'f5';\r\n  font-size: 20pt;\r\n  font-weight: bold;\r\n}\r\n\r\n.product-info p {\r\n  margin-top: 10px;\r\n  text-align: right;\r\n  color: #FFFFFF;\r\n  font-family: 'f4';\r\n  font-size: 18pt;\r\n}\r\n\r\n.view-product-button {\r\n  margin-top: 10px;\r\n  background-color: #20edc7;\r\n  color: #1e1f23;\r\n  padding: 10px 20px;\r\n  cursor: pointer;\r\n  font-size: 18px;\r\n  font-weight: bold;\r\n  width: 220px;\r\n  border-radius: 12px;\r\n  font-family: 'f5';\r\n}\r\n\r\n.view-product-button:hover {\r\n  background-color: #FFFFFF;\r\n  color: #000000;\r\n}\r\n\r\n\r\n@font-face {\r\n  font-family: 'f4';\r\n  src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'f5';\r\n  src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');\r\n}"],"sourceRoot":""}]);
+}
+`, "",{"version":3,"sources":["webpack://./src/popup/css/Detail.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;AAC3B;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,aAAa;EACb,yBAAyB,EAAE,gBAAgB;AAC7C;;AAEA;EACE,iBAAiB;EACjB,WAAW,EAAE,iBAAiB;EAC9B,YAAY;EACZ,aAAa;EACb,2BAA2B;EAC3B,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,kBAAkB;EAClB,2EAAwE;EACxE,wBAAwB;EACxB,YAAY;EACZ,WAAW,EAAE,aAAa;EAC1B,YAAY,EAAE,aAAa;EAC3B,eAAe;EACf,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;EAClB,gBAAgB,EAAE,aAAa;EAC/B,YAAY,EAAE,YAAY;EAC1B,aAAa,EAAE,YAAY;EAC3B,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB,EAAE,yBAAyB;EAC3C,kBAAkB;EAClB,uCAAuC;AACzC;;AAEA;EACE,WAAW,EAAE,iBAAiB;EAC9B,YAAY,EAAE,gBAAgB;EAC9B,mBAAmB,EAAE,uBAAuB;AAC9C;;AAEA;EACE,WAAW;EACX,aAAa;EACb,cAAc;AAChB;;AAEA;EACE,gBAAgB;EAChB,gBAAgB;EAChB,iBAAiB;EACjB,eAAe;EACf,iBAAiB;AACnB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,iBAAiB;AACnB;;;AAGA;EACE,gBAAgB;EAChB,yBAAyB;EACzB,cAAc;EACd,kBAAkB;EAClB,eAAe;EACf,eAAe;EACf,iBAAiB;EACjB,YAAY;EACZ,mBAAmB;EACnB,iBAAiB;AACnB;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;AAEA;EACE,iBAAiB;EACjB,+DAA+E;AACjF;AACA;EACE,iBAAiB;EACjB,+DAA8E;AAChF","sourcesContent":["#root {\r\n  background-color: #1e1f23;\r\n}\r\n\r\n.detail-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  padding: 20px;\r\n  background-color: #1e1f23; /* 백그라운드 색상 추가 */\r\n}\r\n\r\n.navbar {\r\n  margin-top: -10px;\r\n  width: 100%; /* 너비를 100%로 설정 */\r\n  height: 40px;\r\n  display: flex;\r\n  justify-content: flex-start;\r\n  padding: 10px;\r\n  background-color: #1e1f23;\r\n}\r\n\r\n.back-button {\r\n  margin-left: -10px;\r\n  background: url('~/public/left_arrow_white.png') no-repeat center center;\r\n  background-size: contain;\r\n  border: none;\r\n  width: 33px; /* 버튼 크기 조정 */\r\n  height: 33px; /* 버튼 크기 조정 */\r\n  cursor: pointer;\r\n  border-radius: 90px;\r\n}\r\n\r\n.image-container {\r\n  border-radius: 8px;\r\n  margin-top: 10px; /* 상단 마진 조정 */\r\n  width: 400px; /* 컨테이너 너비 */\r\n  height: 400px; /* 컨테이너 높이 */\r\n  display: flex;\r\n  justify-content: center; \r\n  align-items: center;\r\n  overflow: hidden; /* 이미지가 컨테이너를 넘지 않도록 설정 */\r\n  border-radius: 8px;\r\n  box-shadow:  7px 7px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.product-image {\r\n  width: 100%; /* 컨테이너 너비에 맞추기 */\r\n  height: auto; /* 높이는 자동으로 조정 */\r\n  object-fit: contain; /* 비율을 유지하며 컨테이너에 맞추기 */\r\n}\r\n\r\n.product-info {\r\n  width: 100%;\r\n  padding: 20px;\r\n  color: #FFFFFF;\r\n}\r\n\r\n.product-info h1 {\r\n  margin-top: 10px;\r\n  text-align: left;\r\n  font-family: 'f5';\r\n  font-size: 15pt;\r\n  font-weight: bold;\r\n}\r\n\r\n.product-info p {\r\n  margin-top: 10px;\r\n  text-align: right;\r\n  font-family: 'f4';\r\n  font-size: 12pt;\r\n}\r\n\r\n.tactile-info-container {\r\n  margin-top: -30px;\r\n}\r\n\r\n\r\n.view-product-button {\r\n  margin-top: 10px;\r\n  background-color: #20edc7;\r\n  color: #1e1f23;\r\n  padding: 10px 20px;\r\n  cursor: pointer;\r\n  font-size: 18px;\r\n  font-weight: bold;\r\n  width: 220px;\r\n  border-radius: 12px;\r\n  font-family: 'f5';\r\n}\r\n\r\n.view-product-button:hover {\r\n  background-color: #FFFFFF;\r\n  color: #000000;\r\n}\r\n\r\n@font-face {\r\n  font-family: 'f4';\r\n  src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'f5';\r\n  src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5755,7 +5408,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
     background-color: #FFFFFF;
     color: #000000;
     font-size: 11pt;
-    border-radius: 8px;
+    border-radius: 15px;
     font-family: 'f4';
     box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2);
   }
@@ -5786,7 +5439,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
   @font-face {
     font-family: 'f5';
     src: url(${___CSS_LOADER_URL_REPLACEMENT_1___}) format('truetype');
-  }`, "",{"version":3,"sources":["webpack://./src/popup/css/GoodsList.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,YAAY;IACZ,aAAa;IACb,+BAA+B;IAC/B,kBAAkB;IAClB,yBAAyB;EAC3B;;EAEA;IACE,aAAa;IACb,6BAA6B;IAC7B,mBAAmB;EACrB;;EAEA;IACE,yBAAyB;IACzB,cAAc;IACd,YAAY;IACZ,iBAAiB;IACjB,mBAAmB;IACnB,eAAe;IACf,iBAAiB;IACjB,eAAe;IACf,iBAAiB;EACnB;;EAEA;IACE,yBAAyB;IACzB,cAAc;EAChB;;EAEA;IACE,aAAa;IACb,eAAe;IACf,6BAA6B;;EAE/B;;EAEA;IACE,UAAU;IACV,mBAAmB;IACnB,kBAAkB;IAClB,eAAe;IACf,yBAAyB;IACzB,cAAc;IACd,eAAe;IACf,kBAAkB;IAClB,iBAAiB;IACjB,0CAA0C;EAC5C;;EAEA;IACE,WAAW;IACX,4BAA4B,EAAE,kBAAkB;IAChD,6BAA6B,EAAE,mBAAmB;EACpD;;EAEA;IACE,kBAAkB;IAClB,gBAAgB;EAClB;;EAEA;IACE,cAAc;IACd,gBAAgB;IAChB,WAAW;EACb;;;;EAIA;IACE,iBAAiB;IACjB,+DAA+E;EACjF;EACA;IACE,iBAAiB;IACjB,+DAA8E;EAChF","sourcesContent":[".goods-list-container {\r\n    margin-top: -15px;\r\n    width: 500px;\r\n    padding: 20px;\r\n    /* background-color: #ffffff; */\r\n    /* color: black; */\r\n    /* border-radius: 15px; */\r\n  }\r\n  \r\n  .category-buttons {\r\n    display: flex;\r\n    justify-content: space-around;\r\n    margin-bottom: 20px;\r\n  }\r\n  \r\n  .category-button {\r\n    background-color: #20edc7;\r\n    color: #1e1f23;\r\n    border: none;\r\n    padding: 8px 16px;\r\n    border-radius: 40px;\r\n    cursor: pointer;\r\n    font-weight: bold;\r\n    font-size: 12pt;\r\n    font-family: 'f5';\r\n  }\r\n  \r\n  .category-button:hover {\r\n    background-color: #FFFFFF;\r\n    color: #000000;\r\n  }\r\n  \r\n  .goods-list {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n  \r\n  }\r\n  \r\n  .goods-item {\r\n    width: 45%;\r\n    margin-bottom: 20px;\r\n    text-align: center;\r\n    cursor: pointer;\r\n    background-color: #FFFFFF;\r\n    color: #000000;\r\n    font-size: 11pt;\r\n    border-radius: 8px;\r\n    font-family: 'f4';\r\n    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2);\r\n  }\r\n  \r\n  .goods-item img {\r\n    width: 100%;\r\n    border-top-left-radius: 15px; /* 상단 왼쪽 모서리 둥글게 */\r\n    border-top-right-radius: 15px; /* 상단 오른쪽 모서리 둥글게 */\r\n  }\r\n  \r\n  .goods-item p {\r\n    margin: 10px 0 0 0;\r\n    font-size: 0.9em;\r\n  }\r\n  \r\n  .goods-item p span {\r\n    display: block;\r\n    font-size: 0.8em;\r\n    color: #aaa;\r\n  }\r\n  \r\n\r\n\r\n  @font-face {\r\n    font-family: 'f4';\r\n    src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');\r\n  }\r\n  @font-face {\r\n    font-family: 'f5';\r\n    src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');\r\n  }"],"sourceRoot":""}]);
+  }
+  `, "",{"version":3,"sources":["webpack://./src/popup/css/GoodsList.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,YAAY;IACZ,aAAa;IACb,+BAA+B;IAC/B,kBAAkB;IAClB,yBAAyB;EAC3B;;EAEA;IACE,aAAa;IACb,6BAA6B;IAC7B,mBAAmB;EACrB;;EAEA;IACE,yBAAyB;IACzB,cAAc;IACd,YAAY;IACZ,iBAAiB;IACjB,mBAAmB;IACnB,eAAe;IACf,iBAAiB;IACjB,eAAe;IACf,iBAAiB;EACnB;;EAEA;IACE,yBAAyB;IACzB,cAAc;EAChB;;EAEA;IACE,aAAa;IACb,eAAe;IACf,6BAA6B;;EAE/B;;EAEA;IACE,UAAU;IACV,mBAAmB;IACnB,kBAAkB;IAClB,eAAe;IACf,yBAAyB;IACzB,cAAc;IACd,eAAe;IACf,mBAAmB;IACnB,iBAAiB;IACjB,0CAA0C;EAC5C;;EAEA;IACE,WAAW;IACX,4BAA4B,EAAE,kBAAkB;IAChD,6BAA6B,EAAE,mBAAmB;EACpD;;EAEA;IACE,kBAAkB;IAClB,gBAAgB;EAClB;;EAEA;IACE,cAAc;IACd,gBAAgB;IAChB,WAAW;EACb;;;;EAIA;IACE,iBAAiB;IACjB,+DAA+E;EACjF;EACA;IACE,iBAAiB;IACjB,+DAA8E;EAChF","sourcesContent":[".goods-list-container {\r\n    margin-top: -15px;\r\n    width: 500px;\r\n    padding: 20px;\r\n    /* background-color: #ffffff; */\r\n    /* color: black; */\r\n    /* border-radius: 15px; */\r\n  }\r\n  \r\n  .category-buttons {\r\n    display: flex;\r\n    justify-content: space-around;\r\n    margin-bottom: 20px;\r\n  }\r\n  \r\n  .category-button {\r\n    background-color: #20edc7;\r\n    color: #1e1f23;\r\n    border: none;\r\n    padding: 8px 16px;\r\n    border-radius: 40px;\r\n    cursor: pointer;\r\n    font-weight: bold;\r\n    font-size: 12pt;\r\n    font-family: 'f5';\r\n  }\r\n  \r\n  .category-button:hover {\r\n    background-color: #FFFFFF;\r\n    color: #000000;\r\n  }\r\n  \r\n  .goods-list {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n  \r\n  }\r\n  \r\n  .goods-item {\r\n    width: 45%;\r\n    margin-bottom: 20px;\r\n    text-align: center;\r\n    cursor: pointer;\r\n    background-color: #FFFFFF;\r\n    color: #000000;\r\n    font-size: 11pt;\r\n    border-radius: 15px;\r\n    font-family: 'f4';\r\n    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2);\r\n  }\r\n  \r\n  .goods-item img {\r\n    width: 100%;\r\n    border-top-left-radius: 15px; /* 상단 왼쪽 모서리 둥글게 */\r\n    border-top-right-radius: 15px; /* 상단 오른쪽 모서리 둥글게 */\r\n  }\r\n  \r\n  .goods-item p {\r\n    margin: 10px 0 0 0;\r\n    font-size: 0.9em;\r\n  }\r\n  \r\n  .goods-item p span {\r\n    display: block;\r\n    font-size: 0.8em;\r\n    color: #aaa;\r\n  }\r\n  \r\n\r\n\r\n  @font-face {\r\n    font-family: 'f4';\r\n    src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');\r\n  }\r\n  @font-face {\r\n    font-family: 'f5';\r\n    src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');\r\n  }\r\n  "],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5884,8 +5538,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.touch-info {
 }
 
 .touch-info h2 {
-  font-size: 1.5em;
+  font-family: 'f5';
+  font-size: 18pt;
   color: #FFFFFF;
+  font-weight: bold;
   /* text-align: left; */
   
 }
@@ -5896,6 +5552,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.touch-info {
   align-items: center;
   margin: 5px 0;
   color: #FFFFFF;
+  font-family: 'f4';
+  font-size: 12pt;
 }
 
 .touch-bar span {
@@ -5930,8 +5588,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.touch-info {
 
 
 .touch-info-text {
-  margin-top: 2px;
-  margin-bottom: 5px;
+  margin-top: 4px;
+  margin-bottom: 2px;
   width: 450px;
   height: 50px;
   /* background-color: #D1D1D1; */
@@ -5955,7 +5613,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.touch-info {
 
 
 
-`, "",{"version":3,"sources":["webpack://./src/popup/css/TouchInfo.css"],"names":[],"mappings":"AAAA;EACE,cAAc;EACd,+BAA+B;EAC/B,wCAAwC;EACxC,aAAa;EACb,kBAAkB;EAClB,YAAY;EACZ,aAAa;EACb,mBAAmB;;EAEnB,aAAa;EACb,sBAAsB;EACtB,mBAAmB,EAAE,UAAU;EAC/B,uBAAuB;EACvB,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,YAAY;EACZ,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,cAAc;EACd,sBAAsB;;AAExB;;AAEA;EACE,6CAA6C;EAC7C,aAAa;EACb,mBAAmB;EACnB,aAAa;EACb,cAAc;AAChB;;AAEA;EACE,OAAO;AACT;;AAEA;EACE,OAAO;EACP,kBAAkB;AACpB;;AAEA;EACE,wCAAwC;EACxC,iCAAiC;AACnC;;AAEA;EACE,kBAAkB;EAClB,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,aAAa;EACb,8BAA8B;AAChC;;AAEA;EACE,UAAU;EACV,YAAY;EACZ,yBAAyB;AAC3B;;;AAGA;EACE,eAAe;EACf,kBAAkB;EAClB,YAAY;EACZ,YAAY;EACZ,+BAA+B;EAC/B,kBAAkB;AACpB;;AAEA,cAAc;;;;;AAKd;EACE,iBAAiB;EACjB,+DAA+E;AACjF;AACA;EACE,iBAAiB;EACjB,+DAA8E;AAChF","sourcesContent":[".touch-info {\r\n  margin-top: 3%;\r\n  /* background-color: #3d3f46; */\r\n  background-color: rgba(61, 63, 70, 0.45);\r\n  padding: 20px;\r\n  border-radius: 8px;\r\n  width: 450px;\r\n  height: 200px;\r\n  margin-bottom: 20px;\r\n\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center; /* 중앙 정렬 */\r\n  justify-content: center;\r\n  font-family: 'f5';\r\n  font-size: 13pt;\r\n}\r\n\r\n.touch-area {\r\n  width: 420px;\r\n  border-radius: 15px;\r\n}\r\n\r\n.touch-info h2 {\r\n  font-size: 1.5em;\r\n  color: #FFFFFF;\r\n  /* text-align: left; */\r\n  \r\n}\r\n\r\n.touch-bar {\r\n  /* background-color: rgba(61, 63, 70, 0.5); */\r\n  display: flex;\r\n  align-items: center;\r\n  margin: 5px 0;\r\n  color: #FFFFFF;\r\n}\r\n\r\n.touch-bar span {\r\n  flex: 1;\r\n}\r\n\r\n.progress-bar-wrapper {\r\n  flex: 4;\r\n  position: relative;\r\n}\r\n\r\n.custom-progress-bar .progress-bar {\r\n  background-color: transparent !important;\r\n  background-image: none !important;\r\n}\r\n\r\n.ticks {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  display: flex;\r\n  justify-content: space-between;\r\n}\r\n\r\n.tick {\r\n  width: 4px;\r\n  height: 100%;\r\n  background-color: #3d3f46;\r\n}\r\n\r\n\r\n.touch-info-text {\r\n  margin-top: 2px;\r\n  margin-bottom: 5px;\r\n  width: 450px;\r\n  height: 50px;\r\n  /* background-color: #D1D1D1; */\r\n  text-align: center;\r\n}\r\n\r\n/* Rectangle */\r\n\r\n\r\n\r\n\r\n@font-face {\r\n  font-family: 'f4';\r\n  src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'f5';\r\n  src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');\r\n}\r\n\r\n\r\n\r\n\r\n"],"sourceRoot":""}]);
+
+`, "",{"version":3,"sources":["webpack://./src/popup/css/TouchInfo.css"],"names":[],"mappings":"AAAA;EACE,cAAc;EACd,+BAA+B;EAC/B,wCAAwC;EACxC,aAAa;EACb,kBAAkB;EAClB,YAAY;EACZ,aAAa;EACb,mBAAmB;;EAEnB,aAAa;EACb,sBAAsB;EACtB,mBAAmB,EAAE,UAAU;EAC/B,uBAAuB;EACvB,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,YAAY;EACZ,mBAAmB;AACrB;;AAEA;EACE,iBAAiB;EACjB,eAAe;EACf,cAAc;EACd,iBAAiB;EACjB,sBAAsB;;AAExB;;AAEA;EACE,6CAA6C;EAC7C,aAAa;EACb,mBAAmB;EACnB,aAAa;EACb,cAAc;EACd,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,OAAO;AACT;;AAEA;EACE,OAAO;EACP,kBAAkB;AACpB;;AAEA;EACE,wCAAwC;EACxC,iCAAiC;AACnC;;AAEA;EACE,kBAAkB;EAClB,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,aAAa;EACb,8BAA8B;AAChC;;AAEA;EACE,UAAU;EACV,YAAY;EACZ,yBAAyB;AAC3B;;;AAGA;EACE,eAAe;EACf,kBAAkB;EAClB,YAAY;EACZ,YAAY;EACZ,+BAA+B;EAC/B,kBAAkB;AACpB;;AAEA,cAAc;;;;;AAKd;EACE,iBAAiB;EACjB,+DAA+E;AACjF;AACA;EACE,iBAAiB;EACjB,+DAA8E;AAChF","sourcesContent":[".touch-info {\r\n  margin-top: 3%;\r\n  /* background-color: #3d3f46; */\r\n  background-color: rgba(61, 63, 70, 0.45);\r\n  padding: 20px;\r\n  border-radius: 8px;\r\n  width: 450px;\r\n  height: 200px;\r\n  margin-bottom: 20px;\r\n\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center; /* 중앙 정렬 */\r\n  justify-content: center;\r\n  font-family: 'f5';\r\n  font-size: 13pt;\r\n}\r\n\r\n.touch-area {\r\n  width: 420px;\r\n  border-radius: 15px;\r\n}\r\n\r\n.touch-info h2 {\r\n  font-family: 'f5';\r\n  font-size: 18pt;\r\n  color: #FFFFFF;\r\n  font-weight: bold;\r\n  /* text-align: left; */\r\n  \r\n}\r\n\r\n.touch-bar {\r\n  /* background-color: rgba(61, 63, 70, 0.5); */\r\n  display: flex;\r\n  align-items: center;\r\n  margin: 5px 0;\r\n  color: #FFFFFF;\r\n  font-family: 'f4';\r\n  font-size: 12pt;\r\n}\r\n\r\n.touch-bar span {\r\n  flex: 1;\r\n}\r\n\r\n.progress-bar-wrapper {\r\n  flex: 4;\r\n  position: relative;\r\n}\r\n\r\n.custom-progress-bar .progress-bar {\r\n  background-color: transparent !important;\r\n  background-image: none !important;\r\n}\r\n\r\n.ticks {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  display: flex;\r\n  justify-content: space-between;\r\n}\r\n\r\n.tick {\r\n  width: 4px;\r\n  height: 100%;\r\n  background-color: #3d3f46;\r\n}\r\n\r\n\r\n.touch-info-text {\r\n  margin-top: 4px;\r\n  margin-bottom: 2px;\r\n  width: 450px;\r\n  height: 50px;\r\n  /* background-color: #D1D1D1; */\r\n  text-align: center;\r\n}\r\n\r\n/* Rectangle */\r\n\r\n\r\n\r\n\r\n@font-face {\r\n  font-family: 'f4';\r\n  src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'f5';\r\n  src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');\r\n}\r\n\r\n\r\n\r\n\r\n\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -48598,7 +48257,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("178b5c1171e3dc0c6abc")
+/******/ 		__webpack_require__.h = () => ("647c135622837844f114")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

@@ -45,7 +45,7 @@
     background-color: #FFFFFF;
     color: #000000;
     font-size: 11pt;
-    border-radius: 8px;
+    border-radius: 15px;
     font-family: 'f4';
     box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2);
   }
@@ -77,3 +77,4 @@
     font-family: 'f5';
     src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');
   }
+  
