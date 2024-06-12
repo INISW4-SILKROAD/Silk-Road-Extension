@@ -4747,11 +4747,16 @@ var Detail = function Detail() {
     _useState2 = _slicedToArray(_useState, 2),
     product = _useState2[0],
     setProduct = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState4 = _slicedToArray(_useState3, 2),
+    images = _useState4[0],
+    setImages = _useState4[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     fetch("http://localhost:5001/goods/".concat(id)).then(function (response) {
       return response.json();
     }).then(function (data) {
-      return setProduct(data);
+      setProduct(data.product);
+      setImages(data.images);
     })["catch"](function (error) {
       return console.error('Error fetching product:', error);
     });
@@ -4770,9 +4775,12 @@ var Detail = function Detail() {
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "image-container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-    src: './sample2.jpeg',
-    alt: product.NAME
+  }, images.map(function (image, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+      key: index,
+      src: "http://127.0.0.1:5001/".concat(image),
+      alt: "".concat(product.NAME, " \uC774\uBBF8\uC9C0 ").concat(index + 1)
+    });
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "product-info"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
@@ -4972,7 +4980,7 @@ var GoodsList = function GoodsList(_ref) {
       className: "goods-item",
       key: item.product.ID
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-      src: item.image_path,
+      src: "http://127.0.0.1:5001/images/".concat(item.product.ID),
       alt: item.product.NAME,
       onClick: function onClick() {
         return onImageClick(item.product.ID);
@@ -48377,7 +48385,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("6ff912c987f279ddfb75")
+/******/ 		__webpack_require__.h = () => ("085b8b01448f7123020e")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

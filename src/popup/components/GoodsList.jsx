@@ -52,7 +52,6 @@
 
 // export default GoodsList;
 
-
 import React, { useEffect, useState } from 'react';
 import '../css/GoodsList.css';
 
@@ -87,7 +86,7 @@ const GoodsList = ({ onImageClick }) => {
       <div className="goods-list">
         {goods.map((item) => (
           <div className="goods-item" key={item.product.ID}>
-            <img src={item.image_path} alt={item.product.NAME} onClick={() => onImageClick(item.product.ID)} />
+            <img src={`http://127.0.0.1:5001/images/${item.product.ID}`} alt={item.product.NAME} onClick={() => onImageClick(item.product.ID)} />
             <p>{item.product.NAME}<span></span></p>
           </div>
         ))}
