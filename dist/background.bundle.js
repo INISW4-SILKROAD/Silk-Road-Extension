@@ -199,7 +199,7 @@ function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyri
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 var sendImageDataToServer = /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(imageUrl, pageUrl) {
+  var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(imageUrl, pageUrl, productId) {
     var response, data;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
@@ -213,7 +213,8 @@ var sendImageDataToServer = /*#__PURE__*/function () {
             },
             body: JSON.stringify({
               imageUrl: imageUrl,
-              pageUrl: pageUrl
+              pageUrl: pageUrl,
+              productId: productId
             })
           });
         case 3:
@@ -247,7 +248,7 @@ var sendImageDataToServer = /*#__PURE__*/function () {
       }
     }, _callee, null, [[0, 15]]);
   }));
-  return function sendImageDataToServer(_x, _x2) {
+  return function sendImageDataToServer(_x, _x2, _x3) {
     return _ref.apply(this, arguments);
   };
 }();
@@ -271,7 +272,8 @@ chrome.contextMenus.onClicked.addListener(function (info, tab) {
       var pageUrl = "https://www.musinsa.com/app/goods/".concat(productId);
       console.log("Image URL: ".concat(imageUrl));
       console.log("Page URL: ".concat(pageUrl));
-      sendImageDataToServer(imageUrl, pageUrl);
+      console.log("Product ID: ".concat(productId));
+      sendImageDataToServer(imageUrl, pageUrl, productId);
     } else {
       console.error("이미지 링크에서 id 추출 실패");
     }
@@ -3440,7 +3442,7 @@ module.exports.formatError = function (err) {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("647c135622837844f114")
+/******/ 		__webpack_require__.h = () => ("34f751889ebbffae7aba")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

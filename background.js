@@ -1,11 +1,11 @@
-const sendImageDataToServer = async (imageUrl, pageUrl) => {
+const sendImageDataToServer = async (imageUrl, pageUrl, productId) => {
   try {
     const response = await fetch("http://127.0.0.1:5001/submit", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ imageUrl, pageUrl })
+      body: JSON.stringify({ imageUrl, pageUrl, productId })
     });
 
     if (response.ok) {
@@ -44,7 +44,8 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
       const pageUrl = `https://www.musinsa.com/app/goods/${productId}`;
       console.log(`Image URL: ${imageUrl}`);
       console.log(`Page URL: ${pageUrl}`);
-      sendImageDataToServer(imageUrl, pageUrl);
+      console.log(`Product ID: ${productId}`);
+      sendImageDataToServer(imageUrl, pageUrl, productId);
     } else {
       console.error("이미지 링크에서 id 추출 실패");
     }
