@@ -4735,6 +4735,49 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+// import React, { useEffect, useState } from 'react';
+// import { useParams, useNavigate } from 'react-router-dom';
+// import './css/Detail.css';
+// import TouchInfo from './components/TouchInfo';
+
+// const Detail = () => {
+//   const { id } = useParams();
+//   const navigate = useNavigate();
+//   const [product, setProduct] = useState(null);
+
+//   useEffect(() => {
+//     fetch(`http://127.0.0.1:5001/goods/${id}`)
+//       .then((response) => response.json())
+//       .then((data) => setProduct(data))
+//       .catch((error) => console.error('Error fetching product:', error));
+//   }, [id]);
+
+//   if (!product) {
+//     return <div>Loading...</div>;
+//   }
+
+//   return (
+//     <div className="detail-container">
+//       <div className="navbar">
+//         <button className="back-button" onClick={() => navigate('/')}></button>
+//       </div>
+//       <div className="image-container">
+//         <img className="product-image" src={product.image_path} alt={product.NAME} />
+//       </div>
+//       <div className="product-info">
+//         <h1 className="product-name">{product.NAME}</h1>
+//         <p className="price">{product.PRICE} 원</p>
+//       </div>
+//       <div className="tactile-info-container">
+//         <TouchInfo />
+//       </div>
+//       <button className="view-product-button" onClick={() => window.open(product.LINK, '_blank')}>상품 보러가기</button>
+//     </div>
+//   );
+// };
+
+// export default Detail;
+
 
 
 
@@ -4748,10 +4791,12 @@ var Detail = function Detail() {
     product = _useState2[0],
     setProduct = _useState2[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    console.log("Fetching product with ID: ".concat(id));
     fetch("http://127.0.0.1:5001/goods/".concat(id)).then(function (response) {
       return response.json();
     }).then(function (data) {
-      return setProduct(data);
+      console.log('Fetched product data:', data);
+      setProduct(data);
     })["catch"](function (error) {
       return console.error('Error fetching product:', error);
     });
@@ -48257,7 +48302,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("34f751889ebbffae7aba")
+/******/ 		__webpack_require__.h = () => ("bdfcf3b577144d41ff6a")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
