@@ -4735,6 +4735,55 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+// import React, { useEffect, useState } from 'react';
+// import { useParams, useNavigate } from 'react-router-dom';
+// import './css/Detail.css';
+// import TouchInfo from './components/TouchInfo';
+
+// const Detail = () => {
+//   const { id } = useParams();
+//   const navigate = useNavigate();
+//   const [product, setProduct] = useState(null);
+//   const [images, setImages] = useState([]);
+
+//   useEffect(() => {
+//     fetch(`http://localhost:5001/goods/${id}`)
+//       .then((response) => response.json())
+//       .then((data) => {
+//         setProduct(data.product);
+//         setImages(data.images);
+//       })
+//       .catch((error) => console.error('Error fetching product:', error));
+//   }, [id]);
+
+//   if (!product) {
+//     return <div>Loading...</div>;
+//   }
+
+//   return (
+//     <div className="detail-container">
+//       <div className="navbar">
+//         <button className="back-button" onClick={() => navigate('/')}></button>
+//       </div>
+//       <div className="image-container">
+//         {images.map((image, index) => (
+//           <img key={index} src={`http://127.0.0.1:5001/${image}`} alt={`${product.NAME} 이미지 ${index + 1}`} />
+//         ))}
+//       </div>
+//       <div className="product-info">
+//         <h1 className="product-name">{product.NAME}</h1>
+//         <p className="price">{product.PRICE} 원</p>
+//       </div>
+//       <div className="tactile-info-container">
+//         <TouchInfo />
+//       </div>
+//       <button className="view-product-button" onClick={() => window.open(product.LINK, '_blank')}>상품 보러가기</button>
+//     </div>
+//   );
+// };
+
+// export default Detail;
+
 
 
 
@@ -4747,16 +4796,11 @@ var Detail = function Detail() {
     _useState2 = _slicedToArray(_useState, 2),
     product = _useState2[0],
     setProduct = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-    _useState4 = _slicedToArray(_useState3, 2),
-    images = _useState4[0],
-    setImages = _useState4[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    fetch("http://localhost:5001/goods/".concat(id)).then(function (response) {
+    fetch("http://127.0.0.1:5001/goods/".concat(id)).then(function (response) {
       return response.json();
     }).then(function (data) {
-      setProduct(data.product);
-      setImages(data.images);
+      return setProduct(data);
     })["catch"](function (error) {
       return console.error('Error fetching product:', error);
     });
@@ -4773,14 +4817,11 @@ var Detail = function Detail() {
     onClick: function onClick() {
       return navigate('/');
     }
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, "Back")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "image-container"
-  }, images.map(function (image, index) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-      key: index,
-      src: "http://127.0.0.1:5001/".concat(image),
-      alt: "".concat(product.NAME, " \uC774\uBBF8\uC9C0 ").concat(index + 1)
-    });
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    src: product.image_path,
+    alt: product.NAME
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "product-info"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
@@ -4967,6 +5008,106 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 // export default GoodsList;
 
+// import React, { useEffect, useState } from 'react';
+// import '../css/GoodsList.css';
+
+// const GoodsList = ({ onImageClick }) => {
+//   const [goods, setGoods] = useState([]);
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const response = await fetch('http://127.0.0.1:5001/goods');
+//         const data = await response.json();
+//         setGoods(Array.isArray(data) ? data : []);
+//       } catch (error) {
+//         console.error('Error fetching goods:', error);
+//       }
+//     };
+//     fetchData();
+//   }, []);
+
+//   return (
+//     <div className="goods-list-container">
+//       <div className="category-buttons">
+//         <button className="category-button">부드러움</button>
+//         <button className="category-button">매끄러움</button>
+//         <button className="category-button">두께</button>
+//         <button className="category-button">신축성</button>
+//       </div>
+//       <div className="goods-list">
+//         {goods.map((item) => (
+//           <div className="goods-item" key={item.ID}>
+//             <img src={item.image_path} alt={item.NAME} onClick={() => onImageClick(item.ID)} />
+//             <p>{item.NAME}<span></span></p>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default GoodsList;
+
+// import React, { useEffect, useState } from 'react';
+// import '../css/GoodsList.css';
+
+// const GoodsList = ({ onImageClick }) => {
+//   const [goods, setGoods] = useState([]);
+
+//   useEffect(() => {
+//     const fetchData = async (gids) => {
+//       try {
+//         const response = await fetch('http://127.0.0.1:5001/fetch-goods', {
+//           method: 'POST',
+//           headers: {
+//             'Content-Type': 'application/json'
+//           },
+//           body: JSON.stringify({ gids })
+//         });
+//         const data = await response.json();
+//         setGoods(Array.isArray(data) ? data : []);
+//       } catch (error) {
+//         console.error('Error fetching goods:', error);
+//       }
+//     };
+
+//     if (chrome && chrome.runtime && chrome.runtime.sendMessage) {
+//       chrome.runtime.sendMessage({ action: 'fetchGoods' }, (response) => {
+//         if (response && response.error) {
+//           console.error('Error fetching goods:', response.error);
+//         } else if (response && response.data) {
+//           const gids = response.data.map(item => item.gid);
+//           fetchData(gids);
+//         }
+//       });
+//     } else {
+//       console.error('크롬 확장 프로그램 환경이 아닙니다.');
+//     }
+//   }, []);
+
+//   return (
+//     <div className="goods-list-container">
+//       <div className="category-buttons">
+//         <button className="category-button">부드러움</button>
+//         <button className="category-button">매끄러움</button>
+//         <button className="category-button">두께</button>
+//         <button className="category-button">신축성</button>
+//       </div>
+//       <div className="goods-list">
+//         {goods.map((item) => (
+//           <div className="goods-item" key={item.ID}>
+//             <img src={item.image_path} alt={item.NAME} onClick={() => onImageClick(item.ID)} />
+//             <p>{item.NAME}<span></span></p>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default GoodsList;
+
 
 
 var GoodsList = function GoodsList(_ref) {
@@ -4977,14 +5118,22 @@ var GoodsList = function GoodsList(_ref) {
     setGoods = _useState2[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var fetchData = /*#__PURE__*/function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(gids) {
         var response, data;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return fetch('http://127.0.0.1:5001/goods');
+              return fetch('http://127.0.0.1:5001/fetch-goods', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  gids: gids
+                })
+              });
             case 3:
               response = _context.sent;
               _context.next = 6;
@@ -5004,11 +5153,26 @@ var GoodsList = function GoodsList(_ref) {
           }
         }, _callee, null, [[0, 10]]);
       }));
-      return function fetchData() {
+      return function fetchData(_x) {
         return _ref2.apply(this, arguments);
       };
     }();
-    fetchData();
+    if (chrome && chrome.runtime && chrome.runtime.sendMessage) {
+      chrome.runtime.sendMessage({
+        action: 'fetchGoods'
+      }, function (response) {
+        if (response && response.error) {
+          console.error('Error fetching goods:', response.error);
+        } else if (response && response.data) {
+          var gids = response.data.map(function (item) {
+            return item.gid;
+          });
+          fetchData(gids);
+        }
+      });
+    } else {
+      console.error('크롬 확장 프로그램 환경이 아닙니다.');
+    }
   }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "goods-list-container"
@@ -48434,7 +48598,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("f193b528ef38a64e9717")
+/******/ 		__webpack_require__.h = () => ("178b5c1171e3dc0c6abc")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
