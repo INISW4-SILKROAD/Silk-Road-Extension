@@ -4922,6 +4922,51 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 // export default GoodsList;
 
+// import React, { useEffect, useState } from 'react';
+// import '../css/GoodsList.css';
+
+// const GoodsList = ({ onImageClick }) => {
+//   const [goods, setGoods] = useState([]);
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       if (chrome && chrome.runtime && chrome.runtime.sendMessage) {
+//         chrome.runtime.sendMessage({ action: 'fetchGoods' }, (response) => {
+//           if (response && response.error) {
+//             console.error('Error fetching goods:', response.error);
+//           } else if (response && response.data) {
+//             setGoods(Array.isArray(response.data) ? response.data : []);
+//           }
+//         });
+//       } else {
+//         console.error('크롬 확장 프로그램 환경이 아닙니다.');
+//       }
+//     };
+//     fetchData();
+//   }, []);
+
+//   return (
+//     <div className="goods-list-container">
+//       <div className="category-buttons">
+//         <button className="category-button">부드러움</button>
+//         <button className="category-button">매끄러움</button>
+//         <button className="category-button">두께</button>
+//         <button className="category-button">신축성</button>
+//       </div>
+//       <div className="goods-list">
+//         {goods.map((item) => (
+//           <div className="goods-item" key={item.product.ID}>
+//             <img src={`http://127.0.0.1:5001/images/${item.product.ID}`} alt={item.product.NAME} onClick={() => onImageClick(item.product.ID)} />
+//             <p>{item.product.NAME}<span></span></p>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default GoodsList;
+
 
 
 var GoodsList = function GoodsList(_ref) {
@@ -4933,27 +4978,31 @@ var GoodsList = function GoodsList(_ref) {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var fetchData = /*#__PURE__*/function () {
       var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var response, data;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
-              if (chrome && chrome.runtime && chrome.runtime.sendMessage) {
-                chrome.runtime.sendMessage({
-                  action: 'fetchGoods'
-                }, function (response) {
-                  if (response && response.error) {
-                    console.error('Error fetching goods:', response.error);
-                  } else if (response && response.data) {
-                    setGoods(Array.isArray(response.data) ? response.data : []);
-                  }
-                });
-              } else {
-                console.error('크롬 확장 프로그램 환경이 아닙니다.');
-              }
-            case 1:
+              _context.prev = 0;
+              _context.next = 3;
+              return fetch('http://127.0.0.1:5001/goods');
+            case 3:
+              response = _context.sent;
+              _context.next = 6;
+              return response.json();
+            case 6:
+              data = _context.sent;
+              setGoods(Array.isArray(data) ? data : []);
+              _context.next = 13;
+              break;
+            case 10:
+              _context.prev = 10;
+              _context.t0 = _context["catch"](0);
+              console.error('Error fetching goods:', _context.t0);
+            case 13:
             case "end":
               return _context.stop();
           }
-        }, _callee);
+        }, _callee, null, [[0, 10]]);
       }));
       return function fetchData() {
         return _ref2.apply(this, arguments);
@@ -4978,14 +5027,14 @@ var GoodsList = function GoodsList(_ref) {
   }, goods.map(function (item) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       className: "goods-item",
-      key: item.product.ID
+      key: item.ID
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-      src: "http://127.0.0.1:5001/images/".concat(item.product.ID),
-      alt: item.product.NAME,
+      src: item.image_path,
+      alt: item.NAME,
       onClick: function onClick() {
-        return onImageClick(item.product.ID);
+        return onImageClick(item.ID);
       }
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, item.product.NAME, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null)));
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, item.NAME, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null)));
   })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GoodsList);
@@ -48385,7 +48434,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("085b8b01448f7123020e")
+/******/ 		__webpack_require__.h = () => ("f193b528ef38a64e9717")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
