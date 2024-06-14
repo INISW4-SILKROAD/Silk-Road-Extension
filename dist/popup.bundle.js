@@ -4864,40 +4864,6 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-// import React from 'react';
-// import { HashRouter as Router, Route, Routes } from 'react-router-dom';
-// import './css/Main.css';
-// import TouchInfo from './components/TouchInfo';
-// import GoodsList from './components/GoodsList';
-// import Detail from './Detail';
-
-// const Main = () => {
-//   const handleImageClick = (id) => {
-//     window.location.hash = `#/detail/${id}`;
-//   };
-
-//   return (
-//     <Router>
-//       <div className="popup-container">
-//         <Routes>
-//           <Route
-//             path="/"
-//             element={
-//               <>
-//                 <TouchInfo />
-//                 <GoodsList onImageClick={handleImageClick} />
-//               </>
-//             }
-//           />
-//           <Route path="/detail/:id" element={<Detail />} />
-//         </Routes>
-//       </div>
-//     </Router>
-//   );
-// };
-
-// export default Main;
-
 
 
 
@@ -4922,11 +4888,11 @@ var Main = function Main() {
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.HashRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "popup-container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TouchInfo__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    productId: selectedProductId
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
     path: "/",
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_GoodsList__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TouchInfo__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      productId: selectedProductId
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_GoodsList__WEBPACK_IMPORTED_MODULE_3__["default"], {
       onImageClick: handleImageClick
     }))
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
@@ -5089,112 +5055,6 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-// import React from 'react';
-// import ProgressBar from 'react-bootstrap/ProgressBar';
-// import '../css/TouchInfo.css';
-
-// const TouchInfo = () => {
-//   // 임시로 사용할 촉감 데이터 (1~5점)
-//   const touchData = {
-//     softness: 5, // 부드러움
-//     smoothness: 3, // 매끄러움
-//     thickness: 4, // 두꺼움
-//     flexibility: 2, // 신축성
-//   };
-
-//   // 촉감별 대표 색상 설정
-//   const colorMapping = {
-//     softness: '#20edc7', 
-//     smoothness: '#20edc7', 
-//     thickness: '#20edc7', 
-//     flexibility: '#20edc7' 
-//   };
-
-//   return (
-//     <div className="touch-info">
-//       <div className='touch-info-text'>
-//         <h2>촉감 정보</h2>
-//       </div>
-//       <div className='touch-area'>
-//         <div className="touch-bar">
-//           <span>부드러움</span>
-//           <div className="progress-bar-wrapper">
-//             <ProgressBar
-//               now={(touchData.softness / 5) * 100}
-//               className="custom-progress-bar"
-//               style={{
-//                 backgroundColor: 'transparent',
-//                 backgroundImage: `linear-gradient(to right, ${colorMapping.softness} 0%, ${colorMapping.softness} ${(touchData.softness / 5) * 100}%, #ffffff ${(touchData.softness / 5) * 100}%, #ffffff 100%)`
-//               }}
-//             />
-//             <div className="ticks">
-//               {[...Array(6)].map((_, i) => (
-//                 <div key={i} className="tick" style={{ left: `${(i / 5) * 100}%` }} />
-//               ))}
-//             </div>
-//           </div>
-//         </div>
-//         <div className="touch-bar">
-//           <span>매끄러움</span>
-//           <div className="progress-bar-wrapper">
-//             <ProgressBar
-//               now={(touchData.smoothness / 5) * 100}
-//               className="custom-progress-bar"
-//               style={{
-//                 backgroundColor: 'transparent',
-//                 backgroundImage: `linear-gradient(to right, ${colorMapping.smoothness} 0%, ${colorMapping.smoothness} ${(touchData.smoothness / 5) * 100}%, #ffffff ${(touchData.smoothness / 5) * 100}%, #ffffff 100%)`
-//               }}
-//             />
-//             <div className="ticks">
-//               {[...Array(6)].map((_, i) => (
-//                 <div key={i} className="tick" style={{ left: `${(i / 5) * 100}%` }} />
-//               ))}
-//             </div>
-//           </div>
-//         </div>
-//         <div className="touch-bar">
-//           <span>두께</span>
-//           <div className="progress-bar-wrapper">
-//             <ProgressBar
-//               now={(touchData.thickness / 5) * 100}
-//               className="custom-progress-bar"
-//               style={{
-//                 backgroundColor: 'transparent',
-//                 backgroundImage: `linear-gradient(to right, ${colorMapping.thickness} 0%, ${colorMapping.thickness} ${(touchData.thickness / 5) * 100}%, #ffffff ${(touchData.thickness / 5) * 100}%, #ffffff 100%)`
-//               }}
-//             />
-//             <div className="ticks">
-//               {[...Array(6)].map((_, i) => (
-//                 <div key={i} className="tick" style={{ left: `${(i / 5) * 100}%` }} />
-//               ))}
-//             </div>
-//           </div>
-//         </div>
-//         <div className="touch-bar">
-//           <span>신축성</span>
-//           <div className="progress-bar-wrapper">
-//             <ProgressBar
-//               now={(touchData.flexibility / 5) * 100}
-//               className="custom-progress-bar"
-//               style={{
-//                 backgroundColor: 'transparent',
-//                 backgroundImage: `linear-gradient(to right, ${colorMapping.flexibility} 0%, ${colorMapping.flexibility} ${(touchData.flexibility / 5) * 100}%, #ffffff ${(touchData.flexibility / 5) * 100}%, #ffffff 100%)`
-//               }}
-//             />
-//             <div className="ticks">
-//               {[...Array(6)].map((_, i) => (
-//                 <div key={i} className="tick" style={{ left: `${(i / 5) * 100}%` }} />
-//               ))}
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default TouchInfo;
-
 
 
 
@@ -53130,7 +52990,7 @@ const isThenable = (thing) =>
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("37acb07b0702e86594ae")
+/******/ 		__webpack_require__.h = () => ("7bcbd25fb4c2f6df1d6b")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
