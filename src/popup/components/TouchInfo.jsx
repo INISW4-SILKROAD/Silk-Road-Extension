@@ -44,16 +44,16 @@ const TouchInfo = ({ productId }) => {
   }, [productId]);
 
   const colorMapping = {
-    softness: '#20edc7',
-    smoothness: '#20edc7',
-    thickness: '#20edc7',
-    flexibility: '#20edc7'
+    softness: '#B7B597',
+    smoothness: '#B7B597',
+    thickness: '#B7B597',
+    flexibility: '#B7B597'
   };
 
   return (
     <div className="touch-info">
       <div className='touch-info-text'>
-        <h2>촉감 정보</h2>
+        {/* <h2>촉감 정보</h2> */}
       </div>
       <div className='touch-area'>
         {Object.keys(touchData).map((key) => (

@@ -1,5 +1,5 @@
 #root {
-  background-color: #1e1f23;
+  background-color: #e0e6ea;
 }
 
 .detail-container {
@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #1e1f23; /* 백그라운드 색상 추가 */
+  background-color: #e0e6ea; /* 백그라운드 색상 추가 */
 }
 
 .navbar {
@@ -17,7 +17,7 @@
   display: flex;
   justify-content: flex-start;
   padding: 10px;
-  background-color: #1e1f23;
+  background-color: #e0e6ea;
 }
 
 .back-button {
@@ -78,7 +78,7 @@
 
 .view-product-button {
   margin-top: 10px;
-  background-color: #20edc7;
+  background-color: #B7B597;
   color: #1e1f23;
   padding: 10px 20px;
   cursor: pointer;

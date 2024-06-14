@@ -1,19 +1,12 @@
 .touch-info {
-  margin-top: 3%;
-  /* background-color: #3d3f46; */
-  background-color: rgba(61, 63, 70, 0.45);
-  padding: 20px;
-  border-radius: 8px;
-  width: 450px;
+  margin-top: 10px;
+  border-radius: 10px;
+  width: 480px;
   height: 200px;
-  margin-bottom: 20px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* 중앙 정렬 */
-  justify-content: center;
-  font-family: 'f5';
-  font-size: 13pt;
+  background-image: url('../../../public/Group 4.png'); /* 경로 수정 */
+  background-size: cover; /* 이미지 크기를 컨테이너에 맞춤 */
+  background-position: center; /* 이미지 위치를 중앙으로 설정 */
+  background-repeat: no-repeat; /* 이미지 반복을 방지 */
 }
 
 .touch-area {
@@ -21,21 +14,24 @@
   border-radius: 15px;
 }
 
-.touch-info h2 {
+/* .touch-info h2 {
+  margin-left: -12px;
+  width: 475px;
+  height: 40px;
+  margin-top: px;
   font-family: 'f5';
   font-size: 18pt;
-  color: #FFFFFF;
+  color: #000000;
   font-weight: bold;
-  /* text-align: left; */
-  
-}
+
+} */
 
 .touch-bar {
   /* background-color: rgba(61, 63, 70, 0.5); */
   display: flex;
   align-items: center;
   margin: 5px 0;
-  color: #FFFFFF;
+  color: #000000;
   font-family: 'f4';
   font-size: 12pt;
 }

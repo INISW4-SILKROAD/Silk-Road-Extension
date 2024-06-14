@@ -4932,65 +4932,6 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-// import React, { useEffect, useState } from 'react';
-// import '../css/GoodsList.css';
-
-// const GoodsList = ({ onImageClick }) => {
-//   const [goods, setGoods] = useState([]);
-
-//   useEffect(() => {
-//     const fetchData = async (gids) => {
-//       try {
-//         const response = await fetch('http://127.0.0.1:5001/fetch-goods', {
-//           method: 'POST',
-//           headers: {
-//             'Content-Type': 'application/json'
-//           },
-//           body: JSON.stringify({ gids })
-//         });
-//         const data = await response.json();
-//         setGoods(Array.isArray(data) ? data : []);
-//       } catch (error) {
-//         console.error('Error fetching goods:', error);
-//       }
-//     };
-
-//     if (chrome && chrome.runtime && chrome.runtime.sendMessage) {
-//       chrome.runtime.sendMessage({ action: 'fetchGoods' }, (response) => {
-//         if (response && response.error) {
-//           console.error('Error fetching goods:', response.error);
-//         } else if (response && response.data) {
-//           const gids = response.data.map(item => item.gid);
-//           fetchData(gids);
-//         }
-//       });
-//     } else {
-//       console.error('크롬 확장 프로그램 환경이 아닙니다.');
-//     }
-//   }, []);
-
-//   return (
-//     <div className="goods-list-container">
-//       <div className="category-buttons">
-//         <button className="category-button">부드러움</button>
-//         <button className="category-button">매끄러움</button>
-//         <button className="category-button">두께</button>
-//         <button className="category-button">신축성</button>
-//       </div>
-//       <div className="goods-list">
-//         {goods.map((item) => (
-//           <div className="goods-item" key={item.ID}>
-//             <img src={item.image_path} alt={item.NAME} onClick={() => onImageClick(item.ID)} />
-//             <p>{item.NAME}<span></span></p>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default GoodsList;
-
 
 
 var GoodsList = function GoodsList(_ref) {
@@ -5223,16 +5164,16 @@ var TouchInfo = function TouchInfo(_ref) {
     }
   }, [productId]);
   var colorMapping = {
-    softness: '#20edc7',
-    smoothness: '#20edc7',
-    thickness: '#20edc7',
-    flexibility: '#20edc7'
+    softness: '#B7B597',
+    smoothness: '#B7B597',
+    thickness: '#B7B597',
+    flexibility: '#B7B597'
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "touch-info"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "touch-info-text"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "\uCD09\uAC10 \uC815\uBCF4")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "touch-area"
   }, Object.keys(touchData).map(function (key) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
@@ -5390,7 +5331,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_g
 var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_2___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `#root {
-  background-color: #1e1f23;
+  background-color: #e0e6ea;
 }
 
 .detail-container {
@@ -5398,7 +5339,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#root {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #1e1f23; /* 백그라운드 색상 추가 */
+  background-color: #e0e6ea; /* 백그라운드 색상 추가 */
 }
 
 .navbar {
@@ -5408,7 +5349,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#root {
   display: flex;
   justify-content: flex-start;
   padding: 10px;
-  background-color: #1e1f23;
+  background-color: #e0e6ea;
 }
 
 .back-button {
@@ -5469,7 +5410,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#root {
 
 .view-product-button {
   margin-top: 10px;
-  background-color: #20edc7;
+  background-color: #B7B597;
   color: #1e1f23;
   padding: 10px 20px;
   cursor: pointer;
@@ -5493,7 +5434,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#root {
   font-family: 'f5';
   src: url(${___CSS_LOADER_URL_REPLACEMENT_2___}) format('truetype');
 }
-`, "",{"version":3,"sources":["webpack://./src/popup/css/Detail.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;AAC3B;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,aAAa;EACb,yBAAyB,EAAE,gBAAgB;AAC7C;;AAEA;EACE,iBAAiB;EACjB,WAAW,EAAE,iBAAiB;EAC9B,YAAY;EACZ,aAAa;EACb,2BAA2B;EAC3B,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,kBAAkB;EAClB,2EAAwE;EACxE,wBAAwB;EACxB,YAAY;EACZ,WAAW,EAAE,aAAa;EAC1B,YAAY,EAAE,aAAa;EAC3B,eAAe;EACf,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;EAClB,gBAAgB,EAAE,aAAa;EAC/B,YAAY,EAAE,YAAY;EAC1B,aAAa,EAAE,YAAY;EAC3B,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB,EAAE,yBAAyB;EAC3C,kBAAkB;EAClB,uCAAuC;AACzC;;AAEA;EACE,WAAW,EAAE,iBAAiB;EAC9B,YAAY,EAAE,gBAAgB;EAC9B,mBAAmB,EAAE,uBAAuB;AAC9C;;AAEA;EACE,WAAW;EACX,aAAa;EACb,cAAc;AAChB;;AAEA;EACE,gBAAgB;EAChB,gBAAgB;EAChB,iBAAiB;EACjB,eAAe;EACf,iBAAiB;AACnB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,iBAAiB;AACnB;;;AAGA;EACE,gBAAgB;EAChB,yBAAyB;EACzB,cAAc;EACd,kBAAkB;EAClB,eAAe;EACf,eAAe;EACf,iBAAiB;EACjB,YAAY;EACZ,mBAAmB;EACnB,iBAAiB;AACnB;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;AAEA;EACE,iBAAiB;EACjB,+DAA+E;AACjF;AACA;EACE,iBAAiB;EACjB,+DAA8E;AAChF","sourcesContent":["#root {\r\n  background-color: #1e1f23;\r\n}\r\n\r\n.detail-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  padding: 20px;\r\n  background-color: #1e1f23; /* 백그라운드 색상 추가 */\r\n}\r\n\r\n.navbar {\r\n  margin-top: -10px;\r\n  width: 100%; /* 너비를 100%로 설정 */\r\n  height: 40px;\r\n  display: flex;\r\n  justify-content: flex-start;\r\n  padding: 10px;\r\n  background-color: #1e1f23;\r\n}\r\n\r\n.back-button {\r\n  margin-left: -10px;\r\n  background: url('~/public/left_arrow_white.png') no-repeat center center;\r\n  background-size: contain;\r\n  border: none;\r\n  width: 33px; /* 버튼 크기 조정 */\r\n  height: 33px; /* 버튼 크기 조정 */\r\n  cursor: pointer;\r\n  border-radius: 90px;\r\n}\r\n\r\n.image-container {\r\n  border-radius: 8px;\r\n  margin-top: 10px; /* 상단 마진 조정 */\r\n  width: 400px; /* 컨테이너 너비 */\r\n  height: 400px; /* 컨테이너 높이 */\r\n  display: flex;\r\n  justify-content: center; \r\n  align-items: center;\r\n  overflow: hidden; /* 이미지가 컨테이너를 넘지 않도록 설정 */\r\n  border-radius: 8px;\r\n  box-shadow:  7px 7px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.product-image {\r\n  width: 100%; /* 컨테이너 너비에 맞추기 */\r\n  height: auto; /* 높이는 자동으로 조정 */\r\n  object-fit: contain; /* 비율을 유지하며 컨테이너에 맞추기 */\r\n}\r\n\r\n.product-info {\r\n  width: 100%;\r\n  padding: 20px;\r\n  color: #FFFFFF;\r\n}\r\n\r\n.product-info h1 {\r\n  margin-top: 10px;\r\n  text-align: left;\r\n  font-family: 'f5';\r\n  font-size: 15pt;\r\n  font-weight: bold;\r\n}\r\n\r\n.product-info p {\r\n  margin-top: 10px;\r\n  text-align: right;\r\n  font-family: 'f4';\r\n  font-size: 12pt;\r\n}\r\n\r\n.tactile-info-container {\r\n  margin-top: -30px;\r\n}\r\n\r\n\r\n.view-product-button {\r\n  margin-top: 10px;\r\n  background-color: #20edc7;\r\n  color: #1e1f23;\r\n  padding: 10px 20px;\r\n  cursor: pointer;\r\n  font-size: 18px;\r\n  font-weight: bold;\r\n  width: 220px;\r\n  border-radius: 12px;\r\n  font-family: 'f5';\r\n}\r\n\r\n.view-product-button:hover {\r\n  background-color: #FFFFFF;\r\n  color: #000000;\r\n}\r\n\r\n@font-face {\r\n  font-family: 'f4';\r\n  src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'f5';\r\n  src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');\r\n}\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/popup/css/Detail.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;AAC3B;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,aAAa;EACb,yBAAyB,EAAE,gBAAgB;AAC7C;;AAEA;EACE,iBAAiB;EACjB,WAAW,EAAE,iBAAiB;EAC9B,YAAY;EACZ,aAAa;EACb,2BAA2B;EAC3B,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,kBAAkB;EAClB,2EAAwE;EACxE,wBAAwB;EACxB,YAAY;EACZ,WAAW,EAAE,aAAa;EAC1B,YAAY,EAAE,aAAa;EAC3B,eAAe;EACf,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;EAClB,gBAAgB,EAAE,aAAa;EAC/B,YAAY,EAAE,YAAY;EAC1B,aAAa,EAAE,YAAY;EAC3B,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB,EAAE,yBAAyB;EAC3C,kBAAkB;EAClB,uCAAuC;AACzC;;AAEA;EACE,WAAW,EAAE,iBAAiB;EAC9B,YAAY,EAAE,gBAAgB;EAC9B,mBAAmB,EAAE,uBAAuB;AAC9C;;AAEA;EACE,WAAW;EACX,aAAa;EACb,cAAc;AAChB;;AAEA;EACE,gBAAgB;EAChB,gBAAgB;EAChB,iBAAiB;EACjB,eAAe;EACf,iBAAiB;AACnB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,iBAAiB;AACnB;;;AAGA;EACE,gBAAgB;EAChB,yBAAyB;EACzB,cAAc;EACd,kBAAkB;EAClB,eAAe;EACf,eAAe;EACf,iBAAiB;EACjB,YAAY;EACZ,mBAAmB;EACnB,iBAAiB;AACnB;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;AAEA;EACE,iBAAiB;EACjB,+DAA+E;AACjF;AACA;EACE,iBAAiB;EACjB,+DAA8E;AAChF","sourcesContent":["#root {\r\n  background-color: #e0e6ea;\r\n}\r\n\r\n.detail-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  padding: 20px;\r\n  background-color: #e0e6ea; /* 백그라운드 색상 추가 */\r\n}\r\n\r\n.navbar {\r\n  margin-top: -10px;\r\n  width: 100%; /* 너비를 100%로 설정 */\r\n  height: 40px;\r\n  display: flex;\r\n  justify-content: flex-start;\r\n  padding: 10px;\r\n  background-color: #e0e6ea;\r\n}\r\n\r\n.back-button {\r\n  margin-left: -10px;\r\n  background: url('~/public/left_arrow_white.png') no-repeat center center;\r\n  background-size: contain;\r\n  border: none;\r\n  width: 33px; /* 버튼 크기 조정 */\r\n  height: 33px; /* 버튼 크기 조정 */\r\n  cursor: pointer;\r\n  border-radius: 90px;\r\n}\r\n\r\n.image-container {\r\n  border-radius: 8px;\r\n  margin-top: 10px; /* 상단 마진 조정 */\r\n  width: 400px; /* 컨테이너 너비 */\r\n  height: 400px; /* 컨테이너 높이 */\r\n  display: flex;\r\n  justify-content: center; \r\n  align-items: center;\r\n  overflow: hidden; /* 이미지가 컨테이너를 넘지 않도록 설정 */\r\n  border-radius: 8px;\r\n  box-shadow:  7px 7px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.product-image {\r\n  width: 100%; /* 컨테이너 너비에 맞추기 */\r\n  height: auto; /* 높이는 자동으로 조정 */\r\n  object-fit: contain; /* 비율을 유지하며 컨테이너에 맞추기 */\r\n}\r\n\r\n.product-info {\r\n  width: 100%;\r\n  padding: 20px;\r\n  color: #FFFFFF;\r\n}\r\n\r\n.product-info h1 {\r\n  margin-top: 10px;\r\n  text-align: left;\r\n  font-family: 'f5';\r\n  font-size: 15pt;\r\n  font-weight: bold;\r\n}\r\n\r\n.product-info p {\r\n  margin-top: 10px;\r\n  text-align: right;\r\n  font-family: 'f4';\r\n  font-size: 12pt;\r\n}\r\n\r\n.tactile-info-container {\r\n  margin-top: -30px;\r\n}\r\n\r\n\r\n.view-product-button {\r\n  margin-top: 10px;\r\n  background-color: #B7B597;\r\n  color: #1e1f23;\r\n  padding: 10px 20px;\r\n  cursor: pointer;\r\n  font-size: 18px;\r\n  font-weight: bold;\r\n  width: 220px;\r\n  border-radius: 12px;\r\n  font-family: 'f5';\r\n}\r\n\r\n.view-product-button:hover {\r\n  background-color: #FFFFFF;\r\n  color: #000000;\r\n}\r\n\r\n@font-face {\r\n  font-family: 'f4';\r\n  src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'f5';\r\n  src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5527,7 +5468,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `/* .goods-list-container {
+___CSS_LOADER_EXPORT___.push([module.id, `   .goods-list-container {
     margin-top: -15px;
     width: 500px;
     padding: 20px;
@@ -5537,90 +5478,13 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* .goods-list-container {
     display: flex;
     justify-content: space-around;
     margin-bottom: 20px;
+    align-items: center;
   }
   
   .category-button {
-    background-color: #20edc7;
-    color: #1e1f23;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 40px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 12pt;
-    font-family: 'f5';
-  }
-  
-  .category-button:hover {
     background-color: #FFFFFF;
-    color: #000000;
-  }
-  
-  .goods-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  
-  }
-  
-  .goods-item {
-    width: 45%;
-    margin-bottom: 20px;
-    text-align: center;
-    cursor: pointer;
-    background-color: #FFFFFF;
-    color: #000000;
-    font-size: 11pt;
-    border-radius: 15px;
-    font-family: 'f4';
-    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2);
-  }
-  
-  .goods-item img {
-    width: 100%;
-    border-top-left-radius: 15px; 
-    border-top-right-radius: 15px; 
-  }
-  
-  .goods-item p {
-    margin: 10px 0 0 0;
-    font-size: 0.9em;
-  }
-  
-  .goods-item p span {
-    display: block;
-    font-size: 0.8em;
-    color: #aaa;
-  }
-  
-
-
-  @font-face {
-    font-family: 'f4';
-    src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');
-  }
-  @font-face {
-    font-family: 'f5';
-    src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');
-  }
-   */
-
-   .goods-list-container {
-    margin-top: -15px;
-    width: 500px;
-    padding: 20px;
-  }
-  
-  .category-buttons {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-  }
-  
-  .category-button {
-    background-color: #20edc7;
     color: #1e1f23;
-    border: none;
+    border: 0.2px solid rgba(0, 0, 0, 0.7);
     padding: 8px 16px;
     border-radius: 40px;
     cursor: pointer;
@@ -5636,18 +5500,20 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* .goods-list-container {
   
   .sort-order-dropdown {
     align-items: right;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    width: 100%;
-    padding: 10px;
-    border-radius: 15px;
+    margin-bottom: 20px;
+    margin-top: -9px;
+    padding: 8px 16px;
+    border-radius: 40px;
     font-family: 'f5';
-    background-color: #20edc7;
-    color: #1e1f23;
+    background-color: #e0e6ea;
+    color: #000000;
     border: none;
     cursor: pointer;
     font-weight: bold;
-    font-size: 12pt;
+    font-size: 10pt;
+    /* width: calc(100% / 4 - 20px);  */
+    width: calc(100% /3.6 - 10px); 
+    font-family: 'f4';
   }
   
   .goods-list {
@@ -5664,19 +5530,19 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* .goods-list-container {
     background-color: #FFFFFF;
     color: #000000;
     font-size: 11pt;
-    border-radius: 15px;
+    border-radius: 8px;
     font-family: 'f4';
     box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2);
   }
   
   .goods-item img {
     width: 100%;
-    border-top-left-radius: 15px; /* 상단 왼쪽 모서리 둥글게 */
-    border-top-right-radius: 15px; /* 상단 오른쪽 모서리 둥글게 */
+    border-top-left-radius: 8px; /* 상단 왼쪽 모서리 둥글게 */
+    border-top-right-radius: 8px; /* 상단 오른쪽 모서리 둥글게 */
   }
   
   .goods-item p {
-    margin: 10px 0 0 0;
+    margin: 12px 0 0 0;
     font-size: 0.9em;
   }
   
@@ -5694,7 +5560,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* .goods-list-container {
     font-family: 'f5';
     src: url(${___CSS_LOADER_URL_REPLACEMENT_1___}) format('truetype');
   }
-  `, "",{"version":3,"sources":["webpack://./src/popup/css/GoodsList.css"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA4EI;;GAED;IACC,iBAAiB;IACjB,YAAY;IACZ,aAAa;EACf;;EAEA;IACE,aAAa;IACb,6BAA6B;IAC7B,mBAAmB;EACrB;;EAEA;IACE,yBAAyB;IACzB,cAAc;IACd,YAAY;IACZ,iBAAiB;IACjB,mBAAmB;IACnB,eAAe;IACf,iBAAiB;IACjB,eAAe;IACf,iBAAiB;EACnB;;EAEA;IACE,yBAAyB;IACzB,cAAc;EAChB;;EAEA;IACE,kBAAkB;IAClB,eAAe;IACf,mBAAmB;IACnB,WAAW;IACX,aAAa;IACb,mBAAmB;IACnB,iBAAiB;IACjB,yBAAyB;IACzB,cAAc;IACd,YAAY;IACZ,eAAe;IACf,iBAAiB;IACjB,eAAe;EACjB;;EAEA;IACE,aAAa;IACb,eAAe;IACf,6BAA6B;EAC/B;;EAEA;IACE,UAAU;IACV,mBAAmB;IACnB,kBAAkB;IAClB,eAAe;IACf,yBAAyB;IACzB,cAAc;IACd,eAAe;IACf,mBAAmB;IACnB,iBAAiB;IACjB,0CAA0C;EAC5C;;EAEA;IACE,WAAW;IACX,4BAA4B,EAAE,kBAAkB;IAChD,6BAA6B,EAAE,mBAAmB;EACpD;;EAEA;IACE,kBAAkB;IAClB,gBAAgB;EAClB;;EAEA;IACE,cAAc;IACd,gBAAgB;IAChB,WAAW;EACb;;EAEA;IACE,iBAAiB;IACjB,+DAA+E;EACjF;EACA;IACE,iBAAiB;IACjB,+DAA8E;EAChF","sourcesContent":["/* .goods-list-container {\r\n    margin-top: -15px;\r\n    width: 500px;\r\n    padding: 20px;\r\n  }\r\n  \r\n  .category-buttons {\r\n    display: flex;\r\n    justify-content: space-around;\r\n    margin-bottom: 20px;\r\n  }\r\n  \r\n  .category-button {\r\n    background-color: #20edc7;\r\n    color: #1e1f23;\r\n    border: none;\r\n    padding: 8px 16px;\r\n    border-radius: 40px;\r\n    cursor: pointer;\r\n    font-weight: bold;\r\n    font-size: 12pt;\r\n    font-family: 'f5';\r\n  }\r\n  \r\n  .category-button:hover {\r\n    background-color: #FFFFFF;\r\n    color: #000000;\r\n  }\r\n  \r\n  .goods-list {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n  \r\n  }\r\n  \r\n  .goods-item {\r\n    width: 45%;\r\n    margin-bottom: 20px;\r\n    text-align: center;\r\n    cursor: pointer;\r\n    background-color: #FFFFFF;\r\n    color: #000000;\r\n    font-size: 11pt;\r\n    border-radius: 15px;\r\n    font-family: 'f4';\r\n    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2);\r\n  }\r\n  \r\n  .goods-item img {\r\n    width: 100%;\r\n    border-top-left-radius: 15px; \r\n    border-top-right-radius: 15px; \r\n  }\r\n  \r\n  .goods-item p {\r\n    margin: 10px 0 0 0;\r\n    font-size: 0.9em;\r\n  }\r\n  \r\n  .goods-item p span {\r\n    display: block;\r\n    font-size: 0.8em;\r\n    color: #aaa;\r\n  }\r\n  \r\n\r\n\r\n  @font-face {\r\n    font-family: 'f4';\r\n    src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');\r\n  }\r\n  @font-face {\r\n    font-family: 'f5';\r\n    src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');\r\n  }\r\n   */\r\n\r\n   .goods-list-container {\r\n    margin-top: -15px;\r\n    width: 500px;\r\n    padding: 20px;\r\n  }\r\n  \r\n  .category-buttons {\r\n    display: flex;\r\n    justify-content: space-around;\r\n    margin-bottom: 20px;\r\n  }\r\n  \r\n  .category-button {\r\n    background-color: #20edc7;\r\n    color: #1e1f23;\r\n    border: none;\r\n    padding: 8px 16px;\r\n    border-radius: 40px;\r\n    cursor: pointer;\r\n    font-weight: bold;\r\n    font-size: 12pt;\r\n    font-family: 'f5';\r\n  }\r\n  \r\n  .category-button:hover {\r\n    background-color: #FFFFFF;\r\n    color: #000000;\r\n  }\r\n  \r\n  .sort-order-dropdown {\r\n    align-items: right;\r\n    margin-top: 5px;\r\n    margin-bottom: 15px;\r\n    width: 100%;\r\n    padding: 10px;\r\n    border-radius: 15px;\r\n    font-family: 'f5';\r\n    background-color: #20edc7;\r\n    color: #1e1f23;\r\n    border: none;\r\n    cursor: pointer;\r\n    font-weight: bold;\r\n    font-size: 12pt;\r\n  }\r\n  \r\n  .goods-list {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n  }\r\n  \r\n  .goods-item {\r\n    width: 45%;\r\n    margin-bottom: 20px;\r\n    text-align: center;\r\n    cursor: pointer;\r\n    background-color: #FFFFFF;\r\n    color: #000000;\r\n    font-size: 11pt;\r\n    border-radius: 15px;\r\n    font-family: 'f4';\r\n    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2);\r\n  }\r\n  \r\n  .goods-item img {\r\n    width: 100%;\r\n    border-top-left-radius: 15px; /* 상단 왼쪽 모서리 둥글게 */\r\n    border-top-right-radius: 15px; /* 상단 오른쪽 모서리 둥글게 */\r\n  }\r\n  \r\n  .goods-item p {\r\n    margin: 10px 0 0 0;\r\n    font-size: 0.9em;\r\n  }\r\n  \r\n  .goods-item p span {\r\n    display: block;\r\n    font-size: 0.8em;\r\n    color: #aaa;\r\n  }\r\n  \r\n  @font-face {\r\n    font-family: 'f4';\r\n    src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');\r\n  }\r\n  @font-face {\r\n    font-family: 'f5';\r\n    src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');\r\n  }\r\n  "],"sourceRoot":""}]);
+  `, "",{"version":3,"sources":["webpack://./src/popup/css/GoodsList.css"],"names":[],"mappings":"GAAG;IACC,iBAAiB;IACjB,YAAY;IACZ,aAAa;EACf;;EAEA;IACE,aAAa;IACb,6BAA6B;IAC7B,mBAAmB;IACnB,mBAAmB;EACrB;;EAEA;IACE,yBAAyB;IACzB,cAAc;IACd,sCAAsC;IACtC,iBAAiB;IACjB,mBAAmB;IACnB,eAAe;IACf,iBAAiB;IACjB,eAAe;IACf,iBAAiB;EACnB;;EAEA;IACE,yBAAyB;IACzB,cAAc;EAChB;;EAEA;IACE,kBAAkB;IAClB,mBAAmB;IACnB,gBAAgB;IAChB,iBAAiB;IACjB,mBAAmB;IACnB,iBAAiB;IACjB,yBAAyB;IACzB,cAAc;IACd,YAAY;IACZ,eAAe;IACf,iBAAiB;IACjB,eAAe;IACf,mCAAmC;IACnC,6BAA6B;IAC7B,iBAAiB;EACnB;;EAEA;IACE,aAAa;IACb,eAAe;IACf,6BAA6B;EAC/B;;EAEA;IACE,UAAU;IACV,mBAAmB;IACnB,kBAAkB;IAClB,eAAe;IACf,yBAAyB;IACzB,cAAc;IACd,eAAe;IACf,kBAAkB;IAClB,iBAAiB;IACjB,0CAA0C;EAC5C;;EAEA;IACE,WAAW;IACX,2BAA2B,EAAE,kBAAkB;IAC/C,4BAA4B,EAAE,mBAAmB;EACnD;;EAEA;IACE,kBAAkB;IAClB,gBAAgB;EAClB;;EAEA;IACE,cAAc;IACd,gBAAgB;IAChB,WAAW;EACb;;EAEA;IACE,iBAAiB;IACjB,+DAA+E;EACjF;EACA;IACE,iBAAiB;IACjB,+DAA8E;EAChF","sourcesContent":["   .goods-list-container {\r\n    margin-top: -15px;\r\n    width: 500px;\r\n    padding: 20px;\r\n  }\r\n  \r\n  .category-buttons {\r\n    display: flex;\r\n    justify-content: space-around;\r\n    margin-bottom: 20px;\r\n    align-items: center;\r\n  }\r\n  \r\n  .category-button {\r\n    background-color: #FFFFFF;\r\n    color: #1e1f23;\r\n    border: 0.2px solid rgba(0, 0, 0, 0.7);\r\n    padding: 8px 16px;\r\n    border-radius: 40px;\r\n    cursor: pointer;\r\n    font-weight: bold;\r\n    font-size: 12pt;\r\n    font-family: 'f5';\r\n  }\r\n  \r\n  .category-button:hover {\r\n    background-color: #FFFFFF;\r\n    color: #000000;\r\n  }\r\n  \r\n  .sort-order-dropdown {\r\n    align-items: right;\r\n    margin-bottom: 20px;\r\n    margin-top: -9px;\r\n    padding: 8px 16px;\r\n    border-radius: 40px;\r\n    font-family: 'f5';\r\n    background-color: #e0e6ea;\r\n    color: #000000;\r\n    border: none;\r\n    cursor: pointer;\r\n    font-weight: bold;\r\n    font-size: 10pt;\r\n    /* width: calc(100% / 4 - 20px);  */\r\n    width: calc(100% /3.6 - 10px); \r\n    font-family: 'f4';\r\n  }\r\n  \r\n  .goods-list {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n  }\r\n  \r\n  .goods-item {\r\n    width: 45%;\r\n    margin-bottom: 20px;\r\n    text-align: center;\r\n    cursor: pointer;\r\n    background-color: #FFFFFF;\r\n    color: #000000;\r\n    font-size: 11pt;\r\n    border-radius: 8px;\r\n    font-family: 'f4';\r\n    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2);\r\n  }\r\n  \r\n  .goods-item img {\r\n    width: 100%;\r\n    border-top-left-radius: 8px; /* 상단 왼쪽 모서리 둥글게 */\r\n    border-top-right-radius: 8px; /* 상단 오른쪽 모서리 둥글게 */\r\n  }\r\n  \r\n  .goods-item p {\r\n    margin: 12px 0 0 0;\r\n    font-size: 0.9em;\r\n  }\r\n  \r\n  .goods-item p span {\r\n    display: block;\r\n    font-size: 0.8em;\r\n    color: #aaa;\r\n  }\r\n  \r\n  @font-face {\r\n    font-family: 'f4';\r\n    src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');\r\n  }\r\n  @font-face {\r\n    font-family: 'f5';\r\n    src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');\r\n  }\r\n  "],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5722,7 +5588,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.popup-container {
-  background-color: #1e1f23;
+  background-color: #e0e6ea;
   display: flex;
   flex-direction: column;
   align-items: center; /* 중앙 정렬 */
@@ -5731,10 +5597,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.popup-container {
 #root {
   width: 500px;
   height: 1000px;
-  background-color: #0B132B;
+  background-color: #e0e6ea;
 }
 
-`, "",{"version":3,"sources":["webpack://./src/popup/css/Main.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;EACzB,aAAa;EACb,sBAAsB;EACtB,mBAAmB,EAAE,UAAU;EAC/B,uBAAuB,EAAE,wBAAwB;AACnD;AACA;EACE,YAAY;EACZ,cAAc;EACd,yBAAyB;AAC3B","sourcesContent":[".popup-container {\r\n  background-color: #1e1f23;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center; /* 중앙 정렬 */\r\n  justify-content: center; /* 수직 중앙 정렬, 필요에 따라 사용 */\r\n}\r\n#root {\r\n  width: 500px;\r\n  height: 1000px;\r\n  background-color: #0B132B;\r\n}\r\n\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/popup/css/Main.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;EACzB,aAAa;EACb,sBAAsB;EACtB,mBAAmB,EAAE,UAAU;EAC/B,uBAAuB,EAAE,wBAAwB;AACnD;AACA;EACE,YAAY;EACZ,cAAc;EACd,yBAAyB;AAC3B","sourcesContent":[".popup-container {\r\n  background-color: #e0e6ea;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center; /* 중앙 정렬 */\r\n  justify-content: center; /* 수직 중앙 정렬, 필요에 따라 사용 */\r\n}\r\n#root {\r\n  width: 500px;\r\n  height: 1000px;\r\n  background-color: #e0e6ea;\r\n}\r\n\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5762,28 +5628,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Freesentation-4Regular.ttf */ "./public/fonts/Freesentation-4Regular.ttf"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Freesentation-5Medium.ttf */ "./public/fonts/Freesentation-5Medium.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/Group 4.png */ "./public/Group 4.png"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Freesentation-4Regular.ttf */ "./public/fonts/Freesentation-4Regular.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Freesentation-5Medium.ttf */ "./public/fonts/Freesentation-5Medium.ttf"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
+var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_2___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.touch-info {
-  margin-top: 3%;
-  /* background-color: #3d3f46; */
-  background-color: rgba(61, 63, 70, 0.45);
-  padding: 20px;
-  border-radius: 8px;
-  width: 450px;
+  margin-top: 10px;
+  border-radius: 10px;
+  width: 480px;
   height: 200px;
-  margin-bottom: 20px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* 중앙 정렬 */
-  justify-content: center;
-  font-family: 'f5';
-  font-size: 13pt;
+  background-image: url(${___CSS_LOADER_URL_REPLACEMENT_0___}); /* 경로 수정 */
+  background-size: cover; /* 이미지 크기를 컨테이너에 맞춤 */
+  background-position: center; /* 이미지 위치를 중앙으로 설정 */
+  background-repeat: no-repeat; /* 이미지 반복을 방지 */
 }
 
 .touch-area {
@@ -5791,21 +5652,24 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.touch-info {
   border-radius: 15px;
 }
 
-.touch-info h2 {
+/* .touch-info h2 {
+  margin-left: -12px;
+  width: 475px;
+  height: 40px;
+  margin-top: px;
   font-family: 'f5';
   font-size: 18pt;
-  color: #FFFFFF;
+  color: #000000;
   font-weight: bold;
-  /* text-align: left; */
-  
-}
+
+} */
 
 .touch-bar {
   /* background-color: rgba(61, 63, 70, 0.5); */
   display: flex;
   align-items: center;
   margin: 5px 0;
-  color: #FFFFFF;
+  color: #000000;
   font-family: 'f4';
   font-size: 12pt;
 }
@@ -5857,18 +5721,18 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.touch-info {
 
 @font-face {
   font-family: 'f4';
-  src: url(${___CSS_LOADER_URL_REPLACEMENT_0___}) format('truetype');
+  src: url(${___CSS_LOADER_URL_REPLACEMENT_1___}) format('truetype');
 }
 @font-face {
   font-family: 'f5';
-  src: url(${___CSS_LOADER_URL_REPLACEMENT_1___}) format('truetype');
+  src: url(${___CSS_LOADER_URL_REPLACEMENT_2___}) format('truetype');
 }
 
 
 
 
 
-`, "",{"version":3,"sources":["webpack://./src/popup/css/TouchInfo.css"],"names":[],"mappings":"AAAA;EACE,cAAc;EACd,+BAA+B;EAC/B,wCAAwC;EACxC,aAAa;EACb,kBAAkB;EAClB,YAAY;EACZ,aAAa;EACb,mBAAmB;;EAEnB,aAAa;EACb,sBAAsB;EACtB,mBAAmB,EAAE,UAAU;EAC/B,uBAAuB;EACvB,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,YAAY;EACZ,mBAAmB;AACrB;;AAEA;EACE,iBAAiB;EACjB,eAAe;EACf,cAAc;EACd,iBAAiB;EACjB,sBAAsB;;AAExB;;AAEA;EACE,6CAA6C;EAC7C,aAAa;EACb,mBAAmB;EACnB,aAAa;EACb,cAAc;EACd,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,OAAO;AACT;;AAEA;EACE,OAAO;EACP,kBAAkB;AACpB;;AAEA;EACE,wCAAwC;EACxC,iCAAiC;AACnC;;AAEA;EACE,kBAAkB;EAClB,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,aAAa;EACb,8BAA8B;AAChC;;AAEA;EACE,UAAU;EACV,YAAY;EACZ,yBAAyB;AAC3B;;;AAGA;EACE,eAAe;EACf,kBAAkB;EAClB,YAAY;EACZ,YAAY;EACZ,+BAA+B;EAC/B,kBAAkB;AACpB;;AAEA,cAAc;;;;;AAKd;EACE,iBAAiB;EACjB,+DAA+E;AACjF;AACA;EACE,iBAAiB;EACjB,+DAA8E;AAChF","sourcesContent":[".touch-info {\r\n  margin-top: 3%;\r\n  /* background-color: #3d3f46; */\r\n  background-color: rgba(61, 63, 70, 0.45);\r\n  padding: 20px;\r\n  border-radius: 8px;\r\n  width: 450px;\r\n  height: 200px;\r\n  margin-bottom: 20px;\r\n\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center; /* 중앙 정렬 */\r\n  justify-content: center;\r\n  font-family: 'f5';\r\n  font-size: 13pt;\r\n}\r\n\r\n.touch-area {\r\n  width: 420px;\r\n  border-radius: 15px;\r\n}\r\n\r\n.touch-info h2 {\r\n  font-family: 'f5';\r\n  font-size: 18pt;\r\n  color: #FFFFFF;\r\n  font-weight: bold;\r\n  /* text-align: left; */\r\n  \r\n}\r\n\r\n.touch-bar {\r\n  /* background-color: rgba(61, 63, 70, 0.5); */\r\n  display: flex;\r\n  align-items: center;\r\n  margin: 5px 0;\r\n  color: #FFFFFF;\r\n  font-family: 'f4';\r\n  font-size: 12pt;\r\n}\r\n\r\n.touch-bar span {\r\n  flex: 1;\r\n}\r\n\r\n.progress-bar-wrapper {\r\n  flex: 4;\r\n  position: relative;\r\n}\r\n\r\n.custom-progress-bar .progress-bar {\r\n  background-color: transparent !important;\r\n  background-image: none !important;\r\n}\r\n\r\n.ticks {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  display: flex;\r\n  justify-content: space-between;\r\n}\r\n\r\n.tick {\r\n  width: 4px;\r\n  height: 100%;\r\n  background-color: #3d3f46;\r\n}\r\n\r\n\r\n.touch-info-text {\r\n  margin-top: 4px;\r\n  margin-bottom: 2px;\r\n  width: 450px;\r\n  height: 50px;\r\n  /* background-color: #D1D1D1; */\r\n  text-align: center;\r\n}\r\n\r\n/* Rectangle */\r\n\r\n\r\n\r\n\r\n@font-face {\r\n  font-family: 'f4';\r\n  src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'f5';\r\n  src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');\r\n}\r\n\r\n\r\n\r\n\r\n\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/popup/css/TouchInfo.css"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,mBAAmB;EACnB,YAAY;EACZ,aAAa;EACb,yDAAoD,EAAE,UAAU;EAChE,sBAAsB,EAAE,qBAAqB;EAC7C,2BAA2B,EAAE,oBAAoB;EACjD,4BAA4B,EAAE,eAAe;AAC/C;;AAEA;EACE,YAAY;EACZ,mBAAmB;AACrB;;AAEA;;;;;;;;;;GAUG;;AAEH;EACE,6CAA6C;EAC7C,aAAa;EACb,mBAAmB;EACnB,aAAa;EACb,cAAc;EACd,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,OAAO;AACT;;AAEA;EACE,OAAO;EACP,kBAAkB;AACpB;;AAEA;EACE,wCAAwC;EACxC,iCAAiC;AACnC;;AAEA;EACE,kBAAkB;EAClB,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,aAAa;EACb,8BAA8B;AAChC;;AAEA;EACE,UAAU;EACV,YAAY;EACZ,yBAAyB;AAC3B;;;AAGA;EACE,eAAe;EACf,kBAAkB;EAClB,YAAY;EACZ,YAAY;EACZ,+BAA+B;EAC/B,kBAAkB;AACpB;;AAEA,cAAc;;;;;AAKd;EACE,iBAAiB;EACjB,+DAA+E;AACjF;AACA;EACE,iBAAiB;EACjB,+DAA8E;AAChF","sourcesContent":[".touch-info {\r\n  margin-top: 10px;\r\n  border-radius: 10px;\r\n  width: 480px;\r\n  height: 200px;\r\n  background-image: url('../../../public/Group 4.png'); /* 경로 수정 */\r\n  background-size: cover; /* 이미지 크기를 컨테이너에 맞춤 */\r\n  background-position: center; /* 이미지 위치를 중앙으로 설정 */\r\n  background-repeat: no-repeat; /* 이미지 반복을 방지 */\r\n}\r\n\r\n.touch-area {\r\n  width: 420px;\r\n  border-radius: 15px;\r\n}\r\n\r\n/* .touch-info h2 {\r\n  margin-left: -12px;\r\n  width: 475px;\r\n  height: 40px;\r\n  margin-top: px;\r\n  font-family: 'f5';\r\n  font-size: 18pt;\r\n  color: #000000;\r\n  font-weight: bold;\r\n\r\n} */\r\n\r\n.touch-bar {\r\n  /* background-color: rgba(61, 63, 70, 0.5); */\r\n  display: flex;\r\n  align-items: center;\r\n  margin: 5px 0;\r\n  color: #000000;\r\n  font-family: 'f4';\r\n  font-size: 12pt;\r\n}\r\n\r\n.touch-bar span {\r\n  flex: 1;\r\n}\r\n\r\n.progress-bar-wrapper {\r\n  flex: 4;\r\n  position: relative;\r\n}\r\n\r\n.custom-progress-bar .progress-bar {\r\n  background-color: transparent !important;\r\n  background-image: none !important;\r\n}\r\n\r\n.ticks {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  display: flex;\r\n  justify-content: space-between;\r\n}\r\n\r\n.tick {\r\n  width: 4px;\r\n  height: 100%;\r\n  background-color: #3d3f46;\r\n}\r\n\r\n\r\n.touch-info-text {\r\n  margin-top: 4px;\r\n  margin-bottom: 2px;\r\n  width: 450px;\r\n  height: 50px;\r\n  /* background-color: #D1D1D1; */\r\n  text-align: center;\r\n}\r\n\r\n/* Rectangle */\r\n\r\n\r\n\r\n\r\n@font-face {\r\n  font-family: 'f4';\r\n  src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'f5';\r\n  src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');\r\n}\r\n\r\n\r\n\r\n\r\n\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -48302,6 +48166,17 @@ module.exports = __webpack_require__.p + "b64db67b2f2030bdbbb2.ttf";
 
 /***/ }),
 
+/***/ "./public/Group 4.png":
+/*!****************************!*\
+  !*** ./public/Group 4.png ***!
+  \****************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "9004d12991b3cc4b8133.png";
+
+/***/ }),
+
 /***/ "./public/left_arrow_white.png":
 /*!*************************************!*\
   !*** ./public/left_arrow_white.png ***!
@@ -53182,7 +53057,7 @@ const isThenable = (thing) =>
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("a481462acee92ab841ee")
+/******/ 		__webpack_require__.h = () => ("def9014e0fbc7a2a952f")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
