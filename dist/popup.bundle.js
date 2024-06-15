@@ -4932,87 +4932,6 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-// import React, { useEffect, useState } from 'react';
-// import '../css/GoodsList.css';
-
-// const GoodsList = ({ onImageClick }) => {
-//   const [goods, setGoods] = useState([]);
-//   const [sortOrder, setSortOrder] = useState('asc');
-//   const [activeCategory, setActiveCategory] = useState('');
-
-//   useEffect(() => {
-//     const fetchData = async (gids) => {
-//       try {
-//         const response = await fetch('http://127.0.0.1:5001/fetch-goods', {
-//           method: 'POST',
-//           headers: {
-//             'Content-Type': 'application/json'
-//           },
-//           body: JSON.stringify({ gids })
-//         });
-//         const data = await response.json();
-//         setGoods(Array.isArray(data) ? data : []);
-//       } catch (error) {
-//         console.error('Error fetching goods:', error);
-//       }
-//     };
-
-//     if (chrome && chrome.runtime && chrome.runtime.sendMessage) {
-//       chrome.runtime.sendMessage({ action: 'fetchGoods' }, (response) => {
-//         if (response && response.error) {
-//           console.error('Error fetching goods:', response.error);
-//         } else if (response && response.data) {
-//           const gids = response.data.map(item => item.product.ID);
-//           fetchData(gids);
-//         }
-//       });
-//     } else {
-//       console.error('크롬 확장 프로그램 환경이 아닙니다.');
-//     }
-//   }, []);
-
-//   const handleSort = (category) => {
-//     setActiveCategory(category);
-//     const sortedGoods = [...goods].sort((a, b) => {
-//       if (sortOrder === 'asc') {
-//         return a[category.toUpperCase()] - b[category.toUpperCase()];
-//       } else {
-//         return b[category.toUpperCase()] - a[category.toUpperCase()];
-//       }
-//     });
-//     setGoods(sortedGoods);
-//   };
-
-//   return (
-//     <div className="goods-list-container">
-//       <div className="category-buttons">
-//         <button className="category-button" onClick={() => handleSort('SOFTNESS')}>부드러움</button>
-//         <button className="category-button" onClick={() => handleSort('SMOOTHNESS')}>매끄러움</button>
-//         <button className="category-button" onClick={() => handleSort('THICKNESS')}>두께</button>
-//         <button className="category-button" onClick={() => handleSort('FLEXIBILITY')}>신축성</button>
-//       </div>
-//       <select 
-//         className="sort-order-dropdown" 
-//         value={sortOrder} 
-//         onChange={(e) => setSortOrder(e.target.value)}
-//       >
-//         <option value="asc">오름차순</option>
-//         <option value="desc">내림차순</option>
-//       </select>
-//       <div className="goods-list">
-//         {goods.map((item) => (
-//           <div className="goods-item" key={item.ID}>
-//             <img src={item.image_path} alt={item.NAME} onClick={() => onImageClick(item.ID)} />
-//             <p>{item.NAME}<span></span></p>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default GoodsList;
-
 
 
 var GoodsList = function GoodsList(_ref) {
@@ -5643,6 +5562,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
   color: #aaa;
 }
 
+
+
+
+
 @font-face {
   font-family: 'f4';
   src: url(${___CSS_LOADER_URL_REPLACEMENT_0___}) format('truetype');
@@ -5663,7 +5586,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
   font-family: 'ps';
   src: url(${___CSS_LOADER_URL_REPLACEMENT_4___}) format('truetype');
 }
-`, "",{"version":3,"sources":["webpack://./src/popup/css/GoodsList.css"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,YAAY,EAAE,gBAAgB;EAC9B,aAAa;AACf;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;EACnB,mBAAmB;AACrB;;AAEA;EACE,yBAAyB;EACzB,cAAc;EACd,sCAAsC;EACtC,iBAAiB;EACjB,mBAAmB;EACnB,eAAe;EACf,eAAe;EACf,iBAAiB;EACjB,OAAO,EAAE,2BAA2B;EACpC,aAAa,EAAE,gBAAgB;AACjC;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;AAEA;EACE,kBAAkB;EAClB,iBAAiB;EACjB,iBAAiB;EACjB,mBAAmB;EACnB,iBAAiB;EACjB,yBAAyB;EACzB,cAAc;EACd,YAAY;EACZ,eAAe;EACf,uBAAuB;EACvB,eAAe;EACf,iBAAiB;EACjB,4BAA4B,EAAE,gBAAgB;AAChD;;AAEA;EACE,aAAa;EACb,eAAe;EACf,6BAA6B;AAC/B;;AAEA;EACE,UAAU,EAAE,yBAAyB;EACrC,mBAAmB;EACnB,kBAAkB;EAClB,eAAe;EACf,yBAAyB;EACzB,cAAc;EACd,eAAe;EACf,kBAAkB;EAClB,iBAAiB;EACjB,gDAAgD;AAClD;;AAEA;EACE,WAAW;EACX,2BAA2B;EAC3B,4BAA4B;AAC9B;;AAEA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;;AAEA;EACE,cAAc;EACd,gBAAgB;EAChB,WAAW;AACb;;AAEA;EACE,iBAAiB;EACjB,+DAA+E;AACjF;AACA;EACE,iBAAiB;EACjB,+DAA8E;AAChF;AACA;EACE,iBAAiB;EACjB,+DAA0E;AAC5E;AACA;EACE,iBAAiB;EACjB,+DAA2E;AAC7E;AACA;EACE,iBAAiB;EACjB,+DAA4E;AAC9E","sourcesContent":[".goods-list-container {\r\n  margin-top: -4px;\r\n  width: 480px; /* 너비를 더 넓게 조정 */\r\n  padding: 20px;\r\n}\r\n\r\n.category-buttons {\r\n  display: flex;\r\n  justify-content: space-around;\r\n  margin-bottom: 10px;\r\n  align-items: center;\r\n}\r\n\r\n.category-button {\r\n  background-color: #FFFFFF;\r\n  color: #1e1f23;\r\n  border: 0.2px solid rgba(0, 0, 0, 0.7);\r\n  padding: 8px 16px;\r\n  border-radius: 40px;\r\n  cursor: pointer;\r\n  font-size: 12pt;\r\n  font-family: 'ps';\r\n  flex: 1; /* 모든 버튼이 동일한 크기를 가지도록 설정 */\r\n  margin: 0 8px; /* 버튼 간의 간격 설정 */\r\n}\r\n\r\n.category-button:hover {\r\n  background-color: #FFDBDA;\r\n  color: #000000;\r\n}\r\n\r\n.sort-order-dropdown {\r\n  margin-bottom: 2px;\r\n  margin-top: -25px;\r\n  padding: 8px 16px;\r\n  border-radius: 40px;\r\n  font-family: 'f5';\r\n  background-color: #e0e6ea;\r\n  color: #000000;\r\n  border: none;\r\n  cursor: pointer;\r\n  /* font-weight: bold; */\r\n  font-size: 10pt;\r\n  font-family: 'ps';\r\n  width: calc(100% / 4 - 10px); /* 드롭다운의 너비 조정 */\r\n}\r\n\r\n.goods-list {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  justify-content: space-around;\r\n}\r\n\r\n.goods-item {\r\n  width: 48%; /* 상품 리스트 항목의 너비를 넓게 조정 */\r\n  margin-bottom: 20px;\r\n  text-align: center;\r\n  cursor: pointer;\r\n  background-color: #FFFFFF;\r\n  color: #000000;\r\n  font-size: 11pt;\r\n  border-radius: 8px;\r\n  font-family: 'pm';\r\n  /* box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2); */\r\n}\r\n\r\n.goods-item img {\r\n  width: 100%;\r\n  border-top-left-radius: 8px;\r\n  border-top-right-radius: 8px;\r\n}\r\n\r\n.goods-item p {\r\n  margin: 12px 0 0 0;\r\n  font-size: 0.9em;\r\n}\r\n\r\n.goods-item p span {\r\n  display: block;\r\n  font-size: 0.8em;\r\n  color: #aaa;\r\n}\r\n\r\n@font-face {\r\n  font-family: 'f4';\r\n  src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'f5';\r\n  src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'pm';\r\n  src: url('../../../public/fonts/Pretendard-Medium.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'pr';\r\n  src: url('../../../public/fonts/Pretendard-Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'ps';\r\n  src: url('../../../public/fonts/Pretendard-SemiBold.ttf') format('truetype');\r\n}\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/popup/css/GoodsList.css"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,YAAY,EAAE,gBAAgB;EAC9B,aAAa;AACf;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;EACnB,mBAAmB;AACrB;;AAEA;EACE,yBAAyB;EACzB,cAAc;EACd,sCAAsC;EACtC,iBAAiB;EACjB,mBAAmB;EACnB,eAAe;EACf,eAAe;EACf,iBAAiB;EACjB,OAAO,EAAE,2BAA2B;EACpC,aAAa,EAAE,gBAAgB;AACjC;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;AAEA;EACE,kBAAkB;EAClB,iBAAiB;EACjB,iBAAiB;EACjB,mBAAmB;EACnB,iBAAiB;EACjB,yBAAyB;EACzB,cAAc;EACd,YAAY;EACZ,eAAe;EACf,uBAAuB;EACvB,eAAe;EACf,iBAAiB;EACjB,4BAA4B,EAAE,gBAAgB;AAChD;;AAEA;EACE,aAAa;EACb,eAAe;EACf,6BAA6B;AAC/B;;AAEA;EACE,UAAU,EAAE,yBAAyB;EACrC,mBAAmB;EACnB,kBAAkB;EAClB,eAAe;EACf,yBAAyB;EACzB,cAAc;EACd,eAAe;EACf,kBAAkB;EAClB,iBAAiB;EACjB,gDAAgD;AAClD;;AAEA;EACE,WAAW;EACX,2BAA2B;EAC3B,4BAA4B;AAC9B;;AAEA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;;AAEA;EACE,cAAc;EACd,gBAAgB;EAChB,WAAW;AACb;;;;;;AAMA;EACE,iBAAiB;EACjB,+DAA+E;AACjF;AACA;EACE,iBAAiB;EACjB,+DAA8E;AAChF;AACA;EACE,iBAAiB;EACjB,+DAA0E;AAC5E;AACA;EACE,iBAAiB;EACjB,+DAA2E;AAC7E;AACA;EACE,iBAAiB;EACjB,+DAA4E;AAC9E","sourcesContent":[".goods-list-container {\r\n  margin-top: -4px;\r\n  width: 480px; /* 너비를 더 넓게 조정 */\r\n  padding: 20px;\r\n}\r\n\r\n.category-buttons {\r\n  display: flex;\r\n  justify-content: space-around;\r\n  margin-bottom: 10px;\r\n  align-items: center;\r\n}\r\n\r\n.category-button {\r\n  background-color: #FFFFFF;\r\n  color: #1e1f23;\r\n  border: 0.2px solid rgba(0, 0, 0, 0.7);\r\n  padding: 8px 16px;\r\n  border-radius: 40px;\r\n  cursor: pointer;\r\n  font-size: 12pt;\r\n  font-family: 'ps';\r\n  flex: 1; /* 모든 버튼이 동일한 크기를 가지도록 설정 */\r\n  margin: 0 8px; /* 버튼 간의 간격 설정 */\r\n}\r\n\r\n.category-button:hover {\r\n  background-color: #FFDBDA;\r\n  color: #000000;\r\n}\r\n\r\n.sort-order-dropdown {\r\n  margin-bottom: 2px;\r\n  margin-top: -25px;\r\n  padding: 8px 16px;\r\n  border-radius: 40px;\r\n  font-family: 'f5';\r\n  background-color: #e0e6ea;\r\n  color: #000000;\r\n  border: none;\r\n  cursor: pointer;\r\n  /* font-weight: bold; */\r\n  font-size: 10pt;\r\n  font-family: 'ps';\r\n  width: calc(100% / 4 - 10px); /* 드롭다운의 너비 조정 */\r\n}\r\n\r\n.goods-list {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  justify-content: space-around;\r\n}\r\n\r\n.goods-item {\r\n  width: 48%; /* 상품 리스트 항목의 너비를 넓게 조정 */\r\n  margin-bottom: 20px;\r\n  text-align: center;\r\n  cursor: pointer;\r\n  background-color: #FFFFFF;\r\n  color: #000000;\r\n  font-size: 11pt;\r\n  border-radius: 8px;\r\n  font-family: 'pm';\r\n  /* box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2); */\r\n}\r\n\r\n.goods-item img {\r\n  width: 100%;\r\n  border-top-left-radius: 8px;\r\n  border-top-right-radius: 8px;\r\n}\r\n\r\n.goods-item p {\r\n  margin: 12px 0 0 0;\r\n  font-size: 0.9em;\r\n}\r\n\r\n.goods-item p span {\r\n  display: block;\r\n  font-size: 0.8em;\r\n  color: #aaa;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n@font-face {\r\n  font-family: 'f4';\r\n  src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'f5';\r\n  src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'pm';\r\n  src: url('../../../public/fonts/Pretendard-Medium.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'pr';\r\n  src: url('../../../public/fonts/Pretendard-Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'ps';\r\n  src: url('../../../public/fonts/Pretendard-SemiBold.ttf') format('truetype');\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -53326,7 +53249,7 @@ const isThenable = (thing) =>
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("9da98ee6695ebecf33f5")
+/******/ 		__webpack_require__.h = () => ("5faead5f6f6e6b113cc3")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
