@@ -1,17 +1,29 @@
 .touch-info {
-  margin-top: 10px;
+  font-family: 'f5';
+  margin-top: 13px;
   border-radius: 10px;
-  width: 480px;
-  height: 200px;
-  background-image: url('../../../public/Group 4.png'); /* 경로 수정 */
+  width: 440px;
+  height: 210px;
+  background-image: url('../../../public/Group 10 (1).png'); /* 경로 수정 */
   background-size: cover; /* 이미지 크기를 컨테이너에 맞춤 */
   background-position: center; /* 이미지 위치를 중앙으로 설정 */
   background-repeat: no-repeat; /* 이미지 반복을 방지 */
+  transition: transform 0.3s, box-shadow 0.3s; /* 효과의 전환 시간 설정 */
+}
+
+.touch-info:hover {
+  transform: scale(1.02); /* 크기 확대 효과 */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
 }
 
 .touch-area {
-  width: 420px;
+  margin-left: 27px;
+  margin-top: 15px;
+  width: 350px;
+  height: 120px;
   border-radius: 15px;
+  font-family: 'ps';
+  /* font-weight: bold; */
 }
 
 /* .touch-info h2 {
@@ -30,9 +42,9 @@
   /* background-color: rgba(61, 63, 70, 0.5); */
   display: flex;
   align-items: center;
-  margin: 5px 0;
+  margin: 7px 0;
   color: #000000;
-  font-family: 'f4';
+  font-family: 'ps';
   font-size: 12pt;
 }
 
@@ -61,7 +73,7 @@
 }
 
 .tick {
-  width: 4px;
+  width: 2px;
   height: 100%;
   background-color: #3d3f46;
 }
@@ -81,7 +93,7 @@
 
 
 
-@font-face {
+/* @font-face {
   font-family: 'f4';
   src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');
 }
@@ -90,7 +102,42 @@
   src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'pm';
+  src: url('C:\Users\rlaeh\Desktop\Silk-Road-Extension\public\fonts\Pretendard-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'pr';
+  src: url('C:\Users\rlaeh\Desktop\Silk-Road-Extension\public\fonts\Pretendard-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'ps';
+  src: url('C:\Users\rlaeh\Desktop\Silk-Road-Extension\public\fonts\Pretendard-SemiBold.ttf') format('truetype');
+} */
 
 
+  
+@font-face {
+  font-family: 'f4';
+  src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'f5';
+  src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'pm';
+  src: url('../../../public/fonts/Pretendard-Medium.ttf') format('truetype');
+}
 
+@font-face {
+  font-family: 'pr';
+  src: url('../../../public/fonts/Pretendard-Regular.ttf') format('truetype');
+}
 
+@font-face {
+  font-family: 'ps';
+  src: url('../../../public/fonts/Pretendard-SemiBold.ttf') format('truetype');
+}

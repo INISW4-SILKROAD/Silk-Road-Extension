@@ -44,10 +44,10 @@ const TouchInfo = ({ productId }) => {
   }, [productId]);
 
   const colorMapping = {
-    softness: '#B7B597',
-    smoothness: '#B7B597',
-    thickness: '#B7B597',
-    flexibility: '#B7B597'
+    softness: '#FFDBDA',
+    smoothness: '#FFDBDA',
+    thickness: '#FFDBDA',
+    flexibility: '#FFDBDA'
   };
 
   return (
