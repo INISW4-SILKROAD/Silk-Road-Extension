@@ -53,7 +53,6 @@ const TouchInfo = ({ productId }) => {
   return (
     <div className="touch-info">
       <div className='touch-info-text'>
-        {/* <h2>촉감 정보</h2> */}
       </div>
       <div className='touch-area'>
         {Object.keys(touchData).map((key) => (

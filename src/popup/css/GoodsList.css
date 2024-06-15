@@ -7,7 +7,7 @@
 .category-buttons {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   align-items: center;
 }
 
@@ -25,12 +25,12 @@
 }
 
 .category-button:hover {
-  background-color: #FFFFFF;
+  background-color: #FFDBDA;
   color: #000000;
 }
 
 .sort-order-dropdown {
-  margin-bottom: 20px;
+  margin-bottom: 2px;
   margin-top: -25px;
   padding: 8px 16px;
   border-radius: 40px;
