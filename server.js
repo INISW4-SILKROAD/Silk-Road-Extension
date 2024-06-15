@@ -4,8 +4,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const { exec } = require('child_process');
-const fs = require('fs');
-const path = require('path');
 
 const app = express();
 const port = 5001;
@@ -98,7 +96,7 @@ app.post('/submit', async (req, res) => {
                      WHERE i2.GID = sg.ID
                    )`;
 
-    connection.query(query, gids, (err, results) => {
+    connection.query(query, gids, async (err, results) => {
       if (err) {
         console.error('상품 불러오기 오류:', err);
         res.status(500).json({ error: '상품 불러오기 오류' });
@@ -111,30 +109,25 @@ app.post('/submit', async (req, res) => {
       }));
 
       console.log('Combined results:', combinedResults);
-      res.status(200).json(combinedResults);
 
-      // 상품 ID에 해당하는 촉감 데이터 추가 조회
-      const touchQuery = `
-        SELECT SOFTNESS, THICKNESS, SMOOTHNESS, FLEXIBILITY
-        FROM service_goods
-        WHERE ID = ?
-      `;
-
-      connection.query(touchQuery, [productId], (touchErr, touchResults) => {
-        if (touchErr) {
-          console.error('촉감 데이터 불러오기 오류:', touchErr);
+      // 크롤러를 사용하여 추가 데이터 가져오기
+      const command = `cd C:\\Users\\rlaeh\\Desktop\\env\\Oasis-Road && conda activate pp && scrapy crawl one -a id=${productId}`;
+      exec(command, { shell: 'cmd.exe' }, async (error, stdout, stderr) => {
+        if (error) {
+          console.error(`크롤러 실행 오류: ${error.message}`);
           return;
         }
-
-        if (touchResults.length === 0) {
-          console.error('해당 상품의 촉감 데이터를 찾을 수 없음');
+        if (stderr) {
+          console.error(`크롤러 실행 stderr: ${stderr}`);
           return;
         }
+        console.log(`크롤러 실행 stdout: ${stdout}`);
 
-        console.log('Fetched touch data:', touchResults[0]);
-        // 필요한 경우 추가 작업 수행
+        // 크롤링이 완료되면 추가 작업 수행
+        // 예: 크롤링된 데이터 처리
+
+        res.status(200).json(combinedResults);
       });
-
     });
   } catch (error) {
     console.error('Flask 서버로부터 검색 결과를 받는 중 오류 발생:', error);
@@ -184,6 +177,7 @@ app.get('/goods/:id', (req, res) => {
   });
 });
 
+// 서버 시작
 app.listen(port, () => {
   console.log(`Server running at http://127.0.0.1:${port}`);
 });

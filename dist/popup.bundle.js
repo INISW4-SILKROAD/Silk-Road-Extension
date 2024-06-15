@@ -4997,7 +4997,7 @@ var GoodsList = function GoodsList(_ref) {
           console.error('Error fetching goods:', response.error);
         } else if (response && response.data) {
           var gids = response.data.map(function (item) {
-            return item.gid;
+            return item.product.ID;
           });
           fetchData(gids);
         }
@@ -5024,22 +5024,22 @@ var GoodsList = function GoodsList(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     className: "category-button",
     onClick: function onClick() {
-      return handleSort('softness');
+      return handleSort('SOFTNESS');
     }
   }, "\uBD80\uB4DC\uB7EC\uC6C0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     className: "category-button",
     onClick: function onClick() {
-      return handleSort('smoothness');
+      return handleSort('SMOOTHNESS');
     }
   }, "\uB9E4\uB044\uB7EC\uC6C0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     className: "category-button",
     onClick: function onClick() {
-      return handleSort('thickness');
+      return handleSort('THICKNESS');
     }
   }, "\uB450\uAED8"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     className: "category-button",
     onClick: function onClick() {
-      return handleSort('flexibility');
+      return handleSort('FLEXIBILITY');
     }
   }, "\uC2E0\uCD95\uC131")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("select", {
     className: "sort-order-dropdown",
@@ -53245,7 +53245,7 @@ const isThenable = (thing) =>
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("2883df7570e8238aa49b")
+/******/ 		__webpack_require__.h = () => ("3532b573a39336ee1071")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

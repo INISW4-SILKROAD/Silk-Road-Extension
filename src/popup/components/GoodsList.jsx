@@ -28,7 +28,7 @@ const GoodsList = ({ onImageClick }) => {
         if (response && response.error) {
           console.error('Error fetching goods:', response.error);
         } else if (response && response.data) {
-          const gids = response.data.map(item => item.gid);
+          const gids = response.data.map(item => item.product.ID);
           fetchData(gids);
         }
       });
@@ -52,10 +52,10 @@ const GoodsList = ({ onImageClick }) => {
   return (
     <div className="goods-list-container">
       <div className="category-buttons">
-        <button className="category-button" onClick={() => handleSort('softness')}>부드러움</button>
-        <button className="category-button" onClick={() => handleSort('smoothness')}>매끄러움</button>
-        <button className="category-button" onClick={() => handleSort('thickness')}>두께</button>
-        <button className="category-button" onClick={() => handleSort('flexibility')}>신축성</button>
+        <button className="category-button" onClick={() => handleSort('SOFTNESS')}>부드러움</button>
+        <button className="category-button" onClick={() => handleSort('SMOOTHNESS')}>매끄러움</button>
+        <button className="category-button" onClick={() => handleSort('THICKNESS')}>두께</button>
+        <button className="category-button" onClick={() => handleSort('FLEXIBILITY')}>신축성</button>
       </div>
       <select 
         className="sort-order-dropdown" 
