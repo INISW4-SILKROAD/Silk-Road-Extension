@@ -262,6 +262,7 @@
 // });
 
 
+
 const express = require('express');
 const mysql = require('mysql');
 const cors = require('cors');
@@ -270,8 +271,12 @@ const axios = require('axios');
 const { exec } = require('child_process');
 const fs = require('fs');
 const path = require('path');
+const socketIo = require('socket.io');
+const http = require('http');
 
 const app = express();
+const server = http.createServer(app);
+const io = socketIo(server);
 const port = 5001;
 
 app.use(cors());
@@ -292,25 +297,35 @@ connection.connect((err) => {
   console.log('MySQL 연결 성공 !');
 });
 
-// 가장 최신의 JSON 파일을 찾는 함수
+io.on('connection', (socket) => {
+  console.log('New client connected');
+
+  socket.on('joinRoom', (productId) => {
+    console.log(`Client joined room for product ${productId}`);
+    socket.join(productId);
+  });
+
+  socket.on('disconnect', () => {
+    console.log('Client disconnected');
+  });
+});
+
 const findLatestJsonFile = (dir) => {
   const files = fs.readdirSync(dir).filter(file => file.endsWith('.json'));
   const sortedFiles = files.sort((a, b) => {
     const [dateA, timeA] = a.split('_').slice(0, 2);
     const [dateB, timeB] = b.split('_').slice(0, 2);
-    return new Date(`${dateA}T${timeA}`) - new Date(`${dateB}T${timeB}`);
+    return new Date(`${dateA}T${timeA}`) - new Date(`${dateB}T${dateB}`);
   });
   return sortedFiles.pop();
 };
 
-// JSON 파일을 읽고 필요한 데이터를 추출하는 함수
 const processJsonFile = (filePath) => {
   const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
   const validData = data.filter(item => item.portion && item.texture_img);
   return validData.length > 0 ? validData[0] : null;
 };
 
-// 촉감 추정 모델에 데이터를 배치 파일을 통해 보내는 함수
 const sendToTouchModel = async (portion, textureImg) => {
   const textureImgName = path.basename(textureImg);
   const absoluteTextureImgPath = path.join('C:/Users/rlaeh/Desktop/env/Oasis-Road/result/data/image/texture', textureImgName);
@@ -335,7 +350,6 @@ const sendToTouchModel = async (portion, textureImg) => {
   });
 };
 
-// 상품과 이미지를 가져오는 엔드포인트
 app.post('/fetch-goods', async (req, res) => {
   const gids = req.body.gids;
 
@@ -408,7 +422,8 @@ app.post('/submit', async (req, res) => {
     connection.query(query, gids, async (err, results) => {
       if (err) {
         console.error('상품 불러오기 오류:', err);
-        return res.status(500).json({ error: '상품 불러오기 오류' });
+        res.status(500).json({ error: '상품 불러오기 오류' });
+        return;
       }
 
       const combinedResults = searchResults.map(result => ({
@@ -418,10 +433,8 @@ app.post('/submit', async (req, res) => {
 
       console.log('Combined results:', combinedResults);
 
-      // 클라이언트로 combinedResults 응답
       res.status(200).json(combinedResults);
 
-      // 크롤러를 사용하여 추가 데이터 가져오기
       const command = `cd C:\\Users\\rlaeh\\Desktop\\env\\Oasis-Road && conda activate pp && scrapy crawl one -a id=${productId}`;
       exec(command, { shell: 'cmd.exe' }, async (error, stdout, stderr) => {
         if (error) {
@@ -434,7 +447,6 @@ app.post('/submit', async (req, res) => {
         }
         console.log(`크롤러 실행 stdout: ${stdout}`);
 
-        // 크롤링이 완료되면 최신 JSON 파일을 처리하고 촉감 모델에 데이터를 보냅니다.
         const dir = 'C:/Users/rlaeh/Desktop/env/Oasis-Road/result';
         const latestFile = findLatestJsonFile(dir);
 
@@ -446,7 +458,6 @@ app.post('/submit', async (req, res) => {
         const filePath = path.join(dir, latestFile);
         const data = processJsonFile(filePath);
 
-        // 촉감 모델에 필요한 데이터 추출
         if (!data) {
           console.log('해당 정보만으로는 촉감을 예측할 수 없습니다');
           return;
@@ -464,16 +475,9 @@ app.post('/submit', async (req, res) => {
             console.error('Error processing touch model');
             return;
           }
-          console.log('Touch model response:', touchModelResponse);
-
-          // 응답을 JSON 형식으로 변환
-          const touchInfo = touchModelResponse.trim().slice(1, -1).split(',').map(Number);
+          const touchInfo = touchModelResponse.match(/\(([^)]+)\)/)[1].split(',').map(value => parseInt(value, 10) + 1);
           console.log('Parsed touchInfo:', touchInfo);
-
-          // 클라이언트에 전달
-          const io = req.app.get('socketio');
-          io.emit('touchInfo', { productId, touchInfo });
-
+          io.to(productId).emit('touchInfo', { productId, touchInfo });
         } catch (error) {
           console.error('Error processing touch model:', error);
         }
@@ -527,17 +531,6 @@ app.get('/goods/:id', (req, res) => {
   });
 });
 
-// 서버 시작
-const server = app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Server running at http://127.0.0.1:${port}`);
 });
-
-// Socket.io 설정
-const io = require('socket.io')(server, {
-  cors: {
-    origin: "http://localhost:9000",
-    methods: ["GET", "POST"]
-  }
-});
-
-app.set('socketio', io);

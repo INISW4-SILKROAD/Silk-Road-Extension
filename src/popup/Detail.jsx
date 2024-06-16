@@ -43,7 +43,7 @@
 
 
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import './css/Detail.css';
 import TouchInfo from './components/TouchInfo';
 
