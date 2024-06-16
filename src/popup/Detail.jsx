@@ -12,10 +12,10 @@ const Detail = ({ productId }) => {
     fetch(`http://127.0.0.1:5001/goods/${productId}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log('Fetched product data:', data);
+        console.log('불러온 상품 :', data);
         setProduct(data);
       })
-      .catch((error) => console.error('Error fetching product:', error));
+      .catch((error) => console.error('상품 불러오기 오류 :', error));
   }, [productId]);
 
   if (!product) {

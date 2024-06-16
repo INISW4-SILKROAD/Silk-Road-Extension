@@ -47,7 +47,7 @@ const TouchInfo = ({ productId, dataSource }) => {
         } else if (dataSource === 'json') {
           const response = await axios.get('http://127.0.0.1:5001/touchinfo');
           const touchInfo = response.data;
-          console.log('Fetched touch data from JSON file:', touchInfo);
+          console.log('JSON 으로부터 촉감 정보 불러오기 :', touchInfo);
           setTouchData({
             softness: touchInfo[0],
             smoothness: touchInfo[1],

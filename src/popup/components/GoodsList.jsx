@@ -19,7 +19,7 @@ const GoodsList = ({ onImageClick }) => {
         const data = await response.json();
         setGoods(Array.isArray(data) ? data : []);
       } catch (error) {
-        console.error('Error fetching goods:', error);
+        console.error('상품 불러오기 오류 : ', error);
       }
     };
 
@@ -33,7 +33,7 @@ const GoodsList = ({ onImageClick }) => {
         }
       });
     } else {
-      console.error('크롬 확장 프로그램 환경이 아닙니다.');
+      console.error('크롬 확장 프로그램 환경이 아님');
     }
   }, []);
 

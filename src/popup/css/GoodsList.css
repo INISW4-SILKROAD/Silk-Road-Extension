@@ -1,6 +1,6 @@
 .goods-list-container {
   margin-top: -4px;
-  width: 480px; /* 너비를 더 넓게 조정 */
+  width: 480px; 
   padding: 20px;
 }
 
@@ -20,8 +20,8 @@
   cursor: pointer;
   font-size: 12pt;
   font-family: 'ps';
-  flex: 1; /* 모든 버튼이 동일한 크기를 가지도록 설정 */
-  margin: 0 8px; /* 버튼 간의 간격 설정 */
+  flex: 1; 
+  margin: 0 8px; 
 }
 
 .category-button:hover {
@@ -39,10 +39,9 @@
   color: #000000;
   border: none;
   cursor: pointer;
-  /* font-weight: bold; */
   font-size: 10pt;
   font-family: 'ps';
-  width: calc(100% / 4 - 10px); /* 드롭다운의 너비 조정 */
+  width: calc(100% / 4 - 10px); 
 }
 
 .goods-list {
@@ -52,7 +51,7 @@
 }
 
 .goods-item {
-  width: 48%; /* 상품 리스트 항목의 너비를 넓게 조정 */
+  width: 48%; 
   margin-bottom: 20px;
   text-align: center;
   cursor: pointer;
@@ -61,7 +60,6 @@
   font-size: 11pt;
   border-radius: 8px;
   font-family: 'pm';
-  /* box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2); */
 }
 
 .goods-item img {

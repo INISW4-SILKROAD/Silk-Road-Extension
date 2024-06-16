@@ -4751,10 +4751,10 @@ var Detail = function Detail(_ref) {
     fetch("http://127.0.0.1:5001/goods/".concat(productId)).then(function (response) {
       return response.json();
     }).then(function (data) {
-      console.log('Fetched product data:', data);
+      console.log('불러온 상품 :', data);
       setProduct(data);
     })["catch"](function (error) {
-      return console.error('Error fetching product:', error);
+      return console.error('상품 불러오기 오류 :', error);
     });
   }, [productId]);
   if (!product) {
@@ -4937,7 +4937,7 @@ var GoodsList = function GoodsList(_ref) {
             case 10:
               _context.prev = 10;
               _context.t0 = _context["catch"](0);
-              console.error('Error fetching goods:', _context.t0);
+              console.error('상품 불러오기 오류 : ', _context.t0);
             case 13:
             case "end":
               return _context.stop();
@@ -4962,7 +4962,7 @@ var GoodsList = function GoodsList(_ref) {
         }
       });
     } else {
-      console.error('크롬 확장 프로그램 환경이 아닙니다.');
+      console.error('크롬 확장 프로그램 환경이 아님');
     }
   }, []);
   var handleSort = function handleSort(category) {
@@ -5137,7 +5137,7 @@ var TouchInfo = function TouchInfo(_ref) {
             case 19:
               _response = _context.sent;
               touchInfo = _response.data;
-              console.log('Fetched touch data from JSON file:', touchInfo);
+              console.log('JSON 으로부터 촉감 정보 불러오기 :', touchInfo);
               setTouchData({
                 softness: touchInfo[0],
                 smoothness: touchInfo[1],
@@ -5341,12 +5341,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#root {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #e0e6ea; /* 백그라운드 색상 추가 */
+  background-color: #e0e6ea; 
 }
 
 .navbar {
   margin-top: -10px;
-  width: 100%; /* 너비를 100%로 설정 */
+  width: 100%; 
   height: 40px;
   display: flex;
   justify-content: flex-start;
@@ -5359,8 +5359,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#root {
   background: url(${___CSS_LOADER_URL_REPLACEMENT_0___}) no-repeat center center;
   background-size: contain;
   border: none;
-  width: 33px; /* 버튼 크기 조정 */
-  height: 33px; /* 버튼 크기 조정 */
+  width: 33px; 
+  height: 33px; 
   cursor: pointer;
   border-radius: 90px;
   
@@ -5368,21 +5368,20 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#root {
 
 .image-container {
   border-radius: 8px;
-  margin-top: 10px; /* 상단 마진 조정 */
-  width: 400px; /* 컨테이너 너비 */
-  height: 400px; /* 컨테이너 높이 */
+  margin-top: 10px; 
+  width: 400px; 
+  height: 400px; 
   display: flex;
   justify-content: center; 
   align-items: center;
-  overflow: hidden; /* 이미지가 컨테이너를 넘지 않도록 설정 */
+  overflow: hidden; 
   border-radius: 8px;
-  /* box-shadow:  7px 7px rgba(0, 0, 0, 0.2); */
 }
 
 .product-image {
-  width: 100%; /* 컨테이너 너비에 맞추기 */
-  height: auto; /* 높이는 자동으로 조정 */
-  object-fit: contain; /* 비율을 유지하며 컨테이너에 맞추기 */
+  width: 100%; 
+  height: auto; 
+  object-fit: contain; 
 }
 
 .product-info {
@@ -5424,7 +5423,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#root {
   font-weight: bold;
   width: 180px;
   border-radius: 12px;
-  font-family: 'f5';
+  font-family: 'pr';
   border: 0.2px solid rgba(0, 0, 0, 0.7);
 }
 
@@ -5432,7 +5431,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#root {
   background-color: #FFFFFF;
   color: #000000;
 }
-
 
 
 
@@ -5448,7 +5446,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#root {
   font-family: 'ps';
   src: url(${___CSS_LOADER_URL_REPLACEMENT_3___}) format('truetype');
 }
-`, "",{"version":3,"sources":["webpack://./src/popup/css/Detail.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;AAC3B;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,aAAa;EACb,yBAAyB,EAAE,gBAAgB;AAC7C;;AAEA;EACE,iBAAiB;EACjB,WAAW,EAAE,iBAAiB;EAC9B,YAAY;EACZ,aAAa;EACb,2BAA2B;EAC3B,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,kBAAkB;EAClB,2EAAuE;EACvE,wBAAwB;EACxB,YAAY;EACZ,WAAW,EAAE,aAAa;EAC1B,YAAY,EAAE,aAAa;EAC3B,eAAe;EACf,mBAAmB;;AAErB;;AAEA;EACE,kBAAkB;EAClB,gBAAgB,EAAE,aAAa;EAC/B,YAAY,EAAE,YAAY;EAC1B,aAAa,EAAE,YAAY;EAC3B,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB,EAAE,yBAAyB;EAC3C,kBAAkB;EAClB,6CAA6C;AAC/C;;AAEA;EACE,WAAW,EAAE,iBAAiB;EAC9B,YAAY,EAAE,gBAAgB;EAC9B,mBAAmB,EAAE,uBAAuB;AAC9C;;AAEA;EACE,eAAe;EACf,WAAW;EACX,aAAa;EACb,cAAc;AAChB;;AAEA;EACE,eAAe;EACf,gBAAgB;EAChB,iBAAiB;EACjB,eAAe;EACf,iBAAiB;EACjB,cAAc;AAChB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,iBAAiB;EACjB,eAAe;EACf,cAAc;AAChB;;AAEA;EACE,iBAAiB;AACnB;;;AAGA;EACE,gBAAgB;EAChB,yBAAyB;EACzB,cAAc;EACd,kBAAkB;EAClB,eAAe;EACf,eAAe;EACf,iBAAiB;EACjB,YAAY;EACZ,mBAAmB;EACnB,iBAAiB;EACjB,sCAAsC;AACxC;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;;;;AAKA;EACE,iBAAiB;EACjB,+DAA0E;AAC5E;AACA;EACE,iBAAiB;EACjB,+DAA2E;AAC7E;AACA;EACE,iBAAiB;EACjB,+DAA4E;AAC9E","sourcesContent":["#root {\r\n  background-color: #e0e6ea;\r\n}\r\n\r\n.detail-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  padding: 20px;\r\n  background-color: #e0e6ea; /* 백그라운드 색상 추가 */\r\n}\r\n\r\n.navbar {\r\n  margin-top: -10px;\r\n  width: 100%; /* 너비를 100%로 설정 */\r\n  height: 40px;\r\n  display: flex;\r\n  justify-content: flex-start;\r\n  padding: 10px;\r\n  background-color: #e0e6ea;\r\n}\r\n\r\n.back-button {\r\n  margin-left: -10px;\r\n  background: url('~/public/left_arrow_grey.png') no-repeat center center;\r\n  background-size: contain;\r\n  border: none;\r\n  width: 33px; /* 버튼 크기 조정 */\r\n  height: 33px; /* 버튼 크기 조정 */\r\n  cursor: pointer;\r\n  border-radius: 90px;\r\n  \r\n}\r\n\r\n.image-container {\r\n  border-radius: 8px;\r\n  margin-top: 10px; /* 상단 마진 조정 */\r\n  width: 400px; /* 컨테이너 너비 */\r\n  height: 400px; /* 컨테이너 높이 */\r\n  display: flex;\r\n  justify-content: center; \r\n  align-items: center;\r\n  overflow: hidden; /* 이미지가 컨테이너를 넘지 않도록 설정 */\r\n  border-radius: 8px;\r\n  /* box-shadow:  7px 7px rgba(0, 0, 0, 0.2); */\r\n}\r\n\r\n.product-image {\r\n  width: 100%; /* 컨테이너 너비에 맞추기 */\r\n  height: auto; /* 높이는 자동으로 조정 */\r\n  object-fit: contain; /* 비율을 유지하며 컨테이너에 맞추기 */\r\n}\r\n\r\n.product-info {\r\n  margin-top:-3px;\r\n  width: 100%;\r\n  padding: 20px;\r\n  color: #555657;\r\n}\r\n\r\n.product-info h1 {\r\n  margin-top: 8px;\r\n  text-align: left;\r\n  font-family: 'pm';\r\n  font-size: 15pt;\r\n  font-weight: bold;\r\n  color: #555657;\r\n}\r\n\r\n.product-info p {\r\n  margin-top: 10px;\r\n  text-align: right;\r\n  font-family: 'pm';\r\n  font-size: 12pt;\r\n  color: #555657;\r\n}\r\n\r\n.tactile-info-container {\r\n  margin-top: -30px;\r\n}\r\n\r\n\r\n.view-product-button {\r\n  margin-top: 25px;\r\n  background-color: #FFDBDA;\r\n  color: #555657;\r\n  padding: 10px 20px;\r\n  cursor: pointer;\r\n  font-size: 18px;\r\n  font-weight: bold;\r\n  width: 180px;\r\n  border-radius: 12px;\r\n  font-family: 'f5';\r\n  border: 0.2px solid rgba(0, 0, 0, 0.7);\r\n}\r\n\r\n.view-product-button:hover {\r\n  background-color: #FFFFFF;\r\n  color: #000000;\r\n}\r\n\r\n\r\n\r\n\r\n@font-face {\r\n  font-family: 'pm';\r\n  src: url('../../../public/fonts/Pretendard-Medium.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'pr';\r\n  src: url('../../../public/fonts/Pretendard-Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'ps';\r\n  src: url('../../../public/fonts/Pretendard-SemiBold.ttf') format('truetype');\r\n}\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/popup/css/Detail.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;AAC3B;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,iBAAiB;EACjB,WAAW;EACX,YAAY;EACZ,aAAa;EACb,2BAA2B;EAC3B,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,kBAAkB;EAClB,2EAAuE;EACvE,wBAAwB;EACxB,YAAY;EACZ,WAAW;EACX,YAAY;EACZ,eAAe;EACf,mBAAmB;;AAErB;;AAEA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,YAAY;EACZ,aAAa;EACb,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;AACpB;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,mBAAmB;AACrB;;AAEA;EACE,eAAe;EACf,WAAW;EACX,aAAa;EACb,cAAc;AAChB;;AAEA;EACE,eAAe;EACf,gBAAgB;EAChB,iBAAiB;EACjB,eAAe;EACf,iBAAiB;EACjB,cAAc;AAChB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,iBAAiB;EACjB,eAAe;EACf,cAAc;AAChB;;AAEA;EACE,iBAAiB;AACnB;;;AAGA;EACE,gBAAgB;EAChB,yBAAyB;EACzB,cAAc;EACd,kBAAkB;EAClB,eAAe;EACf,eAAe;EACf,iBAAiB;EACjB,YAAY;EACZ,mBAAmB;EACnB,iBAAiB;EACjB,sCAAsC;AACxC;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;;;AAIA;EACE,iBAAiB;EACjB,+DAA0E;AAC5E;AACA;EACE,iBAAiB;EACjB,+DAA2E;AAC7E;AACA;EACE,iBAAiB;EACjB,+DAA4E;AAC9E","sourcesContent":["#root {\r\n  background-color: #e0e6ea;\r\n}\r\n\r\n.detail-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  padding: 20px;\r\n  background-color: #e0e6ea; \r\n}\r\n\r\n.navbar {\r\n  margin-top: -10px;\r\n  width: 100%; \r\n  height: 40px;\r\n  display: flex;\r\n  justify-content: flex-start;\r\n  padding: 10px;\r\n  background-color: #e0e6ea;\r\n}\r\n\r\n.back-button {\r\n  margin-left: -10px;\r\n  background: url('~/public/left_arrow_grey.png') no-repeat center center;\r\n  background-size: contain;\r\n  border: none;\r\n  width: 33px; \r\n  height: 33px; \r\n  cursor: pointer;\r\n  border-radius: 90px;\r\n  \r\n}\r\n\r\n.image-container {\r\n  border-radius: 8px;\r\n  margin-top: 10px; \r\n  width: 400px; \r\n  height: 400px; \r\n  display: flex;\r\n  justify-content: center; \r\n  align-items: center;\r\n  overflow: hidden; \r\n  border-radius: 8px;\r\n}\r\n\r\n.product-image {\r\n  width: 100%; \r\n  height: auto; \r\n  object-fit: contain; \r\n}\r\n\r\n.product-info {\r\n  margin-top:-3px;\r\n  width: 100%;\r\n  padding: 20px;\r\n  color: #555657;\r\n}\r\n\r\n.product-info h1 {\r\n  margin-top: 8px;\r\n  text-align: left;\r\n  font-family: 'pm';\r\n  font-size: 15pt;\r\n  font-weight: bold;\r\n  color: #555657;\r\n}\r\n\r\n.product-info p {\r\n  margin-top: 10px;\r\n  text-align: right;\r\n  font-family: 'pm';\r\n  font-size: 12pt;\r\n  color: #555657;\r\n}\r\n\r\n.tactile-info-container {\r\n  margin-top: -30px;\r\n}\r\n\r\n\r\n.view-product-button {\r\n  margin-top: 25px;\r\n  background-color: #FFDBDA;\r\n  color: #555657;\r\n  padding: 10px 20px;\r\n  cursor: pointer;\r\n  font-size: 18px;\r\n  font-weight: bold;\r\n  width: 180px;\r\n  border-radius: 12px;\r\n  font-family: 'pr';\r\n  border: 0.2px solid rgba(0, 0, 0, 0.7);\r\n}\r\n\r\n.view-product-button:hover {\r\n  background-color: #FFFFFF;\r\n  color: #000000;\r\n}\r\n\r\n\r\n\r\n@font-face {\r\n  font-family: 'pm';\r\n  src: url('../../../public/fonts/Pretendard-Medium.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'pr';\r\n  src: url('../../../public/fonts/Pretendard-Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'ps';\r\n  src: url('../../../public/fonts/Pretendard-SemiBold.ttf') format('truetype');\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5486,7 +5484,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_g
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
   margin-top: -4px;
-  width: 480px; /* 너비를 더 넓게 조정 */
+  width: 480px; 
   padding: 20px;
 }
 
@@ -5506,8 +5504,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
   cursor: pointer;
   font-size: 12pt;
   font-family: 'ps';
-  flex: 1; /* 모든 버튼이 동일한 크기를 가지도록 설정 */
-  margin: 0 8px; /* 버튼 간의 간격 설정 */
+  flex: 1; 
+  margin: 0 8px; 
 }
 
 .category-button:hover {
@@ -5525,10 +5523,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
   color: #000000;
   border: none;
   cursor: pointer;
-  /* font-weight: bold; */
   font-size: 10pt;
   font-family: 'ps';
-  width: calc(100% / 4 - 10px); /* 드롭다운의 너비 조정 */
+  width: calc(100% / 4 - 10px); 
 }
 
 .goods-list {
@@ -5538,7 +5535,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
 }
 
 .goods-item {
-  width: 48%; /* 상품 리스트 항목의 너비를 넓게 조정 */
+  width: 48%; 
   margin-bottom: 20px;
   text-align: center;
   cursor: pointer;
@@ -5547,7 +5544,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
   font-size: 11pt;
   border-radius: 8px;
   font-family: 'pm';
-  /* box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2); */
 }
 
 .goods-item img {
@@ -5581,7 +5577,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
   font-family: 'ps';
   src: url(${___CSS_LOADER_URL_REPLACEMENT_2___}) format('truetype');
 }
-`, "",{"version":3,"sources":["webpack://./src/popup/css/GoodsList.css"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,YAAY,EAAE,gBAAgB;EAC9B,aAAa;AACf;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;EACnB,mBAAmB;AACrB;;AAEA;EACE,yBAAyB;EACzB,cAAc;EACd,sCAAsC;EACtC,iBAAiB;EACjB,mBAAmB;EACnB,eAAe;EACf,eAAe;EACf,iBAAiB;EACjB,OAAO,EAAE,2BAA2B;EACpC,aAAa,EAAE,gBAAgB;AACjC;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;AAEA;EACE,kBAAkB;EAClB,iBAAiB;EACjB,iBAAiB;EACjB,mBAAmB;EACnB,iBAAiB;EACjB,yBAAyB;EACzB,cAAc;EACd,YAAY;EACZ,eAAe;EACf,uBAAuB;EACvB,eAAe;EACf,iBAAiB;EACjB,4BAA4B,EAAE,gBAAgB;AAChD;;AAEA;EACE,aAAa;EACb,eAAe;EACf,6BAA6B;AAC/B;;AAEA;EACE,UAAU,EAAE,yBAAyB;EACrC,mBAAmB;EACnB,kBAAkB;EAClB,eAAe;EACf,yBAAyB;EACzB,cAAc;EACd,eAAe;EACf,kBAAkB;EAClB,iBAAiB;EACjB,gDAAgD;AAClD;;AAEA;EACE,WAAW;EACX,2BAA2B;EAC3B,4BAA4B;AAC9B;;AAEA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;;AAEA;EACE,cAAc;EACd,gBAAgB;EAChB,WAAW;AACb;;;;AAIA;EACE,iBAAiB;EACjB,+DAA0E;AAC5E;AACA;EACE,iBAAiB;EACjB,+DAA2E;AAC7E;AACA;EACE,iBAAiB;EACjB,+DAA4E;AAC9E","sourcesContent":[".goods-list-container {\r\n  margin-top: -4px;\r\n  width: 480px; /* 너비를 더 넓게 조정 */\r\n  padding: 20px;\r\n}\r\n\r\n.category-buttons {\r\n  display: flex;\r\n  justify-content: space-around;\r\n  margin-bottom: 10px;\r\n  align-items: center;\r\n}\r\n\r\n.category-button {\r\n  background-color: #FFFFFF;\r\n  color: #1e1f23;\r\n  border: 0.2px solid rgba(0, 0, 0, 0.7);\r\n  padding: 8px 16px;\r\n  border-radius: 40px;\r\n  cursor: pointer;\r\n  font-size: 12pt;\r\n  font-family: 'ps';\r\n  flex: 1; /* 모든 버튼이 동일한 크기를 가지도록 설정 */\r\n  margin: 0 8px; /* 버튼 간의 간격 설정 */\r\n}\r\n\r\n.category-button:hover {\r\n  background-color: #FFDBDA;\r\n  color: #000000;\r\n}\r\n\r\n.sort-order-dropdown {\r\n  margin-bottom: 2px;\r\n  margin-top: -25px;\r\n  padding: 8px 16px;\r\n  border-radius: 40px;\r\n  font-family: 'pm';\r\n  background-color: #e0e6ea;\r\n  color: #000000;\r\n  border: none;\r\n  cursor: pointer;\r\n  /* font-weight: bold; */\r\n  font-size: 10pt;\r\n  font-family: 'ps';\r\n  width: calc(100% / 4 - 10px); /* 드롭다운의 너비 조정 */\r\n}\r\n\r\n.goods-list {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  justify-content: space-around;\r\n}\r\n\r\n.goods-item {\r\n  width: 48%; /* 상품 리스트 항목의 너비를 넓게 조정 */\r\n  margin-bottom: 20px;\r\n  text-align: center;\r\n  cursor: pointer;\r\n  background-color: #FFFFFF;\r\n  color: #000000;\r\n  font-size: 11pt;\r\n  border-radius: 8px;\r\n  font-family: 'pm';\r\n  /* box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2); */\r\n}\r\n\r\n.goods-item img {\r\n  width: 100%;\r\n  border-top-left-radius: 8px;\r\n  border-top-right-radius: 8px;\r\n}\r\n\r\n.goods-item p {\r\n  margin: 12px 0 0 0;\r\n  font-size: 0.9em;\r\n}\r\n\r\n.goods-item p span {\r\n  display: block;\r\n  font-size: 0.8em;\r\n  color: #aaa;\r\n}\r\n\r\n\r\n\r\n@font-face {\r\n  font-family: 'pm';\r\n  src: url('../../../public/fonts/Pretendard-Medium.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'pr';\r\n  src: url('../../../public/fonts/Pretendard-Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'ps';\r\n  src: url('../../../public/fonts/Pretendard-SemiBold.ttf') format('truetype');\r\n}\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/popup/css/GoodsList.css"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,YAAY;EACZ,aAAa;AACf;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;EACnB,mBAAmB;AACrB;;AAEA;EACE,yBAAyB;EACzB,cAAc;EACd,sCAAsC;EACtC,iBAAiB;EACjB,mBAAmB;EACnB,eAAe;EACf,eAAe;EACf,iBAAiB;EACjB,OAAO;EACP,aAAa;AACf;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;AAEA;EACE,kBAAkB;EAClB,iBAAiB;EACjB,iBAAiB;EACjB,mBAAmB;EACnB,iBAAiB;EACjB,yBAAyB;EACzB,cAAc;EACd,YAAY;EACZ,eAAe;EACf,eAAe;EACf,iBAAiB;EACjB,4BAA4B;AAC9B;;AAEA;EACE,aAAa;EACb,eAAe;EACf,6BAA6B;AAC/B;;AAEA;EACE,UAAU;EACV,mBAAmB;EACnB,kBAAkB;EAClB,eAAe;EACf,yBAAyB;EACzB,cAAc;EACd,eAAe;EACf,kBAAkB;EAClB,iBAAiB;AACnB;;AAEA;EACE,WAAW;EACX,2BAA2B;EAC3B,4BAA4B;AAC9B;;AAEA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;;AAEA;EACE,cAAc;EACd,gBAAgB;EAChB,WAAW;AACb;;;;AAIA;EACE,iBAAiB;EACjB,+DAA0E;AAC5E;AACA;EACE,iBAAiB;EACjB,+DAA2E;AAC7E;AACA;EACE,iBAAiB;EACjB,+DAA4E;AAC9E","sourcesContent":[".goods-list-container {\r\n  margin-top: -4px;\r\n  width: 480px; \r\n  padding: 20px;\r\n}\r\n\r\n.category-buttons {\r\n  display: flex;\r\n  justify-content: space-around;\r\n  margin-bottom: 10px;\r\n  align-items: center;\r\n}\r\n\r\n.category-button {\r\n  background-color: #FFFFFF;\r\n  color: #1e1f23;\r\n  border: 0.2px solid rgba(0, 0, 0, 0.7);\r\n  padding: 8px 16px;\r\n  border-radius: 40px;\r\n  cursor: pointer;\r\n  font-size: 12pt;\r\n  font-family: 'ps';\r\n  flex: 1; \r\n  margin: 0 8px; \r\n}\r\n\r\n.category-button:hover {\r\n  background-color: #FFDBDA;\r\n  color: #000000;\r\n}\r\n\r\n.sort-order-dropdown {\r\n  margin-bottom: 2px;\r\n  margin-top: -25px;\r\n  padding: 8px 16px;\r\n  border-radius: 40px;\r\n  font-family: 'pm';\r\n  background-color: #e0e6ea;\r\n  color: #000000;\r\n  border: none;\r\n  cursor: pointer;\r\n  font-size: 10pt;\r\n  font-family: 'ps';\r\n  width: calc(100% / 4 - 10px); \r\n}\r\n\r\n.goods-list {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  justify-content: space-around;\r\n}\r\n\r\n.goods-item {\r\n  width: 48%; \r\n  margin-bottom: 20px;\r\n  text-align: center;\r\n  cursor: pointer;\r\n  background-color: #FFFFFF;\r\n  color: #000000;\r\n  font-size: 11pt;\r\n  border-radius: 8px;\r\n  font-family: 'pm';\r\n}\r\n\r\n.goods-item img {\r\n  width: 100%;\r\n  border-top-left-radius: 8px;\r\n  border-top-right-radius: 8px;\r\n}\r\n\r\n.goods-item p {\r\n  margin: 12px 0 0 0;\r\n  font-size: 0.9em;\r\n}\r\n\r\n.goods-item p span {\r\n  display: block;\r\n  font-size: 0.8em;\r\n  color: #aaa;\r\n}\r\n\r\n\r\n\r\n@font-face {\r\n  font-family: 'pm';\r\n  src: url('../../../public/fonts/Pretendard-Medium.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'pr';\r\n  src: url('../../../public/fonts/Pretendard-Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'ps';\r\n  src: url('../../../public/fonts/Pretendard-SemiBold.ttf') format('truetype');\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -57766,7 +57762,7 @@ function hasBinary(obj, toJSON) {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("8aa37d6dcc55ecac0714")
+/******/ 		__webpack_require__.h = () => ("95be46a233edb91f0737")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
