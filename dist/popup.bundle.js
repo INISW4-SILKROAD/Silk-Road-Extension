@@ -4735,49 +4735,6 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-// import React, { useEffect, useState } from 'react';
-// import { useParams, useNavigate } from 'react-router-dom';
-// import './css/Detail.css';
-// import TouchInfo from './components/TouchInfo';
-
-// const Detail = () => {
-//   const { id } = useParams();
-//   const navigate = useNavigate();
-//   const [product, setProduct] = useState(null);
-
-//   useEffect(() => {
-//     fetch(`http://127.0.0.1:5001/goods/${id}`)
-//       .then((response) => response.json())
-//       .then((data) => setProduct(data))
-//       .catch((error) => console.error('Error fetching product:', error));
-//   }, [id]);
-
-//   if (!product) {
-//     return <div>Loading...</div>;
-//   }
-
-//   return (
-//     <div className="detail-container">
-//       <div className="navbar">
-//         <button className="back-button" onClick={() => navigate('/')}></button>
-//       </div>
-//       <div className="image-container">
-//         <img className="product-image" src={product.image_path} alt={product.NAME} />
-//       </div>
-//       <div className="product-info">
-//         <h1 className="product-name">{product.NAME}</h1>
-//         <p className="price">{product.PRICE} 원</p>
-//       </div>
-//       <div className="tactile-info-container">
-//         <TouchInfo />
-//       </div>
-//       <button className="view-product-button" onClick={() => window.open(product.LINK, '_blank')}>상품 보러가기</button>
-//     </div>
-//   );
-// };
-
-// export default Detail;
-
 
 
 
@@ -4865,49 +4822,6 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-// import React, { useState } from 'react';
-// import { HashRouter as Router, Route, Routes, useParams } from 'react-router-dom';
-// import './css/Main.css';
-// import TouchInfo from './components/TouchInfo';
-// import GoodsList from './components/GoodsList';
-// import Detail from './Detail';
-
-// const DetailWrapper = () => {
-//   const { id } = useParams();
-//   return <Detail productId={id} />;
-// };
-
-// const Main = () => {
-//   const [selectedProductId, setSelectedProductId] = useState(null);
-
-//   const handleImageClick = (id) => {
-//     setSelectedProductId(id);
-//     window.location.hash = `#/detail/${id}`;
-//   };
-
-//   return (
-//     <Router>
-//       <div className="popup-container">
-
-//         <Routes>
-//           <Route
-//             path="/"
-//             element={
-//               <>
-//                 <TouchInfo productId={selectedProductId} />
-//                 <GoodsList onImageClick={handleImageClick} />
-//               </>
-//             }
-//           />
-//           <Route path="/detail/:id" element={<DetailWrapper />} />
-//         </Routes>
-//       </div>
-//     </Router>
-//   );
-// };
-
-// export default Main;
-
 
 
 
@@ -5146,265 +5060,6 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-// import React, { useEffect, useState } from 'react';
-// import ProgressBar from 'react-bootstrap/ProgressBar';
-// import axios from 'axios';
-// import '../css/TouchInfo.css';
-
-// const TouchInfo = ({ productId }) => {
-//   const [touchData, setTouchData] = useState({
-//     softness: 0,
-//     smoothness: 0,
-//     thickness: 0,
-//     flexibility: 0
-//   });
-
-//   const labelMapping = {
-//     softness: '부드러움',
-//     smoothness: '매끄러움',
-//     thickness: '두께',
-//     flexibility: '신축성'
-//   };
-
-//   useEffect(() => {
-//     if (productId) {
-//       const fetchTouchData = async () => {
-//         try {
-//           const response = await axios.get(`http://127.0.0.1:5001/goods/${productId}`);
-//           const data = response.data;
-//           console.log("서버에서 받은 촉감 데이터:", data);
-
-//           if (data) {
-//             setTouchData({
-//               softness: data.SOFTNESS || 0,
-//               smoothness: data.SMOOTHNESS || 0,
-//               thickness: data.THICKNESS || 0,
-//               flexibility: data.FLEXIBILITY || 0
-//             });
-//           }
-//         } catch (error) {
-//           console.error("촉감 데이터를 불러오는 중 에러 발생:", error);
-//         }
-//       };
-
-//       fetchTouchData();
-//     }
-//   }, [productId]);
-
-//   const colorMapping = {
-//     softness: '#FFDBDA',
-//     smoothness: '#FFDBDA',
-//     thickness: '#FFDBDA',
-//     flexibility: '#FFDBDA'
-//   };
-
-//   return (
-//     <div className="touch-info">
-//       <div className='touch-info-text'>
-//       </div>
-//       <div className='touch-area'>
-//         {Object.keys(touchData).map((key) => (
-//           <div key={key} className="touch-bar">
-//             <span>{labelMapping[key]}</span>
-//             <div className="progress-bar-wrapper">
-//               <ProgressBar
-//                 now={(touchData[key] / 5) * 100}
-//                 className="custom-progress-bar"
-//                 style={{
-//                   backgroundColor: 'transparent',
-//                   backgroundImage: `linear-gradient(to right, ${colorMapping[key]} 0%, ${colorMapping[key]} ${(touchData[key] / 5) * 100}%, #ffffff ${(touchData[key] / 5) * 100}%, #ffffff 100%)`
-//                 }}
-//               />
-//               <div className="ticks">
-//                 {[...Array(6)].map((_, i) => (
-//                   <div key={i} className="tick" style={{ left: `${(i / 5) * 100}%` }} />
-//                 ))}
-//               </div>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default TouchInfo;
-
-// import React, { useEffect, useState } from 'react';
-// import ProgressBar from 'react-bootstrap/ProgressBar';
-// import axios from 'axios';
-// import '../css/TouchInfo.css';
-// import io from 'socket.io-client';
-
-// const TouchInfo = ({ productId, dataSource }) => {
-//   const [touchData, setTouchData] = useState({
-//     softness: 0,
-//     smoothness: 0,
-//     thickness: 0,
-//     flexibility: 0
-//   });
-
-//   const labelMapping = {
-//     softness: '부드러움',
-//     smoothness: '매끄러움',
-//     thickness: '두께',
-//     flexibility: '신축성'
-//   };
-
-//   useEffect(() => {
-//     const fetchTouchData = async () => {
-//       try {
-//         if (dataSource === 'model') {
-//           const socket = io('http://127.0.0.1:5001');
-//           socket.emit('joinRoom', productId);
-//           socket.on('touchInfo', (data) => {
-//             console.log('Received touchInfo:', data);
-//             if (data.productId === productId) {
-//               setTouchData({
-//                 softness: data.touchInfo[0],
-//                 smoothness: data.touchInfo[1],
-//                 thickness: data.touchInfo[2],
-//                 flexibility: data.touchInfo[3]
-//               });
-//             }
-//           });
-//         } else if (dataSource === 'search') {
-//           const response = await axios.get(`http://127.0.0.1:5001/goods/${productId}`);
-//           const data = response.data;
-//           console.log('Received touchData:', data);
-//           setTouchData({
-//             softness: data.SOFTNESS + 1,
-//             smoothness: data.SMOOTHNESS + 1,
-//             thickness: data.THICKNESS + 1,
-//             flexibility: data.FLEXIBILITY + 1
-//           });
-//         }
-//       } catch (error) {
-//         console.error("촉감 데이터를 불러오는 중 에러 발생:", error);
-//       }
-//     };
-
-//     fetchTouchData();
-//   }, [productId, dataSource]);
-
-//   const colorMapping = {
-//     softness: '#FFDBDA',
-//     smoothness: '#FFDBDA',
-//     thickness: '#FFDBDA',
-//     flexibility: '#FFDBDA'
-//   };
-
-//   return (
-//     <div className="touch-info">
-//       <div className='touch-info-text'>
-//       </div>
-//       <div className='touch-area'>
-//         {Object.keys(touchData).map((key) => (
-//           <div key={key} className="touch-bar">
-//             <span>{labelMapping[key]}</span>
-//             <div className="progress-bar-wrapper">
-//               <ProgressBar
-//                 now={(touchData[key] / 5) * 100}
-//                 className="custom-progress-bar"
-//                 style={{
-//                   backgroundColor: 'transparent',
-//                   backgroundImage: `linear-gradient(to right, ${colorMapping[key]} 0%, ${colorMapping[key]} ${(touchData[key] / 5) * 100}%, #ffffff ${(touchData[key] / 5) * 100}%, #ffffff 100%)`
-//                 }}
-//               />
-//               <div className="ticks">
-//                 {[...Array(6)].map((_, i) => (
-//                   <div key={i} className="tick" style={{ left: `${(i / 5) * 100}%` }} />
-//                 ))}
-//               </div>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default TouchInfo;
-
-// import React, { useEffect, useState } from 'react';
-// import ProgressBar from 'react-bootstrap/ProgressBar';
-// import axios from 'axios';
-// import '../css/TouchInfo.css';
-
-// const TouchInfo = () => {
-//   const [touchData, setTouchData] = useState({
-//     softness: 0,
-//     smoothness: 0,
-//     thickness: 0,
-//     flexibility: 0
-//   });
-
-//   const labelMapping = {
-//     softness: '부드러움',
-//     smoothness: '매끄러움',
-//     thickness: '두께',
-//     flexibility: '신축성'
-//   };
-
-//   useEffect(() => {
-//     const fetchTouchData = async () => {
-//       try {
-//         const response = await axios.get('http://127.0.0.1:5001/touchinfo');
-//         const touchInfo = response.data;
-//         console.log('Fetched touch data from server:', touchInfo);
-//         setTouchData({
-//           softness: touchInfo[0],
-//           smoothness: touchInfo[1],
-//           thickness: touchInfo[2],
-//           flexibility: touchInfo[3]
-//         });
-//       } catch (error) {
-//         console.error('Error fetching touch data:', error);
-//       }
-//     };
-
-//     fetchTouchData();
-//   }, []);
-
-//   const colorMapping = {
-//     softness: '#FFDBDA',
-//     smoothness: '#FFDBDA',
-//     thickness: '#FFDBDA',
-//     flexibility: '#FFDBDA'
-//   };
-
-//   return (
-//     <div className="touch-info">
-//       <div className='touch-info-text'>
-//       </div>
-//       <div className='touch-area'>
-//         {Object.keys(touchData).map((key) => (
-//           <div key={key} className="touch-bar">
-//             <span>{labelMapping[key]}</span>
-//             <div className="progress-bar-wrapper">
-//               <ProgressBar
-//                 now={(touchData[key] / 5) * 100}
-//                 className="custom-progress-bar"
-//                 style={{
-//                   backgroundColor: 'transparent',
-//                   backgroundImage: `linear-gradient(to right, ${colorMapping[key]} 0%, ${colorMapping[key]} ${(touchData[key] / 5) * 100}%, #ffffff ${(touchData[key] / 5) * 100}%, #ffffff 100%)`
-//                 }}
-//               />
-//               <div className="ticks">
-//                 {[...Array(6)].map((_, i) => (
-//                   <div key={i} className="tick" style={{ left: `${(i / 5) * 100}%` }} />
-//                 ))}
-//               </div>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default TouchInfo;
-
 
 
 
@@ -5668,12 +5323,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../../public/left_arrow_grey.png */ "./public/left_arrow_grey.png"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Freesentation-4Regular.ttf */ "./public/fonts/Freesentation-4Regular.ttf"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Freesentation-5Medium.ttf */ "./public/fonts/Freesentation-5Medium.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Pretendard-Medium.ttf */ "./public/fonts/Pretendard-Medium.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Pretendard-Regular.ttf */ "./public/fonts/Pretendard-Regular.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_3___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Pretendard-SemiBold.ttf */ "./public/fonts/Pretendard-SemiBold.ttf"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
 var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_2___);
+var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_3___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `#root {
   background-color: #e0e6ea;
@@ -5776,15 +5433,22 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#root {
   color: #000000;
 }
 
+
+
+
 @font-face {
-  font-family: 'f4';
+  font-family: 'pm';
   src: url(${___CSS_LOADER_URL_REPLACEMENT_1___}) format('truetype');
 }
 @font-face {
-  font-family: 'f5';
+  font-family: 'pr';
   src: url(${___CSS_LOADER_URL_REPLACEMENT_2___}) format('truetype');
 }
-`, "",{"version":3,"sources":["webpack://./src/popup/css/Detail.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;AAC3B;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,aAAa;EACb,yBAAyB,EAAE,gBAAgB;AAC7C;;AAEA;EACE,iBAAiB;EACjB,WAAW,EAAE,iBAAiB;EAC9B,YAAY;EACZ,aAAa;EACb,2BAA2B;EAC3B,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,kBAAkB;EAClB,2EAAuE;EACvE,wBAAwB;EACxB,YAAY;EACZ,WAAW,EAAE,aAAa;EAC1B,YAAY,EAAE,aAAa;EAC3B,eAAe;EACf,mBAAmB;;AAErB;;AAEA;EACE,kBAAkB;EAClB,gBAAgB,EAAE,aAAa;EAC/B,YAAY,EAAE,YAAY;EAC1B,aAAa,EAAE,YAAY;EAC3B,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB,EAAE,yBAAyB;EAC3C,kBAAkB;EAClB,6CAA6C;AAC/C;;AAEA;EACE,WAAW,EAAE,iBAAiB;EAC9B,YAAY,EAAE,gBAAgB;EAC9B,mBAAmB,EAAE,uBAAuB;AAC9C;;AAEA;EACE,eAAe;EACf,WAAW;EACX,aAAa;EACb,cAAc;AAChB;;AAEA;EACE,eAAe;EACf,gBAAgB;EAChB,iBAAiB;EACjB,eAAe;EACf,iBAAiB;EACjB,cAAc;AAChB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,iBAAiB;EACjB,eAAe;EACf,cAAc;AAChB;;AAEA;EACE,iBAAiB;AACnB;;;AAGA;EACE,gBAAgB;EAChB,yBAAyB;EACzB,cAAc;EACd,kBAAkB;EAClB,eAAe;EACf,eAAe;EACf,iBAAiB;EACjB,YAAY;EACZ,mBAAmB;EACnB,iBAAiB;EACjB,sCAAsC;AACxC;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;AAEA;EACE,iBAAiB;EACjB,+DAA+E;AACjF;AACA;EACE,iBAAiB;EACjB,+DAA8E;AAChF","sourcesContent":["#root {\r\n  background-color: #e0e6ea;\r\n}\r\n\r\n.detail-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  padding: 20px;\r\n  background-color: #e0e6ea; /* 백그라운드 색상 추가 */\r\n}\r\n\r\n.navbar {\r\n  margin-top: -10px;\r\n  width: 100%; /* 너비를 100%로 설정 */\r\n  height: 40px;\r\n  display: flex;\r\n  justify-content: flex-start;\r\n  padding: 10px;\r\n  background-color: #e0e6ea;\r\n}\r\n\r\n.back-button {\r\n  margin-left: -10px;\r\n  background: url('~/public/left_arrow_grey.png') no-repeat center center;\r\n  background-size: contain;\r\n  border: none;\r\n  width: 33px; /* 버튼 크기 조정 */\r\n  height: 33px; /* 버튼 크기 조정 */\r\n  cursor: pointer;\r\n  border-radius: 90px;\r\n  \r\n}\r\n\r\n.image-container {\r\n  border-radius: 8px;\r\n  margin-top: 10px; /* 상단 마진 조정 */\r\n  width: 400px; /* 컨테이너 너비 */\r\n  height: 400px; /* 컨테이너 높이 */\r\n  display: flex;\r\n  justify-content: center; \r\n  align-items: center;\r\n  overflow: hidden; /* 이미지가 컨테이너를 넘지 않도록 설정 */\r\n  border-radius: 8px;\r\n  /* box-shadow:  7px 7px rgba(0, 0, 0, 0.2); */\r\n}\r\n\r\n.product-image {\r\n  width: 100%; /* 컨테이너 너비에 맞추기 */\r\n  height: auto; /* 높이는 자동으로 조정 */\r\n  object-fit: contain; /* 비율을 유지하며 컨테이너에 맞추기 */\r\n}\r\n\r\n.product-info {\r\n  margin-top:-3px;\r\n  width: 100%;\r\n  padding: 20px;\r\n  color: #555657;\r\n}\r\n\r\n.product-info h1 {\r\n  margin-top: 8px;\r\n  text-align: left;\r\n  font-family: 'pm';\r\n  font-size: 15pt;\r\n  font-weight: bold;\r\n  color: #555657;\r\n}\r\n\r\n.product-info p {\r\n  margin-top: 10px;\r\n  text-align: right;\r\n  font-family: 'pm';\r\n  font-size: 12pt;\r\n  color: #555657;\r\n}\r\n\r\n.tactile-info-container {\r\n  margin-top: -30px;\r\n}\r\n\r\n\r\n.view-product-button {\r\n  margin-top: 25px;\r\n  background-color: #FFDBDA;\r\n  color: #555657;\r\n  padding: 10px 20px;\r\n  cursor: pointer;\r\n  font-size: 18px;\r\n  font-weight: bold;\r\n  width: 180px;\r\n  border-radius: 12px;\r\n  font-family: 'f5';\r\n  border: 0.2px solid rgba(0, 0, 0, 0.7);\r\n}\r\n\r\n.view-product-button:hover {\r\n  background-color: #FFFFFF;\r\n  color: #000000;\r\n}\r\n\r\n@font-face {\r\n  font-family: 'f4';\r\n  src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'f5';\r\n  src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');\r\n}\r\n"],"sourceRoot":""}]);
+@font-face {
+  font-family: 'ps';
+  src: url(${___CSS_LOADER_URL_REPLACEMENT_3___}) format('truetype');
+}
+`, "",{"version":3,"sources":["webpack://./src/popup/css/Detail.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;AAC3B;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,aAAa;EACb,yBAAyB,EAAE,gBAAgB;AAC7C;;AAEA;EACE,iBAAiB;EACjB,WAAW,EAAE,iBAAiB;EAC9B,YAAY;EACZ,aAAa;EACb,2BAA2B;EAC3B,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,kBAAkB;EAClB,2EAAuE;EACvE,wBAAwB;EACxB,YAAY;EACZ,WAAW,EAAE,aAAa;EAC1B,YAAY,EAAE,aAAa;EAC3B,eAAe;EACf,mBAAmB;;AAErB;;AAEA;EACE,kBAAkB;EAClB,gBAAgB,EAAE,aAAa;EAC/B,YAAY,EAAE,YAAY;EAC1B,aAAa,EAAE,YAAY;EAC3B,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB,EAAE,yBAAyB;EAC3C,kBAAkB;EAClB,6CAA6C;AAC/C;;AAEA;EACE,WAAW,EAAE,iBAAiB;EAC9B,YAAY,EAAE,gBAAgB;EAC9B,mBAAmB,EAAE,uBAAuB;AAC9C;;AAEA;EACE,eAAe;EACf,WAAW;EACX,aAAa;EACb,cAAc;AAChB;;AAEA;EACE,eAAe;EACf,gBAAgB;EAChB,iBAAiB;EACjB,eAAe;EACf,iBAAiB;EACjB,cAAc;AAChB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,iBAAiB;EACjB,eAAe;EACf,cAAc;AAChB;;AAEA;EACE,iBAAiB;AACnB;;;AAGA;EACE,gBAAgB;EAChB,yBAAyB;EACzB,cAAc;EACd,kBAAkB;EAClB,eAAe;EACf,eAAe;EACf,iBAAiB;EACjB,YAAY;EACZ,mBAAmB;EACnB,iBAAiB;EACjB,sCAAsC;AACxC;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;;;;AAKA;EACE,iBAAiB;EACjB,+DAA0E;AAC5E;AACA;EACE,iBAAiB;EACjB,+DAA2E;AAC7E;AACA;EACE,iBAAiB;EACjB,+DAA4E;AAC9E","sourcesContent":["#root {\r\n  background-color: #e0e6ea;\r\n}\r\n\r\n.detail-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  padding: 20px;\r\n  background-color: #e0e6ea; /* 백그라운드 색상 추가 */\r\n}\r\n\r\n.navbar {\r\n  margin-top: -10px;\r\n  width: 100%; /* 너비를 100%로 설정 */\r\n  height: 40px;\r\n  display: flex;\r\n  justify-content: flex-start;\r\n  padding: 10px;\r\n  background-color: #e0e6ea;\r\n}\r\n\r\n.back-button {\r\n  margin-left: -10px;\r\n  background: url('~/public/left_arrow_grey.png') no-repeat center center;\r\n  background-size: contain;\r\n  border: none;\r\n  width: 33px; /* 버튼 크기 조정 */\r\n  height: 33px; /* 버튼 크기 조정 */\r\n  cursor: pointer;\r\n  border-radius: 90px;\r\n  \r\n}\r\n\r\n.image-container {\r\n  border-radius: 8px;\r\n  margin-top: 10px; /* 상단 마진 조정 */\r\n  width: 400px; /* 컨테이너 너비 */\r\n  height: 400px; /* 컨테이너 높이 */\r\n  display: flex;\r\n  justify-content: center; \r\n  align-items: center;\r\n  overflow: hidden; /* 이미지가 컨테이너를 넘지 않도록 설정 */\r\n  border-radius: 8px;\r\n  /* box-shadow:  7px 7px rgba(0, 0, 0, 0.2); */\r\n}\r\n\r\n.product-image {\r\n  width: 100%; /* 컨테이너 너비에 맞추기 */\r\n  height: auto; /* 높이는 자동으로 조정 */\r\n  object-fit: contain; /* 비율을 유지하며 컨테이너에 맞추기 */\r\n}\r\n\r\n.product-info {\r\n  margin-top:-3px;\r\n  width: 100%;\r\n  padding: 20px;\r\n  color: #555657;\r\n}\r\n\r\n.product-info h1 {\r\n  margin-top: 8px;\r\n  text-align: left;\r\n  font-family: 'pm';\r\n  font-size: 15pt;\r\n  font-weight: bold;\r\n  color: #555657;\r\n}\r\n\r\n.product-info p {\r\n  margin-top: 10px;\r\n  text-align: right;\r\n  font-family: 'pm';\r\n  font-size: 12pt;\r\n  color: #555657;\r\n}\r\n\r\n.tactile-info-container {\r\n  margin-top: -30px;\r\n}\r\n\r\n\r\n.view-product-button {\r\n  margin-top: 25px;\r\n  background-color: #FFDBDA;\r\n  color: #555657;\r\n  padding: 10px 20px;\r\n  cursor: pointer;\r\n  font-size: 18px;\r\n  font-weight: bold;\r\n  width: 180px;\r\n  border-radius: 12px;\r\n  font-family: 'f5';\r\n  border: 0.2px solid rgba(0, 0, 0, 0.7);\r\n}\r\n\r\n.view-product-button:hover {\r\n  background-color: #FFFFFF;\r\n  color: #000000;\r\n}\r\n\r\n\r\n\r\n\r\n@font-face {\r\n  font-family: 'pm';\r\n  src: url('../../../public/fonts/Pretendard-Medium.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'pr';\r\n  src: url('../../../public/fonts/Pretendard-Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'ps';\r\n  src: url('../../../public/fonts/Pretendard-SemiBold.ttf') format('truetype');\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5812,17 +5476,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Freesentation-4Regular.ttf */ "./public/fonts/Freesentation-4Regular.ttf"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Freesentation-5Medium.ttf */ "./public/fonts/Freesentation-5Medium.ttf"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Pretendard-Medium.ttf */ "./public/fonts/Pretendard-Medium.ttf"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_3___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Pretendard-Regular.ttf */ "./public/fonts/Pretendard-Regular.ttf"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_4___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Pretendard-SemiBold.ttf */ "./public/fonts/Pretendard-SemiBold.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Pretendard-Medium.ttf */ "./public/fonts/Pretendard-Medium.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Pretendard-Regular.ttf */ "./public/fonts/Pretendard-Regular.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Pretendard-SemiBold.ttf */ "./public/fonts/Pretendard-SemiBold.ttf"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
 var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_2___);
-var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_3___);
-var ___CSS_LOADER_URL_REPLACEMENT_4___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_4___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
   margin-top: -4px;
@@ -5860,7 +5520,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
   margin-top: -25px;
   padding: 8px 16px;
   border-radius: 40px;
-  font-family: 'f5';
+  font-family: 'pm';
   background-color: #e0e6ea;
   color: #000000;
   border: none;
@@ -5909,29 +5569,19 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
 
 
 
-
-
 @font-face {
-  font-family: 'f4';
+  font-family: 'pm';
   src: url(${___CSS_LOADER_URL_REPLACEMENT_0___}) format('truetype');
 }
 @font-face {
-  font-family: 'f5';
+  font-family: 'pr';
   src: url(${___CSS_LOADER_URL_REPLACEMENT_1___}) format('truetype');
 }
 @font-face {
-  font-family: 'pm';
+  font-family: 'ps';
   src: url(${___CSS_LOADER_URL_REPLACEMENT_2___}) format('truetype');
 }
-@font-face {
-  font-family: 'pr';
-  src: url(${___CSS_LOADER_URL_REPLACEMENT_3___}) format('truetype');
-}
-@font-face {
-  font-family: 'ps';
-  src: url(${___CSS_LOADER_URL_REPLACEMENT_4___}) format('truetype');
-}
-`, "",{"version":3,"sources":["webpack://./src/popup/css/GoodsList.css"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,YAAY,EAAE,gBAAgB;EAC9B,aAAa;AACf;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;EACnB,mBAAmB;AACrB;;AAEA;EACE,yBAAyB;EACzB,cAAc;EACd,sCAAsC;EACtC,iBAAiB;EACjB,mBAAmB;EACnB,eAAe;EACf,eAAe;EACf,iBAAiB;EACjB,OAAO,EAAE,2BAA2B;EACpC,aAAa,EAAE,gBAAgB;AACjC;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;AAEA;EACE,kBAAkB;EAClB,iBAAiB;EACjB,iBAAiB;EACjB,mBAAmB;EACnB,iBAAiB;EACjB,yBAAyB;EACzB,cAAc;EACd,YAAY;EACZ,eAAe;EACf,uBAAuB;EACvB,eAAe;EACf,iBAAiB;EACjB,4BAA4B,EAAE,gBAAgB;AAChD;;AAEA;EACE,aAAa;EACb,eAAe;EACf,6BAA6B;AAC/B;;AAEA;EACE,UAAU,EAAE,yBAAyB;EACrC,mBAAmB;EACnB,kBAAkB;EAClB,eAAe;EACf,yBAAyB;EACzB,cAAc;EACd,eAAe;EACf,kBAAkB;EAClB,iBAAiB;EACjB,gDAAgD;AAClD;;AAEA;EACE,WAAW;EACX,2BAA2B;EAC3B,4BAA4B;AAC9B;;AAEA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;;AAEA;EACE,cAAc;EACd,gBAAgB;EAChB,WAAW;AACb;;;;;;AAMA;EACE,iBAAiB;EACjB,+DAA+E;AACjF;AACA;EACE,iBAAiB;EACjB,+DAA8E;AAChF;AACA;EACE,iBAAiB;EACjB,+DAA0E;AAC5E;AACA;EACE,iBAAiB;EACjB,+DAA2E;AAC7E;AACA;EACE,iBAAiB;EACjB,+DAA4E;AAC9E","sourcesContent":[".goods-list-container {\r\n  margin-top: -4px;\r\n  width: 480px; /* 너비를 더 넓게 조정 */\r\n  padding: 20px;\r\n}\r\n\r\n.category-buttons {\r\n  display: flex;\r\n  justify-content: space-around;\r\n  margin-bottom: 10px;\r\n  align-items: center;\r\n}\r\n\r\n.category-button {\r\n  background-color: #FFFFFF;\r\n  color: #1e1f23;\r\n  border: 0.2px solid rgba(0, 0, 0, 0.7);\r\n  padding: 8px 16px;\r\n  border-radius: 40px;\r\n  cursor: pointer;\r\n  font-size: 12pt;\r\n  font-family: 'ps';\r\n  flex: 1; /* 모든 버튼이 동일한 크기를 가지도록 설정 */\r\n  margin: 0 8px; /* 버튼 간의 간격 설정 */\r\n}\r\n\r\n.category-button:hover {\r\n  background-color: #FFDBDA;\r\n  color: #000000;\r\n}\r\n\r\n.sort-order-dropdown {\r\n  margin-bottom: 2px;\r\n  margin-top: -25px;\r\n  padding: 8px 16px;\r\n  border-radius: 40px;\r\n  font-family: 'f5';\r\n  background-color: #e0e6ea;\r\n  color: #000000;\r\n  border: none;\r\n  cursor: pointer;\r\n  /* font-weight: bold; */\r\n  font-size: 10pt;\r\n  font-family: 'ps';\r\n  width: calc(100% / 4 - 10px); /* 드롭다운의 너비 조정 */\r\n}\r\n\r\n.goods-list {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  justify-content: space-around;\r\n}\r\n\r\n.goods-item {\r\n  width: 48%; /* 상품 리스트 항목의 너비를 넓게 조정 */\r\n  margin-bottom: 20px;\r\n  text-align: center;\r\n  cursor: pointer;\r\n  background-color: #FFFFFF;\r\n  color: #000000;\r\n  font-size: 11pt;\r\n  border-radius: 8px;\r\n  font-family: 'pm';\r\n  /* box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2); */\r\n}\r\n\r\n.goods-item img {\r\n  width: 100%;\r\n  border-top-left-radius: 8px;\r\n  border-top-right-radius: 8px;\r\n}\r\n\r\n.goods-item p {\r\n  margin: 12px 0 0 0;\r\n  font-size: 0.9em;\r\n}\r\n\r\n.goods-item p span {\r\n  display: block;\r\n  font-size: 0.8em;\r\n  color: #aaa;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n@font-face {\r\n  font-family: 'f4';\r\n  src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'f5';\r\n  src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'pm';\r\n  src: url('../../../public/fonts/Pretendard-Medium.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'pr';\r\n  src: url('../../../public/fonts/Pretendard-Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'ps';\r\n  src: url('../../../public/fonts/Pretendard-SemiBold.ttf') format('truetype');\r\n}\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/popup/css/GoodsList.css"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,YAAY,EAAE,gBAAgB;EAC9B,aAAa;AACf;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;EACnB,mBAAmB;AACrB;;AAEA;EACE,yBAAyB;EACzB,cAAc;EACd,sCAAsC;EACtC,iBAAiB;EACjB,mBAAmB;EACnB,eAAe;EACf,eAAe;EACf,iBAAiB;EACjB,OAAO,EAAE,2BAA2B;EACpC,aAAa,EAAE,gBAAgB;AACjC;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;AAEA;EACE,kBAAkB;EAClB,iBAAiB;EACjB,iBAAiB;EACjB,mBAAmB;EACnB,iBAAiB;EACjB,yBAAyB;EACzB,cAAc;EACd,YAAY;EACZ,eAAe;EACf,uBAAuB;EACvB,eAAe;EACf,iBAAiB;EACjB,4BAA4B,EAAE,gBAAgB;AAChD;;AAEA;EACE,aAAa;EACb,eAAe;EACf,6BAA6B;AAC/B;;AAEA;EACE,UAAU,EAAE,yBAAyB;EACrC,mBAAmB;EACnB,kBAAkB;EAClB,eAAe;EACf,yBAAyB;EACzB,cAAc;EACd,eAAe;EACf,kBAAkB;EAClB,iBAAiB;EACjB,gDAAgD;AAClD;;AAEA;EACE,WAAW;EACX,2BAA2B;EAC3B,4BAA4B;AAC9B;;AAEA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;;AAEA;EACE,cAAc;EACd,gBAAgB;EAChB,WAAW;AACb;;;;AAIA;EACE,iBAAiB;EACjB,+DAA0E;AAC5E;AACA;EACE,iBAAiB;EACjB,+DAA2E;AAC7E;AACA;EACE,iBAAiB;EACjB,+DAA4E;AAC9E","sourcesContent":[".goods-list-container {\r\n  margin-top: -4px;\r\n  width: 480px; /* 너비를 더 넓게 조정 */\r\n  padding: 20px;\r\n}\r\n\r\n.category-buttons {\r\n  display: flex;\r\n  justify-content: space-around;\r\n  margin-bottom: 10px;\r\n  align-items: center;\r\n}\r\n\r\n.category-button {\r\n  background-color: #FFFFFF;\r\n  color: #1e1f23;\r\n  border: 0.2px solid rgba(0, 0, 0, 0.7);\r\n  padding: 8px 16px;\r\n  border-radius: 40px;\r\n  cursor: pointer;\r\n  font-size: 12pt;\r\n  font-family: 'ps';\r\n  flex: 1; /* 모든 버튼이 동일한 크기를 가지도록 설정 */\r\n  margin: 0 8px; /* 버튼 간의 간격 설정 */\r\n}\r\n\r\n.category-button:hover {\r\n  background-color: #FFDBDA;\r\n  color: #000000;\r\n}\r\n\r\n.sort-order-dropdown {\r\n  margin-bottom: 2px;\r\n  margin-top: -25px;\r\n  padding: 8px 16px;\r\n  border-radius: 40px;\r\n  font-family: 'pm';\r\n  background-color: #e0e6ea;\r\n  color: #000000;\r\n  border: none;\r\n  cursor: pointer;\r\n  /* font-weight: bold; */\r\n  font-size: 10pt;\r\n  font-family: 'ps';\r\n  width: calc(100% / 4 - 10px); /* 드롭다운의 너비 조정 */\r\n}\r\n\r\n.goods-list {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  justify-content: space-around;\r\n}\r\n\r\n.goods-item {\r\n  width: 48%; /* 상품 리스트 항목의 너비를 넓게 조정 */\r\n  margin-bottom: 20px;\r\n  text-align: center;\r\n  cursor: pointer;\r\n  background-color: #FFFFFF;\r\n  color: #000000;\r\n  font-size: 11pt;\r\n  border-radius: 8px;\r\n  font-family: 'pm';\r\n  /* box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2); */\r\n}\r\n\r\n.goods-item img {\r\n  width: 100%;\r\n  border-top-left-radius: 8px;\r\n  border-top-right-radius: 8px;\r\n}\r\n\r\n.goods-item p {\r\n  margin: 12px 0 0 0;\r\n  font-size: 0.9em;\r\n}\r\n\r\n.goods-item p span {\r\n  display: block;\r\n  font-size: 0.8em;\r\n  color: #aaa;\r\n}\r\n\r\n\r\n\r\n@font-face {\r\n  font-family: 'pm';\r\n  src: url('../../../public/fonts/Pretendard-Medium.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'pr';\r\n  src: url('../../../public/fonts/Pretendard-Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'ps';\r\n  src: url('../../../public/fonts/Pretendard-SemiBold.ttf') format('truetype');\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5962,8 +5612,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.popup-container {
   background-color: #e0e6ea;
   display: flex;
   flex-direction: column;
-  align-items: center; /* 중앙 정렬 */
-  justify-content: center; /* 수직 중앙 정렬, 필요에 따라 사용 */
+  align-items: center; 
+  justify-content: center; 
 }
 #root {
   width: 500px;
@@ -5971,7 +5621,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.popup-container {
   background-color: #e0e6ea;
 }
 
-`, "",{"version":3,"sources":["webpack://./src/popup/css/Main.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;EACzB,aAAa;EACb,sBAAsB;EACtB,mBAAmB,EAAE,UAAU;EAC/B,uBAAuB,EAAE,wBAAwB;AACnD;AACA;EACE,YAAY;EACZ,cAAc;EACd,yBAAyB;AAC3B","sourcesContent":[".popup-container {\r\n  background-color: #e0e6ea;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center; /* 중앙 정렬 */\r\n  justify-content: center; /* 수직 중앙 정렬, 필요에 따라 사용 */\r\n}\r\n#root {\r\n  width: 500px;\r\n  height: 1000px;\r\n  background-color: #e0e6ea;\r\n}\r\n\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/popup/css/Main.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;EACzB,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,uBAAuB;AACzB;AACA;EACE,YAAY;EACZ,cAAc;EACd,yBAAyB;AAC3B","sourcesContent":[".popup-container {\r\n  background-color: #e0e6ea;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center; \r\n  justify-content: center; \r\n}\r\n#root {\r\n  width: 500px;\r\n  height: 1000px;\r\n  background-color: #e0e6ea;\r\n}\r\n\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -6000,22 +5650,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/Group 10 (1).png */ "./public/Group 10 (1).png"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Freesentation-4Regular.ttf */ "./public/fonts/Freesentation-4Regular.ttf"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Freesentation-5Medium.ttf */ "./public/fonts/Freesentation-5Medium.ttf"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_3___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Pretendard-Medium.ttf */ "./public/fonts/Pretendard-Medium.ttf"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_4___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Pretendard-Regular.ttf */ "./public/fonts/Pretendard-Regular.ttf"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_5___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Pretendard-SemiBold.ttf */ "./public/fonts/Pretendard-SemiBold.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Pretendard-Medium.ttf */ "./public/fonts/Pretendard-Medium.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Pretendard-Regular.ttf */ "./public/fonts/Pretendard-Regular.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_3___ = new URL(/* asset import */ __webpack_require__(/*! ../../../public/fonts/Pretendard-SemiBold.ttf */ "./public/fonts/Pretendard-SemiBold.ttf"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
 var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_2___);
 var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_3___);
-var ___CSS_LOADER_URL_REPLACEMENT_4___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_4___);
-var ___CSS_LOADER_URL_REPLACEMENT_5___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_5___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
   margin-top: -7px;
-  width: 600px; /* 너비를 더 넓게 조정 */
+  width: 600px; 
   padding: 20px;
 }
 
@@ -6035,9 +5681,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
   cursor: pointer;
   font-size: 12pt;
   font-family: 'ps';
-  flex: 1; /* 모든 버튼이 동일한 크기를 가지도록 설정 */
-  margin: 0 5px; /* 버튼 간의 간격 설정 */
-  transition: background-color 0.3s, color 0.3s; /* 배경색과 글자색 전환 시간 설정 */
+  flex: 1; 
+  margin: 0 5px; 
+  transition: background-color 0.3s, color 0.3s; 
 }
 
 .category-button:hover {
@@ -6058,7 +5704,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
   font-weight: bold;
   font-size: 10pt;
   font-family: 'ps';
-  width: calc(100% / 4 - 10px); /* 드롭다운의 너비 조정 */
+  width: calc(100% / 4 - 10px); 
 }
 
 .goods-list {
@@ -6068,7 +5714,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
 }
 
 .goods-item {
-  width: 48%; /* 상품 리스트 항목의 너비를 넓게 조정 */
+  width: 48%; 
   margin-bottom: 20px;
   text-align: center;
   cursor: pointer;
@@ -6122,16 +5768,15 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
   border-radius: 10px;
   width: 440px;
   height: 210px;
-  background-image: url(${___CSS_LOADER_URL_REPLACEMENT_0___}); /* 경로 수정 */
-  background-size: cover; /* 이미지 크기를 컨테이너에 맞춤 */
-  background-position: center; /* 이미지 위치를 중앙으로 설정 */
-  background-repeat: no-repeat; /* 이미지 반복을 방지 */
-  transition: transform 0.3s, box-shadow 0.3s; /* 효과의 전환 시간 설정 */
+  background-image: url(${___CSS_LOADER_URL_REPLACEMENT_0___}); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  transition: transform 0.3s, box-shadow 0.3s; 
 }
 
 .touch-info:hover {
-  transform: scale(1.02); /* 크기 확대 효과 */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+  transform: scale(1.02); 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
 }
 
 .touch-area {
@@ -6154,14 +5799,14 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
 
 .touch-bar span {
   flex: 1;
-  padding-right: 10px; /* 글자와 프로그레스 바 사이의 간격 조정 */
+  padding-right: 10px; 
 }
 
 .progress-bar-wrapper {
   flex: 4;
   position: relative;
-  border: 1px solid #3d3f46; /* 직사각형 형태의 테두리 추가 */
-  border-radius: 4px; /* 테두리 모서리 둥글게 */
+  border: 1px solid #3d3f46; 
+  border-radius: 4px; 
 }
 
 .custom-progress-bar .progress-bar {
@@ -6170,11 +5815,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
 }
 
 .custom-progress-bar {
-  height: 100%; /* 바의 높이를 컨테이너에 맞춤 */
+  height: 100%; 
 }
 
 .custom-progress-bar .progress {
-  height: 100%; /* 바의 높이를 컨테이너에 맞춤 */
+  height: 100%; 
 }
 
 .ticks {
@@ -6216,27 +5861,20 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.goods-list-container {
   text-align: center;
 }
 
+
 @font-face {
-  font-family: 'f4';
+  font-family: 'pm';
   src: url(${___CSS_LOADER_URL_REPLACEMENT_1___}) format('truetype');
 }
 @font-face {
-  font-family: 'f5';
+  font-family: 'pr';
   src: url(${___CSS_LOADER_URL_REPLACEMENT_2___}) format('truetype');
 }
 @font-face {
-  font-family: 'pm';
+  font-family: 'ps';
   src: url(${___CSS_LOADER_URL_REPLACEMENT_3___}) format('truetype');
 }
-@font-face {
-  font-family: 'pr';
-  src: url(${___CSS_LOADER_URL_REPLACEMENT_4___}) format('truetype');
-}
-@font-face {
-  font-family: 'ps';
-  src: url(${___CSS_LOADER_URL_REPLACEMENT_5___}) format('truetype');
-}
-`, "",{"version":3,"sources":["webpack://./src/popup/css/TouchInfo.css"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,YAAY,EAAE,gBAAgB;EAC9B,aAAa;AACf;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;EACnB,mBAAmB;AACrB;;AAEA;EACE,yBAAyB;EACzB,cAAc;EACd,sCAAsC;EACtC,iBAAiB;EACjB,mBAAmB;EACnB,eAAe;EACf,eAAe;EACf,iBAAiB;EACjB,OAAO,EAAE,2BAA2B;EACpC,aAAa,EAAE,gBAAgB;EAC/B,6CAA6C,EAAE,sBAAsB;AACvE;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;AAEA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;EACnB,iBAAiB;EACjB,yBAAyB;EACzB,cAAc;EACd,YAAY;EACZ,eAAe;EACf,iBAAiB;EACjB,eAAe;EACf,iBAAiB;EACjB,4BAA4B,EAAE,gBAAgB;AAChD;;AAEA;EACE,aAAa;EACb,eAAe;EACf,6BAA6B;AAC/B;;AAEA;EACE,UAAU,EAAE,yBAAyB;EACrC,mBAAmB;EACnB,kBAAkB;EAClB,eAAe;EACf,yBAAyB;EACzB,cAAc;EACd,eAAe;EACf,kBAAkB;EAClB,iBAAiB;EACjB,0CAA0C;AAC5C;;AAEA;EACE,WAAW;EACX,2BAA2B;EAC3B,4BAA4B;AAC9B;;AAEA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;;AAEA;EACE,cAAc;EACd,gBAAgB;EAChB,WAAW;AACb;;AAEA;EACE,gBAAgB;EAChB,yBAAyB;EACzB,cAAc;EACd,kBAAkB;EAClB,eAAe;EACf,eAAe;EACf,iBAAiB;EACjB,YAAY;EACZ,mBAAmB;EACnB,iBAAiB;EACjB,sCAAsC;AACxC;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;AAEA;EACE,iBAAiB;EACjB,gBAAgB;EAChB,mBAAmB;EACnB,YAAY;EACZ,aAAa;EACb,yDAAyD,EAAE,UAAU;EACrE,sBAAsB,EAAE,qBAAqB;EAC7C,2BAA2B,EAAE,oBAAoB;EACjD,4BAA4B,EAAE,eAAe;EAC7C,2CAA2C,EAAE,iBAAiB;AAChE;;AAEA;EACE,sBAAsB,EAAE,aAAa;EACrC,0CAA0C,EAAE,WAAW;AACzD;;AAEA;EACE,iBAAiB;EACjB,gBAAgB;EAChB,YAAY;EACZ,aAAa;EACb,mBAAmB;EACnB,iBAAiB;AACnB;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,aAAa;EACb,cAAc;EACd,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,OAAO;EACP,mBAAmB,EAAE,0BAA0B;AACjD;;AAEA;EACE,OAAO;EACP,kBAAkB;EAClB,yBAAyB,EAAE,oBAAoB;EAC/C,kBAAkB,EAAE,gBAAgB;AACtC;;AAEA;EACE,wCAAwC;EACxC,iCAAiC;AACnC;;AAEA;EACE,YAAY,EAAE,oBAAoB;AACpC;;AAEA;EACE,YAAY,EAAE,oBAAoB;AACpC;;AAEA;EACE,kBAAkB;EAClB,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,aAAa;EACb,8BAA8B;AAChC;;AAEA;EACE,UAAU;EACV,YAAY;EACZ,yBAAyB;AAC3B;;AAEA;EACE,WAAW;EACX,WAAW;EACX,yBAAyB;AAC3B;;AAEA;EACE,WAAW;EACX,WAAW;EACX,yBAAyB;EACzB,kBAAkB;EAClB,SAAS;EACT,OAAO;AACT;;AAEA;EACE,eAAe;EACf,kBAAkB;EAClB,YAAY;EACZ,YAAY;EACZ,kBAAkB;AACpB;;AAEA;EACE,iBAAiB;EACjB,+DAA+E;AACjF;AACA;EACE,iBAAiB;EACjB,+DAA8E;AAChF;AACA;EACE,iBAAiB;EACjB,+DAA0E;AAC5E;AACA;EACE,iBAAiB;EACjB,+DAA2E;AAC7E;AACA;EACE,iBAAiB;EACjB,+DAA4E;AAC9E","sourcesContent":[".goods-list-container {\r\n  margin-top: -7px;\r\n  width: 600px; /* 너비를 더 넓게 조정 */\r\n  padding: 20px;\r\n}\r\n\r\n.category-buttons {\r\n  display: flex;\r\n  justify-content: space-around;\r\n  margin-bottom: 20px;\r\n  align-items: center;\r\n}\r\n\r\n.category-button {\r\n  background-color: #FFFFFF;\r\n  color: #1e1f23;\r\n  border: 0.2px solid rgba(0, 0, 0, 0.7);\r\n  padding: 8px 16px;\r\n  border-radius: 40px;\r\n  cursor: pointer;\r\n  font-size: 12pt;\r\n  font-family: 'ps';\r\n  flex: 1; /* 모든 버튼이 동일한 크기를 가지도록 설정 */\r\n  margin: 0 5px; /* 버튼 간의 간격 설정 */\r\n  transition: background-color 0.3s, color 0.3s; /* 배경색과 글자색 전환 시간 설정 */\r\n}\r\n\r\n.category-button:hover {\r\n  background-color: #FFDBDA;\r\n  color: #000000;\r\n}\r\n\r\n.sort-order-dropdown {\r\n  margin-bottom: 20px;\r\n  margin-top: -9px;\r\n  padding: 8px 16px;\r\n  border-radius: 40px;\r\n  font-family: 'f5';\r\n  background-color: #e0e6ea;\r\n  color: #000000;\r\n  border: none;\r\n  cursor: pointer;\r\n  font-weight: bold;\r\n  font-size: 10pt;\r\n  font-family: 'ps';\r\n  width: calc(100% / 4 - 10px); /* 드롭다운의 너비 조정 */\r\n}\r\n\r\n.goods-list {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  justify-content: space-around;\r\n}\r\n\r\n.goods-item {\r\n  width: 48%; /* 상품 리스트 항목의 너비를 넓게 조정 */\r\n  margin-bottom: 20px;\r\n  text-align: center;\r\n  cursor: pointer;\r\n  background-color: #FFFFFF;\r\n  color: #000000;\r\n  font-size: 11pt;\r\n  border-radius: 8px;\r\n  font-family: 'ps';\r\n  box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.goods-item img {\r\n  width: 100%;\r\n  border-top-left-radius: 8px;\r\n  border-top-right-radius: 8px;\r\n}\r\n\r\n.goods-item p {\r\n  margin: 12px 0 0 0;\r\n  font-size: 0.9em;\r\n}\r\n\r\n.goods-item p span {\r\n  display: block;\r\n  font-size: 0.8em;\r\n  color: #aaa;\r\n}\r\n\r\n.view-product-button {\r\n  margin-top: 25px;\r\n  background-color: #FFDBDA;\r\n  color: #555657;\r\n  padding: 10px 20px;\r\n  cursor: pointer;\r\n  font-size: 18px;\r\n  font-weight: bold;\r\n  width: 180px;\r\n  border-radius: 12px;\r\n  font-family: 'f5';\r\n  border: 0.2px solid rgba(0, 0, 0, 0.7);\r\n}\r\n\r\n.view-product-button:hover {\r\n  background-color: #FFFFFF;\r\n  color: #000000;\r\n}\r\n\r\n.touch-info {\r\n  font-family: 'f5';\r\n  margin-top: 13px;\r\n  border-radius: 10px;\r\n  width: 440px;\r\n  height: 210px;\r\n  background-image: url('../../../public/Group 10 (1).png'); /* 경로 수정 */\r\n  background-size: cover; /* 이미지 크기를 컨테이너에 맞춤 */\r\n  background-position: center; /* 이미지 위치를 중앙으로 설정 */\r\n  background-repeat: no-repeat; /* 이미지 반복을 방지 */\r\n  transition: transform 0.3s, box-shadow 0.3s; /* 효과의 전환 시간 설정 */\r\n}\r\n\r\n.touch-info:hover {\r\n  transform: scale(1.02); /* 크기 확대 효과 */\r\n  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* 그림자 효과 */\r\n}\r\n\r\n.touch-area {\r\n  margin-left: 27px;\r\n  margin-top: 15px;\r\n  width: 350px;\r\n  height: 120px;\r\n  border-radius: 15px;\r\n  font-family: 'ps';\r\n}\r\n\r\n.touch-bar {\r\n  display: flex;\r\n  align-items: center;\r\n  margin: 7px 0;\r\n  color: #000000;\r\n  font-family: 'ps';\r\n  font-size: 12pt;\r\n}\r\n\r\n.touch-bar span {\r\n  flex: 1;\r\n  padding-right: 10px; /* 글자와 프로그레스 바 사이의 간격 조정 */\r\n}\r\n\r\n.progress-bar-wrapper {\r\n  flex: 4;\r\n  position: relative;\r\n  border: 1px solid #3d3f46; /* 직사각형 형태의 테두리 추가 */\r\n  border-radius: 4px; /* 테두리 모서리 둥글게 */\r\n}\r\n\r\n.custom-progress-bar .progress-bar {\r\n  background-color: transparent !important;\r\n  background-image: none !important;\r\n}\r\n\r\n.custom-progress-bar {\r\n  height: 100%; /* 바의 높이를 컨테이너에 맞춤 */\r\n}\r\n\r\n.custom-progress-bar .progress {\r\n  height: 100%; /* 바의 높이를 컨테이너에 맞춤 */\r\n}\r\n\r\n.ticks {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  display: flex;\r\n  justify-content: space-between;\r\n}\r\n\r\n.tick {\r\n  width: 2px;\r\n  height: 100%;\r\n  background-color: #3d3f46;\r\n}\r\n\r\n.tick-top {\r\n  width: 100%;\r\n  height: 2px;\r\n  background-color: #3d3f46;\r\n}\r\n\r\n.tick-bottom {\r\n  width: 100%;\r\n  height: 2px;\r\n  background-color: #3d3f46;\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 0;\r\n}\r\n\r\n.touch-info-text {\r\n  margin-top: 4px;\r\n  margin-bottom: 2px;\r\n  width: 450px;\r\n  height: 50px;\r\n  text-align: center;\r\n}\r\n\r\n@font-face {\r\n  font-family: 'f4';\r\n  src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'f5';\r\n  src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'pm';\r\n  src: url('../../../public/fonts/Pretendard-Medium.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'pr';\r\n  src: url('../../../public/fonts/Pretendard-Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'ps';\r\n  src: url('../../../public/fonts/Pretendard-SemiBold.ttf') format('truetype');\r\n}\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/popup/css/TouchInfo.css"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,YAAY;EACZ,aAAa;AACf;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;EACnB,mBAAmB;AACrB;;AAEA;EACE,yBAAyB;EACzB,cAAc;EACd,sCAAsC;EACtC,iBAAiB;EACjB,mBAAmB;EACnB,eAAe;EACf,eAAe;EACf,iBAAiB;EACjB,OAAO;EACP,aAAa;EACb,6CAA6C;AAC/C;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;AAEA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;EACnB,iBAAiB;EACjB,yBAAyB;EACzB,cAAc;EACd,YAAY;EACZ,eAAe;EACf,iBAAiB;EACjB,eAAe;EACf,iBAAiB;EACjB,4BAA4B;AAC9B;;AAEA;EACE,aAAa;EACb,eAAe;EACf,6BAA6B;AAC/B;;AAEA;EACE,UAAU;EACV,mBAAmB;EACnB,kBAAkB;EAClB,eAAe;EACf,yBAAyB;EACzB,cAAc;EACd,eAAe;EACf,kBAAkB;EAClB,iBAAiB;EACjB,0CAA0C;AAC5C;;AAEA;EACE,WAAW;EACX,2BAA2B;EAC3B,4BAA4B;AAC9B;;AAEA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;;AAEA;EACE,cAAc;EACd,gBAAgB;EAChB,WAAW;AACb;;AAEA;EACE,gBAAgB;EAChB,yBAAyB;EACzB,cAAc;EACd,kBAAkB;EAClB,eAAe;EACf,eAAe;EACf,iBAAiB;EACjB,YAAY;EACZ,mBAAmB;EACnB,iBAAiB;EACjB,sCAAsC;AACxC;;AAEA;EACE,yBAAyB;EACzB,cAAc;AAChB;;AAEA;EACE,iBAAiB;EACjB,gBAAgB;EAChB,mBAAmB;EACnB,YAAY;EACZ,aAAa;EACb,yDAAyD;EACzD,sBAAsB;EACtB,4BAA4B;EAC5B,2CAA2C;AAC7C;;AAEA;EACE,sBAAsB;EACtB,0CAA0C;AAC5C;;AAEA;EACE,iBAAiB;EACjB,gBAAgB;EAChB,YAAY;EACZ,aAAa;EACb,mBAAmB;EACnB,iBAAiB;AACnB;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,aAAa;EACb,cAAc;EACd,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,OAAO;EACP,mBAAmB;AACrB;;AAEA;EACE,OAAO;EACP,kBAAkB;EAClB,yBAAyB;EACzB,kBAAkB;AACpB;;AAEA;EACE,wCAAwC;EACxC,iCAAiC;AACnC;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,kBAAkB;EAClB,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,aAAa;EACb,8BAA8B;AAChC;;AAEA;EACE,UAAU;EACV,YAAY;EACZ,yBAAyB;AAC3B;;AAEA;EACE,WAAW;EACX,WAAW;EACX,yBAAyB;AAC3B;;AAEA;EACE,WAAW;EACX,WAAW;EACX,yBAAyB;EACzB,kBAAkB;EAClB,SAAS;EACT,OAAO;AACT;;AAEA;EACE,eAAe;EACf,kBAAkB;EAClB,YAAY;EACZ,YAAY;EACZ,kBAAkB;AACpB;;;AAGA;EACE,iBAAiB;EACjB,+DAA0E;AAC5E;AACA;EACE,iBAAiB;EACjB,+DAA2E;AAC7E;AACA;EACE,iBAAiB;EACjB,+DAA4E;AAC9E","sourcesContent":[".goods-list-container {\r\n  margin-top: -7px;\r\n  width: 600px; \r\n  padding: 20px;\r\n}\r\n\r\n.category-buttons {\r\n  display: flex;\r\n  justify-content: space-around;\r\n  margin-bottom: 20px;\r\n  align-items: center;\r\n}\r\n\r\n.category-button {\r\n  background-color: #FFFFFF;\r\n  color: #1e1f23;\r\n  border: 0.2px solid rgba(0, 0, 0, 0.7);\r\n  padding: 8px 16px;\r\n  border-radius: 40px;\r\n  cursor: pointer;\r\n  font-size: 12pt;\r\n  font-family: 'ps';\r\n  flex: 1; \r\n  margin: 0 5px; \r\n  transition: background-color 0.3s, color 0.3s; \r\n}\r\n\r\n.category-button:hover {\r\n  background-color: #FFDBDA;\r\n  color: #000000;\r\n}\r\n\r\n.sort-order-dropdown {\r\n  margin-bottom: 20px;\r\n  margin-top: -9px;\r\n  padding: 8px 16px;\r\n  border-radius: 40px;\r\n  font-family: 'f5';\r\n  background-color: #e0e6ea;\r\n  color: #000000;\r\n  border: none;\r\n  cursor: pointer;\r\n  font-weight: bold;\r\n  font-size: 10pt;\r\n  font-family: 'ps';\r\n  width: calc(100% / 4 - 10px); \r\n}\r\n\r\n.goods-list {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  justify-content: space-around;\r\n}\r\n\r\n.goods-item {\r\n  width: 48%; \r\n  margin-bottom: 20px;\r\n  text-align: center;\r\n  cursor: pointer;\r\n  background-color: #FFFFFF;\r\n  color: #000000;\r\n  font-size: 11pt;\r\n  border-radius: 8px;\r\n  font-family: 'ps';\r\n  box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.goods-item img {\r\n  width: 100%;\r\n  border-top-left-radius: 8px;\r\n  border-top-right-radius: 8px;\r\n}\r\n\r\n.goods-item p {\r\n  margin: 12px 0 0 0;\r\n  font-size: 0.9em;\r\n}\r\n\r\n.goods-item p span {\r\n  display: block;\r\n  font-size: 0.8em;\r\n  color: #aaa;\r\n}\r\n\r\n.view-product-button {\r\n  margin-top: 25px;\r\n  background-color: #FFDBDA;\r\n  color: #555657;\r\n  padding: 10px 20px;\r\n  cursor: pointer;\r\n  font-size: 18px;\r\n  font-weight: bold;\r\n  width: 180px;\r\n  border-radius: 12px;\r\n  font-family: 'f5';\r\n  border: 0.2px solid rgba(0, 0, 0, 0.7);\r\n}\r\n\r\n.view-product-button:hover {\r\n  background-color: #FFFFFF;\r\n  color: #000000;\r\n}\r\n\r\n.touch-info {\r\n  font-family: 'f5';\r\n  margin-top: 13px;\r\n  border-radius: 10px;\r\n  width: 440px;\r\n  height: 210px;\r\n  background-image: url('../../../public/Group 10 (1).png'); \r\n  background-size: cover; \r\n  background-repeat: no-repeat; \r\n  transition: transform 0.3s, box-shadow 0.3s; \r\n}\r\n\r\n.touch-info:hover {\r\n  transform: scale(1.02); \r\n  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); \r\n}\r\n\r\n.touch-area {\r\n  margin-left: 27px;\r\n  margin-top: 15px;\r\n  width: 350px;\r\n  height: 120px;\r\n  border-radius: 15px;\r\n  font-family: 'ps';\r\n}\r\n\r\n.touch-bar {\r\n  display: flex;\r\n  align-items: center;\r\n  margin: 7px 0;\r\n  color: #000000;\r\n  font-family: 'ps';\r\n  font-size: 12pt;\r\n}\r\n\r\n.touch-bar span {\r\n  flex: 1;\r\n  padding-right: 10px; \r\n}\r\n\r\n.progress-bar-wrapper {\r\n  flex: 4;\r\n  position: relative;\r\n  border: 1px solid #3d3f46; \r\n  border-radius: 4px; \r\n}\r\n\r\n.custom-progress-bar .progress-bar {\r\n  background-color: transparent !important;\r\n  background-image: none !important;\r\n}\r\n\r\n.custom-progress-bar {\r\n  height: 100%; \r\n}\r\n\r\n.custom-progress-bar .progress {\r\n  height: 100%; \r\n}\r\n\r\n.ticks {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  display: flex;\r\n  justify-content: space-between;\r\n}\r\n\r\n.tick {\r\n  width: 2px;\r\n  height: 100%;\r\n  background-color: #3d3f46;\r\n}\r\n\r\n.tick-top {\r\n  width: 100%;\r\n  height: 2px;\r\n  background-color: #3d3f46;\r\n}\r\n\r\n.tick-bottom {\r\n  width: 100%;\r\n  height: 2px;\r\n  background-color: #3d3f46;\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 0;\r\n}\r\n\r\n.touch-info-text {\r\n  margin-top: 4px;\r\n  margin-bottom: 2px;\r\n  width: 450px;\r\n  height: 50px;\r\n  text-align: center;\r\n}\r\n\r\n\r\n@font-face {\r\n  font-family: 'pm';\r\n  src: url('../../../public/fonts/Pretendard-Medium.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'pr';\r\n  src: url('../../../public/fonts/Pretendard-Regular.ttf') format('truetype');\r\n}\r\n@font-face {\r\n  font-family: 'ps';\r\n  src: url('../../../public/fonts/Pretendard-SemiBold.ttf') format('truetype');\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -48659,28 +48297,6 @@ module.exports = __webpack_require__.p + "3ab71d6de24c291667d7.png";
 
 /***/ }),
 
-/***/ "./public/fonts/Freesentation-4Regular.ttf":
-/*!*************************************************!*\
-  !*** ./public/fonts/Freesentation-4Regular.ttf ***!
-  \*************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "fonts/Freesentation-4Regular.ttf";
-
-/***/ }),
-
-/***/ "./public/fonts/Freesentation-5Medium.ttf":
-/*!************************************************!*\
-  !*** ./public/fonts/Freesentation-5Medium.ttf ***!
-  \************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "fonts/Freesentation-5Medium.ttf";
-
-/***/ }),
-
 /***/ "./public/fonts/Pretendard-Medium.ttf":
 /*!********************************************!*\
   !*** ./public/fonts/Pretendard-Medium.ttf ***!
@@ -58150,7 +57766,7 @@ function hasBinary(obj, toJSON) {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("1212cd885b2885a9026b")
+/******/ 		__webpack_require__.h = () => ("8aa37d6dcc55ecac0714")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

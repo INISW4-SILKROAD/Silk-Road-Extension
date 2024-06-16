@@ -34,7 +34,7 @@
   margin-top: -25px;
   padding: 8px 16px;
   border-radius: 40px;
-  font-family: 'f5';
+  font-family: 'pm';
   background-color: #e0e6ea;
   color: #000000;
   border: none;
@@ -83,16 +83,6 @@
 
 
 
-
-
-@font-face {
-  font-family: 'f4';
-  src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'f5';
-  src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');
-}
 @font-face {
   font-family: 'pm';
   src: url('../../../public/fonts/Pretendard-Medium.ttf') format('truetype');

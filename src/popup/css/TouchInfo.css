@@ -1,6 +1,6 @@
 .goods-list-container {
   margin-top: -7px;
-  width: 600px; /* 너비를 더 넓게 조정 */
+  width: 600px; 
   padding: 20px;
 }
 
@@ -20,9 +20,9 @@
   cursor: pointer;
   font-size: 12pt;
   font-family: 'ps';
-  flex: 1; /* 모든 버튼이 동일한 크기를 가지도록 설정 */
-  margin: 0 5px; /* 버튼 간의 간격 설정 */
-  transition: background-color 0.3s, color 0.3s; /* 배경색과 글자색 전환 시간 설정 */
+  flex: 1; 
+  margin: 0 5px; 
+  transition: background-color 0.3s, color 0.3s; 
 }
 
 .category-button:hover {
@@ -43,7 +43,7 @@
   font-weight: bold;
   font-size: 10pt;
   font-family: 'ps';
-  width: calc(100% / 4 - 10px); /* 드롭다운의 너비 조정 */
+  width: calc(100% / 4 - 10px); 
 }
 
 .goods-list {
@@ -53,7 +53,7 @@
 }
 
 .goods-item {
-  width: 48%; /* 상품 리스트 항목의 너비를 넓게 조정 */
+  width: 48%; 
   margin-bottom: 20px;
   text-align: center;
   cursor: pointer;
@@ -107,16 +107,15 @@
   border-radius: 10px;
   width: 440px;
   height: 210px;
-  background-image: url('../../../public/Group 10 (1).png'); /* 경로 수정 */
-  background-size: cover; /* 이미지 크기를 컨테이너에 맞춤 */
-  background-position: center; /* 이미지 위치를 중앙으로 설정 */
-  background-repeat: no-repeat; /* 이미지 반복을 방지 */
-  transition: transform 0.3s, box-shadow 0.3s; /* 효과의 전환 시간 설정 */
+  background-image: url('../../../public/Group 10 (1).png'); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  transition: transform 0.3s, box-shadow 0.3s; 
 }
 
 .touch-info:hover {
-  transform: scale(1.02); /* 크기 확대 효과 */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+  transform: scale(1.02); 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
 }
 
 .touch-area {
@@ -139,14 +138,14 @@
 
 .touch-bar span {
   flex: 1;
-  padding-right: 10px; /* 글자와 프로그레스 바 사이의 간격 조정 */
+  padding-right: 10px; 
 }
 
 .progress-bar-wrapper {
   flex: 4;
   position: relative;
-  border: 1px solid #3d3f46; /* 직사각형 형태의 테두리 추가 */
-  border-radius: 4px; /* 테두리 모서리 둥글게 */
+  border: 1px solid #3d3f46; 
+  border-radius: 4px; 
 }
 
 .custom-progress-bar .progress-bar {
@@ -155,11 +154,11 @@
 }
 
 .custom-progress-bar {
-  height: 100%; /* 바의 높이를 컨테이너에 맞춤 */
+  height: 100%; 
 }
 
 .custom-progress-bar .progress {
-  height: 100%; /* 바의 높이를 컨테이너에 맞춤 */
+  height: 100%; 
 }
 
 .ticks {
@@ -201,14 +200,7 @@
   text-align: center;
 }
 
-@font-face {
-  font-family: 'f4';
-  src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'f5';
-  src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');
-}
+
 @font-face {
   font-family: 'pm';
   src: url('../../../public/fonts/Pretendard-Medium.ttf') format('truetype');

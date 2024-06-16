@@ -99,11 +99,18 @@
   color: #000000;
 }
 
+
+
+
 @font-face {
-  font-family: 'f4';
-  src: url('../../../public/fonts/Freesentation-4Regular.ttf') format('truetype');
+  font-family: 'pm';
+  src: url('../../../public/fonts/Pretendard-Medium.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'f5';
-  src: url('../../../public/fonts/Freesentation-5Medium.ttf') format('truetype');
+  font-family: 'pr';
+  src: url('../../../public/fonts/Pretendard-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'ps';
+  src: url('../../../public/fonts/Pretendard-SemiBold.ttf') format('truetype');
 }
