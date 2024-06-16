@@ -5230,6 +5230,181 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 // export default TouchInfo;
 
+// import React, { useEffect, useState } from 'react';
+// import ProgressBar from 'react-bootstrap/ProgressBar';
+// import axios from 'axios';
+// import '../css/TouchInfo.css';
+// import io from 'socket.io-client';
+
+// const TouchInfo = ({ productId, dataSource }) => {
+//   const [touchData, setTouchData] = useState({
+//     softness: 0,
+//     smoothness: 0,
+//     thickness: 0,
+//     flexibility: 0
+//   });
+
+//   const labelMapping = {
+//     softness: '부드러움',
+//     smoothness: '매끄러움',
+//     thickness: '두께',
+//     flexibility: '신축성'
+//   };
+
+//   useEffect(() => {
+//     const fetchTouchData = async () => {
+//       try {
+//         if (dataSource === 'model') {
+//           const socket = io('http://127.0.0.1:5001');
+//           socket.emit('joinRoom', productId);
+//           socket.on('touchInfo', (data) => {
+//             console.log('Received touchInfo:', data);
+//             if (data.productId === productId) {
+//               setTouchData({
+//                 softness: data.touchInfo[0],
+//                 smoothness: data.touchInfo[1],
+//                 thickness: data.touchInfo[2],
+//                 flexibility: data.touchInfo[3]
+//               });
+//             }
+//           });
+//         } else if (dataSource === 'search') {
+//           const response = await axios.get(`http://127.0.0.1:5001/goods/${productId}`);
+//           const data = response.data;
+//           console.log('Received touchData:', data);
+//           setTouchData({
+//             softness: data.SOFTNESS + 1,
+//             smoothness: data.SMOOTHNESS + 1,
+//             thickness: data.THICKNESS + 1,
+//             flexibility: data.FLEXIBILITY + 1
+//           });
+//         }
+//       } catch (error) {
+//         console.error("촉감 데이터를 불러오는 중 에러 발생:", error);
+//       }
+//     };
+
+//     fetchTouchData();
+//   }, [productId, dataSource]);
+
+//   const colorMapping = {
+//     softness: '#FFDBDA',
+//     smoothness: '#FFDBDA',
+//     thickness: '#FFDBDA',
+//     flexibility: '#FFDBDA'
+//   };
+
+//   return (
+//     <div className="touch-info">
+//       <div className='touch-info-text'>
+//       </div>
+//       <div className='touch-area'>
+//         {Object.keys(touchData).map((key) => (
+//           <div key={key} className="touch-bar">
+//             <span>{labelMapping[key]}</span>
+//             <div className="progress-bar-wrapper">
+//               <ProgressBar
+//                 now={(touchData[key] / 5) * 100}
+//                 className="custom-progress-bar"
+//                 style={{
+//                   backgroundColor: 'transparent',
+//                   backgroundImage: `linear-gradient(to right, ${colorMapping[key]} 0%, ${colorMapping[key]} ${(touchData[key] / 5) * 100}%, #ffffff ${(touchData[key] / 5) * 100}%, #ffffff 100%)`
+//                 }}
+//               />
+//               <div className="ticks">
+//                 {[...Array(6)].map((_, i) => (
+//                   <div key={i} className="tick" style={{ left: `${(i / 5) * 100}%` }} />
+//                 ))}
+//               </div>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default TouchInfo;
+
+// import React, { useEffect, useState } from 'react';
+// import ProgressBar from 'react-bootstrap/ProgressBar';
+// import axios from 'axios';
+// import '../css/TouchInfo.css';
+
+// const TouchInfo = () => {
+//   const [touchData, setTouchData] = useState({
+//     softness: 0,
+//     smoothness: 0,
+//     thickness: 0,
+//     flexibility: 0
+//   });
+
+//   const labelMapping = {
+//     softness: '부드러움',
+//     smoothness: '매끄러움',
+//     thickness: '두께',
+//     flexibility: '신축성'
+//   };
+
+//   useEffect(() => {
+//     const fetchTouchData = async () => {
+//       try {
+//         const response = await axios.get('http://127.0.0.1:5001/touchinfo');
+//         const touchInfo = response.data;
+//         console.log('Fetched touch data from server:', touchInfo);
+//         setTouchData({
+//           softness: touchInfo[0],
+//           smoothness: touchInfo[1],
+//           thickness: touchInfo[2],
+//           flexibility: touchInfo[3]
+//         });
+//       } catch (error) {
+//         console.error('Error fetching touch data:', error);
+//       }
+//     };
+
+//     fetchTouchData();
+//   }, []);
+
+//   const colorMapping = {
+//     softness: '#FFDBDA',
+//     smoothness: '#FFDBDA',
+//     thickness: '#FFDBDA',
+//     flexibility: '#FFDBDA'
+//   };
+
+//   return (
+//     <div className="touch-info">
+//       <div className='touch-info-text'>
+//       </div>
+//       <div className='touch-area'>
+//         {Object.keys(touchData).map((key) => (
+//           <div key={key} className="touch-bar">
+//             <span>{labelMapping[key]}</span>
+//             <div className="progress-bar-wrapper">
+//               <ProgressBar
+//                 now={(touchData[key] / 5) * 100}
+//                 className="custom-progress-bar"
+//                 style={{
+//                   backgroundColor: 'transparent',
+//                   backgroundImage: `linear-gradient(to right, ${colorMapping[key]} 0%, ${colorMapping[key]} ${(touchData[key] / 5) * 100}%, #ffffff ${(touchData[key] / 5) * 100}%, #ffffff 100%)`
+//                 }}
+//               />
+//               <div className="ticks">
+//                 {[...Array(6)].map((_, i) => (
+//                   <div key={i} className="tick" style={{ left: `${(i / 5) * 100}%` }} />
+//                 ))}
+//               </div>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default TouchInfo;
+
 
 
 
@@ -5254,64 +5429,84 @@ var TouchInfo = function TouchInfo(_ref) {
     flexibility: '신축성'
   };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (productId) {
-      console.log("TouchInfo component mounted for productId: ".concat(productId, " with dataSource: ").concat(dataSource));
-      if (dataSource === 'model') {
-        var socket = (0,socket_io_client__WEBPACK_IMPORTED_MODULE_2__["default"])('http://127.0.0.1:5001');
-        socket.emit('joinRoom', productId);
-        socket.on('touchInfo', function (data) {
-          console.log("Received touchInfo data from server:", data);
-          if (data.productId === productId) {
-            setTouchData({
-              softness: data.touchInfo[0],
-              smoothness: data.touchInfo[1],
-              thickness: data.touchInfo[2],
-              flexibility: data.touchInfo[3]
-            });
-          }
-        });
-        return function () {
-          socket.disconnect();
-        };
-      } else if (dataSource === 'search') {
-        var fetchTouchData = /*#__PURE__*/function () {
-          var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-            var response, data;
-            return _regeneratorRuntime().wrap(function _callee$(_context) {
-              while (1) switch (_context.prev = _context.next) {
-                case 0:
-                  _context.prev = 0;
-                  _context.next = 3;
-                  return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:5001/goods/".concat(productId));
-                case 3:
-                  response = _context.sent;
-                  data = response.data;
-                  console.log("Received touchData from server:", data);
-                  setTouchData({
-                    softness: (data.SOFTNESS || 0) + 1,
-                    smoothness: (data.SMOOTHNESS || 0) + 1,
-                    thickness: (data.THICKNESS || 0) + 1,
-                    flexibility: (data.FLEXIBILITY || 0) + 1
-                  });
-                  _context.next = 12;
-                  break;
-                case 9:
-                  _context.prev = 9;
-                  _context.t0 = _context["catch"](0);
-                  console.error("Error fetching touch data:", _context.t0);
-                case 12:
-                case "end":
-                  return _context.stop();
+    var fetchTouchData = /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var socket, response, data, _response, touchInfo;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              if (!(dataSource === 'model')) {
+                _context.next = 7;
+                break;
               }
-            }, _callee, null, [[0, 9]]);
-          }));
-          return function fetchTouchData() {
-            return _ref2.apply(this, arguments);
-          };
-        }();
-        fetchTouchData();
-      }
-    }
+              socket = (0,socket_io_client__WEBPACK_IMPORTED_MODULE_2__["default"])('http://127.0.0.1:5001');
+              socket.emit('joinRoom', productId);
+              socket.on('touchInfo', function (data) {
+                console.log('Received touchInfo:', data);
+                setTouchData({
+                  softness: data.touchInfo[0],
+                  smoothness: data.touchInfo[1],
+                  thickness: data.touchInfo[2],
+                  flexibility: data.touchInfo[3]
+                });
+              });
+              _context.next = 23;
+              break;
+            case 7:
+              if (!(dataSource === 'search')) {
+                _context.next = 16;
+                break;
+              }
+              _context.next = 10;
+              return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:5001/goods/".concat(productId));
+            case 10:
+              response = _context.sent;
+              data = response.data;
+              console.log('Received touchData:', data);
+              setTouchData({
+                softness: data.SOFTNESS + 1,
+                smoothness: data.SMOOTHNESS + 1,
+                thickness: data.THICKNESS + 1,
+                flexibility: data.FLEXIBILITY + 1
+              });
+              _context.next = 23;
+              break;
+            case 16:
+              if (!(dataSource === 'json')) {
+                _context.next = 23;
+                break;
+              }
+              _context.next = 19;
+              return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get('http://127.0.0.1:5001/touchinfo');
+            case 19:
+              _response = _context.sent;
+              touchInfo = _response.data;
+              console.log('Fetched touch data from JSON file:', touchInfo);
+              setTouchData({
+                softness: touchInfo[0],
+                smoothness: touchInfo[1],
+                thickness: touchInfo[2],
+                flexibility: touchInfo[3]
+              });
+            case 23:
+              _context.next = 28;
+              break;
+            case 25:
+              _context.prev = 25;
+              _context.t0 = _context["catch"](0);
+              console.error("촉감 데이터를 불러오는 중 에러 발생:", _context.t0);
+            case 28:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee, null, [[0, 25]]);
+      }));
+      return function fetchTouchData() {
+        return _ref2.apply(this, arguments);
+      };
+    }();
+    fetchTouchData();
   }, [productId, dataSource]);
   var colorMapping = {
     softness: '#FFDBDA',
@@ -57955,7 +58150,7 @@ function hasBinary(obj, toJSON) {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("9b6a70dc9b676929b15e")
+/******/ 		__webpack_require__.h = () => ("1212cd885b2885a9026b")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
