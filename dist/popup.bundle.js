@@ -4827,7 +4827,8 @@ var Detail = function Detail(_ref) {
   }, product.PRICE, " \uC6D0")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "tactile-info-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TouchInfo__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    productId: productId
+    productId: productId,
+    dataSource: "search"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     className: "view-product-button",
     onClick: function onClick() {
@@ -4864,6 +4865,49 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+// import React, { useState } from 'react';
+// import { HashRouter as Router, Route, Routes, useParams } from 'react-router-dom';
+// import './css/Main.css';
+// import TouchInfo from './components/TouchInfo';
+// import GoodsList from './components/GoodsList';
+// import Detail from './Detail';
+
+// const DetailWrapper = () => {
+//   const { id } = useParams();
+//   return <Detail productId={id} />;
+// };
+
+// const Main = () => {
+//   const [selectedProductId, setSelectedProductId] = useState(null);
+
+//   const handleImageClick = (id) => {
+//     setSelectedProductId(id);
+//     window.location.hash = `#/detail/${id}`;
+//   };
+
+//   return (
+//     <Router>
+//       <div className="popup-container">
+
+//         <Routes>
+//           <Route
+//             path="/"
+//             element={
+//               <>
+//                 <TouchInfo productId={selectedProductId} />
+//                 <GoodsList onImageClick={handleImageClick} />
+//               </>
+//             }
+//           />
+//           <Route path="/detail/:id" element={<DetailWrapper />} />
+//         </Routes>
+//       </div>
+//     </Router>
+//   );
+// };
+
+// export default Main;
+
 
 
 
@@ -4891,7 +4935,8 @@ var Main = function Main() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
     path: "/",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TouchInfo__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      productId: selectedProductId
+      productId: selectedProductId,
+      dataSource: "model"
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_GoodsList__WEBPACK_IMPORTED_MODULE_3__["default"], {
       onImageClick: handleImageClick
     }))
@@ -5100,12 +5145,97 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+// import React, { useEffect, useState } from 'react';
+// import ProgressBar from 'react-bootstrap/ProgressBar';
+// import axios from 'axios';
+// import '../css/TouchInfo.css';
+
+// const TouchInfo = ({ productId }) => {
+//   const [touchData, setTouchData] = useState({
+//     softness: 0,
+//     smoothness: 0,
+//     thickness: 0,
+//     flexibility: 0
+//   });
+
+//   const labelMapping = {
+//     softness: '부드러움',
+//     smoothness: '매끄러움',
+//     thickness: '두께',
+//     flexibility: '신축성'
+//   };
+
+//   useEffect(() => {
+//     if (productId) {
+//       const fetchTouchData = async () => {
+//         try {
+//           const response = await axios.get(`http://127.0.0.1:5001/goods/${productId}`);
+//           const data = response.data;
+//           console.log("서버에서 받은 촉감 데이터:", data);
+
+//           if (data) {
+//             setTouchData({
+//               softness: data.SOFTNESS || 0,
+//               smoothness: data.SMOOTHNESS || 0,
+//               thickness: data.THICKNESS || 0,
+//               flexibility: data.FLEXIBILITY || 0
+//             });
+//           }
+//         } catch (error) {
+//           console.error("촉감 데이터를 불러오는 중 에러 발생:", error);
+//         }
+//       };
+
+//       fetchTouchData();
+//     }
+//   }, [productId]);
+
+//   const colorMapping = {
+//     softness: '#FFDBDA',
+//     smoothness: '#FFDBDA',
+//     thickness: '#FFDBDA',
+//     flexibility: '#FFDBDA'
+//   };
+
+//   return (
+//     <div className="touch-info">
+//       <div className='touch-info-text'>
+//       </div>
+//       <div className='touch-area'>
+//         {Object.keys(touchData).map((key) => (
+//           <div key={key} className="touch-bar">
+//             <span>{labelMapping[key]}</span>
+//             <div className="progress-bar-wrapper">
+//               <ProgressBar
+//                 now={(touchData[key] / 5) * 100}
+//                 className="custom-progress-bar"
+//                 style={{
+//                   backgroundColor: 'transparent',
+//                   backgroundImage: `linear-gradient(to right, ${colorMapping[key]} 0%, ${colorMapping[key]} ${(touchData[key] / 5) * 100}%, #ffffff ${(touchData[key] / 5) * 100}%, #ffffff 100%)`
+//                 }}
+//               />
+//               <div className="ticks">
+//                 {[...Array(6)].map((_, i) => (
+//                   <div key={i} className="tick" style={{ left: `${(i / 5) * 100}%` }} />
+//                 ))}
+//               </div>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default TouchInfo;
+
 
 
 
 
 var TouchInfo = function TouchInfo(_ref) {
-  var productId = _ref.productId;
+  var productId = _ref.productId,
+    dataSource = _ref.dataSource;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       softness: 0,
       smoothness: 0,
@@ -5125,36 +5255,53 @@ var TouchInfo = function TouchInfo(_ref) {
     if (productId) {
       var fetchTouchData = /*#__PURE__*/function () {
         var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-          var response, data;
+          var response, data, updatedData;
           return _regeneratorRuntime().wrap(function _callee$(_context) {
             while (1) switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
-                _context.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:5001/goods/".concat(productId));
-              case 3:
+                if (!(dataSource === 'model')) {
+                  _context.next = 7;
+                  break;
+                }
+                _context.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:5001/touchinfo/".concat(productId));
+              case 4:
                 response = _context.sent;
+                _context.next = 11;
+                break;
+              case 7:
+                if (!(dataSource === 'search')) {
+                  _context.next = 11;
+                  break;
+                }
+                _context.next = 10;
+                return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:5001/goods/".concat(productId));
+              case 10:
+                response = _context.sent;
+              case 11:
                 data = response.data;
                 console.log("서버에서 받은 촉감 데이터:", data);
                 if (data) {
-                  setTouchData({
-                    softness: data.SOFTNESS || 0,
-                    smoothness: data.SMOOTHNESS || 0,
-                    thickness: data.THICKNESS || 0,
-                    flexibility: data.FLEXIBILITY || 0
-                  });
+                  updatedData = {
+                    softness: (data.SOFTNESS || (data.touchInfo ? data.touchInfo[0] : 0)) + 1,
+                    smoothness: (data.SMOOTHNESS || (data.touchInfo ? data.touchInfo[1] : 0)) + 1,
+                    thickness: (data.THICKNESS || (data.touchInfo ? data.touchInfo[2] : 0)) + 1,
+                    flexibility: (data.FLEXIBILITY || (data.touchInfo ? data.touchInfo[3] : 0)) + 1
+                  };
+                  setTouchData(updatedData);
                 }
-                _context.next = 12;
+                _context.next = 19;
                 break;
-              case 9:
-                _context.prev = 9;
+              case 16:
+                _context.prev = 16;
                 _context.t0 = _context["catch"](0);
                 console.error("촉감 데이터를 불러오는 중 에러 발생:", _context.t0);
-              case 12:
+              case 19:
               case "end":
                 return _context.stop();
             }
-          }, _callee, null, [[0, 9]]);
+          }, _callee, null, [[0, 16]]);
         }));
         return function fetchTouchData() {
           return _ref2.apply(this, arguments);
@@ -5162,7 +5309,7 @@ var TouchInfo = function TouchInfo(_ref) {
       }();
       fetchTouchData();
     }
-  }, [productId]);
+  }, [productId, dataSource]);
   var colorMapping = {
     softness: '#FFDBDA',
     smoothness: '#FFDBDA',
@@ -5182,20 +5329,20 @@ var TouchInfo = function TouchInfo(_ref) {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, labelMapping[key]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       className: "progress-bar-wrapper"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_ProgressBar__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      now: touchData[key] / 5 * 100,
+      now: touchData[key] / 6 * 100,
       className: "custom-progress-bar",
       style: {
         backgroundColor: 'transparent',
-        backgroundImage: "linear-gradient(to right, ".concat(colorMapping[key], " 0%, ").concat(colorMapping[key], " ").concat(touchData[key] / 5 * 100, "%, #ffffff ").concat(touchData[key] / 5 * 100, "%, #ffffff 100%)")
+        backgroundImage: "linear-gradient(to right, ".concat(colorMapping[key], " 0%, ").concat(colorMapping[key], " ").concat(touchData[key] / 6 * 100, "%, #ffffff ").concat(touchData[key] / 6 * 100, "%, #ffffff 100%)")
       }
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       className: "ticks"
-    }, _toConsumableArray(Array(6)).map(function (_, i) {
+    }, _toConsumableArray(Array(7)).map(function (_, i) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
         key: i,
         className: "tick",
         style: {
-          left: "".concat(i / 5 * 100, "%")
+          left: "".concat(i / 6 * 100, "%")
         }
       });
     }))));
@@ -53249,7 +53396,7 @@ const isThenable = (thing) =>
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("5faead5f6f6e6b113cc3")
+/******/ 		__webpack_require__.h = () => ("3ba1416cc9743d4de35a")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

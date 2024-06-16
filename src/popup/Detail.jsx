@@ -42,9 +42,8 @@
 // export default Detail;
 
 
-
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './css/Detail.css';
 import TouchInfo from './components/TouchInfo';
 
@@ -80,7 +79,7 @@ const Detail = ({ productId }) => {
         <p className="price">{product.PRICE} 원</p>
       </div>
       <div className="tactile-info-container">
-        <TouchInfo productId={productId} />
+        <TouchInfo productId={productId} dataSource="search" />
       </div>
       <button className="view-product-button" onClick={() => window.open(product.LINK, '_blank')}>상품 보러가기</button>
     </div>
