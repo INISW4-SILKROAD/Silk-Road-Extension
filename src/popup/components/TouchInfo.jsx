@@ -1,3 +1,4 @@
+// 촉감 정보 화면
 import React, { useEffect, useState } from 'react';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import axios from 'axios';

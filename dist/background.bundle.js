@@ -228,8 +228,6 @@ var sendImageDataToServer = /*#__PURE__*/function () {
         case 7:
           data = _context.sent;
           console.log("이미지 링크 전송 성공");
-
-          // 서버로부터 받은 데이터가 배열 형태인지 확인
           if (Array.isArray(data)) {
             chrome.storage.local.set({
               searchResults: data
@@ -237,7 +235,7 @@ var sendImageDataToServer = /*#__PURE__*/function () {
               console.log("Search results saved to local storage.");
             });
           } else {
-            console.error("서버 응답 형식 오류: 데이터가 배열 형식이 아닙니다.");
+            console.error("서버 응답 형식 오류: 데이터가 배열 형식이 아님");
           }
           _context.next = 13;
           break;
@@ -260,11 +258,15 @@ var sendImageDataToServer = /*#__PURE__*/function () {
     return _ref.apply(this, arguments);
   };
 }();
+
+// 이미지 url로부터 상품 id를 추출
 var extractProductId = function extractProductId(imageUrl) {
   var regex = /\/(\d+)_\d+/;
   var match = imageUrl.match(regex);
   return match ? match[1] : null;
 };
+
+// 사용자가 우클릭해서 컨텍스트 메뉴 활성화
 chrome.runtime.onInstalled.addListener(function () {
   chrome.contextMenus.create({
     id: "clickImage",
@@ -272,6 +274,8 @@ chrome.runtime.onInstalled.addListener(function () {
     contexts: ["image"]
   });
 });
+
+// 이미지 링크를 통해 상품 id과 페이지 링크 서버로 전송
 chrome.contextMenus.onClicked.addListener(function (info, tab) {
   if (info.menuItemId === "clickImage") {
     var imageUrl = info.srcUrl;
@@ -3450,7 +3454,7 @@ module.exports.formatError = function (err) {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("95be46a233edb91f0737")
+/******/ 		__webpack_require__.h = () => ("46f4b811ccc494f047ec")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

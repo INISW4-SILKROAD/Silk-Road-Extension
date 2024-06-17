@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "SILK ROAD",
   "version": "1.0",
-  "description": "촉감 정보 기반 의류 추천 서비스 for MUSINSA",
+  "description": "촉감 정보 기반 의류 추천 서비스",
   "background": {
     "service_worker": "background.js"
   },

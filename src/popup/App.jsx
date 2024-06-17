@@ -1,3 +1,4 @@
+// 라우팅 관리
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import GoodsList from './components/GoodsList';

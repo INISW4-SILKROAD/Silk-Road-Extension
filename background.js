@@ -1,3 +1,4 @@
+// 서버로 사용자가 클릭한 이미지의 링크를 전송
 const sendImageDataToServer = async (imageUrl, pageUrl, productId) => {
   try {
     const response = await fetch("http://127.0.0.1:5001/submit", {
@@ -12,13 +13,12 @@ const sendImageDataToServer = async (imageUrl, pageUrl, productId) => {
       const data = await response.json();
       console.log("이미지 링크 전송 성공");
 
-      // 서버로부터 받은 데이터가 배열 형태인지 확인
       if (Array.isArray(data)) {
         chrome.storage.local.set({ searchResults: data }, () => {
           console.log("Search results saved to local storage.");
         });
       } else {
-        console.error("서버 응답 형식 오류: 데이터가 배열 형식이 아닙니다.");
+        console.error("서버 응답 형식 오류: 데이터가 배열 형식이 아님");
       }
     } else {
       console.error("이미지 링크 전송 실패");
@@ -28,12 +28,16 @@ const sendImageDataToServer = async (imageUrl, pageUrl, productId) => {
   }
 };
 
+
+// 이미지 url로부터 상품 id를 추출
 const extractProductId = (imageUrl) => {
   const regex = /\/(\d+)_\d+/;
   const match = imageUrl.match(regex);
   return match ? match[1] : null;
 };
 
+
+// 사용자가 우클릭해서 컨텍스트 메뉴 활성화
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: "clickImage",
@@ -42,6 +46,8 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
+
+// 이미지 링크를 통해 상품 id과 페이지 링크 서버로 전송
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "clickImage") {
     const imageUrl = info.srcUrl;
@@ -58,6 +64,8 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     }
   }
 });
+
+
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === 'fetchGoods') {

@@ -18,6 +18,8 @@ const port = 5001;
 app.use(cors());
 app.use(bodyParser.json());
 
+
+// 데이터베이스 연결
 const connection = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -33,17 +35,23 @@ connection.connect((err) => {
   console.log('MySQL 연결 성공 !');
 });
 
+
+
+// 촉감 정보 불러오기
+// : touch_data.json에 저장된 사용자가 검색한 상품의 촉감 정보를 불러온다
 app.get('/touchinfo', (req, res) => {
   try {
     const data = fs.readFileSync('./touch_data.json', 'utf-8');
     const touchData = JSON.parse(data);
-    res.json(touchData.touchInfo);  // touchInfo 키값만 반환
+    res.json(touchData.touchInfo);
   } catch (err) {
     console.error('Error reading touch data from JSON file:', err);
     res.status(500).json({ error: 'Error reading touch data' });
   }
 });
 
+
+// 단일 상품 정보 조회
 app.get('/goods/:id', (req, res) => {
   const id = req.params.id;
   const query = `
@@ -81,14 +89,16 @@ app.get('/goods/:id', (req, res) => {
       image_path: results[0].image_path
     };
 
-    console.log('Fetched product:', product);
+    console.log('불러온 상품 :', product);
     res.json(product);
   });
 });
 
-io.on('connection', (socket) => {
-  console.log('New client connected');
 
+
+// 소켓 통신
+io.on('connection', (socket) => {
+  console.log('Client 연결');
 
   try {
     const data = fs.readFileSync('./touch_data.json', 'utf-8');
@@ -101,8 +111,11 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     console.log('Client 연결 끊김');
   });
+
 });
 
+
+// 크롤링된 데이터(JSON 파일) 중 가장 최신 데이터 찾기
 const findLatestJsonFile = (dir) => {
   const files = fs.readdirSync(dir).filter(file => file.endsWith('.json'));
   const sortedFiles = files.sort((a, b) => {
@@ -113,12 +126,17 @@ const findLatestJsonFile = (dir) => {
   return sortedFiles.pop();
 };
 
+
+
+// JSON에서 혼용율과 텍스처 이미지 정보만 추출하기
 const processJsonFile = (filePath) => {
   const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
   const validData = data.filter(item => item.portion && item.texture_img);
   return validData.length > 0 ? validData[0] : null;
 };
 
+
+// 추출한 혼용율, 텍스처 이미지를 촉감 모델에 input으로 넣는 커맨드 실행
 const sendToTouchModel = async (portion, textureImg) => {
   const textureImgName = path.basename(textureImg);
   const absoluteTextureImgPath = path.join('C:/Users/rlaeh/Desktop/env/Oasis-Road/result/data/image/texture', textureImgName);
@@ -143,6 +161,8 @@ const sendToTouchModel = async (portion, textureImg) => {
   });
 };
 
+
+// 클라이언트로부터 상품 ID 목록을 받아 상품 조회
 app.post('/fetch-goods', async (req, res) => {
   const gids = req.body.gids;
 
@@ -172,11 +192,13 @@ app.post('/fetch-goods', async (req, res) => {
       res.status(500).json({ error: '상품 불러오기 오류' });
       return;
     }
-    console.log('Fetched goods:', results);
+    console.log('불러온 상품 :', results);
     res.json(results);
   });
 });
 
+
+// 사용자가 클릭한 이미지 링크로 얻은 데이터를 이미지 검색 모델 구동 서버 Flask로 전송
 app.post('/submit', async (req, res) => {
   const { imageUrl, pageUrl, productId } = req.body;
 
@@ -185,9 +207,9 @@ app.post('/submit', async (req, res) => {
     return;
   }
 
-  console.log(`Received image URL: ${imageUrl}`);
-  console.log(`Received page URL: ${pageUrl}`);
-  console.log(`Received product ID: ${productId}`);
+  console.log(`받은 image URL: ${imageUrl}`);
+  console.log(`받은 page URL: ${pageUrl}`);
+  console.log(`받은 product ID: ${productId}`);
 
   try {
     const flaskResponse = await axios.post('http://127.0.0.1:5002/search', { image_url: imageUrl });
@@ -224,10 +246,12 @@ app.post('/submit', async (req, res) => {
         product: results.find(item => item.ID === result.gid) || null
       }));
 
-      console.log('Combined results:', combinedResults);
+      console.log('결과 : ', combinedResults);
 
       res.status(200).json(combinedResults);
 
+
+      // 크롤러 실행 커맨드
       const command = `cd C:\\Users\\rlaeh\\Desktop\\env\\Oasis-Road && conda activate pp && scrapy crawl one -a id=${productId}`;
       exec(command, { shell: 'cmd.exe' }, async (error, stdout, stderr) => {
         if (error) {
@@ -252,31 +276,31 @@ app.post('/submit', async (req, res) => {
         const data = processJsonFile(filePath);
 
         if (!data) {
-          console.log('해당 정보만으로는 촉감을 예측할 수 없습니다');
+          console.log('해당 정보만으로는 촉감을 예측할 수 없음');
           return;
         }
 
         const { portion, texture_img } = data;
         if (!portion || !texture_img) {
-          console.log('해당 상품은 촉감 정보를 알 수 없습니다');
+          console.log('해당 상품은 촉감 정보를 알 수 없음');
           return;
         }
 
         try {
           const touchModelResponse = await sendToTouchModel(portion, texture_img);
           if (!touchModelResponse) {
-            console.error('Error processing touch model');
+            console.error('촉감 모델 오류');
             return;
           }
           const touchInfo = touchModelResponse.match(/\(([^)]+)\)/)[1].split(',').map(value => parseInt(value, 10) + 1);
-          console.log('Parsed touchInfo:', touchInfo);
+          console.log('추출한 촉감 정보 :', touchInfo);
 
           const touchData = { productId, touchInfo };
           fs.writeFileSync('./touch_data.json', JSON.stringify(touchData), 'utf-8');
 
           io.emit('touchInfo', { productId, touchInfo });
         } catch (error) {
-          console.error('Error processing touch model:', error);
+          console.error('촉감 모델 오류 :', error);
         }
       });
     });

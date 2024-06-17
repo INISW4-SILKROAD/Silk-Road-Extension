@@ -1,3 +1,4 @@
+// 상품 리스트 화면
 import React, { useEffect, useState } from 'react';
 import '../css/GoodsList.css';
 
@@ -26,7 +27,7 @@ const GoodsList = ({ onImageClick }) => {
     if (chrome && chrome.runtime && chrome.runtime.sendMessage) {
       chrome.runtime.sendMessage({ action: 'fetchGoods' }, (response) => {
         if (response && response.error) {
-          console.error('Error fetching goods:', response.error);
+          console.error('상품 불러오기 오류 :', response.error);
         } else if (response && response.data) {
           const gids = response.data.map(item => item.gid);
           fetchData(gids);

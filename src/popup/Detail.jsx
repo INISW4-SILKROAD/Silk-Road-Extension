@@ -1,3 +1,4 @@
+// 상세 페이지
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './css/Detail.css';
@@ -8,7 +9,7 @@ const Detail = ({ productId }) => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    console.log(`Fetching product with ID: ${productId}`);
+    console.log(`불러온 상품 ID : ${productId}`);
     fetch(`http://127.0.0.1:5001/goods/${productId}`)
       .then((response) => response.json())
       .then((data) => {

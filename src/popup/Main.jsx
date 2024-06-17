@@ -1,3 +1,4 @@
+// 메인 페이지
 import React, { useState } from 'react';
 import { HashRouter as Router, Route, Routes, useParams } from 'react-router-dom';
 import './css/Main.css';
