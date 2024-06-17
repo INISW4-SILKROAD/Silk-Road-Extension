@@ -1,5 +1,5 @@
 # SILK ROAD Chrome Extension
-> INISW 4기 7조**</br>**개발기간: 2024.04 ~ 2024.06**
+> INISW 4기 7조</br>**개발기간: 2024.04 ~ 2024.06**
 
 <br>
 
