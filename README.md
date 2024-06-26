@@ -1,4 +1,7 @@
 # SILK ROAD Chrome Extension
+
+![Group 2541](https://github.com/INISW4-SILKROAD/Silk-Road-Extension/assets/94222194/6b8dc6f9-002d-4be9-acf8-c0c38dbb0a3d)
+
 > INISW 4기 7조</br>**개발기간: 2024.04 ~ 2024.06**
 
 <br>
